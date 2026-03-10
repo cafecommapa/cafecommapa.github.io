@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: cafecommapa/cafecommapa
+  repo: cafecommapa/cafecommapa.github.io
   branch: main
 
 media_folder: "imagens"
@@ -14,12 +14,6 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Título", name: "title", widget: "string"}
-      - {label: "Resumo", name: "summary", widget: "string"}
-      - {label: "Cidade", name: "city", widget: "string"}
-      - {label: "País", name: "country", widget: "string"}
-      - {label: "Categoria", name: "category", widget: "string"}
       - {label: "Data", name: "date", widget: "datetime"}
       - {label: "Imagem", name: "cover", widget: "image"}
-      - {label: "Destaque", name: "featured", widget: "boolean"}
-      - {label: "Mostrar no mapa", name: "show_on_map", widget: "boolean"}
       - {label: "Conteúdo", name: "body", widget: "markdown"}
