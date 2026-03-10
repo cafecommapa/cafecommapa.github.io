@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: cafecommapa/cafecommapa
+  repo: cafecommapa/cafecommapa.github.io
   branch: main
 
 media_folder: "imagens"
