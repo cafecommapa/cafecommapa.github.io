@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café com Mapa</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Georgia, serif;
+background:#f5efe7;
+color:#3f2b1f;
+}
+
+.container{
+max-width:420px;
+margin:auto;
+background:#fcf8f3;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
+border-bottom:1px solid #e6ddd2;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+}
+
+.hero{
+position:relative;
+height:320px;
+background:url('https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=1200&q=80');
+background-size:cover;
+background-position:center;
+color:white;
+display:flex;
+align-items:flex-end;
+}
+
+.hero-text{
+padding:20px;
+background:linear-gradient(transparent,rgba(0,0,0,0.7));
+width:100%;
+}
+
+.hero h1{
+margin:0;
+font-size:28px;
+}
+
+.hero p{
+margin:5px 0 15px;
+}
+
+.button{
+background:white;
+color:#6f4a33;
+padding:10px 14px;
+border-radius:8px;
+display:inline-block;
+font-size:14px;
+}
+
+.section{
+padding:15px;
+}
+
+.section h2{
+font-size:20px;
+margin-bottom:10px;
+}
+
+.map{
+background:#e8d5bc;
+height:200px;
+border-radius:14px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.cards{
+display:flex;
+gap:10px;
+overflow-x:auto;
+}
+
+.card{
+min-width:160px;
+background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.card img{
+width:100%;
+height:100px;
+object-fit:cover;
+}
+
+.card p{
+padding:10px;
+font-size:14px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
+.cat{
+height:120px;
+border-radius:10px;
+color:white;
+display:flex;
+align-items:flex-end;
+padding:10px;
+background-size:cover;
+}
+
+footer{
+text-align:center;
+padding:20px;
+font-size:13px;
+color:#777;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+<div class="logo">☕ Café com Mapa</div>
+<div>☰</div>
+</header>
+
+<div class="hero">
+<div class="hero-text">
+<h1>Paris no inverno</h1>
+<p>Cafés, neve e charme nas ruas da cidade luz</p>
+<span class="button">Leia mais</span>
+</div>
+</div>
+
+<div class="section">
+<h2>Mapa interativo</h2>
+<div class="map">
+Mapa do mundo (pins em Paris, Lisboa, Madri e Roma)
+</div>
+</div>
+
+<div class="section">
+<h2>Últimas matérias</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b">
+<p>Explorando Lisboa</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5">
+<p>Um fim de semana em Roma</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c">
+<p>Rota dos cafés em Buenos Aires</p>
+</div>
+
+</div>
+</div>
+
+<div class="section">
+<h2>Próximas rotas</h2>
+
+<div class="grid">
+
+<div class="cat" style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb')">
+Destinos
+</div>
+
+<div class="cat" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee')">
+Roteiros
+</div>
+
+<div class="cat" style="background-image:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085')">
+Cafés
+</div>
+
+<div class="cat" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4')">
+Histórias
+</div>
+
+</div>
+</div>
+
+<footer>
+© Café com Mapa
+</footer>
+
+</div>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
