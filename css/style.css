@@ -22,7 +22,7 @@ border:1px solid #e8e8e8;
 border-radius:10px;
 box-shadow:0 3px 10px rgba(0,0,0,0.05);
 padding:14px 18px;
-margin-bottom:20px;
+margin-bottom:16px;
 }
 
 .topo div{
@@ -64,7 +64,7 @@ border:1px solid #e8e8e8;
 border-radius:10px;
 box-shadow:0 3px 10px rgba(0,0,0,0.05);
 padding:18px;
-margin-bottom:22px;
+margin-bottom:16px;
 }
 
 #clocks-grid{
@@ -88,7 +88,7 @@ margin-bottom:6px;
 .layout{
 display:grid;
 grid-template-columns:minmax(0, 1fr) 240px;
-gap:22px;
+gap:16px;
 align-items:start;
 }
 
@@ -100,7 +100,7 @@ border:1px solid #e8e8e8;
 border-radius:10px;
 box-shadow:0 3px 10px rgba(0,0,0,0.05);
 padding:18px;
-margin-bottom:22px;
+margin-bottom:12px;
 }
 
 .card-post img{
@@ -181,7 +181,7 @@ background:#fff;
 border:1px solid #e8e8e8;
 border-radius:10px;
 box-shadow:0 3px 10px rgba(0,0,0,0.05);
-padding:18px;
+padding:16px;
 }
 
 #lista-posts{
@@ -198,29 +198,22 @@ border:none;
 }
 
 .sidebar-item a{
-text-decoration:none;
-color:#222;
-}
-
-.sidebar-title{
-font-weight:600;
-color:#222;
-}
-
-.sidebar-date{
-font-size:0.84rem;
-color:#888;
-margin-left:8px;
-white-space:nowrap;
-}
-
-.sidebar-item a{
 display:flex;
 justify-content:space-between;
 align-items:baseline;
 gap:10px;
 text-decoration:none;
 color:#222;
+}
+
+.sidebar-title{
+font-weight:600;
+}
+
+.sidebar-date{
+font-size:0.84rem;
+color:#888;
+white-space:nowrap;
 }
 
 /* POST COMPLETO */
@@ -239,7 +232,7 @@ padding:24px;
 }
 
 .post-full h1{
-margin-bottom:10px;
+margin-bottom:8px;
 }
 
 .post-body{
@@ -252,8 +245,6 @@ line-height:1.8;
 .post-body img{
 width:100%;
 height:auto;
-max-height:none;
-object-fit:contain;
 border-radius:8px;
 margin:18px 0;
 display:block;
@@ -290,40 +281,129 @@ object-fit:cover;
 margin:0;
 }
 
-/* AVISO CONSTRUÇÃO */
+/* CARD PROPAGANDA */
 
-#aviso-construcao{
-position:fixed;
-inset:0;
+.card-propaganda{
+background:#fff;
+border:1px solid #e8e1d8;
+border-radius:12px;
+overflow:hidden;
+margin-bottom:14px;
+box-shadow:0 6px 16px rgba(0,0,0,0.06);
+}
+
+.card-propaganda-topo{
+height:4px;
+background:linear-gradient(90deg,#8b5e3c,#c08a5b,#e6b17a);
+}
+
+.card-propaganda-conteudo{
+padding:12px;
+}
+
+.card-propaganda-label{
+font-size:0.9rem;
+font-weight:700;
+color:#7a5c43;
+margin-bottom:10px;
+letter-spacing:0.4px;
+text-transform:uppercase;
+}
+
+.card-propaganda-img{
+width:100%;
+display:block;
+border-radius:8px;
+}
+
+/* BOTÃO VOLTAR */
+
+.botao-voltar{
+display:inline-block;
+margin-bottom:14px;
+text-decoration:none;
+color:#333;
+font-weight:600;
+background:#f3f3f3;
+border:1px solid #e2e2e2;
+border-radius:8px;
+padding:8px 14px;
+}
+
+.botao-voltar:hover{
+background:#ececec;
+}
+
+/* RODAPÉ */
+
+.rodape{
+background:#111827;
+color:#d1d5db;
+margin-top:6px;
+padding:28px 20px;
+}
+
+.rodape-linha{
+height:3px;
+background:linear-gradient(
+90deg,
+#f58529,
+#dd2a7b,
+#8134af,
+#515bd4
+);
+margin-bottom:12px;
+}
+
+.rodape-container{
+max-width:1000px;
+margin:auto;
+text-align:center;
+}
+
+.rodape-redes{
+display:flex;
+justify-content:center;
+gap:32px;
+margin-bottom:12px;
+flex-wrap:wrap;
+}
+
+.rodape-redes a{
+color:#e5e7eb;
+text-decoration:none;
+font-size:15px;
+font-weight:500;
 display:flex;
 align-items:center;
-justify-content:center;
-background:rgba(0,0,0,0.35);
-z-index:9999;
+gap:8px;
+transition:0.25s;
 }
 
-.aviso-box{
-background:#fff;
-border-radius:12px;
-padding:28px 34px;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
-text-align:center;
-max-width:420px;
-width:90%;
+.rodape-redes a:hover{
+color:#f472b6;
 }
 
-.aviso-box h2{
-margin-bottom:10px;
+.icone-instagram{
+width:18px;
+height:18px;
+border-radius:4px;
+background:linear-gradient(
+135deg,
+#f58529,
+#dd2a7b,
+#8134af,
+#515bd4
+);
 }
 
-.fechar-aviso{
-position:absolute;
-top:10px;
-right:12px;
-border:none;
-background:none;
-font-size:22px;
-cursor:pointer;
+.rodape-info{
+font-size:13px;
+color:#9ca3af;
+}
+
+.rodape-info p{
+margin:3px 0;
 }
 
 /* RESPONSIVO */
@@ -353,9 +433,7 @@ height:130px;
 grid-template-columns:1fr;
 }
 
-.post-body .galeria-2 img,
-.post-body .galeria-3 img,
-.post-body .galeria-4 img{
+.post-body img{
 height:auto;
 }
 
@@ -377,18 +455,133 @@ height:110px;
 }
 
 }
-.botao-voltar{
-display:inline-block;
-margin-bottom:18px;
-text-decoration:none;
-color:#333;
-font-weight:600;
-background:#f3f3f3;
-border:1px solid #e2e2e2;
-border-radius:8px;
-padding:8px 14px;
+
+/* espaçamento organizado entre blocos da sidebar */
+
+.sidebar > * + * {
+  margin-top: 14px;
 }
 
-.botao-voltar:hover{
-background:#ececec;
+/* relógio mobile no cabeçalho */
+.relogio-mobile{
+  display:none;
+}
+
+@media (max-width: 768px){
+
+  .topo div{
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .relogio-mobile{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f7f7f7;
+    border: 1px solid #e6e6e6;
+    border-radius: 999px;
+    padding: 6px 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    font-size: 0.9rem;
+    color: #333;
+  }
+
+  .relogio-mobile-cidade{
+    font-weight: 700;
+    color: #7a5c43;
+  }
+
+  .relogio-mobile-hora{
+    font-variant-numeric: tabular-nums;
+    color: #444;
+  }
+
+  #clocks{
+    display: none;
+  }
+}
+
+/* relógio extra do cabeçalho: escondido no desktop */
+.relogio-mobile{
+  display: none !important;
+}
+
+/* mobile */
+@media (max-width: 768px){
+
+  .topo div{
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .relogio-mobile{
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    background: #f7f7f7;
+    border: 1px solid #e6e6e6;
+    border-radius: 999px;
+    padding: 6px 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    font-size: 0.9rem;
+    color: #333;
+  }
+
+  .relogio-mobile-cidade{
+    font-weight: 700;
+    color: #7a5c43;
+  }
+
+  .relogio-mobile-hora{
+    font-variant-numeric: tabular-nums;
+    color: #444;
+  }
+
+  #clocks{
+    display: none;
+  }
+}
+/* relógio extra do cabeçalho: escondido no desktop */
+.relogio-mobile{
+  display: none !important;
+}
+
+/* mobile */
+@media (max-width: 768px){
+
+  .topo div{
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .relogio-mobile{
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    background: #f7f7f7;
+    border: 1px solid #e6e6e6;
+    border-radius: 999px;
+    padding: 6px 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    font-size: 0.9rem;
+    color: #333;
+  }
+
+  .relogio-mobile-cidade{
+    font-weight: 700;
+    color: #7a5c43;
+  }
+
+  .relogio-mobile-hora{
+    font-variant-numeric: tabular-nums;
+    color: #444;
+  }
+
+  #clocks{
+    display: none;
+  }
 }

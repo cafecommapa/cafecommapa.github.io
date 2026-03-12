@@ -15,23 +15,21 @@
 <body>
 
 <header class="topo">
+  <div>
+    <a href="index.html" class="logo-link">
+      <img src="imagens/Logocafe.png" class="logo-header" alt="Café com Mapa">
+      <span class="logo-text">Café com Mapa</span>
+    </a>
 
-<div>
+    <div class="relogio-mobile">
+      <span class="relogio-mobile-cidade">Londres</span>
+      <span class="relogio-mobile-hora" id="clock-mobile">--:--</span>
+    </div>
 
-<a href="index.html" class="logo-link">
-
-<img src="imagens/Logocafe.png" class="logo-header">
-
-<span class="logo-text">Café com Mapa</span>
-
-</a>
-
-<nav>
-<a href="index.html">Início</a>
-</nav>
-
-</div>
-
+    <nav>
+      <a href="index.html">Início</a>
+    </nav>
+  </div>
 </header>
 
 
@@ -49,9 +47,22 @@
 
 <aside class="sidebar">
 
-<h3>Últimos posts</h3>
+  <div class="card-propaganda">
+    <div class="card-propaganda-topo"></div>
 
-<ul id="lista-posts"></ul>
+    <div class="card-propaganda-conteudo">
+      <p class="card-propaganda-label">Meus livros</p>
+
+      <a href="#" class="card-propaganda-link">
+        <img src="imagens/banner-livros.jpg" alt="Conheça meus livros" class="card-propaganda-img">
+      </a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Últimos posts</h3>
+    <div id="lista-posts"></div>
+  </div>
 
 </aside>
 
@@ -61,6 +72,57 @@
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 <script src="js/blog.js"></script>
+
+
+
+<footer class="rodape">
+
+  <div class="rodape-linha"></div>
+
+  <div class="rodape-container">
+
+    <div class="rodape-redes">
+
+      <a href="https://instagram.com/cafecommapa" target="_blank">
+        <span class="icone-instagram"></span>
+        @cafecommapa
+      </a>
+
+      <a href="https://instagram.com/patrocarlos" target="_blank">
+        <span class="icone-instagram"></span>
+        @patrocarlos
+      </a>
+
+    </div>
+
+    <div class="rodape-info">
+      <p>© 2026 Café com Mapa</p>
+      <p>Powered by GitHub Pages</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<script>
+  function atualizarRelogioMobile() {
+    const el = document.getElementById("clock-mobile");
+    if (!el) return;
+
+    const hora = new Intl.DateTimeFormat("pt-BR", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+      timeZone: "Europe/London"
+    }).format(new Date());
+
+    el.textContent = hora;
+  }
+
+  atualizarRelogioMobile();
+  setInterval(atualizarRelogioMobile, 60000);
+</script>
+
 
 </body>
 
