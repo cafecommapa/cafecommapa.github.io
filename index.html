@@ -85,27 +85,33 @@
 
   <script>
     function atualizarRelogioAnalogicoMobile() {
-      const horaEl = document.getElementById("ponteiro-hora");
-      const minutoEl = document.getElementById("ponteiro-minuto");
 
-      if (!horaEl || !minutoEl) return;
+const horaEl = document.getElementById("ponteiro-hora");
+const minutoEl = document.getElementById("ponteiro-minuto");
+const segundoEl = document.getElementById("ponteiro-segundo");
 
-      const agoraLondres = new Date(
-        new Date().toLocaleString("en-US", { timeZone: "Europe/London" })
-      );
+if (!horaEl || !minutoEl || !segundoEl) return;
 
-      const horas = agoraLondres.getHours();
-      const minutos = agoraLondres.getMinutes();
+const agora = new Date(
+  new Date().toLocaleString("en-US", { timeZone: "Europe/London" })
+);
 
-      const grauHora = (horas % 12) * 30 + minutos * 0.5;
-      const grauMinuto = minutos * 6;
+const horas = agora.getHours();
+const minutos = agora.getMinutes();
+const segundos = agora.getSeconds();
 
-      horaEl.style.transform = `translateX(-50%) rotate(${grauHora}deg)`;
-      minutoEl.style.transform = `translateX(-50%) rotate(${grauMinuto}deg)`;
-    }
+const grauHora = (horas % 12) * 30 + minutos * 0.5;
+const grauMinuto = minutos * 6;
+const grauSegundo = segundos * 6;
 
-    atualizarRelogioAnalogicoMobile();
-    setInterval(atualizarRelogioAnalogicoMobile, 1000);
+horaEl.style.transform = `translateX(-50%) rotate(${grauHora}deg)`;
+minutoEl.style.transform = `translateX(-50%) rotate(${grauMinuto}deg)`;
+segundoEl.style.transform = `translateX(-50%) rotate(${grauSegundo}deg)`;
+
+}
+
+atualizarRelogioAnalogicoMobile();
+setInterval(atualizarRelogioAnalogicoMobile,1000);
   </script>
 
 </body>
