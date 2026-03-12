@@ -1,129 +1,112 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Café com Mapa</title>
-
-<link rel="stylesheet" href="css/style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café com Mapa</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-<header class="topo">
-  <div>
-    <a href="index.html" class="logo-link">
-      <img src="imagens/Logocafe.png" class="logo-header" alt="Café com Mapa">
-      <span class="logo-text">Café com Mapa</span>
-    </a>
-
-    <div class="relogio-mobile">
-      <span class="relogio-mobile-cidade">Londres</span>
-      <span class="relogio-mobile-hora" id="clock-mobile">--:--</span>
-    </div>
-
-    <nav>
-      <a href="index.html">Início</a>
-    </nav>
-  </div>
-</header>
-
-
-<section id="clocks">
-
-<div id="clocks-grid"></div>
-
-</section>
-
-
-<main class="layout">
-
-<section id="posts-principais"></section>
-
-
-<aside class="sidebar">
-
-  <div class="card-propaganda">
-    <div class="card-propaganda-topo"></div>
-
-    <div class="card-propaganda-conteudo">
-      <p class="card-propaganda-label">Meus livros</p>
-
-      <a href="#" class="card-propaganda-link">
-        <img src="imagens/banner-livros.jpg" alt="Conheça meus livros" class="card-propaganda-img">
-      </a>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Últimos posts</h3>
-    <div id="lista-posts"></div>
-  </div>
-
-</aside>
-
-</main>
-
-
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-<script src="js/blog.js"></script>
-
-
-
-<footer class="rodape">
-
-  <div class="rodape-linha"></div>
-
-  <div class="rodape-container">
-
-    <div class="rodape-redes">
-
-      <a href="https://instagram.com/cafecommapa" target="_blank">
-        <span class="icone-instagram"></span>
-        @cafecommapa
+  <header class="topo">
+    <div>
+      <a href="index.html" class="logo-link">
+        <img src="imagens/Logocafe.png" class="logo-header" alt="Café com Mapa">
+        <span class="logo-text">Café com Mapa</span>
       </a>
 
-      <a href="https://instagram.com/patrocarlos" target="_blank">
-        <span class="icone-instagram"></span>
-        @patrocarlos
-      </a>
+      <div class="relogio-mobile">
+        <div class="relogio-analogico-mini">
+          <span class="ponteiro hora" id="ponteiro-hora"></span>
+          <span class="ponteiro minuto" id="ponteiro-minuto"></span>
+          <span class="centro-relogio"></span>
+        </div>
+        <span class="relogio-mobile-cidade">Londres</span>
+      </div>
 
+      <nav>
+        <a href="index.html">Início</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="rodape-info">
-      <p>© 2026 Café com Mapa</p>
-      <p>Powered by GitHub Pages</p>
+  <section id="clocks">
+    <div id="clocks-grid"></div>
+  </section>
+
+  <main class="layout">
+    <section id="posts-principais"></section>
+
+    <aside class="sidebar">
+      <div class="card-propaganda">
+        <div class="card-propaganda-topo"></div>
+
+        <div class="card-propaganda-conteudo">
+          <p class="card-propaganda-label">Meus livros</p>
+
+          <a href="#" class="card-propaganda-link">
+            <img src="imagens/banner-livros.jpg" alt="Conheça meus livros" class="card-propaganda-img">
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Últimos posts</h3>
+        <div id="lista-posts"></div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape-linha"></div>
+
+    <div class="rodape-container">
+      <div class="rodape-redes">
+        <a href="https://instagram.com/cafecommapa" target="_blank" rel="noopener noreferrer">
+          <span class="icone-instagram"></span>
+          @cafecommapa
+        </a>
+
+        <a href="https://instagram.com/patrocarlos" target="_blank" rel="noopener noreferrer">
+          <span class="icone-instagram"></span>
+          @patrocarlos
+        </a>
+      </div>
+
+      <div class="rodape-info">
+        <p>© 2026 Café com Mapa</p>
+        <p>Powered by GitHub Pages</p>
+      </div>
     </div>
+  </footer>
 
-  </div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="js/blog.js"></script>
 
-</footer>
+  <script>
+    function atualizarRelogioAnalogicoMobile() {
+      const horaEl = document.getElementById("ponteiro-hora");
+      const minutoEl = document.getElementById("ponteiro-minuto");
 
-<script>
-  function atualizarRelogioMobile() {
-    const el = document.getElementById("clock-mobile");
-    if (!el) return;
+      if (!horaEl || !minutoEl) return;
 
-    const hora = new Intl.DateTimeFormat("pt-BR", {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-      timeZone: "Europe/London"
-    }).format(new Date());
+      const agoraLondres = new Date(
+        new Date().toLocaleString("en-US", { timeZone: "Europe/London" })
+      );
 
-    el.textContent = hora;
-  }
+      const horas = agoraLondres.getHours();
+      const minutos = agoraLondres.getMinutes();
 
-  atualizarRelogioMobile();
-  setInterval(atualizarRelogioMobile, 60000);
-</script>
+      const grauHora = (horas % 12) * 30 + minutos * 0.5;
+      const grauMinuto = minutos * 6;
 
+      horaEl.style.transform = `translateX(-50%) rotate(${grauHora}deg)`;
+      minutoEl.style.transform = `translateX(-50%) rotate(${grauMinuto}deg)`;
+    }
+
+    atualizarRelogioAnalogicoMobile();
+    setInterval(atualizarRelogioAnalogicoMobile, 1000);
+  </script>
 
 </body>
-
 </html>
