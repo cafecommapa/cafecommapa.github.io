@@ -678,3 +678,47 @@ height:110px;
     gap:10px;
   }
 }
+.header-linha{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+}
+
+@media (max-width:768px){
+
+.header-linha{
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.logo-link{
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.relogio-mobile{
+display:flex !important;
+align-items:center;
+gap:8px;
+}
+
+.relogio-mobile-cidade{
+font-size:0.9rem;
+font-weight:700;
+color:#7a5c43;
+}
+
+.relogio-analogico-mini{
+position:relative;
+width:40px;
+height:40px;
+border:2px solid #d9d9d9;
+border-radius:50%;
+background:#fff;
+box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+
+}
