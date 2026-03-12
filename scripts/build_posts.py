@@ -1,73 +1,72 @@
-from pathlib import Path
 import json
 import re
+from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-POSTS_DIR = BASE_DIR / "posts"
+POSTS_DIR = Path("posts")
 OUTPUT_FILE = POSTS_DIR / "index.json"
 
-FRONT_MATTER_RE = re.compile(r"^---\n(.*?)\n---\n(.*)$", re.DOTALL)
 
-def parse_front_matter(text: str):
-    match = FRONT_MATTER_RE.match(text.strip())
-    if not match:
+def parse_front_matter(text):
+    if not text.startswith("---"):
         return {}, text
 
-    raw_meta = match.group(1)
-    body = match.group(2).strip()
+    parts = text.split("---", 2)
+    meta_raw = parts[1].strip()
+    body = parts[2].strip()
 
     meta = {}
-    for line in raw_meta.splitlines():
+
+    for line in meta_raw.split("\n"):
         if ":" in line:
             key, value = line.split(":", 1)
             meta[key.strip()] = value.strip()
 
     return meta, body
 
-def extract_preview(body: str, max_chars: int = 180):
-    lines = []
-    for line in body.splitlines():
-        line = line.strip()
-        if not line:
-            continue
-        if line.startswith("#"):
-            continue
-        if line.startswith("!["):
-            continue
-        lines.append(line)
 
-    text = " ".join(lines).strip()
-    if len(text) <= max_chars:
-        return text
-    return text[:max_chars].rstrip() + "..."
+def extract_preview(text, limit=200):
+    text = re.sub(r"\!\[.*?\]\(.*?\)", "", text)
+    text = re.sub(r"#.*", "", text)
+    text = re.sub(r"\n+", " ", text)
+    text = text.strip()
 
-def main():
-    posts = []
+    return text[:limit] + ("..." if len(text) > limit else "")
 
-    for file_path in POSTS_DIR.glob("*.md"):
-        text = file_path.read_text(encoding="utf-8")
-        meta, body = parse_front_matter(text)
 
-        slug = file_path.stem
+posts = []
 
-        post = {
-            "slug": slug,
-            "file": f"posts/{file_path.name}",
-            "title": meta.get("title", slug),
-            "date": meta.get("date", "1970-01-01"),
-            "cover": meta.get("cover", ""),
-            "summary": meta.get("summary", "") or extract_preview(body),
-        }
-        posts.append(post)
+for file_path in sorted(POSTS_DIR.glob("*.md"), reverse=True):
 
-    posts.sort(key=lambda p: p["date"], reverse=True)
+    slug = file_path.stem
 
-    OUTPUT_FILE.write_text(
-        json.dumps(posts, ensure_ascii=False, indent=2),
-        encoding="utf-8"
-    )
+    content = file_path.read_text(encoding="utf-8")
 
-    print(f"Arquivo gerado com sucesso: {OUTPUT_FILE}")
+    meta, body = parse_front_matter(content)
 
-if __name__ == "__main__":
-    main()
+    category = meta.get("category", "").strip().lower()
+
+    cover = meta.get("cover", "").strip()
+
+    if not cover and category:
+        cover = f"imagens/{category}.png"
+
+    post = {
+        "slug": slug,
+        "file": f"posts/{file_path.name}",
+        "title": meta.get("title", slug),
+        "date": meta.get("date", "1970-01-01"),
+        "category": category,
+        "cover": cover,
+        "summary": meta.get("summary", "") or extract_preview(body),
+    }
+
+    posts.append(post)
+
+posts.sort(key=lambda x: x["date"], reverse=True)
+
+OUTPUT_FILE.write_text(
+    json.dumps(posts, indent=2, ensure_ascii=False),
+    encoding="utf-8"
+)
+
+print(f"{len(posts)} posts indexados em {OUTPUT_FILE}")

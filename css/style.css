@@ -8,124 +8,115 @@ body{
 font-family:Arial, sans-serif;
 max-width:1200px;
 margin:auto;
-padding:12px;
+padding:18px;
+background:#f5f6f7;
 color:#222;
-background:#ffffff;
+line-height:1.6;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 .topo{
-border-bottom:1px solid #ddd;
-margin-bottom:10px;
-padding-bottom:10px;
+background:#fff;
+border:1px solid #e8e8e8;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,0.05);
+padding:14px 18px;
+margin-bottom:20px;
+}
+
+.topo div{
+display:flex;
+align-items:center;
+justify-content:space-between;
 }
 
 .logo-link{
+display:flex;
+align-items:center;
+gap:10px;
 text-decoration:none;
 color:#000;
 }
 
-nav a{
-text-decoration:none;
-margin-right:12px;
-color:#333;
+.logo-header{
+height:55px;
+width:auto;
 }
 
-/* ================= CLOCKS ================= */
+.logo-text{
+font-size:1.6rem;
+font-weight:bold;
+}
+
+nav a{
+text-decoration:none;
+margin-left:15px;
+color:#333;
+font-weight:500;
+}
+
+/* RELÓGIOS */
 
 #clocks{
-min-height:120px;
-background:#f3f3f3;
-margin-bottom:20px;
-border-radius:8px;
-padding:10px 16px;
+background:#fff;
+border:1px solid #e8e8e8;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,0.05);
+padding:18px;
+margin-bottom:22px;
 }
 
 #clocks-grid{
-width:100%;
 display:grid;
-grid-template-columns:repeat(5, 1fr);
+grid-template-columns:repeat(5,1fr);
 gap:12px;
-align-items:center;
 }
 
 .clock-card{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
 text-align:center;
 }
 
 .clock-title{
-font-size:0.95rem;
 font-weight:bold;
+font-size:0.95rem;
 margin-bottom:6px;
 }
 
-.clock-weather{
-margin-top:6px;
-font-size:0.9rem;
-color:#444;
-}
-
-/* ================= LAYOUT ================= */
+/* LAYOUT */
 
 .layout{
 display:grid;
-grid-template-columns:80% 20%;
-gap:20px;
+grid-template-columns:minmax(0, 1fr) 240px;
+gap:22px;
+align-items:start;
 }
 
-/* ================= SIDEBAR ================= */
-
-.sidebar{
-background:#f7f7f7;
-padding:14px;
-border-radius:8px;
-height:fit-content;
-}
-
-#lista-posts{
-list-style:none;
-padding:0;
-margin:0;
-}
-
-.sidebar-item{
-border-bottom:1px solid #e2e2e2;
-padding:10px 0;
-}
-
-.sidebar-item:last-child{
-border-bottom:none;
-}
-
-.sidebar-item a{
-display:block;
-text-decoration:none;
-color:#222;
-}
-
-.sidebar-title{
-display:block;
-font-weight:bold;
-margin-bottom:4px;
-}
-
-.sidebar-date{
-display:block;
-font-size:0.85rem;
-color:#777;
-}
-
-/* ================= POSTS ================= */
+/* POSTS HOME */
 
 .card-post{
-margin-bottom:40px;
-padding-bottom:20px;
-border-bottom:1px solid #eee;
+background:#fff;
+border:1px solid #e8e8e8;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,0.05);
+padding:18px;
+margin-bottom:22px;
+}
+
+.card-post img{
+width:140px;
+height:140px;
+object-fit:contain;
+float:left;
+margin:0 16px 10px 0;
+border-radius:8px;
+background:#f6f6f6;
+}
+
+.card-post::after{
+content:"";
+display:block;
+clear:both;
 }
 
 .post-link-bloco{
@@ -135,43 +126,116 @@ color:#000;
 }
 
 .card-post h2{
-margin:10px 0 8px;
+margin:4px 0 6px;
+font-size:1.35rem;
 }
 
 .post-meta{
 font-size:0.9rem;
-color:#666;
-margin:8px 0;
+color:#777;
+margin-bottom:6px;
 }
 
 .resumo{
-font-size:1rem;
-line-height:1.5;
 color:#444;
 }
 
 .post-preview{
-margin-top:14px;
+margin-top:10px;
 line-height:1.7;
+color:#333;
 }
 
-/* ================= IMAGENS ================= */
+/* POST DESTAQUE */
 
-article img,
-.post-full img{
-width:100%;
-max-height:420px;
-object-fit:cover;
-border-radius:8px;
-display:block;
-margin:12px 0 16px;
+.card-post.destaque{
+padding:22px;
 }
 
-/* ================= POST PAGE ================= */
+.card-post.destaque img{
+width:220px;
+height:220px;
+margin:0 20px 12px 0;
+}
+
+.card-post.destaque h2{
+font-size:1.8rem;
+margin:4px 0 8px;
+}
+
+.card-post.destaque .resumo{
+font-size:1.05rem;
+}
+
+/* POST SECUNDÁRIO */
+
+.card-post.secundario img{
+width:130px;
+height:130px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+background:#fff;
+border:1px solid #e8e8e8;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,0.05);
+padding:18px;
+}
+
+#lista-posts{
+list-style:none;
+}
+
+.sidebar-item{
+padding:10px 0;
+border-bottom:1px solid #eee;
+}
+
+.sidebar-item:last-child{
+border:none;
+}
+
+.sidebar-item a{
+text-decoration:none;
+color:#222;
+}
+
+.sidebar-title{
+font-weight:600;
+color:#222;
+}
+
+.sidebar-date{
+font-size:0.84rem;
+color:#888;
+margin-left:8px;
+white-space:nowrap;
+}
+
+.sidebar-item a{
+display:flex;
+justify-content:space-between;
+align-items:baseline;
+gap:10px;
+text-decoration:none;
+color:#222;
+}
+
+/* POST COMPLETO */
 
 .post-page{
 max-width:900px;
 margin:auto;
+}
+
+.post-full{
+background:#fff;
+border:1px solid #e8e8e8;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,0.05);
+padding:24px;
 }
 
 .post-full h1{
@@ -179,11 +243,90 @@ margin-bottom:10px;
 }
 
 .post-body{
-line-height:1.8;
 font-size:1.05rem;
+line-height:1.8;
 }
 
-/* ================= RESPONSIVO ================= */
+/* imagens dentro do post */
+
+.post-body img{
+width:100%;
+height:auto;
+max-height:none;
+object-fit:contain;
+border-radius:8px;
+margin:18px 0;
+display:block;
+}
+
+/* GALERIAS */
+
+.post-body .galeria-2{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+margin:20px 0;
+}
+
+.post-body .galeria-3{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+margin:20px 0;
+}
+
+.post-body .galeria-4{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+margin:20px 0;
+}
+
+.post-body .galeria-2 img,
+.post-body .galeria-3 img,
+.post-body .galeria-4 img{
+height:220px;
+object-fit:cover;
+margin:0;
+}
+
+/* AVISO CONSTRUÇÃO */
+
+#aviso-construcao{
+position:fixed;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+background:rgba(0,0,0,0.35);
+z-index:9999;
+}
+
+.aviso-box{
+background:#fff;
+border-radius:12px;
+padding:28px 34px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+text-align:center;
+max-width:420px;
+width:90%;
+}
+
+.aviso-box h2{
+margin-bottom:10px;
+}
+
+.fechar-aviso{
+position:absolute;
+top:10px;
+right:12px;
+border:none;
+background:none;
+font-size:22px;
+cursor:pointer;
+}
+
+/* RESPONSIVO */
 
 @media (max-width:900px){
 
@@ -195,6 +338,27 @@ grid-template-columns:1fr;
 grid-template-columns:repeat(2,1fr);
 }
 
+.card-post img{
+width:130px;
+height:130px;
+}
+
+}
+
+@media (max-width:700px){
+
+.post-body .galeria-2,
+.post-body .galeria-3,
+.post-body .galeria-4{
+grid-template-columns:1fr;
+}
+
+.post-body .galeria-2 img,
+.post-body .galeria-3 img,
+.post-body .galeria-4 img{
+height:auto;
+}
+
 }
 
 @media (max-width:560px){
@@ -203,8 +367,28 @@ grid-template-columns:repeat(2,1fr);
 grid-template-columns:1fr;
 }
 
-body{
-padding:10px;
+.logo-header{
+height:45px;
 }
 
+.card-post img{
+width:110px;
+height:110px;
+}
+
+}
+.botao-voltar{
+display:inline-block;
+margin-bottom:18px;
+text-decoration:none;
+color:#333;
+font-weight:600;
+background:#f3f3f3;
+border:1px solid #e2e2e2;
+border-radius:8px;
+padding:8px 14px;
+}
+
+.botao-voltar:hover{
+background:#ececec;
 }
