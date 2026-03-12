@@ -729,3 +729,182 @@ height:17px;
 background:#c0392b;
 }
 
+.header-linha{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.relogio-mobile{
+  display:none !important;
+}
+
+@media (max-width:768px){
+
+  .topo{
+    padding:12px 14px;
+    margin-bottom:14px;
+  }
+
+  .header-linha{
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    flex-wrap:nowrap;
+  }
+
+  .logo-link{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    min-width:0;
+  }
+
+  .logo-header{
+    height:40px;
+    width:auto;
+  }
+
+  .logo-text{
+    font-size:1.08rem;
+    font-weight:700;
+    line-height:1.2;
+  }
+
+  .relogio-mobile{
+    display:flex !important;
+    align-items:center;
+    gap:8px;
+    flex-shrink:0;
+  }
+
+  .relogio-mobile-cidade{
+    font-size:0.9rem;
+    font-weight:700;
+    color:#7a5c43;
+    white-space:nowrap;
+  }
+
+  .relogio-analogico-mini{
+    position:relative;
+    width:42px;
+    height:42px;
+    border:2px solid #d5d5d5;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 2px 6px rgba(0,0,0,0.05);
+  }
+
+  .marcador{
+    position:absolute;
+    background:#b8b8b8;
+    border-radius:999px;
+  }
+
+  .marcador-12{
+    width:2px;
+    height:6px;
+    top:3px;
+    left:50%;
+    transform:translateX(-50%);
+  }
+
+  .marcador-3{
+    width:6px;
+    height:2px;
+    right:3px;
+    top:50%;
+    transform:translateY(-50%);
+  }
+
+  .marcador-6{
+    width:2px;
+    height:6px;
+    bottom:3px;
+    left:50%;
+    transform:translateX(-50%);
+  }
+
+  .marcador-9{
+    width:6px;
+    height:2px;
+    left:3px;
+    top:50%;
+    transform:translateY(-50%);
+  }
+
+  .ponteiro{
+    position:absolute;
+    left:50%;
+    bottom:50%;
+    transform-origin:bottom center;
+    transform:translateX(-50%) rotate(0deg);
+    border-radius:999px;
+  }
+
+  .ponteiro.hora{
+    width:2.5px;
+    height:11px;
+    background:#5a4634;
+  }
+
+  .ponteiro.minuto{
+    width:2px;
+    height:15px;
+    background:#2f2f2f;
+  }
+
+  .ponteiro.segundo{
+    width:1px;
+    height:16px;
+    background:#c0392b;
+  }
+
+  .centro-relogio{
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:#7a5c43;
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+  }
+
+  nav{
+    width:100%;
+    text-align:center;
+    margin-top:8px;
+  }
+
+  nav a{
+    margin:0;
+    font-size:0.98rem;
+    font-weight:500;
+    color:#444;
+  }
+
+  #clocks{
+    display:none;
+  }
+}
+
+@media (max-width:480px){
+  .logo-header{
+    height:36px;
+  }
+
+  .logo-text{
+    font-size:0.98rem;
+  }
+
+  .relogio-analogico-mini{
+    width:38px;
+    height:38px;
+  }
+
+  .relogio-mobile-cidade{
+    font-size:0.84rem;
+  }
+}
