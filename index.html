@@ -8,27 +8,34 @@
 </head>
 <body>
 
-  <header class="topo">
-    <div>
-      <a href="index.html" class="logo-link">
-        <img src="imagens/Logocafe.png" class="logo-header" alt="Café com Mapa">
-        <span class="logo-text">Café com Mapa</span>
-      </a>
+ <header class="topo">
+  <div class="header-linha">
+    <a href="index.html" class="logo-link">
+      <img src="imagens/Logocafe.png" class="logo-header" alt="Café com Mapa">
+      <span class="logo-text">Café com Mapa</span>
+    </a>
 
-      <div class="relogio-mobile">
-        <div class="relogio-analogico-mini">
-          <span class="ponteiro hora" id="ponteiro-hora"></span>
-          <span class="ponteiro minuto" id="ponteiro-minuto"></span>
-          <span class="centro-relogio"></span>
-        </div>
-        <span class="relogio-mobile-cidade">Londres</span>
+    <div class="relogio-mobile">
+      <div class="relogio-analogico-mini">
+        <span class="marcador marcador-12"></span>
+        <span class="marcador marcador-3"></span>
+        <span class="marcador marcador-6"></span>
+        <span class="marcador marcador-9"></span>
+
+        <span class="ponteiro hora" id="ponteiro-hora"></span>
+        <span class="ponteiro minuto" id="ponteiro-minuto"></span>
+        <span class="ponteiro segundo" id="ponteiro-segundo"></span>
+        <span class="centro-relogio"></span>
       </div>
 
-      <nav>
-        <a href="index.html">Início</a>
-      </nav>
+      <span class="relogio-mobile-cidade">Londres</span>
     </div>
-  </header>
+  </div>
+
+  <nav>
+    <a href="index.html">Início</a>
+  </nav>
+</header>
 
   <section id="clocks">
     <div id="clocks-grid"></div>
@@ -113,6 +120,38 @@ segundoEl.style.transform = `translateX(-50%) rotate(${grauSegundo}deg)`;
 atualizarRelogioAnalogicoMobile();
 setInterval(atualizarRelogioAnalogicoMobile,1000);
   </script>
+
+<script>
+  function atualizarRelogioAnalogicoMobile() {
+    const horaEl = document.getElementById("ponteiro-hora");
+    const minutoEl = document.getElementById("ponteiro-minuto");
+    const segundoEl = document.getElementById("ponteiro-segundo");
+
+    if (!horaEl || !minutoEl || !segundoEl) return;
+
+    const agora = new Date();
+    const agoraLondres = new Date(
+      agora.toLocaleString("en-US", { timeZone: "Europe/London" })
+    );
+
+    const horas = agoraLondres.getHours();
+    const minutos = agoraLondres.getMinutes();
+    const segundos = agoraLondres.getSeconds();
+
+    const grauHora = (horas % 12) * 30 + minutos * 0.5;
+    const grauMinuto = minutos * 6 + segundos * 0.1;
+    const grauSegundo = segundos * 6;
+
+    horaEl.style.transform = `translateX(-50%) rotate(${grauHora}deg)`;
+    minutoEl.style.transform = `translateX(-50%) rotate(${grauMinuto}deg)`;
+    segundoEl.style.transform = `translateX(-50%) rotate(${grauSegundo}deg)`;
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    atualizarRelogioAnalogicoMobile();
+    setInterval(atualizarRelogioAnalogicoMobile, 1000);
+  });
+</script>
 
 </body>
 </html>
