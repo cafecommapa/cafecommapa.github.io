@@ -25,18 +25,10 @@ padding:14px 18px;
 margin-bottom:16px;
 }
 
-.topo div{
+.header-linha{
 display:flex;
 align-items:center;
 justify-content:space-between;
-}
-
-.logo-link{
-display:flex;
-align-items:center;
-gap:10px;
-text-decoration:none;
-color:#000;
 }
 
 .logo-header{
@@ -47,13 +39,6 @@ width:auto;
 .logo-text{
 font-size:1.6rem;
 font-weight:bold;
-}
-
-nav a{
-text-decoration:none;
-margin-left:15px;
-color:#333;
-font-weight:500;
 }
 
 /* RELÓGIOS */
@@ -73,26 +58,16 @@ grid-template-columns:repeat(5,1fr);
 gap:12px;
 }
 
-.clock-card{
-text-align:center;
-}
-
-.clock-title{
-font-weight:bold;
-font-size:0.95rem;
-margin-bottom:6px;
-}
-
 /* LAYOUT */
 
 .layout{
 display:grid;
-grid-template-columns:minmax(0, 1fr) 240px;
+grid-template-columns:minmax(0,1fr) 240px;
 gap:16px;
 align-items:start;
 }
 
-/* POSTS HOME */
+/* POSTS */
 
 .card-post{
 background:#fff;
@@ -119,12 +94,6 @@ display:block;
 clear:both;
 }
 
-.post-link-bloco{
-display:block;
-text-decoration:none;
-color:#000;
-}
-
 .card-post h2{
 margin:4px 0 6px;
 font-size:1.35rem;
@@ -146,34 +115,6 @@ line-height:1.7;
 color:#333;
 }
 
-/* POST DESTAQUE */
-
-.card-post.destaque{
-padding:22px;
-}
-
-.card-post.destaque img{
-width:220px;
-height:220px;
-margin:0 20px 12px 0;
-}
-
-.card-post.destaque h2{
-font-size:1.8rem;
-margin:4px 0 8px;
-}
-
-.card-post.destaque .resumo{
-font-size:1.05rem;
-}
-
-/* POST SECUNDÁRIO */
-
-.card-post.secundario img{
-width:130px;
-height:130px;
-}
-
 /* SIDEBAR */
 
 .sidebar{
@@ -184,101 +125,8 @@ box-shadow:0 3px 10px rgba(0,0,0,0.05);
 padding:16px;
 }
 
-#lista-posts{
-list-style:none;
-}
-
-.sidebar-item{
-padding:10px 0;
-border-bottom:1px solid #eee;
-}
-
-.sidebar-item:last-child{
-border:none;
-}
-
-.sidebar-item a{
-display:flex;
-justify-content:space-between;
-align-items:baseline;
-gap:10px;
-text-decoration:none;
-color:#222;
-}
-
-.sidebar-title{
-font-weight:600;
-}
-
-.sidebar-date{
-font-size:0.84rem;
-color:#888;
-white-space:nowrap;
-}
-
-/* POST COMPLETO */
-
-.post-page{
-max-width:900px;
-margin:auto;
-}
-
-.post-full{
-background:#fff;
-border:1px solid #e8e8e8;
-border-radius:10px;
-box-shadow:0 3px 10px rgba(0,0,0,0.05);
-padding:24px;
-}
-
-.post-full h1{
-margin-bottom:8px;
-}
-
-.post-body{
-font-size:1.05rem;
-line-height:1.8;
-}
-
-/* imagens dentro do post */
-
-.post-body img{
-width:100%;
-height:auto;
-border-radius:8px;
-margin:18px 0;
-display:block;
-}
-
-/* GALERIAS */
-
-.post-body .galeria-2{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-margin:20px 0;
-}
-
-.post-body .galeria-3{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:12px;
-margin:20px 0;
-}
-
-.post-body .galeria-4{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:12px;
-margin:20px 0;
-}
-
-.post-body .galeria-2 img,
-.post-body .galeria-3 img,
-.post-body .galeria-4 img{
-height:220px;
-object-fit:cover;
-margin:0;
+.sidebar > * + *{
+margin-top:14px;
 }
 
 /* CARD PROPAGANDA */
@@ -288,7 +136,6 @@ background:#fff;
 border:1px solid #e8e1d8;
 border-radius:12px;
 overflow:hidden;
-margin-bottom:14px;
 box-shadow:0 6px 16px rgba(0,0,0,0.06);
 }
 
@@ -306,32 +153,33 @@ font-size:0.9rem;
 font-weight:700;
 color:#7a5c43;
 margin-bottom:10px;
-letter-spacing:0.4px;
 text-transform:uppercase;
 }
 
 .card-propaganda-img{
 width:100%;
-display:block;
 border-radius:8px;
 }
 
-/* BOTÃO VOLTAR */
+/* POST COMPLETO */
 
-.botao-voltar{
-display:inline-block;
-margin-bottom:14px;
-text-decoration:none;
-color:#333;
-font-weight:600;
-background:#f3f3f3;
-border:1px solid #e2e2e2;
-border-radius:8px;
-padding:8px 14px;
+.post-full{
+background:#fff;
+border:1px solid #e8e8e8;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,0.05);
+padding:24px;
 }
 
-.botao-voltar:hover{
-background:#ececec;
+.post-body{
+font-size:1.05rem;
+line-height:1.8;
+}
+
+.post-body img{
+width:100%;
+border-radius:8px;
+margin:18px 0;
 }
 
 /* RODAPÉ */
@@ -377,11 +225,6 @@ font-weight:500;
 display:flex;
 align-items:center;
 gap:8px;
-transition:0.25s;
-}
-
-.rodape-redes a:hover{
-color:#f472b6;
 }
 
 .icone-instagram{
@@ -402,678 +245,170 @@ font-size:13px;
 color:#9ca3af;
 }
 
-.rodape-info p{
-margin:3px 0;
-}
+/* RELÓGIO MOBILE */
 
-/* RESPONSIVO */
-
-@media (max-width:900px){
-
-.layout{
-grid-template-columns:1fr;
-}
-
-#clocks-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-.card-post img{
-width:130px;
-height:130px;
-}
-
-}
-
-@media (max-width:700px){
-
-.post-body .galeria-2,
-.post-body .galeria-3,
-.post-body .galeria-4{
-grid-template-columns:1fr;
-}
-
-.post-body img{
-height:auto;
-}
-
-}
-
-@media (max-width:560px){
-
-#clocks-grid{
-grid-template-columns:1fr;
-}
-
-.logo-header{
-height:45px;
-}
-
-.card-post img{
-width:110px;
-height:110px;
-}
-
-}
-
-/* espaçamento organizado entre blocos da sidebar */
-/* espaçamento organizado entre blocos da sidebar */
-.sidebar > * + *{
-  margin-top:14px;
-}
-
-/* relógio mobile */
 .relogio-mobile{
-  display:none !important;
+display:none;
 }
 
-/* RESPONSIVO EXTRA */
+/* MOBILE */
+
 @media (max-width:768px){
 
-  body{
-    padding:12px;
-  }
-
-  .topo{
-    padding:12px 14px;
-    margin-bottom:14px;
-  }
-
-  .topo div{
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-  }
-
-  .logo-link{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-  }
-
-  .logo-header{
-    height:42px;
-    width:auto;
-  }
-
-  .logo-text{
-    font-size:1.15rem;
-    font-weight:700;
-    line-height:1.2;
-  }
-
-  .relogio-mobile{
-    display:flex !important;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    margin-top:2px;
-  }
-
-  .relogio-mobile-cidade{
-    font-size:0.95rem;
-    font-weight:700;
-    color:#7a5c43;
-  }
-
-  .relogio-analogico-mini{
-    position:relative;
-    width:42px;
-    height:42px;
-    border:2px solid #d9d9d9;
-    border-radius:50%;
-    background:#fff;
-    box-shadow:0 2px 6px rgba(0,0,0,0.05);
-  }
-
-  .ponteiro{
-    position:absolute;
-    left:50%;
-    bottom:50%;
-    transform-origin:bottom center;
-    transform:translateX(-50%) rotate(0deg);
-    border-radius:999px;
-  }
-
-  .ponteiro.hora{
-    width:2.5px;
-    height:11px;
-    background:#5a4634;
-  }
-
-  .ponteiro.minuto{
-    width:2px;
-    height:15px;
-    background:#2f2f2f;
-  }
-
-  .centro-relogio{
-    position:absolute;
-    width:6px;
-    height:6px;
-    background:#7a5c43;
-    border-radius:50%;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-  }
-
-  nav{
-    width:100%;
-    text-align:center;
-    margin-top:2px;
-  }
-
-  nav a{
-    margin:0;
-    font-size:1rem;
-    font-weight:500;
-    color:#444;
-  }
-
-  #clocks{
-    display:none;
-  }
-
-  .layout{
-    grid-template-columns:1fr;
-    gap:14px;
-  }
-
-  .card-post{
-    padding:14px;
-    margin-bottom:10px;
-  }
-
-  .card-post img,
-  .card-post.destaque img,
-  .card-post.secundario img{
-    float:none;
-    display:block;
-    width:100%;
-    max-width:220px;
-    height:auto;
-    margin:0 auto 12px;
-    object-fit:contain;
-  }
-
-  .card-post h2{
-    font-size:1.2rem;
-  }
-
-  .card-post.destaque{
-    padding:16px;
-  }
-
-  .card-post.destaque h2{
-    font-size:1.35rem;
-  }
-
-  .sidebar{
-    padding:14px;
-  }
-
-  .card-propaganda{
-    margin-bottom:12px;
-  }
-
-  .card-propaganda-conteudo{
-    padding:10px;
-  }
-
-  .rodape{
-    padding:22px 14px;
-    margin-top:8px;
-  }
-
-  .rodape-redes{
-    gap:18px;
-    margin-bottom:10px;
-  }
-
-  .rodape-redes a{
-    font-size:14px;
-  }
-
-  .rodape-info{
-    font-size:12px;
-  }
+.topo{
+padding:10px 12px;
 }
 
-@media (max-width:480px){
-
-  body{
-    padding:10px;
-  }
-
-  .topo{
-    padding:10px 12px;
-  }
-
-  .logo-header{
-    height:38px;
-  }
-
-  .logo-text{
-    font-size:1.02rem;
-  }
-
-  .relogio-analogico-mini{
-    width:38px;
-    height:38px;
-  }
-
-  .relogio-mobile-cidade{
-    font-size:0.9rem;
-  }
-
-  nav a{
-    font-size:0.95rem;
-  }
-
-  .rodape-redes{
-    flex-direction:column;
-    gap:10px;
-  }
-}
 .header-linha{
-display:flex;
+display:grid;
+grid-template-columns:40px 1fr 40px;
 align-items:center;
-justify-content:space-between;
 gap:10px;
 }
 
-@media (max-width:768px){
-
-.header-linha{
-justify-content:center;
-gap:12px;
-flex-wrap:wrap;
+.logo-header{
+width:40px;
+height:40px;
 }
 
-.logo-link{
-display:flex;
-align-items:center;
-gap:8px;
+.logo-text{
+font-size:1.05rem;
+text-align:center;
 }
 
 .relogio-mobile{
-display:flex !important;
+display:flex;
+justify-content:flex-end;
 align-items:center;
-gap:8px;
-}
-
-.relogio-mobile-cidade{
-font-size:0.9rem;
-font-weight:700;
-color:#7a5c43;
 }
 
 .relogio-analogico-mini{
 position:relative;
 width:40px;
 height:40px;
-border:2px solid #d9d9d9;
+border:2px solid #d5d5d5;
 border-radius:50%;
 background:#fff;
-box-shadow:0 2px 6px rgba(0,0,0,0.05);
 }
 
+/* marcadores */
+
+.marcador{
+position:absolute;
+background:#b8b8b8;
+border-radius:999px;
+}
+
+.marcador-12{
+width:2px;
+height:6px;
+top:3px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.marcador-3{
+width:6px;
+height:2px;
+right:3px;
+top:50%;
+transform:translateY(-50%);
+}
+
+.marcador-6{
+width:2px;
+height:6px;
+bottom:3px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.marcador-9{
+width:6px;
+height:2px;
+left:3px;
+top:50%;
+transform:translateY(-50%);
+}
+
+/* ponteiros */
+
+.ponteiro{
+position:absolute;
+left:50%;
+bottom:50%;
+transform-origin:bottom center;
+transform:translateX(-50%);
+border-radius:999px;
+}
+
+.ponteiro.hora{
+width:2.5px;
+height:11px;
+background:#5a4634;
+}
+
+.ponteiro.minuto{
+width:2px;
+height:15px;
+background:#2f2f2f;
 }
 
 .ponteiro.segundo{
-width:1.5px;
-height:17px;
+width:1px;
+height:16px;
 background:#c0392b;
 }
 
+.centro-relogio{
+position:absolute;
+width:6px;
+height:6px;
+background:#7a5c43;
+border-radius:50%;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+}
+
+/* esconder relógios grandes */
+
+#clocks{
+display:none;
+}
+
+.layout{
+grid-template-columns:1fr;
+}
+
+.card-post img{
+float:none;
+display:block;
+margin:0 auto 12px;
+}
+
+}
+
+/* MOBILE PEQUENO */
+
+@media (max-width:480px){
+
 .header-linha{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
+grid-template-columns:36px 1fr 36px;
 }
 
-.relogio-mobile{
-  display:none !important;
+.logo-header{
+width:36px;
+height:36px;
 }
 
-@media (max-width:768px){
-
-  .topo{
-    padding:12px 14px;
-    margin-bottom:14px;
-  }
-
-  .header-linha{
-    justify-content:center;
-    align-items:center;
-    gap:12px;
-    flex-wrap:nowrap;
-  }
-
-  .logo-link{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    min-width:0;
-  }
-
-  .logo-header{
-    height:40px;
-    width:auto;
-  }
-
-  .logo-text{
-    font-size:1.08rem;
-    font-weight:700;
-    line-height:1.2;
-  }
-
-  .relogio-mobile{
-    display:flex !important;
-    align-items:center;
-    gap:8px;
-    flex-shrink:0;
-  }
-
-  .relogio-mobile-cidade{
-    font-size:0.9rem;
-    font-weight:700;
-    color:#7a5c43;
-    white-space:nowrap;
-  }
-
-  .relogio-analogico-mini{
-    position:relative;
-    width:42px;
-    height:42px;
-    border:2px solid #d5d5d5;
-    border-radius:50%;
-    background:#fff;
-    box-shadow:0 2px 6px rgba(0,0,0,0.05);
-  }
-
-  .marcador{
-    position:absolute;
-    background:#b8b8b8;
-    border-radius:999px;
-  }
-
-  .marcador-12{
-    width:2px;
-    height:6px;
-    top:3px;
-    left:50%;
-    transform:translateX(-50%);
-  }
-
-  .marcador-3{
-    width:6px;
-    height:2px;
-    right:3px;
-    top:50%;
-    transform:translateY(-50%);
-  }
-
-  .marcador-6{
-    width:2px;
-    height:6px;
-    bottom:3px;
-    left:50%;
-    transform:translateX(-50%);
-  }
-
-  .marcador-9{
-    width:6px;
-    height:2px;
-    left:3px;
-    top:50%;
-    transform:translateY(-50%);
-  }
-
-  .ponteiro{
-    position:absolute;
-    left:50%;
-    bottom:50%;
-    transform-origin:bottom center;
-    transform:translateX(-50%) rotate(0deg);
-    border-radius:999px;
-  }
-
-  .ponteiro.hora{
-    width:2.5px;
-    height:11px;
-    background:#5a4634;
-  }
-
-  .ponteiro.minuto{
-    width:2px;
-    height:15px;
-    background:#2f2f2f;
-  }
-
-  .ponteiro.segundo{
-    width:1px;
-    height:16px;
-    background:#c0392b;
-  }
-
-  .centro-relogio{
-    position:absolute;
-    width:6px;
-    height:6px;
-    background:#7a5c43;
-    border-radius:50%;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-  }
-
-  nav{
-    width:100%;
-    text-align:center;
-    margin-top:8px;
-  }
-
-  nav a{
-    margin:0;
-    font-size:0.98rem;
-    font-weight:500;
-    color:#444;
-  }
-
-  #clocks{
-    display:none;
-  }
+.logo-text{
+font-size:0.95rem;
 }
 
-@media (max-width:480px){
-  .logo-header{
-    height:36px;
-  }
-
-  .logo-text{
-    font-size:0.98rem;
-  }
-
-  .relogio-analogico-mini{
-    width:38px;
-    height:38px;
-  }
-
-  .relogio-mobile-cidade{
-    font-size:0.84rem;
-  }
+.relogio-analogico-mini{
+width:36px;
+height:36px;
 }
 
-
-@media (max-width:768px){
-
-  .topo{
-    padding: 10px 12px;
-    margin-bottom: 14px;
-  }
-
-  .header-linha{
-    display: grid;
-    grid-template-columns: 44px 1fr 44px;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .logo-header{
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    justify-self: start;
-  }
-
-  .logo-text{
-    font-size: 1.05rem;
-    font-weight: 700;
-    text-align: center;
-    line-height: 1.2;
-    margin: 0;
-  }
-
-  .relogio-mobile{
-    display: flex !important;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 0;
-  }
-
-  .relogio-mobile-cidade{
-    display: none;
-  }
-
-  .relogio-analogico-mini{
-    position: relative;
-    width: 40px;
-    height: 40px;
-    border: 2px solid #d5d5d5;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  }
-
-  .marcador{
-    position: absolute;
-    background: #b8b8b8;
-    border-radius: 999px;
-  }
-
-  .marcador-12{
-    width: 2px;
-    height: 6px;
-    top: 3px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .marcador-3{
-    width: 6px;
-    height: 2px;
-    right: 3px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .marcador-6{
-    width: 2px;
-    height: 6px;
-    bottom: 3px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .marcador-9{
-    width: 6px;
-    height: 2px;
-    left: 3px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .ponteiro{
-    position: absolute;
-    left: 50%;
-    bottom: 50%;
-    transform-origin: bottom center;
-    transform: translateX(-50%) rotate(0deg);
-    border-radius: 999px;
-  }
-
-  .ponteiro.hora{
-    width: 2.5px;
-    height: 11px;
-    background: #5a4634;
-  }
-
-  .ponteiro.minuto{
-    width: 2px;
-    height: 15px;
-    background: #2f2f2f;
-  }
-
-  .ponteiro.segundo{
-    width: 1px;
-    height: 16px;
-    background: #c0392b;
-  }
-
-  .centro-relogio{
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: #7a5c43;
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  nav{
-    display: none;
-  }
-
-  #clocks{
-    display: none;
-  }
-}
-
-@media (max-width:480px){
-  .header-linha{
-    grid-template-columns: 38px 1fr 38px;
-    gap: 8px;
-  }
-
-  .logo-header{
-    width: 36px;
-    height: 36px;
-  }
-
-  .logo-text{
-    font-size: 0.96rem;
-  }
-
-  .relogio-analogico-mini{
-    width: 36px;
-    height: 36px;
-  }
-
-  .ponteiro.hora{
-    height: 10px;
-  }
-
-  .ponteiro.minuto{
-    height: 13px;
-  }
-
-  .ponteiro.segundo{
-    height: 14px;
-  }
 }
