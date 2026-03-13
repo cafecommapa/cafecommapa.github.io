@@ -11,14 +11,12 @@
 <header class="topo">
 
   <div class="header-linha">
-
     <img src="imagens/Logocafe.png" class="logo-header" alt="Café com Mapa">
 
     <span class="logo-text">Café com Mapa</span>
 
-    <div class="relogio-mobile">
+    <div class="relogio-mobile" aria-label="Relógio de Londres">
       <div class="relogio-analogico-mini">
-
         <span class="marcador marcador-12"></span>
         <span class="marcador marcador-3"></span>
         <span class="marcador marcador-6"></span>
@@ -27,24 +25,26 @@
         <span class="ponteiro hora" id="ponteiro-hora"></span>
         <span class="ponteiro minuto" id="ponteiro-minuto"></span>
         <span class="ponteiro segundo" id="ponteiro-segundo"></span>
-
         <span class="centro-relogio"></span>
-
       </div>
     </div>
-
   </div>
 
+<div class="header-linha-2">
 
-  <div class="header-linha-2">
-
-    <nav class="menu-mobile">
-      <a href="index.html">Início</a>
-    </nav>
-
-    <span class="cidade-mobile">Londres</span>
-
+  <div class="header-linha-2-esquerda">
+    <button class="botao-hamburguer" type="button" aria-label="Abrir menu">
+      ☰ Menu
+    </button>
   </div>
+
+  <div class="header-linha-2-direita">
+    <button class="botao-hamburguer botao-hamburguer-direita" type="button" aria-label="Abrir destinos">
+      ☰ Londres
+    </button>
+  </div>
+
+</div>
 
 </header>
 
