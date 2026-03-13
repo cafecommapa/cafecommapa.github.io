@@ -728,3 +728,49 @@ color:#7a5c43;
     color: #7a5c43;
   }
 }
+
+/* seletor de cidades mobile */
+.seletor-cidade-mobile{
+  position: relative;
+}
+
+.menu-cidades-mobile{
+  display: none;
+}
+
+@media (max-width: 768px){
+
+  .menu-cidades-mobile{
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 160px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+    padding: 6px;
+    z-index: 50;
+  }
+
+  .menu-cidades-mobile.aberto{
+    display: block;
+  }
+
+  .menu-cidades-mobile button{
+    width: 100%;
+    border: none;
+    background: none;
+    text-align: left;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font: inherit;
+    font-size: 0.9rem;
+    color: #444;
+    cursor: pointer;
+  }
+
+  .menu-cidades-mobile button:hover{
+    background: #f4f4f4;
+  }
+}
