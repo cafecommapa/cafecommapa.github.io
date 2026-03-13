@@ -412,3 +412,39 @@ height:36px;
 }
 
 }
+
+/* segunda linha do header */
+
+.header-linha-2{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-top:6px;
+}
+
+/* menu */
+
+.menu-mobile a{
+text-decoration:none;
+font-size:0.9rem;
+font-weight:600;
+color:#444;
+}
+
+/* cidade */
+
+.cidade-mobile{
+font-size:0.9rem;
+font-weight:600;
+color:#7a5c43;
+}
+
+/* desktop */
+
+@media (min-width:769px){
+
+.header-linha-2{
+display:none;
+}
+
+}
