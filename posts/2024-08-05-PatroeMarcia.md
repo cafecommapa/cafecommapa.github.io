@@ -1,6 +1,6 @@
 ---
 title: Patro e Marcia
-date: 2026-03-12
+date: 2024-08-05
 category: logocafe
 summary: A nossa história contada pelos nossos pensamentos e bilhetes de avião.
 ---
