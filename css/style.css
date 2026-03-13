@@ -17,7 +17,7 @@ line-height:1.6;
 /* HEADER */
 
 .topo{
-background:#fff;
+background:#E5BF86;
 border:1px solid #e8e8e8;
 border-radius:10px;
 box-shadow:0 3px 10px rgba(0,0,0,0.05);
@@ -775,14 +775,22 @@ color:#7a5c43;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width:768px){
 
-  .titulo-site{
-    font-family: 'Pacifico', cursive;
-    text-align: center;
-    font-size: 42px;
-    margin-top: 10px;
-    color: #4b2e1f;
-  }
+.header-linha{
+position:relative;
+}
+
+.titulo-site{
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+font-family:'Pacifico', cursive;
+font-size:42px;
+font-weight: normal;
+letter-spacing: 1px;
+color:#4b2e1f;
+text-shadow:0 1px 2px rgba(0,0,0,0.15);
+}
 
 }
