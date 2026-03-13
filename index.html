@@ -1,185 +1,188 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Café com Mapa</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Café com Mapa — Voltamos em breve</title>
+  <meta name="description" content="Estamos preparando uma nova fase do Café com Mapa. Voltamos em breve." />
+  <style>
+    :root {
+      --bg: #efe0c7;
+      --bg-2: #e4c79f;
+      --card: rgba(247, 238, 225, 0.88);
+      --text: #4b2e1d;
+      --muted: #7d5d45;
+      --accent: #6f472d;
+      --accent-soft: #9a7858;
+      --line: rgba(75, 46, 29, 0.12);
+      --shadow: 0 24px 70px rgba(74, 47, 30, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.35), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(111,71,45,0.10), transparent 26%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .wrap {
+      width: min(980px, 100%);
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .left {
+      padding: 56px 46px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.1));
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      align-self: flex-start;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid var(--line);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 7px rgba(111,71,45,0.10);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      max-width: 9ch;
+    }
+
+    p {
+      margin: 20px 0 0;
+      font-size: 1.06rem;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 44ch;
+    }
+
+    .mini {
+      margin-top: 28px;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .right {
+      padding: 38px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.35), transparent 35%),
+        linear-gradient(180deg, rgba(111,71,45,0.05), rgba(255,255,255,0.12));
+    }
+
+    .logo-card {
+      width: min(100%, 420px);
+      background: rgba(255,248,238,0.92);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 18px;
+      box-shadow: 0 18px 40px rgba(75, 46, 29, 0.10);
+      text-align: center;
+    }
+
+    .logo-card img {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+      object-fit: cover;
+      background: #ead3b0;
+    }
+
+    .logo-note {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .curve {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 1px solid rgba(111,71,45,0.12);
+      right: -80px;
+      top: -80px;
+    }
+
+    @media (max-width: 860px) {
+      .wrap {
+        grid-template-columns: 1fr;
+      }
+      .left {
+        padding: 40px 28px 22px;
+      }
+      .right {
+        padding: 20px 28px 34px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <main class="wrap">
+    <section class="left">
+      <div class="badge"><span class="dot"></span> Atualização temporária</div>
+      <h1>Voltamos em breve.</h1>
+      <p>
+        O <strong>Café com Mapa</strong> está passando por uma atualização de servidores para voltar com uma experiência mais rápida, estável e ainda mais inspiradora.
+      </p>
+      <p>
+        Enquanto isso, estamos preparando uma nova fase do blog — com cara nova, mais leveza e mais histórias para descobrir.
+      </p>
+      <div class="mini">Nos vemos já já ☕</div>
+    </section>
 
-<header class="topo">
-
-  <div class="header-linha">
-    <img src="imagens/Logocafe.png" class="logo-header" alt="Café com Mapa">
-
-    <span class="logo-text">Café com Mapa</span>
-
-    <div class="relogio-mobile" aria-label="Relógio de Londres">
-      <div class="relogio-analogico-mini">
-        <span class="marcador marcador-12"></span>
-        <span class="marcador marcador-3"></span>
-        <span class="marcador marcador-6"></span>
-        <span class="marcador marcador-9"></span>
-
-        <span class="ponteiro hora" id="ponteiro-hora"></span>
-        <span class="ponteiro minuto" id="ponteiro-minuto"></span>
-        <span class="ponteiro segundo" id="ponteiro-segundo"></span>
-        <span class="centro-relogio"></span>
+    <section class="right">
+      <div class="curve"></div>
+      <div class="logo-card">
+        <img src="Minha imagem do ChatGPT.jpg" alt="Logo do Café com Mapa" />
+        <div class="logo-note">Cores e identidade preservadas para a nova fase.</div>
       </div>
-    </div>
-  </div>
-
-<div class="header-linha-2">
-
-  <div class="header-linha-2-esquerda">
-    <button class="botao-hamburguer" type="button" aria-label="Abrir menu">
-      ☰ Menu
-    </button>
-  </div>
-
-<div class="header-linha-2-direita">
-  <div class="seletor-cidade-mobile">
-    <button
-      class="botao-hamburguer botao-hamburguer-direita"
-      type="button"
-      id="botao-cidade-mobile"
-      aria-label="Selecionar cidade"
-      aria-expanded="false">
-      ☰ Londres
-    </button>
-
-    <div class="menu-cidades-mobile" id="menu-cidades-mobile">
-      <button type="button" data-city="Londres" data-timezone="Europe/London">Londres</button>
-      <button type="button" data-city="Nova York" data-timezone="America/New_York">Nova York</button>
-      <button type="button" data-city="Paris" data-timezone="Europe/Paris">Paris</button>
-      <button type="button" data-city="Los Angeles" data-timezone="America/Los_Angeles">Los Angeles</button>
-      <button type="button" data-city="Brasil" data-timezone="America/Sao_Paulo">Brasil</button>
-    </div>
-  </div>
-</div>
-
-</div>
-
-</header>
-
-  <section id="clocks">
-    <div id="clocks-grid"></div>
-  </section>
-
-  <main class="layout">
-    <section id="posts-principais"></section>
-
-    <aside class="sidebar">
-      <div class="card-propaganda">
-        <div class="card-propaganda-topo"></div>
-
-        <div class="card-propaganda-conteudo">
-          <p class="card-propaganda-label">Meus livros</p>
-
-          <a href="#" class="card-propaganda-link">
-            <img src="imagens/banner-livros.jpg" alt="Conheça meus livros" class="card-propaganda-img">
-          </a>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Últimos posts</h3>
-        <div id="lista-posts"></div>
-      </div>
-    </aside>
+    </section>
   </main>
-
-  <footer class="rodape">
-    <div class="rodape-linha"></div>
-
-    <div class="rodape-container">
-      <div class="rodape-redes">
-        <a href="https://instagram.com/cafecommapa" target="_blank" rel="noopener noreferrer">
-          <span class="icone-instagram"></span>
-          @cafecommapa
-        </a>
-
-        <a href="https://instagram.com/patrocarlos" target="_blank" rel="noopener noreferrer">
-          <span class="icone-instagram"></span>
-          @patrocarlos
-        </a>
-      </div>
-
-      <div class="rodape-info">
-        <p>© 2026 Café com Mapa</p>
-        <p>Powered by GitHub Pages</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="js/blog.js"></script>
-
-  <script>
-  let cidadeAtual = "Londres";
-  let timezoneAtual = "Europe/London";
-
-  function atualizarRelogioAnalogicoMobile() {
-    const horaEl = document.getElementById("ponteiro-hora");
-    const minutoEl = document.getElementById("ponteiro-minuto");
-    const segundoEl = document.getElementById("ponteiro-segundo");
-
-    if (!horaEl || !minutoEl || !segundoEl) return;
-
-    const agora = new Date();
-    const agoraCidade = new Date(
-      agora.toLocaleString("en-US", { timeZone: timezoneAtual })
-    );
-
-    const horas = agoraCidade.getHours();
-    const minutos = agoraCidade.getMinutes();
-    const segundos = agoraCidade.getSeconds();
-
-    const grauHora = (horas % 12) * 30 + minutos * 0.5;
-    const grauMinuto = minutos * 6 + segundos * 0.1;
-    const grauSegundo = segundos * 6;
-
-    horaEl.style.transform = `translateX(-50%) rotate(${grauHora}deg)`;
-    minutoEl.style.transform = `translateX(-50%) rotate(${grauMinuto}deg)`;
-    segundoEl.style.transform = `translateX(-50%) rotate(${grauSegundo}deg)`;
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const botaoCidade = document.getElementById("botao-cidade-mobile");
-    const menuCidades = document.getElementById("menu-cidades-mobile");
-
-    atualizarRelogioAnalogicoMobile();
-    setInterval(atualizarRelogioAnalogicoMobile, 1000);
-
-    if (botaoCidade && menuCidades) {
-      botaoCidade.addEventListener("click", function () {
-        const aberto = menuCidades.classList.toggle("aberto");
-        botaoCidade.setAttribute("aria-expanded", aberto ? "true" : "false");
-      });
-
-      menuCidades.querySelectorAll("button").forEach(function (botao) {
-        botao.addEventListener("click", function () {
-          cidadeAtual = botao.dataset.city;
-          timezoneAtual = botao.dataset.timezone;
-
-          botaoCidade.textContent = `☰ ${cidadeAtual}`;
-          menuCidades.classList.remove("aberto");
-          botaoCidade.setAttribute("aria-expanded", "false");
-
-          atualizarRelogioAnalogicoMobile();
-        });
-      });
-
-      document.addEventListener("click", function (event) {
-        if (!event.target.closest(".seletor-cidade-mobile")) {
-          menuCidades.classList.remove("aberto");
-          botaoCidade.setAttribute("aria-expanded", "false");
-        }
-      });
-    }
-  });
-</script>
-
 </body>
 </html>
