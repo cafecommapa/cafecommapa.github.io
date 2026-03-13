@@ -38,11 +38,26 @@
     </button>
   </div>
 
-  <div class="header-linha-2-direita">
-    <button class="botao-hamburguer botao-hamburguer-direita" type="button" aria-label="Abrir destinos">
+<div class="header-linha-2-direita">
+  <div class="seletor-cidade-mobile">
+    <button
+      class="botao-hamburguer botao-hamburguer-direita"
+      type="button"
+      id="botao-cidade-mobile"
+      aria-label="Selecionar cidade"
+      aria-expanded="false">
       ☰ Londres
     </button>
+
+    <div class="menu-cidades-mobile" id="menu-cidades-mobile">
+      <button type="button" data-city="Londres" data-timezone="Europe/London">Londres</button>
+      <button type="button" data-city="Nova York" data-timezone="America/New_York">Nova York</button>
+      <button type="button" data-city="Paris" data-timezone="Europe/Paris">Paris</button>
+      <button type="button" data-city="Los Angeles" data-timezone="America/Los_Angeles">Los Angeles</button>
+      <button type="button" data-city="Brasil" data-timezone="America/Sao_Paulo">Brasil</button>
+    </div>
   </div>
+</div>
 
 </div>
 
@@ -102,36 +117,69 @@
   <script src="js/blog.js"></script>
 
   <script>
-    function atualizarRelogioAnalogicoMobile() {
-      const horaEl = document.getElementById("ponteiro-hora");
-      const minutoEl = document.getElementById("ponteiro-minuto");
-      const segundoEl = document.getElementById("ponteiro-segundo");
+  let cidadeAtual = "Londres";
+  let timezoneAtual = "Europe/London";
 
-      if (!horaEl || !minutoEl || !segundoEl) return;
+  function atualizarRelogioAnalogicoMobile() {
+    const horaEl = document.getElementById("ponteiro-hora");
+    const minutoEl = document.getElementById("ponteiro-minuto");
+    const segundoEl = document.getElementById("ponteiro-segundo");
 
-      const agora = new Date();
-      const agoraLondres = new Date(
-        agora.toLocaleString("en-US", { timeZone: "Europe/London" })
-      );
+    if (!horaEl || !minutoEl || !segundoEl) return;
 
-      const horas = agoraLondres.getHours();
-      const minutos = agoraLondres.getMinutes();
-      const segundos = agoraLondres.getSeconds();
+    const agora = new Date();
+    const agoraCidade = new Date(
+      agora.toLocaleString("en-US", { timeZone: timezoneAtual })
+    );
 
-      const grauHora = (horas % 12) * 30 + minutos * 0.5;
-      const grauMinuto = minutos * 6 + segundos * 0.1;
-      const grauSegundo = segundos * 6;
+    const horas = agoraCidade.getHours();
+    const minutos = agoraCidade.getMinutes();
+    const segundos = agoraCidade.getSeconds();
 
-      horaEl.style.transform = `translateX(-50%) rotate(${grauHora}deg)`;
-      minutoEl.style.transform = `translateX(-50%) rotate(${grauMinuto}deg)`;
-      segundoEl.style.transform = `translateX(-50%) rotate(${grauSegundo}deg)`;
+    const grauHora = (horas % 12) * 30 + minutos * 0.5;
+    const grauMinuto = minutos * 6 + segundos * 0.1;
+    const grauSegundo = segundos * 6;
+
+    horaEl.style.transform = `translateX(-50%) rotate(${grauHora}deg)`;
+    minutoEl.style.transform = `translateX(-50%) rotate(${grauMinuto}deg)`;
+    segundoEl.style.transform = `translateX(-50%) rotate(${grauSegundo}deg)`;
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const botaoCidade = document.getElementById("botao-cidade-mobile");
+    const menuCidades = document.getElementById("menu-cidades-mobile");
+
+    atualizarRelogioAnalogicoMobile();
+    setInterval(atualizarRelogioAnalogicoMobile, 1000);
+
+    if (botaoCidade && menuCidades) {
+      botaoCidade.addEventListener("click", function () {
+        const aberto = menuCidades.classList.toggle("aberto");
+        botaoCidade.setAttribute("aria-expanded", aberto ? "true" : "false");
+      });
+
+      menuCidades.querySelectorAll("button").forEach(function (botao) {
+        botao.addEventListener("click", function () {
+          cidadeAtual = botao.dataset.city;
+          timezoneAtual = botao.dataset.timezone;
+
+          botaoCidade.textContent = `☰ ${cidadeAtual}`;
+          menuCidades.classList.remove("aberto");
+          botaoCidade.setAttribute("aria-expanded", "false");
+
+          atualizarRelogioAnalogicoMobile();
+        });
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!event.target.closest(".seletor-cidade-mobile")) {
+          menuCidades.classList.remove("aberto");
+          botaoCidade.setAttribute("aria-expanded", "false");
+        }
+      });
     }
-
-    document.addEventListener("DOMContentLoaded", function () {
-      atualizarRelogioAnalogicoMobile();
-      setInterval(atualizarRelogioAnalogicoMobile, 1000);
-    });
-  </script>
+  });
+</script>
 
 </body>
 </html>
