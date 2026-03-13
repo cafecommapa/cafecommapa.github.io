@@ -321,4 +321,22 @@ async function iniciar() {
   }
 }
 
+/* MENU CATEGORIAS */
+
+const botaoCategorias = document.getElementById("botao-categorias");
+const dropdownCategorias = document.getElementById("menu-categorias");
+
+if (botaoCategorias) {
+
+  botaoCategorias.addEventListener("click", function(e){
+    e.stopPropagation();
+    botaoCategorias.parentElement.classList.toggle("aberto");
+  });
+
+  document.addEventListener("click", function(){
+    botaoCategorias.parentElement.classList.remove("aberto");
+  });
+
+}
+
 iniciar();
