@@ -690,3 +690,41 @@ color:#7a5c43;
     font-size: 0.88rem;
   }
 }
+@media (max-width: 768px){
+
+  .header-linha-2{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    width: 100%;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid #ececec;
+  }
+
+  .header-linha-2-esquerda{
+    justify-self: start;
+  }
+
+  .header-linha-2-direita{
+    justify-self: end;
+  }
+
+  .botao-hamburguer{
+    display: inline-block;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #444;
+    cursor: pointer;
+    line-height: 1.2;
+  }
+
+  .botao-hamburguer-direita{
+    color: #7a5c43;
+  }
+}
