@@ -774,3 +774,15 @@ color:#7a5c43;
     background: #f4f4f4;
   }
 }
+
+@media (min-width: 768px) {
+
+  .titulo-site{
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    font-size: 42px;
+    margin-top: 10px;
+    color: #4b2e1f;
+  }
+
+}
