@@ -27,6 +27,42 @@
     "summary": "Um Final de Semana Perfeito em Monte Verde"
   },
   {
+    "slug": "2025-11-30-europa",
+    "file": "posts/2025-11-30-europa.md",
+    "title": "Europa",
+    "date": "2025-11-30",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "O Primeiro Passo da Nossa Próxima Aventura Já Foi Dado"
+  },
+  {
+    "slug": "2025-11-27-portugal",
+    "file": "posts/2025-11-27-portugal.md",
+    "title": "Viagem Espanha e Portugal (Parte 2)",
+    "date": "2025-11-27",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "Em maio de 2018 fizemos uma viagem pela Espanha e Portugal,"
+  },
+  {
+    "slug": "2025-11-15-espanha",
+    "file": "posts/2025-11-15-espanha.md",
+    "title": "Viagem Espanha e Portugal",
+    "date": "2025-11-15",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "No Podcast da Água pro Vinho falamos muito das viagens que fizemos"
+  },
+  {
+    "slug": "2025-10-12-viagemdecarro",
+    "file": "posts/2025-10-12-viagemdecarro.md",
+    "title": "viagem de carro",
+    "date": "2025-10-12",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "Preparando o carro para uma viagem tranquila e segura."
+  },
+  {
     "slug": "2025-04-16-Amandas",
     "file": "posts/2025-04-16-Amandas.md",
     "title": "Amandas",
@@ -36,6 +72,24 @@
     "summary": "Uma reflexão leve ( e cheia de pelos!) sobre nomes, bichos de estimação e as Amandas que conheci."
   },
   {
+    "slug": "2025-04-15-primeiraviagem",
+    "file": "posts/2025-04-15-primeiraviagem.md",
+    "title": "Primeira Viagem Internacional",
+    "date": "2025-04-15",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "Primeira viagem internacional em família: Nova York, mochilas vazias e muita aventura!"
+  },
+  {
+    "slug": "2025-01-01-branco",
+    "file": "posts/2025-01-01-branco.md",
+    "title": "",
+    "date": "2025-01-01",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": ""
+  },
+  {
     "slug": "2024-08-05-PatroeMarcia",
     "file": "posts/2024-08-05-PatroeMarcia.md",
     "title": "Patro e Marcia",
@@ -43,5 +97,14 @@
     "category": "logocafe",
     "cover": "imagens/logocafe.png",
     "summary": "A nossa história contada pelos nossos pensamentos e bilhetes de avião."
+  },
+  {
+    "slug": "paris-no-inverno",
+    "file": "posts/paris-no-inverno.md",
+    "title": "\"Paris no inverno\"",
+    "date": "\"2026-03-10\"",
+    "category": "\"destinos\"",
+    "cover": "\"/imagens/paris-inverno.jpg\"",
+    "summary": "\"Cafés, neve e charme nas ruas da cidade luz.\""
   }
 ]

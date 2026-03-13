@@ -1,3 +1,8 @@
+marked.setOptions({
+  gfm: true,
+  breaks: true
+});
+
 function formatarData(dataIso) {
   const [ano, mes, dia] = dataIso.split("-");
   return `${dia}/${mes}/${ano}`;
@@ -26,6 +31,58 @@ function removerFrontMatter(texto) {
 
   const partes = texto.split("---");
   return partes.slice(2).join("---").trim();
+}
+
+function garantirLightbox() {
+  let lightbox = document.getElementById("lightbox");
+
+  if (!lightbox) {
+    lightbox = document.createElement("div");
+    lightbox.id = "lightbox";
+    lightbox.className = "lightbox";
+    lightbox.style.display = "none";
+
+    lightbox.innerHTML = `
+      <span id="fechar-lightbox" class="lightbox-fechar">×</span>
+      <img id="lightbox-img" class="lightbox-img" src="" alt="">
+    `;
+
+    document.body.appendChild(lightbox);
+  }
+
+  const lightboxImg = document.getElementById("lightbox-img");
+  const fechar = document.getElementById("fechar-lightbox");
+
+  fechar.onclick = function () {
+    lightbox.style.display = "none";
+    lightboxImg.src = "";
+    lightboxImg.alt = "";
+  };
+
+  lightbox.onclick = function (e) {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+      lightboxImg.src = "";
+      lightboxImg.alt = "";
+    }
+  };
+}
+
+function ativarLightboxNasImagens() {
+  garantirLightbox();
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  document.querySelectorAll(".post-body img").forEach((img) => {
+    img.style.cursor = "zoom-in";
+
+    img.onclick = function () {
+      lightboxImg.src = this.src;
+      lightboxImg.alt = this.alt || "";
+      lightbox.style.display = "flex";
+    };
+  });
 }
 
 function renderizarRelogios() {
@@ -138,7 +195,6 @@ function renderizarRelogios() {
 }
 
 let postsCache = [];
-let homeRenderizada = false;
 
 async function abrirPostNaHome(slug) {
   const container = document.getElementById("posts-principais");
@@ -163,12 +219,30 @@ async function abrirPostNaHome(slug) {
     </article>
   `;
 
-  document.getElementById("botao-voltar").addEventListener("click", async function(e){
-    e.preventDefault();
-    await renderizarPrincipais(postsCache);
-  });
+  const botaoVoltar = document.getElementById("botao-voltar");
+  if (botaoVoltar) {
+    botaoVoltar.addEventListener("click", async function (e) {
+      e.preventDefault();
+      await renderizarPrincipais(postsCache);
+      destacarPostAberto(null);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  destacarPostAberto(slug);
+  ativarLightboxNasImagens();
 
   window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function destacarPostAberto(slugAtivo) {
+  document.querySelectorAll(".sidebar-link").forEach((link) => {
+    if (link.dataset.slug === slugAtivo) {
+      link.classList.add("ativo");
+    } else {
+      link.classList.remove("ativo");
+    }
+  });
 }
 
 async function renderizarPrincipais(posts) {
@@ -178,6 +252,7 @@ async function renderizarPrincipais(posts) {
   for (const [index, post] of posts.slice(0, 2).entries()) {
     const markdown = await buscarMarkdown(post.file);
     const corpo = removerFrontMatter(markdown);
+    const limite = index === 0 ? 700 : 400;
 
     const artigo = document.createElement("article");
     artigo.className = index === 0 ? "card-post destaque" : "card-post secundario";
@@ -187,10 +262,10 @@ async function renderizarPrincipais(posts) {
         ${post.cover ? `<img src="${post.cover}" alt="${post.title}">` : ""}
         <div class="post-meta">${formatarData(post.date)}</div>
         <h2>${post.title}</h2>
-        <p class="resumo">${post.summary}</p>
+        ${post.summary ? `<p class="resumo">${post.summary}</p>` : ""}
       </a>
       <div class="post-preview">
-        ${marked.parse(corpo.substring(0, index === 0 ? 700 : 400) + (corpo.length > (index === 0 ? 700 : 400) ? "..." : ""))}
+        ${marked.parse(corpo.substring(0, limite) + (corpo.length > limite ? "..." : ""))}
       </div>
     `;
 
@@ -198,14 +273,12 @@ async function renderizarPrincipais(posts) {
   }
 
   container.querySelectorAll(".post-link-bloco").forEach((link) => {
-    link.addEventListener("click", async function(e) {
+    link.addEventListener("click", async function (e) {
       e.preventDefault();
       const slug = this.dataset.slug;
       await abrirPostNaHome(slug);
     });
   });
-
-  homeRenderizada = true;
 }
 
 function renderizarSidebar(posts) {
@@ -227,7 +300,7 @@ function renderizarSidebar(posts) {
   });
 
   lista.querySelectorAll(".sidebar-link").forEach((link) => {
-    link.addEventListener("click", async function(e) {
+    link.addEventListener("click", async function (e) {
       e.preventDefault();
       const slug = this.dataset.slug;
       await abrirPostNaHome(slug);
