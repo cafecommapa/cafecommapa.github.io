@@ -448,3 +448,40 @@ display:none;
 }
 
 }
+/* segunda linha do header */
+
+.header-linha-2{
+display:none;
+}
+
+/* somente celular */
+
+@media (max-width:768px){
+
+.header-linha-2{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-top:6px;
+width:100%;
+}
+
+.menu-mobile{
+display:flex;
+align-items:center;
+}
+
+.menu-mobile a{
+text-decoration:none;
+font-size:0.9rem;
+font-weight:600;
+color:#444;
+}
+
+.cidade-mobile{
+font-size:0.9rem;
+font-weight:600;
+color:#7a5c43;
+}
+
+}
