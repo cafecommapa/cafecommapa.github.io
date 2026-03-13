@@ -1,0 +1,56 @@
+[
+  {
+    "slug": "2026-03-12-PatroeMarcia",
+    "file": "posts/2026-03-12-PatroeMarcia.md",
+    "title": "Patro e Marcia",
+    "date": "2026-03-12",
+    "category": "logocafe",
+    "cover": "imagens/logocafe.png",
+    "summary": "A nossa história contada pelos nossos pensamentos e bilhetes de avião."
+  },
+  {
+    "slug": "2026-03-12-Amandas",
+    "file": "posts/2026-03-12-Amandas.md",
+    "title": "Amandas",
+    "date": "2026-03-12",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "Uma reflexão leve ( e cheia de pelos!) sobre nomes, bichos de estimação e as Amandas que conheci."
+  },
+  {
+    "slug": "2026-03-10-londres",
+    "file": "posts/2026-03-10-londres.md",
+    "title": "Uma tarde em Londres",
+    "date": "2026-03-10",
+    "category": "https://images.unsplash.com/photo-1473959383413-c53f1a3c6b4d",
+    "cover": "imagens/https://images.unsplash.com/photo-1473959383413-c53f1a3c6b4d.png",
+    "summary": "Um fim de tarde clássico em Londres, com céu cinza, ruas históricas e muito movimento."
+  },
+  {
+    "slug": "2026-03-09-nova-york",
+    "file": "posts/2026-03-09-nova-york.md",
+    "title": "Primeira vez em Nova York",
+    "date": "2026-03-09",
+    "category": "https://images.unsplash.com/photo-1490578474895-699cd4e2cf59",
+    "cover": "imagens/https://images.unsplash.com/photo-1490578474895-699cd4e2cf59.png",
+    "summary": "A energia de Nova York impressiona desde os primeiros minutos, especialmente à noite."
+  },
+  {
+    "slug": "2026-03-11",
+    "file": "posts/2026-03-11.md",
+    "title": "2026-03-11",
+    "date": "1970-01-01",
+    "category": "",
+    "cover": "",
+    "summary": "Hoje caminhei pelas ruas próximas ao Sena. A cidade estava maravilhosa."
+  },
+  {
+    "slug": "2026-03-11-paris",
+    "file": "posts/2026-03-11-paris.md",
+    "title": "2026-03-11-paris",
+    "date": "1970-01-01",
+    "category": "",
+    "cover": "",
+    "summary": "Hoje caminhei pelas ruas próximas ao Sena. A cidade estava maravilhosa."
+  }
+]
