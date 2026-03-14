@@ -886,3 +886,27 @@ body{
     font-size:0.88rem;
   }
 }
+.rodape-linha{
+
+  position:relative;
+  height:2px;
+  background:linear-gradient(90deg,#c89c6b,#e0c3a0,#c89c6b);
+  margin-bottom:20px;
+
+}
+
+.rodape-linha::after{
+
+  content:"✦";
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+
+  background:#111827;
+  padding:0 10px;
+
+  color:#e5c49a;
+  font-size:18px;
+
+}
