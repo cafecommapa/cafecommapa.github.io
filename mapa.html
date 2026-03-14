@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mapa do Café com Mapa</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
   <style>
     #mapa {
@@ -28,10 +29,67 @@
 
   <header class="topo">
     <div class="header-linha">
-      <a href="index.html" class="logo-link">
-        <img src="imagens/Logocafe.png" class="logo-header" alt="Café com Mapa">
-        <span class="logo-text">Café com Mapa</span>
+      <a href="index.html" class="logo-link" aria-label="Página inicial">
+        <img src="imagens/Logocafe.png" alt="Logo Café com Mapa" class="logo-header">
       </a>
+
+      <h1 class="titulo-site">Café com Mapa</h1>
+
+      <div class="relogio-mobile" aria-label="Relógio da cidade selecionada">
+        <div class="relogio-analogico-mini">
+          <span class="marcador marcador-12"></span>
+          <span class="marcador marcador-3"></span>
+          <span class="marcador marcador-6"></span>
+          <span class="marcador marcador-9"></span>
+
+          <span class="ponteiro hora" id="ponteiro-hora"></span>
+          <span class="ponteiro minuto" id="ponteiro-minuto"></span>
+          <span class="ponteiro segundo" id="ponteiro-segundo"></span>
+          <span class="centro-relogio"></span>
+        </div>
+      </div>
+    </div>
+
+    <nav class="menu-principal" aria-label="Menu principal desktop">
+      <a href="index.html">Início</a>
+      <a href="mapa.html">Mapa</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+
+    <div class="header-linha-2">
+      <div class="header-linha-2-esquerda">
+        <button id="botao-menu-mobile" class="botao-hamburguer" type="button" aria-expanded="false">
+          ☰ Menu
+        </button>
+
+        <div id="menu-mobile-links" class="menu-mobile-links">
+          <a href="index.html">Início</a>
+          <a href="mapa.html">Mapa</a>
+          <a href="sobre.html">Sobre</a>
+          <a href="contato.html">Contato</a>
+        </div>
+      </div>
+
+      <div class="header-linha-2-direita">
+        <div class="seletor-cidade-mobile">
+          <button
+            id="botao-cidade-mobile"
+            class="botao-hamburguer botao-hamburguer-direita"
+            type="button"
+            aria-expanded="false">
+            ☰ Nova York
+          </button>
+
+          <div id="menu-cidades-mobile" class="menu-cidades-mobile">
+            <button type="button" data-cidade="Nova York" data-timezone="America/New_York">Nova York</button>
+            <button type="button" data-cidade="Londres" data-timezone="Europe/London">Londres</button>
+            <button type="button" data-cidade="Paris" data-timezone="Europe/Paris">Paris</button>
+            <button type="button" data-cidade="Los Angeles" data-timezone="America/Los_Angeles">Los Angeles</button>
+            <button type="button" data-cidade="Brasil" data-timezone="America/Sao_Paulo">Brasil</button>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -44,6 +102,7 @@
   </main>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/blog.js"></script>
 
   <script>
     const mapa = L.map("mapa", {
@@ -97,6 +156,5 @@
       });
     }
   </script>
-
 </body>
 </html>

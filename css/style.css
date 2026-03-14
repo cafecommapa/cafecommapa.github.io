@@ -33,6 +33,13 @@ body{
   min-height:56px;
 }
 
+.logo-link{
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  color:inherit;
+}
+
 .logo-header{
   height:55px;
   width:auto;
@@ -447,6 +454,74 @@ body{
   color:#9ca3af;
 }
 
+/* MENU DESKTOP */
+
+.menu-principal{
+  display:flex;
+  justify-content:flex-start;
+  gap:28px;
+  background:white;
+  padding:10px 14px;
+  margin-top:12px;
+  border-radius:8px;
+  border:1px solid #e8e8e8;
+  border-bottom:2px solid #e9e9e9;
+  box-shadow:0 2px 6px rgba(0,0,0,0.05);
+  font-size:0.95rem;
+}
+
+.menu-principal a,
+.menu-principal button{
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  color:#333;
+  font-weight:600;
+  font-family:inherit;
+  font-size:0.95rem;
+  line-height:1.2;
+  padding:0;
+  margin:0;
+}
+
+.menu-principal a:hover,
+.menu-principal button:hover{
+  color:#000;
+}
+
+.menu-dropdown{
+  position:relative;
+}
+
+.menu-dropdown-conteudo{
+  display:none;
+  position:absolute;
+  top:28px;
+  left:0;
+  background:white;
+  border:1px solid #e6e6e6;
+  border-radius:8px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.08);
+  padding:6px 0;
+  min-width:140px;
+  z-index:100;
+}
+
+.menu-dropdown-conteudo a{
+  display:block;
+  padding:8px 14px;
+  font-size:0.9rem;
+}
+
+.menu-dropdown-conteudo a:hover{
+  background:#f5f5f5;
+}
+
+.menu-dropdown.aberto .menu-dropdown-conteudo{
+  display:block;
+}
+
 /* MOBILE */
 
 .botao-hamburguer{
@@ -470,11 +545,21 @@ body{
   position:relative;
 }
 
-.menu-cidades-mobile{
+.menu-cidades-mobile,
+.menu-mobile-links{
   display:none;
 }
 
+.menu-mobile-links.aberto,
+.menu-cidades-mobile.aberto{
+  display:block;
+}
+
 @media (max-width:768px){
+
+  body{
+    padding:12px;
+  }
 
   .topo{
     padding:10px 12px;
@@ -496,18 +581,18 @@ body{
   }
 
   .titulo-site{
-  position:static;
-  transform:none;
-  font-family:'Pacifico', cursive !important;
-  font-size:1.18rem;
-  font-weight:400;
-  text-align:center;
-  line-height:1.2;
-  letter-spacing:0.4px;
-  color:#4b2e1f;
-  text-shadow:0 1px 2px rgba(0,0,0,0.08);
-  white-space:nowrap;
-}
+    position:static;
+    transform:none;
+    font-family:'Pacifico', cursive !important;
+    font-size:1.18rem;
+    font-weight:400;
+    text-align:center;
+    line-height:1.2;
+    letter-spacing:0.4px;
+    color:#4b2e1f;
+    text-shadow:0 1px 2px rgba(0,0,0,0.08);
+    white-space:nowrap;
+  }
 
   .relogio-mobile{
     display:flex;
@@ -613,13 +698,15 @@ body{
 
   .header-linha-2-esquerda{
     justify-self:start;
+    position:relative;
   }
 
   .header-linha-2-direita{
     justify-self:end;
+    position:relative;
   }
 
-  nav{
+  .menu-principal{
     display:none !important;
   }
 
@@ -644,6 +731,33 @@ body{
     margin:0 auto 12px;
   }
 
+  .menu-mobile-links{
+    position:absolute;
+    top:calc(100% + 8px);
+    left:0;
+    min-width:170px;
+    background:#fff;
+    border:1px solid #e8e8e8;
+    border-radius:10px;
+    box-shadow:0 10px 24px rgba(0,0,0,0.10);
+    padding:6px;
+    z-index:60;
+  }
+
+  .menu-mobile-links a{
+    display:block;
+    text-decoration:none;
+    color:#444;
+    padding:10px 12px;
+    border-radius:8px;
+    font-size:0.9rem;
+    font-weight:600;
+  }
+
+  .menu-mobile-links a:hover{
+    background:#f4f4f4;
+  }
+
   .menu-cidades-mobile{
     position:absolute;
     top:calc(100% + 8px);
@@ -654,11 +768,7 @@ body{
     border-radius:10px;
     box-shadow:0 10px 24px rgba(0,0,0,0.10);
     padding:6px;
-    z-index:50;
-  }
-
-  .menu-cidades-mobile.aberto{
-    display:block;
+    z-index:60;
   }
 
   .menu-cidades-mobile button{
@@ -694,7 +804,6 @@ body{
 }
 
 @media (max-width:480px){
-
   .header-linha{
     grid-template-columns:36px 1fr 36px;
     gap:8px;
@@ -729,82 +838,8 @@ body{
   .botao-hamburguer{
     font-size:0.88rem;
   }
-}
 
-/* MENU */
-
-.menu-principal{
-display:flex;
-justify-content:flex-start;
-gap:28px;
-
-background:white;
-
-padding:10px 14px;
-
-margin-top:12px;
-
-border-radius:8px;
-
-border:1px solid #e8e8e8;
-
-border-bottom:2px solid #e9e9e9;
-
-box-shadow:0 2px 6px rgba(0,0,0,0.05);
-
-font-size:0.95rem;
-}
-
-.menu-principal a,
-.menu-principal button{
-background:none;
-border:none;
-cursor:pointer;
-text-decoration:none;
-color:#333;
-font-weight:600;
-font-family:inherit;
-font-size:0.95rem;
-line-height:1.2;
-padding:0;
-margin:0;
-}
-
-.menu-principal a:hover,
-.menu-principal button:hover{
-color:#000;
-}
-
-/* dropdown */
-
-.menu-dropdown{
-position:relative;
-}
-
-.menu-dropdown-conteudo{
-display:none;
-position:absolute;
-top:28px;
-left:0;
-background:white;
-border:1px solid #e6e6e6;
-border-radius:8px;
-box-shadow:0 6px 16px rgba(0,0,0,0.08);
-padding:6px 0;
-min-width:140px;
-z-index:100;
-}
-
-.menu-dropdown-conteudo a{
-display:block;
-padding:8px 14px;
-font-size:0.9rem;
-}
-
-.menu-dropdown-conteudo a:hover{
-background:#f5f5f5;
-}
-
-.menu-dropdown.aberto .menu-dropdown-conteudo{
-display:block;
+  #mapa{
+    height:380px !important;
+  }
 }

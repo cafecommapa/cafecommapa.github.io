@@ -1,9 +1,9 @@
 function obterSlugDaUrl() {
   const params = new URLSearchParams(window.location.search);
-  return params.get("slug");
+  return params.get("slug") || params.get("post");
 }
 
-async function buscarIndice() {
+async function buscarIndicePost() {
   const resposta = await fetch("posts/index.json");
   if (!resposta.ok) {
     throw new Error("Não foi possível carregar posts/index.json");
@@ -11,7 +11,7 @@ async function buscarIndice() {
   return await resposta.json();
 }
 
-async function buscarMarkdown(caminho) {
+async function buscarMarkdownPost(caminho) {
   const resposta = await fetch(caminho);
   if (!resposta.ok) {
     throw new Error(`Não foi possível carregar o markdown em: ${caminho}`);
@@ -41,13 +41,14 @@ function separarFrontMatter(texto) {
   return { meta, body };
 }
 
-function formatarData(dataIso) {
+function formatarDataPost(dataIso) {
   const [ano, mes, dia] = dataIso.split("-");
   return `${dia}/${mes}/${ano}`;
 }
 
-async function iniciar() {
+async function iniciarPostPage() {
   const container = document.getElementById("post-completo");
+  if (!container) return;
 
   try {
     const slug = obterSlugDaUrl();
@@ -57,7 +58,7 @@ async function iniciar() {
       return;
     }
 
-    const indice = await buscarIndice();
+    const indice = await buscarIndicePost();
     const post = indice.find((p) => p.slug === slug);
 
     if (!post) {
@@ -65,20 +66,24 @@ async function iniciar() {
       return;
     }
 
-    const markdown = await buscarMarkdown(post.file);
+    const markdown = await buscarMarkdownPost(post.file);
     const { body } = separarFrontMatter(markdown);
 
-    document.title = post.title;
+    document.title = `${post.title} - Café com Mapa`;
 
     container.innerHTML = `
-      <div class="post-meta">${formatarData(post.date)}</div>
+      <div class="post-meta">${formatarDataPost(post.date)}</div>
       <h1>${post.title}</h1>
       <div class="post-body">${marked.parse(body)}</div>
     `;
+
+    if (typeof ativarLightboxNasImagens === "function") {
+      ativarLightboxNasImagens();
+    }
   } catch (erro) {
     console.error(erro);
     container.innerHTML = `<p>Erro ao carregar o post:</p><pre>${erro.message}</pre>`;
   }
 }
 
-iniciar();
+document.addEventListener("DOMContentLoaded", iniciarPostPage);

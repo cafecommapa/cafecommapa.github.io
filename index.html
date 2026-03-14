@@ -15,11 +15,13 @@
 
   <header class="topo">
     <div class="header-linha">
-      <img src="imagens/Logocafe.png" alt="Logo Café com Mapa" class="logo-header">
+      <a href="index.html" class="logo-link" aria-label="Página inicial">
+        <img src="imagens/Logocafe.png" alt="Logo Café com Mapa" class="logo-header">
+      </a>
 
       <h1 class="titulo-site">Café com Mapa</h1>
 
-      <div class="relogio-mobile" aria-hidden="true">
+      <div class="relogio-mobile" aria-label="Relógio da cidade selecionada">
         <div class="relogio-analogico-mini">
           <span class="marcador marcador-12"></span>
           <span class="marcador marcador-3"></span>
@@ -34,47 +36,56 @@
       </div>
     </div>
 
-<nav class="menu-principal">
+    <nav class="menu-principal" aria-label="Menu principal desktop">
+      <a href="#" data-menu="inicio">Início</a>
 
-  <a href="#" data-menu="inicio">Início</a>
+      <div class="menu-dropdown">
+        <button id="botao-categorias" type="button">Categorias ▾</button>
 
-  <div class="menu-dropdown">
-    <button id="botao-categorias">Categorias ▾</button>
+        <div id="menu-categorias" class="menu-dropdown-conteudo">
+          <a href="#" data-categoria="viagem">Viagem</a>
+          <a href="#" data-categoria="pensamento">Pensamento</a>
+          <a href="#" data-categoria="receita">Receita</a>
+          <a href="#" data-categoria="filme">Filme</a>
+          <a href="#" data-categoria="tecnologia">Tecnologia</a>
+        </div>
+      </div>
 
-    <div id="menu-categorias" class="menu-dropdown-conteudo">
-      <a href="#" data-categoria="viagem">Viagem</a>
-      <a href="#" data-categoria="pensamento">Pensamento</a>
-      <a href="#" data-categoria="receita">Receita</a>
-      <a href="#" data-categoria="filme">Filme</a>
-      <a href="#" data-categoria="tecnologia">Tecnologia</a>
-    </div>
-  </div>
-
-  <a href="mapa.html">Mapas</a>
-
-  <a href="sobre.html">Sobre</a>
-
-  <a href="contato.html">Contato</a>
-
-</nav>
+      <a href="mapa.html">Mapa</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
 
     <div class="header-linha-2">
       <div class="header-linha-2-esquerda">
-        <button class="botao-hamburguer" type="button">☰ Menu</button>
+        <button id="botao-menu-mobile" class="botao-hamburguer" type="button" aria-expanded="false">
+          ☰ Menu
+        </button>
+
+        <div id="menu-mobile-links" class="menu-mobile-links">
+          <a href="index.html">Início</a>
+          <a href="mapa.html">Mapa</a>
+          <a href="sobre.html">Sobre</a>
+          <a href="contato.html">Contato</a>
+        </div>
       </div>
 
       <div class="header-linha-2-direita">
         <div class="seletor-cidade-mobile">
-          <button id="botao-cidade-mobile" class="botao-hamburguer botao-hamburguer-direita" type="button">
-            Nova York ▾
+          <button
+            id="botao-cidade-mobile"
+            class="botao-hamburguer botao-hamburguer-direita"
+            type="button"
+            aria-expanded="false">
+            ☰ Nova York
           </button>
 
           <div id="menu-cidades-mobile" class="menu-cidades-mobile">
-            <button type="button" data-cidade="Nova York">Nova York</button>
-            <button type="button" data-cidade="Londres">Londres</button>
-            <button type="button" data-cidade="Paris">Paris</button>
-            <button type="button" data-cidade="Los Angeles">Los Angeles</button>
-            <button type="button" data-cidade="Brasil">Brasil</button>
+            <button type="button" data-cidade="Nova York" data-timezone="America/New_York">Nova York</button>
+            <button type="button" data-cidade="Londres" data-timezone="Europe/London">Londres</button>
+            <button type="button" data-cidade="Paris" data-timezone="Europe/Paris">Paris</button>
+            <button type="button" data-cidade="Los Angeles" data-timezone="America/Los_Angeles">Los Angeles</button>
+            <button type="button" data-cidade="Brasil" data-timezone="America/Sao_Paulo">Brasil</button>
           </div>
         </div>
       </div>
@@ -123,58 +134,5 @@
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="js/blog.js"></script>
-
-  <script>
-    function atualizarRelogioMini() {
-      const agora = new Date();
-      const hora = agora.getHours() % 12;
-      const minuto = agora.getMinutes();
-      const segundo = agora.getSeconds();
-
-      const angHora = (hora * 30) + (minuto * 0.5);
-      const angMinuto = minuto * 6;
-      const angSegundo = segundo * 6;
-
-      const ponteiroHora = document.getElementById("ponteiro-hora");
-      const ponteiroMinuto = document.getElementById("ponteiro-minuto");
-      const ponteiroSegundo = document.getElementById("ponteiro-segundo");
-
-      if (ponteiroHora) {
-        ponteiroHora.style.transform = `translateX(-50%) rotate(${angHora}deg)`;
-      }
-      if (ponteiroMinuto) {
-        ponteiroMinuto.style.transform = `translateX(-50%) rotate(${angMinuto}deg)`;
-      }
-      if (ponteiroSegundo) {
-        ponteiroSegundo.style.transform = `translateX(-50%) rotate(${angSegundo}deg)`;
-      }
-    }
-
-    setInterval(atualizarRelogioMini, 1000);
-    atualizarRelogioMini();
-
-    const botaoCidade = document.getElementById("botao-cidade-mobile");
-    const menuCidades = document.getElementById("menu-cidades-mobile");
-
-    if (botaoCidade && menuCidades) {
-      botaoCidade.addEventListener("click", function (e) {
-        e.stopPropagation();
-        menuCidades.classList.toggle("aberto");
-      });
-
-      document.querySelectorAll("#menu-cidades-mobile button").forEach((btn) => {
-        btn.addEventListener("click", function () {
-          botaoCidade.textContent = this.dataset.cidade + " ▾";
-          menuCidades.classList.remove("aberto");
-        });
-      });
-
-      document.addEventListener("click", function (e) {
-        if (!menuCidades.contains(e.target) && !botaoCidade.contains(e.target)) {
-          menuCidades.classList.remove("aberto");
-        }
-      });
-    }
-  </script>
 </body>
 </html>

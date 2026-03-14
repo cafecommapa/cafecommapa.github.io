@@ -195,6 +195,102 @@ function renderizarRelogios() {
 }
 
 let postsCache = [];
+let mobileTimezoneAtual = "America/New_York";
+let mobileCidadeAtual = "Nova York";
+
+function atualizarRelogioMini() {
+  const ponteiroHora = document.getElementById("ponteiro-hora");
+  const ponteiroMinuto = document.getElementById("ponteiro-minuto");
+  const ponteiroSegundo = document.getElementById("ponteiro-segundo");
+
+  if (!ponteiroHora || !ponteiroMinuto || !ponteiroSegundo) return;
+
+  const agora = new Date();
+  const horaCidade = new Date(
+    agora.toLocaleString("en-US", { timeZone: mobileTimezoneAtual })
+  );
+
+  const hora = horaCidade.getHours() % 12;
+  const minuto = horaCidade.getMinutes();
+  const segundo = horaCidade.getSeconds();
+
+  const angHora = (hora * 30) + (minuto * 0.5);
+  const angMinuto = (minuto * 6) + (segundo * 0.1);
+  const angSegundo = segundo * 6;
+
+  ponteiroHora.style.transform = `translateX(-50%) rotate(${angHora}deg)`;
+  ponteiroMinuto.style.transform = `translateX(-50%) rotate(${angMinuto}deg)`;
+  ponteiroSegundo.style.transform = `translateX(-50%) rotate(${angSegundo}deg)`;
+}
+
+function iniciarHeaderMobile() {
+  const botaoCidade = document.getElementById("botao-cidade-mobile");
+  const menuCidades = document.getElementById("menu-cidades-mobile");
+  const botaoMenuMobile = document.getElementById("botao-menu-mobile");
+  const menuMobileLinks = document.getElementById("menu-mobile-links");
+
+  if (botaoCidade && menuCidades) {
+    botaoCidade.textContent = `☰ ${mobileCidadeAtual}`;
+
+    botaoCidade.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const aberto = menuCidades.classList.toggle("aberto");
+      botaoCidade.setAttribute("aria-expanded", aberto ? "true" : "false");
+
+      if (menuMobileLinks) {
+        menuMobileLinks.classList.remove("aberto");
+      }
+      if (botaoMenuMobile) {
+        botaoMenuMobile.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    menuCidades.querySelectorAll("button").forEach((btn) => {
+      btn.addEventListener("click", function () {
+        mobileCidadeAtual = this.dataset.cidade;
+        mobileTimezoneAtual = this.dataset.timezone;
+        botaoCidade.textContent = `☰ ${mobileCidadeAtual}`;
+        menuCidades.classList.remove("aberto");
+        botaoCidade.setAttribute("aria-expanded", "false");
+        atualizarRelogioMini();
+      });
+    });
+  }
+
+  if (botaoMenuMobile && menuMobileLinks) {
+    botaoMenuMobile.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const aberto = menuMobileLinks.classList.toggle("aberto");
+      botaoMenuMobile.setAttribute("aria-expanded", aberto ? "true" : "false");
+
+      if (menuCidades) {
+        menuCidades.classList.remove("aberto");
+      }
+      if (botaoCidade) {
+        botaoCidade.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  document.addEventListener("click", function (e) {
+    if (menuCidades && botaoCidade) {
+      if (!e.target.closest(".seletor-cidade-mobile")) {
+        menuCidades.classList.remove("aberto");
+        botaoCidade.setAttribute("aria-expanded", "false");
+      }
+    }
+
+    if (menuMobileLinks && botaoMenuMobile) {
+      if (!e.target.closest(".header-linha-2-esquerda")) {
+        menuMobileLinks.classList.remove("aberto");
+        botaoMenuMobile.setAttribute("aria-expanded", "false");
+      }
+    }
+  });
+
+  atualizarRelogioMini();
+  setInterval(atualizarRelogioMini, 1000);
+}
 
 async function abrirPostNaHome(slug) {
   const container = document.getElementById("posts-principais");
@@ -247,6 +343,8 @@ function destacarPostAberto(slugAtivo) {
 
 async function renderizarPrincipais(posts) {
   const container = document.getElementById("posts-principais");
+  if (!container) return;
+
   container.innerHTML = "";
 
   for (const [index, post] of posts.slice(0, 2).entries()) {
@@ -283,6 +381,8 @@ async function renderizarPrincipais(posts) {
 
 function renderizarSidebar(posts) {
   const lista = document.getElementById("lista-posts");
+  if (!lista) return;
+
   lista.innerHTML = "";
 
   posts.slice(0, 10).forEach((post) => {
@@ -310,33 +410,35 @@ function renderizarSidebar(posts) {
 
 async function iniciar() {
   try {
+    iniciarHeaderMobile();
     renderizarRelogios();
-    postsCache = await buscarIndice();
-    await renderizarPrincipais(postsCache);
-    renderizarSidebar(postsCache);
+
+    const botaoCategorias = document.getElementById("botao-categorias");
+    if (botaoCategorias) {
+      botaoCategorias.addEventListener("click", function (e) {
+        e.stopPropagation();
+        botaoCategorias.parentElement.classList.toggle("aberto");
+      });
+
+      document.addEventListener("click", function () {
+        botaoCategorias.parentElement.classList.remove("aberto");
+      });
+    }
+
+    const postsPrincipais = document.getElementById("posts-principais");
+    if (postsPrincipais) {
+      postsCache = await buscarIndice();
+      await renderizarPrincipais(postsCache);
+      renderizarSidebar(postsCache);
+    }
   } catch (erro) {
     console.error(erro);
-    document.getElementById("posts-principais").innerHTML =
-      `<p>Erro ao carregar os posts: ${erro.message}</p>`;
+    const postsPrincipais = document.getElementById("posts-principais");
+    if (postsPrincipais) {
+      postsPrincipais.innerHTML =
+        `<p>Erro ao carregar os posts: ${erro.message}</p>`;
+    }
   }
 }
 
-/* MENU CATEGORIAS */
-
-const botaoCategorias = document.getElementById("botao-categorias");
-const dropdownCategorias = document.getElementById("menu-categorias");
-
-if (botaoCategorias) {
-
-  botaoCategorias.addEventListener("click", function(e){
-    e.stopPropagation();
-    botaoCategorias.parentElement.classList.toggle("aberto");
-  });
-
-  document.addEventListener("click", function(){
-    botaoCategorias.parentElement.classList.remove("aberto");
-  });
-
-}
-
-iniciar();
+document.addEventListener("DOMContentLoaded", iniciar);
