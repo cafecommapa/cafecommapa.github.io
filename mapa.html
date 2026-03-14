@@ -13,15 +13,15 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
   <style>
-    #mapa {
-      height: 520px;
-      border-radius: 12px;
-      margin-top: 20px;
+    #mapa{
+      height:520px;
+      border-radius:12px;
+      margin-top:20px;
     }
 
-    .pagina-mapa {
-      max-width: 1000px;
-      margin: 0 auto;
+    .pagina-mapa{
+      max-width:1000px;
+      margin:0 auto;
     }
   </style>
 </head>
@@ -116,7 +116,7 @@
       attribution: "&copy; OpenStreetMap contributors"
     }).addTo(mapa);
 
-    const cidades = [
+    const cidadesMapa = [
       { nome: "Lisboa", slug: "lisboa", lat: 38.7223, lng: -9.1393 },
       { nome: "Madrid", slug: "madrid", lat: 40.4168, lng: -3.7038 },
       { nome: "Barcelona", slug: "barcelona", lat: 41.3851, lng: 2.1734 },
@@ -140,7 +140,7 @@
 
     const pontos = [];
 
-    cidades.forEach(function (cidade) {
+    cidadesMapa.forEach(function (cidade) {
       L.marker([cidade.lat, cidade.lng])
         .addTo(mapa)
         .bindPopup(
@@ -156,5 +156,6 @@
       });
     }
   </script>
+
 </body>
 </html>
