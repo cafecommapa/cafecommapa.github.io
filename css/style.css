@@ -5,14 +5,20 @@
 }
 
 body{
-  font-family:Arial, sans-serif;
-  max-width:1200px;
-  margin:auto;
-  padding:18px;
-  background:#f5f6f7;
-  color:#222;
-  line-height:1.6;
+  font-family: Arial, sans-serif;
+  max-width: 1200px;
+  margin: auto;
+  padding: 18px;
+
+  background-color:#f5f6f7;
+  /*background-color:#efe2c8;*/
+  background-image:url("../imagens/fundo-mapa.jpg");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
 }
+
+
 
 /* HEADER */
 
