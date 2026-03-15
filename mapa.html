@@ -118,27 +118,20 @@
       attribution: "&copy; OpenStreetMap contributors"
     }).addTo(mapa);
 
-    const cidadesMapa = [
-      { nome: "Lisboa", slug: "lisboa", lat: 38.7223, lng: -9.1393 },
-      { nome: "Madrid", slug: "madrid", lat: 40.4168, lng: -3.7038 },
-      { nome: "Barcelona", slug: "barcelona", lat: 41.3851, lng: 2.1734 },
-      { nome: "Roma", slug: "roma", lat: 41.9028, lng: 12.4964 },
-      { nome: "Milão", slug: "milao", lat: 45.4642, lng: 9.1900 },
+const pontos = [];
 
-      { nome: "Nova York", slug: "nova-york", lat: 40.7128, lng: -74.0060 },
-      { nome: "New Jersey", slug: "new-jersey", lat: 40.0583, lng: -74.4057 },
-      { nome: "Toronto", slug: "toronto", lat: 43.6532, lng: -79.3832 },
-      { nome: "Quebec City", slug: "quebec-city", lat: 46.8139, lng: -71.2080 },
-      { nome: "Montreal", slug: "montreal", lat: 45.5017, lng: -73.5673 },
-      { nome: "Miami", slug: "miami", lat: 25.7617, lng: -80.1918 },
-      { nome: "Doral Miami", slug: "doral-miami", lat: 25.8195, lng: -80.3553 },
+cidadesMapa.forEach(function (cidade) {
 
-      { nome: "Rio de Janeiro", slug: "rio-de-janeiro", lat: -22.9068, lng: -43.1729 },
-      { nome: "São Paulo", slug: "sao-paulo", lat: -23.5505, lng: -46.6333 },
-      { nome: "Curitiba", slug: "curitiba", lat: -25.4284, lng: -49.2733 },
-      { nome: "Porto Alegre", slug: "porto-alegre", lat: -30.0346, lng: -51.2177 },
-      { nome: "Santiago", slug: "santiago", lat: -33.4489, lng: -70.6693 }
-    ];
+  L.marker([cidade.lat, cidade.lng])
+    .addTo(mapa)
+    .bindPopup(
+      `<b>${cidade.nome}</b><br>${cidade.texto}`
+    );
+
+  pontos.push([cidade.lat, cidade.lng]);
+
+});
+
 
     const pontos = [];
 
