@@ -103,7 +103,7 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
+  <script src="js/cidades.js"></script>
   <script src="js/blog.js"></script>
 
   <script>
@@ -118,29 +118,19 @@
       attribution: "&copy; OpenStreetMap contributors"
     }).addTo(mapa);
 
-const pontos = [];
-
-cidadesMapa.forEach(function (cidade) {
-
-  L.marker([cidade.lat, cidade.lng])
-    .addTo(mapa)
-    .bindPopup(
-      `<b>${cidade.nome}</b><br>${cidade.texto}`
-    );
-
-  pontos.push([cidade.lat, cidade.lng]);
-
-});
-
-
     const pontos = [];
 
     cidadesMapa.forEach(function (cidade) {
       L.marker([cidade.lat, cidade.lng])
         .addTo(mapa)
         .bindPopup(
-          `<b>${cidade.nome}</b><br><a href="cidade.html?cidade=${cidade.slug}">Ver posts</a>`
-        );
+  `<div class="popup-cidade">
+      <div class="popup-titulo">${cidade.nome}</div>
+      <div class="popup-texto">${cidade.texto}</div>
+   </div>`
+)
+
+;
 
       pontos.push([cidade.lat, cidade.lng]);
     });
