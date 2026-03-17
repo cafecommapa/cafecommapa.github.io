@@ -486,4 +486,35 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 
+/* =========================
+   POPUP CONTATO
+========================= */
 
+function abrirPopupContato(){
+  const popup = document.getElementById("popup-contato");
+  if(popup){
+    popup.style.display = "flex";
+  }
+}
+
+function fecharPopupContato(){
+  const popup = document.getElementById("popup-contato");
+  if(popup){
+    popup.style.display = "none";
+  }
+}
+
+/* fechar clicando fora */
+
+document.addEventListener("click", function(e){
+
+  const popup = document.getElementById("popup-contato");
+  const card = document.querySelector(".popup-contato-card");
+
+  if(!popup) return;
+
+  if(e.target === popup){
+    popup.style.display = "none";
+  }
+
+});

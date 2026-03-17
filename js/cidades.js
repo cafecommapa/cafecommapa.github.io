@@ -3,6 +3,8 @@ const cidadesMapa = [
 {
   nome: "Lisboa",
   slug: "lisboa",
+  pais: "Portugal",
+  codigoPais: "pt",
   lat: 38.7223,
   lng: -9.1393,
   texto: "Lisboa é uma cidade feita para caminhar sem pressa, entre miradouros, ruas históricas e cafés cheios de história."
@@ -11,6 +13,8 @@ const cidadesMapa = [
 {
   nome: "Madrid",
   slug: "madrid",
+  pais: "Espanha",
+  codigoPais: "es",
   lat: 40.4168,
   lng: -3.7038,
   texto: "Madrid mistura elegância e energia, com museus incríveis, grandes avenidas e praças sempre cheias de vida."
@@ -19,6 +23,8 @@ const cidadesMapa = [
 {
   nome: "Barcelona",
   slug: "barcelona",
+  pais: "Espanha",
+  codigoPais: "es",
   lat: 41.3851,
   lng: 2.1734,
   texto: "Barcelona encanta com sua arquitetura única, arte, cultura e o Mediterrâneo sempre presente."
@@ -27,6 +33,8 @@ const cidadesMapa = [
 {
   nome: "Roma",
   slug: "roma",
+  pais: "Itália",
+  codigoPais: "it",
   lat: 41.9028,
   lng: 12.4964,
   texto: "Roma é um museu a céu aberto, onde cada rua guarda séculos de história e monumentos impressionantes."
@@ -35,6 +43,8 @@ const cidadesMapa = [
 {
   nome: "Milão",
   slug: "milao",
+  pais: "Itália",
+  codigoPais: "it",
   lat: 45.4642,
   lng: 9.1900,
   texto: "Milão combina tradição e modernidade, com arquitetura elegante, moda e grandes cafés."
@@ -43,22 +53,48 @@ const cidadesMapa = [
 {
   nome: "Paris",
   slug: "paris",
+  pais: "França",
+  codigoPais: "fr",
   lat: 48.8566,
   lng: 2.3522,
   texto: "Paris, a cidade luz, convida a caminhar por suas avenidas históricas, cafés e monumentos inesquecíveis."
 },
 
 {
+  nome: "Londres",
+  slug: "londres",
+  pais: "Reino Unido",
+  codigoPais: "gb",
+  lat: 51.5074,
+  lng: -0.1278,
+  texto: "Londres mistura tradição e modernidade com palácios históricos, museus famosos e bairros cheios de vida."
+},
+
+{
   nome: "Nova York",
   slug: "nova-york",
+  pais: "Estados Unidos",
+  codigoPais: "us",
   lat: 40.7128,
   lng: -74.0060,
   texto: "Nova York é uma cidade vibrante onde culturas se encontram e cada bairro conta uma história diferente."
 },
 
 {
+  nome: "Washington DC",
+  slug: "washington-dc",
+  pais: "Estados Unidos",
+  codigoPais: "us",
+  lat: 38.9072,
+  lng: -77.0369,
+  texto: "Washington DC reúne história, política e monumentos icônicos que contam a trajetória dos Estados Unidos."
+},
+
+{
   nome: "New Jersey",
   slug: "new-jersey",
+  pais: "Estados Unidos",
+  codigoPais: "us",
   lat: 40.0583,
   lng: -74.4057,
   texto: "New Jersey oferece uma perspectiva diferente da região de Nova York, com cidades tranquilas e vistas incríveis do skyline."
@@ -67,6 +103,8 @@ const cidadesMapa = [
 {
   nome: "Toronto",
   slug: "toronto",
+  pais: "Canadá",
+  codigoPais: "ca",
   lat: 43.6532,
   lng: -79.3832,
   texto: "Toronto é uma cidade multicultural, moderna e cheia de bairros interessantes para explorar."
@@ -75,6 +113,8 @@ const cidadesMapa = [
 {
   nome: "Quebec City",
   slug: "quebec-city",
+  pais: "Canadá",
+  codigoPais: "ca",
   lat: 46.8139,
   lng: -71.2080,
   texto: "Quebec City parece uma cidade europeia na América do Norte, com muralhas históricas e ruas charmosas."
@@ -83,6 +123,8 @@ const cidadesMapa = [
 {
   nome: "Montreal",
   slug: "montreal",
+  pais: "Canadá",
+  codigoPais: "ca",
   lat: 45.5017,
   lng: -73.5673,
   texto: "Montreal combina cultura francesa, arte e uma atmosfera vibrante em qualquer época do ano."
@@ -91,6 +133,8 @@ const cidadesMapa = [
 {
   nome: "Miami",
   slug: "miami",
+  pais: "Estados Unidos",
+  codigoPais: "us",
   lat: 25.7617,
   lng: -80.1918,
   texto: "Miami mistura praias, arquitetura art déco e uma forte influência latino-americana."
@@ -99,6 +143,8 @@ const cidadesMapa = [
 {
   nome: "Doral",
   slug: "doral-miami",
+  pais: "Estados Unidos",
+  codigoPais: "us",
   lat: 25.8195,
   lng: -80.3553,
   texto: "Doral é uma cidade moderna da região de Miami, conhecida por sua forte presença latina e ótima gastronomia."
@@ -107,14 +153,28 @@ const cidadesMapa = [
 {
   nome: "Rio de Janeiro",
   slug: "rio-de-janeiro",
+  pais: "Brasil",
+  codigoPais: "br",
   lat: -22.9068,
   lng: -43.1729,
   texto: "O Rio de Janeiro impressiona com sua paisagem única, onde montanhas, mar e cidade convivem em perfeita harmonia."
 },
 
 {
+  nome: "Quissamã",
+  slug: "quissama",
+  pais: "Brasil",
+  codigoPais: "br",
+  lat: -22.1034,
+  lng: -41.4687,
+  texto: "Quissamã é uma pequena cidade do litoral norte do Rio de Janeiro, conhecida por suas paisagens naturais e tranquilidade."
+},
+
+{
   nome: "São Paulo",
   slug: "sao-paulo",
+  pais: "Brasil",
+  codigoPais: "br",
   lat: -23.5505,
   lng: -46.6333,
   texto: "São Paulo é uma metrópole dinâmica, repleta de cultura, gastronomia e bairros cheios de personalidade."
@@ -123,6 +183,8 @@ const cidadesMapa = [
 {
   nome: "Curitiba",
   slug: "curitiba",
+  pais: "Brasil",
+  codigoPais: "br",
   lat: -25.4284,
   lng: -49.2733,
   texto: "Curitiba é conhecida por sua organização urbana, parques bem cuidados e qualidade de vida."
@@ -131,14 +193,28 @@ const cidadesMapa = [
 {
   nome: "Porto Alegre",
   slug: "porto-alegre",
+  pais: "Brasil",
+  codigoPais: "br",
   lat: -30.0346,
   lng: -51.2177,
   texto: "Porto Alegre combina tradição, cultura e belas paisagens às margens do Guaíba."
 },
 
 {
+  nome: "Ciudad del Este",
+  slug: "ciudad-del-este",
+  pais: "Paraguai",
+  codigoPais: "py",
+  lat: -25.5097,
+  lng: -54.6111,
+  texto: "Ciudad del Este é conhecida por seu comércio intenso e pela proximidade com as Cataratas do Iguaçu e a tríplice fronteira."
+},
+
+{
   nome: "Santiago",
   slug: "santiago",
+  pais: "Chile",
+  codigoPais: "cl",
   lat: -33.4489,
   lng: -70.6693,
   texto: "Santiago é uma cidade moderna cercada pelos Andes, com cultura vibrante e ótimas paisagens."

@@ -54,7 +54,7 @@
       <a href="index.html">Início</a>
       <a href="mapa.html">Mapa</a>
       <a href="sobre.html">Sobre</a>
-      <a href="contato.html">Contato</a>
+      <a href="#" onclick="abrirPopupContato(); return false;">Contato</a>
     </nav>
 
     <div class="header-linha-2">
@@ -130,12 +130,23 @@
       L.marker([cidade.lat, cidade.lng], { icon: iconePin })
 
         .addTo(mapa)
-        .bindPopup(
+     .bindPopup(
   `<div class="popup-cidade">
-      <div class="popup-titulo">${cidade.nome}</div>
+      
+   <div class="popup-titulo">
+  <img
+    class="popup-bandeira"
+    src="https://flagcdn.com/24x18/${cidade.codigoPais}.png"
+    alt="Bandeira de ${cidade.pais}"
+    loading="lazy"
+  >
+  <span>${cidade.nome}</span>
+</div>
+
       <div class="popup-texto">${cidade.texto}</div>
    </div>`
 )
+
 
 ;
 
@@ -148,6 +159,72 @@
       });
     }
   </script>
+<div id="popup-contato" class="popup-overlay">
+
+  <div class="popup-contato-card">
+
+    <div class="selo-instagram">
+      <div class="icone-instagram-carimbo"></div>
+    </div>
+
+    <h2>Contato</h2>
+
+    <p>
+      Quer falar comigo ou acompanhar mais viagens e bastidores?
+      Me chama no Instagram.
+    </p>
+
+    <div class="popup-contato-acoes">
+
+      <a
+        href="https://instagram.com/cafecommapas"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="botao-instagram"
+      >
+        Abrir Instagram
+      </a>
+
+      <button class="botao-fechar-popup" onclick="fecharPopupContato()">
+        Fechar
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+function abrirPopupContato(){
+  const popup = document.getElementById("popup-contato");
+  if(popup){
+    popup.style.display = "flex";
+  }
+}
+
+function fecharPopupContato(){
+  const popup = document.getElementById("popup-contato");
+  if(popup){
+    popup.style.display = "none";
+  }
+}
+
+document.addEventListener("click", function(e){
+
+  const popup = document.getElementById("popup-contato");
+
+  if(!popup) return;
+
+  if(e.target === popup){
+    popup.style.display = "none";
+  }
+
+});
+
+</script>
+
 
 </body>
 </html>
