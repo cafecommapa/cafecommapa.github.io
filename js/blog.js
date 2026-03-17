@@ -460,3 +460,30 @@ async function iniciar() {
 }
 
 document.addEventListener("DOMContentLoaded", iniciar);
+
+
+// popup boas vindas
+document.addEventListener("DOMContentLoaded", function(){
+
+  const popup = document.getElementById("popup-boas-vindas");
+  const botao = document.getElementById("fechar-popup");
+
+  const hoje = new Date().toDateString();
+  const ultimo = localStorage.getItem("popupCafeMapa");
+
+  const modoTeste = true;
+
+  if(!modoTeste && ultimo === hoje){
+    popup.style.display = "none";
+  }
+
+  botao.addEventListener("click", function(){
+
+    popup.style.display = "none";
+    localStorage.setItem("popupCafeMapa", hoje);
+
+  });
+
+});
+
+

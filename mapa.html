@@ -119,9 +119,16 @@
     }).addTo(mapa);
 
     const pontos = [];
+    const iconePin = L.divIcon({
+  className: "",
+  html: '<div class="pin-mapa"></div>',
+  iconSize: [18,18],
+  iconAnchor: [9,9]
+});
 
     cidadesMapa.forEach(function (cidade) {
-      L.marker([cidade.lat, cidade.lng])
+      L.marker([cidade.lat, cidade.lng], { icon: iconePin })
+
         .addTo(mapa)
         .bindPopup(
   `<div class="popup-cidade">
