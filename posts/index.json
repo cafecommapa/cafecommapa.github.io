@@ -80,6 +80,16 @@
     "summary": "Uma reflexão leve ( e cheia de pelos!) sobre nomes, bichos de estimação e as Amandas que conheci."
   },
   {
+    "slug": "primeiraviagem",
+    "file": "posts/primeiraviagem.md",
+    "title": "Primeira Viagem Internacional parte I",
+    "date": "2025-04-15",
+    "criador": "Marcia",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "Viagem a New York"
+  },
+  {
     "slug": "2025-04-15-primeiraviagem",
     "file": "posts/2025-04-15-primeiraviagem.md",
     "title": "Primeira Viagem Internacional",
