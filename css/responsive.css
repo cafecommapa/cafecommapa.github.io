@@ -1,0 +1,271 @@
+@media (max-width:900px){
+  .layout{
+    grid-template-columns:1fr;
+  }
+
+  #clocks-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .card-post img{
+    width:130px;
+    height:130px;
+  }
+}
+
+@media (max-width:768px){
+  body{
+    padding:12px;
+  }
+
+  .topo{
+    padding:10px 12px;
+    margin-bottom:14px;
+  }
+
+  .header-linha{
+    display:grid;
+    grid-template-columns:40px 1fr 40px;
+    align-items:center;
+    gap:10px;
+    min-height:auto;
+  }
+
+  .logo-header{
+    width:40px;
+    height:40px;
+    object-fit:contain;
+  }
+
+  .titulo-site{
+    position:static;
+    transform:none;
+    font-family:'Pacifico', cursive !important;
+    font-size:1.18rem;
+    font-weight:400;
+    text-align:center;
+    line-height:1.2;
+    letter-spacing:0.4px;
+    color:#4b2e1f;
+    text-shadow:0 1px 2px rgba(0,0,0,0.08);
+    white-space:nowrap;
+  }
+
+  .relogio-mobile{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    transform:translateY(1px);
+  }
+
+  .header-linha-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    width:100%;
+    margin-top:6px;
+    padding-top:6px;
+    border-top:1px solid #ececec;
+  }
+
+  .header-linha-2-esquerda{justify-self:start;}
+  .header-linha-2-direita{justify-self:end;}
+
+  #menu-mobile-links{
+    position:absolute;
+    top:calc(100% + 8px);
+    left:0;
+    min-width:170px;
+    background:#fff;
+    border:1px solid #e8e8e8;
+    border-radius:10px;
+    box-shadow:0 10px 24px rgba(0,0,0,0.10);
+    padding:6px;
+    z-index:999;
+  }
+
+  #menu-mobile-links a{
+    display:block;
+    text-decoration:none;
+    color:#444;
+    padding:10px 12px;
+    border-radius:8px;
+    font-size:0.9rem;
+    font-weight:600;
+  }
+
+  #menu-mobile-links a:hover{background:#f4f4f4;}
+
+  #menu-cidades-mobile{
+    position:absolute;
+    top:calc(100% + 8px);
+    right:0;
+    min-width:160px;
+    background:#fff;
+    border:1px solid #e8e8e8;
+    border-radius:10px;
+    box-shadow:0 10px 24px rgba(0,0,0,0.10);
+    padding:6px;
+    z-index:999;
+  }
+
+  #menu-cidades-mobile button{
+    width:100%;
+    border:none;
+    background:none;
+    text-align:left;
+    padding:10px 12px;
+    border-radius:8px;
+    font:inherit;
+    font-size:0.9rem;
+    color:#444;
+    cursor:pointer;
+  }
+
+  #menu-cidades-mobile button:hover{background:#f4f4f4;}
+
+  .menu-principal,
+  #clocks{
+    display:none !important;
+  }
+
+  .layout{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .card-post,
+  .card-post.destaque,
+  .card-post.secundario{
+    padding:14px;
+    margin-bottom:10px;
+  }
+
+  .card-post img,
+  .card-post.destaque img,
+  .card-post.secundario img{
+    float:none;
+    display:block;
+    width:100%;
+    max-width:220px;
+    height:auto;
+    margin:0 auto 12px;
+    object-fit:contain;
+  }
+
+  .card-post h2{font-size:1.2rem;}
+  .card-post.destaque h2{font-size:1.35rem;}
+  .sidebar{padding:14px;}
+  #mapa{height:380px;}
+
+  .popup-moldura{
+    width:92vw;
+    min-height:420px;
+  }
+
+  .popup-card{
+    position:absolute;
+    top:56%;
+    left:56%;
+    transform:translate(-8%, -18%);
+    width:38%;
+    min-width:165px;
+    max-width:235px;
+    max-height:58%;
+    padding:12px;
+    background:rgba(255,255,255,0.94);
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.18);
+    overflow-y:auto;
+  }
+
+  .popup-card h2{
+    margin:0 0 8px;
+    font-size:0.95rem;
+    line-height:1.15;
+  }
+
+  .popup-card p{
+    font-size:12px;
+    line-height:1.35;
+  }
+
+  .popup-card button{
+    width:100%;
+    margin-top:10px;
+    padding:8px 10px;
+    font-size:0.85rem;
+  }
+
+  .popup-contato-card{
+    width:min(360px, 92vw);
+    padding:20px 16px;
+  }
+}
+
+@media (max-width:700px){
+  .post-body .galeria-2,
+  .post-body .galeria-3,
+  .post-body .galeria-4{
+    grid-template-columns:1fr;
+  }
+
+  .post-body .galeria-2 img,
+  .post-body .galeria-3 img,
+  .post-body .galeria-4 img{
+    height:auto;
+  }
+}
+
+@media (max-width:480px){
+  .header-linha{
+    grid-template-columns:36px 1fr 36px;
+    gap:8px;
+  }
+
+  .logo-header{
+    width:36px;
+    height:36px;
+  }
+
+  .titulo-site{font-size:0.95rem;}
+  .relogio-analogico-mini{width:36px;height:36px;}
+  .ponteiro.hora{height:10px;}
+  .ponteiro.minuto{height:13px;}
+  .ponteiro.segundo{height:14px;}
+  .botao-hamburguer{font-size:0.88rem;}
+
+  .popup-contato-acoes{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .botao-instagram,
+  .botao-fechar-popup{
+    width:100%;
+    text-align:center;
+  }
+
+  .foto-sobre{
+    width:84px;
+    height:84px;
+  }
+}
+
+@media (max-width:420px){
+  .popup-moldura{min-height:400px;}
+
+  .popup-card{
+    top:57%;
+    left:55%;
+    width:40%;
+    min-width:155px;
+    max-width:210px;
+    max-height:56%;
+    padding:10px;
+  }
+
+  .popup-card h2{font-size:0.9rem;}
+  .popup-card p{font-size:11px;line-height:1.3;}
+  .popup-card button{font-size:0.8rem;padding:8px 9px;}
+}

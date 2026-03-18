@@ -1,6 +1,7 @@
 ---
-title: viagem de carro
+title: Viagem de carro
 date: 2025-10-12
+criador: Patrô
 category: pensamento
 summary: Preparando o carro para uma viagem tranquila e segura.
 ---

@@ -4,6 +4,7 @@
     "file": "posts/2026-01-01-anonovo.md",
     "title": "Ano novo",
     "date": "2026-01-01",
+    "criador": "Patrô",
     "category": "pensamento",
     "cover": "imagens/pensamento.png",
     "summary": "Que 2026 seja construido com escolhas conscientes"
@@ -13,6 +14,7 @@
     "file": "posts/2025-12-20-albunsequadros.md",
     "title": "Albúns e quadros",
     "date": "2025-12-20",
+    "criador": "Marcia",
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "Alguns chamam de hobby, eu chamo de terapia."
@@ -22,6 +24,7 @@
     "file": "posts/2025-12-14-Monteverde.md",
     "title": "Monte Verde",
     "date": "2025-12-14",
+    "criador": "Patrô",
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "Um Final de Semana Perfeito em Monte Verde"
@@ -31,6 +34,7 @@
     "file": "posts/2025-11-30-europa.md",
     "title": "Europa",
     "date": "2025-11-30",
+    "criador": "Patrô",
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "O Primeiro Passo da Nossa Próxima Aventura Já Foi Dado"
@@ -40,6 +44,7 @@
     "file": "posts/2025-11-27-portugal.md",
     "title": "Viagem Espanha e Portugal (Parte 2)",
     "date": "2025-11-27",
+    "criador": "Marcia",
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "Em maio de 2018 fizemos uma viagem pela Espanha e Portugal,"
@@ -49,6 +54,7 @@
     "file": "posts/2025-11-15-espanha.md",
     "title": "Viagem Espanha e Portugal",
     "date": "2025-11-15",
+    "criador": "Marcia",
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "No Podcast da Água pro Vinho falamos muito das viagens que fizemos"
@@ -56,8 +62,9 @@
   {
     "slug": "2025-10-12-viagemdecarro",
     "file": "posts/2025-10-12-viagemdecarro.md",
-    "title": "viagem de carro",
+    "title": "Viagem de carro",
     "date": "2025-10-12",
+    "criador": "Patrô",
     "category": "pensamento",
     "cover": "imagens/pensamento.png",
     "summary": "Preparando o carro para uma viagem tranquila e segura."
@@ -67,6 +74,7 @@
     "file": "posts/2025-04-16-Amandas.md",
     "title": "Amandas",
     "date": "2025-04-16",
+    "criador": "Patrô",
     "category": "pensamento",
     "cover": "imagens/pensamento.png",
     "summary": "Uma reflexão leve ( e cheia de pelos!) sobre nomes, bichos de estimação e as Amandas que conheci."
@@ -76,6 +84,7 @@
     "file": "posts/2025-04-15-primeiraviagem.md",
     "title": "Primeira Viagem Internacional",
     "date": "2025-04-15",
+    "criador": "Marcia",
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "Primeira viagem internacional em família: Nova York, mochilas vazias e muita aventura!"
@@ -85,6 +94,7 @@
     "file": "posts/2025-01-01-branco.md",
     "title": "",
     "date": "2025-01-01",
+    "criador": "Patrô",
     "category": "pensamento",
     "cover": "imagens/pensamento.png",
     "summary": ""
@@ -94,6 +104,7 @@
     "file": "posts/2024-08-05-PatroeMarcia.md",
     "title": "Patro e Marcia",
     "date": "2024-08-05",
+    "criador": "Patrô",
     "category": "logocafe",
     "cover": "imagens/logocafe.png",
     "summary": "A nossa história contada pelos nossos pensamentos e bilhetes de avião."
@@ -103,6 +114,7 @@
     "file": "posts/paris-no-inverno.md",
     "title": "\"Paris no inverno\"",
     "date": "\"2026-03-10\"",
+    "criador": "",
     "category": "\"destinos\"",
     "cover": "\"/imagens/paris-inverno.jpg\"",
     "summary": "\"Cafés, neve e charme nas ruas da cidade luz.\""

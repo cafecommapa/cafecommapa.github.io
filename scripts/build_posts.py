@@ -55,6 +55,7 @@ for file_path in sorted(POSTS_DIR.glob("*.md"), reverse=True):
         "file": f"posts/{file_path.name}",
         "title": meta.get("title", slug),
         "date": meta.get("date", "1970-01-01"),
+        "criador": meta.get("criador", ""),
         "category": category,
         "cover": cover,
         "summary": meta.get("summary", "") or extract_preview(body),

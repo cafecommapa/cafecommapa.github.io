@@ -1,6 +1,7 @@
 ---
 title: Albúns e quadros
 date: 2025-12-20
+criador: Marcia
 category: viagem
 summary: Alguns chamam de hobby, eu chamo de terapia.
 ---

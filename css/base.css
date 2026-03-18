@@ -1,0 +1,114 @@
+:root{
+  --cor-fundo:#f5f6f7;
+  --cor-painel:#ffffff;
+  --cor-borda:#e8e8e8;
+  --cor-borda-suave:#e2e2e2;
+  --cor-texto:#333333;
+  --cor-texto-suave:#777777;
+  --cor-destaque:#8b5e3c;
+  --cor-destaque-escura:#6e462c;
+  --cor-destaque-clara:#d2b48c;
+  --cor-marrom:#5a3c26;
+  --sombra-suave:0 3px 10px rgba(0,0,0,0.05);
+  --sombra-media:0 6px 16px rgba(0,0,0,0.08);
+  --sombra-forte:0 20px 50px rgba(0,0,0,0.35);
+  --raio:10px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  max-width:1200px;
+  margin:auto;
+  padding:18px;
+  background-color:var(--cor-fundo);
+  background-image:url("../imagens/fundo-mapa.jpg");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  color:var(--cor-texto);
+}
+
+a{
+  color:inherit;
+}
+
+img{
+  max-width:100%;
+}
+
+.rodape{
+  background:#111827;
+  color:#d1d5db;
+  margin-top:16px;
+  padding:28px 20px;
+  border-radius:10px;
+}
+
+.rodape-linha{
+  position:relative;
+  height:2px;
+  background:linear-gradient(90deg,#c89c6b,#e0c3a0,#c89c6b);
+  margin-bottom:20px;
+}
+
+.rodape-linha::after{
+  content:"✦";
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  background:#111827;
+  padding:0 10px;
+  color:#e5c49a;
+  font-size:18px;
+}
+
+.rodape-container{
+  max-width:1000px;
+  margin:auto;
+  text-align:center;
+}
+
+.rodape-redes{
+  display:flex;
+  justify-content:center;
+  gap:32px;
+  margin-bottom:12px;
+  flex-wrap:wrap;
+}
+
+.rodape-redes a{
+  color:#e5e7eb;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:500;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.rodape-redes a:hover{
+  opacity:0.92;
+}
+
+.icone-instagram-rodape{
+  width:18px;
+  height:18px;
+  border-radius:4px;
+  background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4);
+}
+
+.rodape-info{
+  font-size:13px;
+  color:#9ca3af;
+}

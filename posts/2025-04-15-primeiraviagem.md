@@ -1,6 +1,7 @@
 ---
 title: Primeira Viagem Internacional
 date: 2025-04-15
+criador: Marcia
 category: viagem
 summary: Primeira viagem internacional em família: Nova York, mochilas vazias e muita aventura!
 ---
