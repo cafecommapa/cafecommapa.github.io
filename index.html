@@ -52,7 +52,7 @@
       </div>
 
       <a href="mapa.html">Mapa</a>
-      <a href="sobre.html">Sobre</a>
+      <a href="#" onclick="abrirPopupSobre(); return false;">Sobre</a>
       <a href="#" onclick="abrirPopupContato(); return false;">Contato</a>
     </nav>
 
@@ -65,8 +65,8 @@
         <div id="menu-mobile-links" class="menu-mobile-links">
           <a href="index.html">Início</a>
           <a href="mapa.html">Mapa</a>
-          <a href="sobre.html">Sobre</a>
-          <<a href="#" onclick="abrirPopupContato(); return false;">Contato</a>
+          <a href="#" onclick="abrirPopupSobre(); return false;">Sobre</a>
+          <a href="#" onclick="abrirPopupContato(); return false;">Contato</a>
         </div>
       </div>
 
@@ -113,7 +113,7 @@
     </aside>
   </main>
 
-  <<footer class="rodape">
+  <footer class="rodape">
 
   <div class="rodape-linha"></div>
 
@@ -202,6 +202,40 @@
         Fechar
       </button>
     </div>
+
+  </div>
+
+</div>
+
+<div id="popup-sobre" class="popup-overlay" style="display:none">
+
+  <div class="popup-contato-card">
+
+    <h2>Sobre o blog</h2>
+
+    <p>
+      No Café com Mapas, compartilhamos nossas experiências de viagem,
+      dicas de lugares, roteiros e inspirações pelo caminho,
+      além de reflexões sobre séries, filmes e livros.
+      Este é um espaço para reunir memórias, ideias e descobertas.
+      Junte-se a nós nessa jornada.
+    </p>
+
+    <p class="assinatura-blog">
+      Patrô e Márcia
+    </p>
+
+<div class="popup-sobre-base">
+
+  <button class="botao-fechar-popup" onclick="fecharPopupSobre()">
+    Fechar
+  </button>
+
+  <div class="foto-sobre">
+    <img src="imagens/nos.jpg" alt="Patrô e Márcia">
+  </div>
+
+</div>
 
   </div>
 

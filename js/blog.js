@@ -518,3 +518,28 @@ document.addEventListener("click", function(e){
   }
 
 });
+
+/* =========================
+   POPUP SOBRE
+========================= */
+
+function abrirPopupSobre(){
+  const popup = document.getElementById("popup-sobre");
+  if(popup){
+    popup.style.display = "flex";
+  }
+}
+
+function fecharPopupSobre(){
+  const popup = document.getElementById("popup-sobre");
+  if(popup){
+    popup.style.display = "none";
+  }
+}
+
+document.addEventListener("click", function(e){
+  const popupSobre = document.getElementById("popup-sobre");
+  if(popupSobre && e.target === popupSobre){
+    popupSobre.style.display = "none";
+  }
+});
