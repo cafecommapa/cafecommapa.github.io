@@ -1,5 +1,5 @@
 ---
-title: Primeira Viagem Internacional parte I
+title: Primeira Viagem Internacional - parte I
 date: 2025-04-15
 criador: Marcia
 category: viagem
@@ -20,8 +20,12 @@ Eu comprei meu primeiro Mini IPad, lindoooo.
 Essa foi só a primeira parte da nossa viagem... em breve, conto como foi o restante dessa experiência incrível!
 
 
-![teste](imagens/2013_NYCentralPark1.jpg)
-![teste](imagens/2013_NYCentralPark2.jpg)
-![teste](imagens/2013_NYPonteBrooking.jpg)
-![teste](imagens/2013_NYRockffelerCenter.jpg)
-![teste](imagens/2013_TimeSquare.jpg)
+<div class="galeria">
+
+<img src="imagens/2013_NYCentralPark1.jpg" alt="Central Park">
+<img src="imagens/2013_NYCentralPark2.jpg" alt="Central Park">
+<img src="imagens/2013_NYPonteBrooking.jpg" alt="Brooklyn Bridge">
+<img src="imagens/2013_NYRockffelerCenter.jpg" alt="Rockefeller Center">
+<img src="imagens/2013_TimeSquare.jpg" alt="Times Square">
+
+</div>

@@ -309,3 +309,27 @@
   max-width:1000px;
   margin:0 auto;
 }
+
+.galeria{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:12px;
+}
+
+.galeria > *{
+  margin:0;
+}
+
+.galeria img{
+  width:100%;
+  display:block;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* celular */
+@media (max-width:768px){
+  .galeria{
+    grid-template-columns:1fr;
+  }
+}

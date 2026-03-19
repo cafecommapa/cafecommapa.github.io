@@ -1,5 +1,15 @@
 [
   {
+    "slug": "teste-do-construtor-de-md",
+    "file": "posts/teste-do-construtor-de-md.md",
+    "title": "Teste do construtor de MD",
+    "date": "2026-01-18",
+    "criador": "Parte",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "Desenvolvimento do aplicativo MD"
+  },
+  {
     "slug": "2026-01-01-anonovo",
     "file": "posts/2026-01-01-anonovo.md",
     "title": "Ano novo",
@@ -82,7 +92,7 @@
   {
     "slug": "primeiraviagem",
     "file": "posts/primeiraviagem.md",
-    "title": "Primeira Viagem Internacional parte I",
+    "title": "Primeira Viagem Internacional - parte I",
     "date": "2025-04-15",
     "criador": "Marcia",
     "category": "viagem",
