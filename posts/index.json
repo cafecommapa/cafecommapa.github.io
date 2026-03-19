@@ -1,5 +1,15 @@
 [
   {
+    "slug": "construtor-de-md-v2",
+    "file": "posts/construtor-de-md-v2.md",
+    "title": "Construtor de MD V2",
+    "date": "2026-04-18",
+    "criador": "Patrô",
+    "category": "tecnologia",
+    "cover": "imagens/tecnologia.png",
+    "summary": "A versão melhoradas, permite uma visualização final."
+  },
+  {
     "slug": "teste-do-construtor-de-md",
     "file": "posts/teste-do-construtor-de-md.md",
     "title": "Teste do construtor de MD",
