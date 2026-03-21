@@ -4,6 +4,8 @@ window.SiteMenu = (function () {
     const menuCidades = document.getElementById("menu-cidades-mobile");
     const botaoMenuMobile = document.getElementById("botao-menu-mobile");
     const menuMobileLinks = document.getElementById("menu-mobile-links");
+    const botaoCategoriasMobile = document.getElementById("botao-categorias-mobile");
+    const menuCategoriasMobile = document.getElementById("menu-categorias-mobile");
     const estadoInicial = window.SiteRelogios?.getCidadeMobileAtual?.();
 
     if (botaoCidade && estadoInicial) {
@@ -45,6 +47,26 @@ window.SiteMenu = (function () {
 
         if (menuCidades) menuCidades.classList.remove("aberto");
         if (botaoCidade) botaoCidade.setAttribute("aria-expanded", "false");
+        if (!abriu && menuCategoriasMobile) menuCategoriasMobile.classList.remove("aberto");
+        if (!abriu && botaoCategoriasMobile) botaoCategoriasMobile.setAttribute("aria-expanded", "false");
+      });
+
+      menuMobileLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", function () {
+          menuMobileLinks.classList.remove("aberto");
+          botaoMenuMobile.setAttribute("aria-expanded", "false");
+          if (menuCategoriasMobile) menuCategoriasMobile.classList.remove("aberto");
+          if (botaoCategoriasMobile) botaoCategoriasMobile.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+
+    if (botaoCategoriasMobile && menuCategoriasMobile) {
+      botaoCategoriasMobile.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const abriu = menuCategoriasMobile.classList.toggle("aberto");
+        botaoCategoriasMobile.setAttribute("aria-expanded", abriu ? "true" : "false");
       });
     }
 
@@ -57,6 +79,8 @@ window.SiteMenu = (function () {
       if (menuMobileLinks && botaoMenuMobile && !e.target.closest(".header-linha-2-esquerda")) {
         menuMobileLinks.classList.remove("aberto");
         botaoMenuMobile.setAttribute("aria-expanded", "false");
+        if (menuCategoriasMobile) menuCategoriasMobile.classList.remove("aberto");
+        if (botaoCategoriasMobile) botaoCategoriasMobile.setAttribute("aria-expanded", "false");
       }
     });
   }

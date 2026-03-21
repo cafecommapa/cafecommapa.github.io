@@ -278,6 +278,14 @@
   white-space:nowrap;
 }
 
+.lista-post-vazia{
+  padding:16px;
+  border:1px dashed var(--cor-borda-suave);
+  border-radius:10px;
+  background:#fafafa;
+  color:var(--cor-texto-suave);
+}
+
 .post-body{
   font-size:1.05rem;
   line-height:1.8;

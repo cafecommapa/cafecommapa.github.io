@@ -96,6 +96,40 @@
 
   #menu-mobile-links a:hover{background:#f4f4f4;}
 
+  .botao-menu-mobile-categoria{
+    width:100%;
+    border:none;
+    background:none;
+    text-align:left;
+    padding:10px 12px;
+    border-radius:8px;
+    font:inherit;
+    font-size:0.9rem;
+    font-weight:600;
+    color:#444;
+    cursor:pointer;
+  }
+
+  .botao-menu-mobile-categoria:hover{
+    background:#f4f4f4;
+  }
+
+  .menu-categorias-mobile{
+    display:none;
+    margin:4px 0 6px 10px;
+    padding-left:6px;
+    border-left:2px solid #eee;
+  }
+
+  .menu-categorias-mobile.aberto{
+    display:block;
+  }
+
+  .menu-categorias-mobile a{
+    font-size:0.88rem !important;
+    padding:8px 10px !important;
+  }
+
   #menu-cidades-mobile{
     position:absolute;
     top:calc(100% + 8px);

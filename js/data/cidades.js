@@ -20,5 +20,7 @@ window.cidadesMapa = [
   { nome: "Curitiba", slug: "curitiba", pais: "Brasil", codigoPais: "br", lat: -25.4284, lng: -49.2733, texto: "Curitiba é conhecida por sua organização urbana, parques bem cuidados e qualidade de vida." },
   { nome: "Porto Alegre", slug: "porto-alegre", pais: "Brasil", codigoPais: "br", lat: -30.0346, lng: -51.2177, texto: "Porto Alegre combina tradição, cultura e belas paisagens às margens do Guaíba." },
   { nome: "Ciudad del Este", slug: "ciudad-del-este", pais: "Paraguai", codigoPais: "py", lat: -25.5097, lng: -54.6111, texto: "Ciudad del Este é conhecida por seu comércio intenso e pela proximidade com as Cataratas do Iguaçu e a tríplice fronteira." },
-  { nome: "Santiago", slug: "santiago", pais: "Chile", codigoPais: "cl", lat: -33.4489, lng: -70.6693, texto: "Santiago é uma cidade moderna cercada pelos Andes, com cultura vibrante e ótimas paisagens." }
+  { nome: "Santiago", slug: "santiago", pais: "Chile", codigoPais: "cl", lat: -33.4489, lng: -70.6693, texto: "Santiago é uma cidade moderna cercada pelos Andes, com cultura vibrante e ótimas paisagens." },
+  { nome: "Buenos Aires", slug: "buenos-aires", pais: "Argentina", codigoPais: "ar", lat: -34.6037, lng: -58.3816, texto: "Buenos Aires combina cafés históricos, arquitetura elegante e bairros cheios de personalidade.", visitadoPor: "marcia" },
+  { nome: "New Orleans", slug: "new-orleans", pais: "Estados Unidos", codigoPais: "us", lat: 29.9511, lng: -90.0715, texto: "New Orleans tem uma identidade única, marcada por música, culinária e ruas cheias de história.", visitadoPor: "patro" }
 ];

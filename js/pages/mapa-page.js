@@ -1,4 +1,16 @@
 window.SiteMapa = (function () {
+  function normalizarVisitadoPor(valor) {
+    return String(valor || "").trim().toLowerCase();
+  }
+
+  function classePinDaCidade(cidade) {
+    const visitadoPor = normalizarVisitadoPor(cidade.visitadoPor);
+
+    if (visitadoPor === "patro") return "pin-mapa pin-mapa-patro";
+    if (visitadoPor === "marcia") return "pin-mapa pin-mapa-marcia";
+    return "pin-mapa pin-mapa-ambos";
+  }
+
   function popupCidade(cidade) {
     const bandeira = cidade.codigoPais
       ? `<img class="popup-bandeira" src="https://flagcdn.com/24x18/${cidade.codigoPais}.png" alt="Bandeira de ${cidade.pais}" loading="lazy">`
@@ -29,15 +41,15 @@ window.SiteMapa = (function () {
       attribution: "&copy; OpenStreetMap contributors"
     }).addTo(mapa);
 
-    const iconePin = L.divIcon({
-      className: "",
-      html: '<div class="pin-mapa"></div>',
-      iconSize: [18, 18],
-      iconAnchor: [9, 9]
-    });
-
     const pontos = [];
     window.cidadesMapa.forEach((cidade) => {
+      const iconePin = L.divIcon({
+        className: "",
+        html: `<div class="${classePinDaCidade(cidade)}"></div>`,
+        iconSize: [18, 18],
+        iconAnchor: [9, 9]
+      });
+
       L.marker([cidade.lat, cidade.lng], { icon: iconePin })
         .addTo(mapa)
         .bindPopup(popupCidade(cidade));

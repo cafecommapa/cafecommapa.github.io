@@ -1,6 +1,14 @@
 window.SiteHome = (function () {
   let postsCache = [];
   const LIMITE_SIDEBAR = 10;
+  const TITULOS_CATEGORIAS = {
+    viagem: "Viagem",
+    pensamento: "Pensamento",
+    receita: "Receita",
+    filme: "Filme",
+    tecnologia: "Tecnologia",
+    "todos-posts": "Todos os Posts"
+  };
 
   if (window.marked) {
     marked.setOptions({ gfm: true, breaks: true });
@@ -12,6 +20,13 @@ window.SiteHome = (function () {
 
   async function buscarMarkdown(caminho) {
     return window.SiteUtils.fetchText(caminho);
+  }
+
+  function normalizarCategoria(valor) {
+    return String(valor || "")
+      .trim()
+      .replace(/^["']|["']$/g, "")
+      .toLowerCase();
   }
 
   function destacarPostAberto(slugAtivo) {
@@ -60,9 +75,7 @@ window.SiteHome = (function () {
     if (botaoVoltar) {
       botaoVoltar.addEventListener("click", async function (e) {
         e.preventDefault();
-        await renderizarPrincipais(postsCache);
-        destacarPostAberto(null);
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        await voltarParaHomePrincipal();
       });
     }
 
@@ -102,23 +115,31 @@ window.SiteHome = (function () {
     bindAberturaDePosts(container);
   }
 
-  function renderizarTodosOsPosts(posts) {
+  async function voltarParaHomePrincipal() {
+    await renderizarPrincipais(postsCache);
+    destacarPostAberto(null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function renderizarListaDePosts(posts, options = {}) {
     const container = document.getElementById("posts-principais");
     if (!container) return;
     const postsOrdenados = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
+    const titulo = options.titulo || "Mais posts do blog";
+    const descricao = options.descricao || "Todos os posts publicados";
 
     container.innerHTML = `
       <section class="post-full lista-posts-completa">
         <a href="#" class="botao-voltar" id="botao-voltar-lista">← Voltar</a>
-        <div class="post-meta">Todos os posts publicados</div>
-        <h1>Mais posts do blog</h1>
+        <div class="post-meta">${descricao}</div>
+        <h1>${titulo}</h1>
         <div class="lista-posts-completa-grid">
-          ${postsOrdenados.map((post) => `
+          ${postsOrdenados.length > 0 ? postsOrdenados.map((post) => `
             <a href="#" class="lista-post-link" data-slug="${post.slug}">
               <span class="lista-post-link-titulo">${post.title}</span>
               <span class="lista-post-link-data">${window.SiteUtils.formatarData(post.date)}</span>
             </a>
-          `).join("")}
+          `).join("") : '<p class="lista-post-vazia">Nenhum post encontrado nessa categoria.</p>'}
         </div>
       </section>
     `;
@@ -127,9 +148,7 @@ window.SiteHome = (function () {
     if (botaoVoltarLista) {
       botaoVoltarLista.addEventListener("click", async function (e) {
         e.preventDefault();
-        await renderizarPrincipais(postsCache);
-        destacarPostAberto(null);
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        await voltarParaHomePrincipal();
       });
     }
 
@@ -138,13 +157,47 @@ window.SiteHome = (function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  function bindMenuCategorias() {
-    const linkTodosPosts = document.querySelector('[data-categoria="todos-posts"]');
-    if (!linkTodosPosts) return;
+  function renderizarTodosOsPosts(posts) {
+    renderizarListaDePosts(posts, {
+      titulo: "Mais posts do blog",
+      descricao: "Todos os posts publicados"
+    });
+  }
 
-    linkTodosPosts.addEventListener("click", function (e) {
-      e.preventDefault();
-      renderizarTodosOsPosts(postsCache);
+  function renderizarPostsPorCategoria(categoria) {
+    const categoriaNormalizada = normalizarCategoria(categoria);
+    const postsFiltrados = postsCache.filter((post) => {
+      return normalizarCategoria(post.category) === categoriaNormalizada;
+    });
+
+    renderizarListaDePosts(postsFiltrados, {
+      titulo: TITULOS_CATEGORIAS[categoriaNormalizada] || "Categoria",
+      descricao: `Posts da categoria ${TITULOS_CATEGORIAS[categoriaNormalizada] || categoriaNormalizada}`
+    });
+  }
+
+  function bindMenuCategorias() {
+    document.querySelectorAll("[data-categoria]").forEach((linkCategoria) => {
+      linkCategoria.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const categoria = normalizarCategoria(this.dataset.categoria);
+        if (categoria === "todos-posts") {
+          renderizarTodosOsPosts(postsCache);
+          return;
+        }
+
+        renderizarPostsPorCategoria(categoria);
+      });
+    });
+  }
+
+  function bindMenuInicio() {
+    document.querySelectorAll('[data-menu="inicio"]').forEach((linkInicio) => {
+      linkInicio.addEventListener("click", async function (e) {
+        e.preventDefault();
+        await voltarParaHomePrincipal();
+      });
     });
   }
 
@@ -197,6 +250,7 @@ window.SiteHome = (function () {
       postsCache = await buscarIndice();
       await renderizarPrincipais(postsCache);
       renderizarSidebar(postsCache);
+      bindMenuInicio();
       bindMenuCategorias();
     } catch (erro) {
       console.error(erro);
