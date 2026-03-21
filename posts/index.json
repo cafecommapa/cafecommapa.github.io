@@ -1,5 +1,25 @@
 [
   {
+    "slug": "carne-de-panela",
+    "file": "posts/carne-de-panela.md",
+    "title": "Carne de Panela",
+    "date": "2026-05-27",
+    "criador": "",
+    "category": "receita",
+    "cover": "imagens/receita.png",
+    "summary": "Simples de fazer, prática e cheia de sabor!"
+  },
+  {
+    "slug": "ano-novo",
+    "file": "posts/ano-novo.md",
+    "title": "Ano novo",
+    "date": "2026-01-01",
+    "criador": "Marcia",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "Quando olhamos para 2025, a sensação é de que as histórias se repetem."
+  },
+  {
     "slug": "2026-01-01-anonovo",
     "file": "posts/2026-01-01-anonovo.md",
     "title": "Ano novo",
@@ -68,6 +88,26 @@
     "category": "pensamento",
     "cover": "imagens/pensamento.png",
     "summary": "Preparando o carro para uma viagem tranquila e segura."
+  },
+  {
+    "slug": "molho-gorgonzola",
+    "file": "posts/molho-gorgonzola.md",
+    "title": "Molho Gorgonzola",
+    "date": "2025-07-23",
+    "criador": "",
+    "category": "receita",
+    "cover": "imagens/receita.png",
+    "summary": "Receita do Molho Gorgonzola"
+  },
+  {
+    "slug": "missao-impossivel",
+    "file": "posts/missao-impossivel.md",
+    "title": "Missão Impossível",
+    "date": "2025-06-10",
+    "criador": "Marcia",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "Às vezes parece que não é só nos filmes, né?"
   },
   {
     "slug": "2025-04-16-Amandas",

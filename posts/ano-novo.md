@@ -1,0 +1,23 @@
+---
+title: Ano novo
+date: 2026-01-01
+criador: Marcia
+category: Pensamento
+summary: Quando olhamos para 2025, a sensação é de que as histórias se repetem.
+---
+
+Quando olhamos para 2025, a sensação é de que as histórias se repetem. Não parecem muito diferentes das de tantos outros anos que já passaram.
+Basta assistir a uma retrospectiva na televisão para confirmar essa impressão: despedidas de personalidades públicas, separações de casais famosos, escândalos políticos, nascimentos celebrados, tragédias ambientais e desastres ecológicos. Os fatos se repetem, apenas mudam os nomes, os rostos e os lugares.
+E é aí que nasce minha reflexão: os acontecimentos não mudam tanto assim. O que muda são as pessoas — e os cenários.
+Moro no mesmo apartamento há alguns anos, mas ele já não é o mesmo. A marcenaria ficou pronta, as paredes ganharam novas cores, os quadros mudaram de lugar. Pequenos ajustes que transformaram os ambientes e trouxeram a sensação de novidade.
+Dentro dos armários, a mudança foi ainda mais profunda. Caixas organizadoras, prateleiras e suportes reorganizaram tudo aquilo que já existia: roupas, louças, sapatos. Nada novo foi comprado, mas tudo passou a ter um novo lugar — e um uso muito mais leve no dia a dia.
+Isso me fez perceber o quanto é essencial que o externo e o interno estejam em sintonia.
+Não dá para sustentar uma imagem bonita por fora enquanto, por dentro, existe bagunça e angústia. O Instagram não pode ser um espaço feliz se a vida real se parece com um armário desorganizado.
+É muito mais gostoso compartilhar aquilo que diverte, inspira, ensina e faz bem — tanto para quem vê quanto para quem cria. Quando isso acontece, a troca é verdadeira, produtiva e cheia de significado.
+Que 2026 seja construído com escolhas conscientes. Que você faça por ele tudo aquilo que te torne uma pessoa mais feliz — e que essa felicidade transborde para alcançar outras pessoas também.
+
+<div class="galeria">
+
+<img src="imagens/Postodeanonovo.png" alt="">
+
+</div>
