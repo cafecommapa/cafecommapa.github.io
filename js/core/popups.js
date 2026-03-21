@@ -93,9 +93,8 @@ window.SitePopups = (function () {
 
     const hoje = new Date().toDateString();
     const ultimo = localStorage.getItem("popupCafeMapa");
-    const modoTeste = true;
 
-    if (!modoTeste && ultimo === hoje) {
+    if (ultimo === hoje) {
       popup.style.display = "none";
       return;
     }

@@ -1,5 +1,6 @@
 window.SiteHome = (function () {
   let postsCache = [];
+  const LIMITE_SIDEBAR = 10;
 
   if (window.marked) {
     marked.setOptions({ gfm: true, breaks: true });
@@ -17,6 +18,17 @@ window.SiteHome = (function () {
     document.querySelectorAll(".sidebar-link").forEach((link) => {
       if (link.dataset.slug === slugAtivo) link.classList.add("ativo");
       else link.classList.remove("ativo");
+    });
+  }
+
+  function bindAberturaDePosts(container) {
+    if (!container) return;
+
+    container.querySelectorAll("[data-slug]").forEach((link) => {
+      link.addEventListener("click", async function (e) {
+        e.preventDefault();
+        await abrirPostNaHome(this.dataset.slug);
+      });
     });
   }
 
@@ -87,11 +99,52 @@ window.SiteHome = (function () {
       container.appendChild(artigo);
     }
 
-    container.querySelectorAll(".post-link-bloco").forEach((link) => {
-      link.addEventListener("click", async function (e) {
+    bindAberturaDePosts(container);
+  }
+
+  function renderizarTodosOsPosts(posts) {
+    const container = document.getElementById("posts-principais");
+    if (!container) return;
+    const postsOrdenados = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    container.innerHTML = `
+      <section class="post-full lista-posts-completa">
+        <a href="#" class="botao-voltar" id="botao-voltar-lista">← Voltar</a>
+        <div class="post-meta">Todos os posts publicados</div>
+        <h1>Mais posts do blog</h1>
+        <div class="lista-posts-completa-grid">
+          ${postsOrdenados.map((post) => `
+            <a href="#" class="lista-post-link" data-slug="${post.slug}">
+              <span class="lista-post-link-titulo">${post.title}</span>
+              <span class="lista-post-link-data">${window.SiteUtils.formatarData(post.date)}</span>
+            </a>
+          `).join("")}
+        </div>
+      </section>
+    `;
+
+    const botaoVoltarLista = document.getElementById("botao-voltar-lista");
+    if (botaoVoltarLista) {
+      botaoVoltarLista.addEventListener("click", async function (e) {
         e.preventDefault();
-        await abrirPostNaHome(this.dataset.slug);
+        await renderizarPrincipais(postsCache);
+        destacarPostAberto(null);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
+    }
+
+    bindAberturaDePosts(container);
+    destacarPostAberto(null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function bindMenuCategorias() {
+    const linkTodosPosts = document.querySelector('[data-categoria="todos-posts"]');
+    if (!linkTodosPosts) return;
+
+    linkTodosPosts.addEventListener("click", function (e) {
+      e.preventDefault();
+      renderizarTodosOsPosts(postsCache);
     });
   }
 
@@ -100,7 +153,7 @@ window.SiteHome = (function () {
     if (!lista) return;
 
     lista.innerHTML = "";
-    posts.slice(0, 10).forEach((post) => {
+    posts.slice(0, LIMITE_SIDEBAR).forEach((post) => {
       const item = document.createElement("li");
       item.className = "sidebar-item";
       item.innerHTML = `
@@ -112,9 +165,25 @@ window.SiteHome = (function () {
       lista.appendChild(item);
     });
 
+    if (posts.length > LIMITE_SIDEBAR) {
+      const itemMaisPosts = document.createElement("li");
+      itemMaisPosts.className = "sidebar-item sidebar-item-mais-posts";
+      itemMaisPosts.innerHTML = `
+        <a href="#" class="sidebar-link sidebar-link-mais-posts" id="sidebar-ver-mais-posts">
+          Existem mais posts. Clique para ver todos.
+        </a>
+      `;
+      lista.appendChild(itemMaisPosts);
+    }
+
     lista.querySelectorAll(".sidebar-link").forEach((link) => {
       link.addEventListener("click", async function (e) {
         e.preventDefault();
+        if (this.id === "sidebar-ver-mais-posts") {
+          renderizarTodosOsPosts(postsCache);
+          return;
+        }
+
         await abrirPostNaHome(this.dataset.slug);
       });
     });
@@ -128,6 +197,7 @@ window.SiteHome = (function () {
       postsCache = await buscarIndice();
       await renderizarPrincipais(postsCache);
       renderizarSidebar(postsCache);
+      bindMenuCategorias();
     } catch (erro) {
       console.error(erro);
       postsPrincipais.innerHTML = `<p>Erro ao carregar os posts: ${erro.message}</p>`;
