@@ -120,6 +120,16 @@
     "summary": "No Podcast da Água pro Vinho falamos muito das viagens que fizemos"
   },
   {
+    "slug": "viagem-de-carro",
+    "file": "posts/viagem-de-carro.md",
+    "title": "Viagem de carro",
+    "date": "2025-10-25",
+    "criador": "Patro",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "🚗✨"
+  },
+  {
     "slug": "2025-10-12-viagemdecarro",
     "file": "posts/2025-10-12-viagemdecarro.md",
     "title": "Viagem de carro",
@@ -128,6 +138,26 @@
     "category": "pensamento",
     "cover": "imagens/pensamento.png",
     "summary": "Preparando o carro para uma viagem tranquila e segura."
+  },
+  {
+    "slug": "uma-conquista-especial-minha-trilogia-esta-pronta",
+    "file": "posts/uma-conquista-especial-minha-trilogia-esta-pronta.md",
+    "title": "📚 Uma Conquista Especial_ Minha Trilogia Está Pronta!",
+    "date": "2025-10-10",
+    "criador": "Patro",
+    "category": "livro",
+    "cover": "imagens/livro.png",
+    "summary": "📚 Uma Conquista Especial: Minha Trilogia Está Pronta!"
+  },
+  {
+    "slug": "rabada-com-memoria",
+    "file": "posts/rabada-com-memoria.md",
+    "title": "Rabada com memória",
+    "date": "2025-09-14",
+    "criador": "Patro",
+    "category": "receita",
+    "cover": "imagens/receita.png",
+    "summary": "Em memória a primeira vez que comemos este prato em família."
   },
   {
     "slug": "krispy-kreme",
@@ -180,6 +210,26 @@
     "summary": "Roteiro de 10 dias na Flórida – Aventuras em Miami e Orlando !"
   },
   {
+    "slug": "receita-pratica-carne-moida-com-abobora-cabotia",
+    "file": "posts/receita-pratica-carne-moida-com-abobora-cabotia.md",
+    "title": "Receita prática_ carne moída com abóbora cabotiá 🎃",
+    "date": "2025-05-04",
+    "criador": "Marcia",
+    "category": "receita",
+    "cover": "imagens/receita.png",
+    "summary": "Receita prática: carne moída com abóbora cabotiá 🎃"
+  },
+  {
+    "slug": "receita-carne-de-panela-com-linguica-sabor-de-casa",
+    "file": "posts/receita-carne-de-panela-com-linguica-sabor-de-casa.md",
+    "title": "Receita_ Carne de Panela com Linguiça — Sabor de Casa!",
+    "date": "2025-05-04",
+    "criador": "Marcia",
+    "category": "receita",
+    "cover": "imagens/receita.png",
+    "summary": "Receita: Carne de Panela com Linguiça — Sabor de Casa!"
+  },
+  {
     "slug": "new-york-em-2014",
     "file": "posts/new-york-em-2014.md",
     "title": "New York em 2014",
@@ -188,6 +238,16 @@
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "Essa foi mais uma aventura que ficará para sempre no meu coração."
+  },
+  {
+    "slug": "semana-santa-cardapio-frutos-do-mar-e-dicas-culinarias",
+    "file": "posts/semana-santa-cardapio-frutos-do-mar-e-dicas-culinarias.md",
+    "title": "Semana Santa_ Cardápio Frutos do Mar e Dicas Culinárias",
+    "date": "2025-04-20",
+    "criador": "márcia",
+    "category": "receita",
+    "cover": "imagens/receita.png",
+    "summary": "Semana Santa: Cardápio Frutos do Mar e Dicas Culinárias"
   },
   {
     "slug": "primeira-viagem-internacional-parte-2",
@@ -230,6 +290,16 @@
     "summary": "Primeira viagem internacional em família: Nova York, mochilas vazias e muita aventura!"
   },
   {
+    "slug": "viagem-ao-chile-nao-sao-so-glorias-mas-tambem-perrengues",
+    "file": "posts/viagem-ao-chile-nao-sao-so-glorias-mas-tambem-perrengues.md",
+    "title": "Viagem ao Chile_ Não são só glórias, mas também perrengues",
+    "date": "2025-04-14",
+    "criador": "márcia",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "Viagem ao Chile: Não são só glórias, mas também perrengues"
+  },
+  {
     "slug": "primeira-viagem-internacional-parte-1",
     "file": "posts/primeira-viagem-internacional-parte-1.md",
     "title": "Primeira viagem internacional parte 1",
@@ -238,6 +308,46 @@
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "Nossa primeira viagem internacional foi em família, 2013"
+  },
+  {
+    "slug": "sera-que-minha-pele-e-de-acucar",
+    "file": "posts/sera-que-minha-pele-e-de-acucar.md",
+    "title": "Será que minha pele é de açúcar",
+    "date": "2025-03-01",
+    "criador": "Patro",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "Este foi um pensamento que me ocorreu em abril de 2018. durante uma caminhada com ameaça de chuva."
+  },
+  {
+    "slug": "voce-tem-o-habito-da-leitura",
+    "file": "posts/voce-tem-o-habito-da-leitura.md",
+    "title": "Você tem o hábito da leitura",
+    "date": "2025-02-12",
+    "criador": "Patro",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "Você tem o hábito da leitura?"
+  },
+  {
+    "slug": "a-primeira-viagem-internacional-parte-2",
+    "file": "posts/a-primeira-viagem-internacional-parte-2.md",
+    "title": "A primeira viagem internacional Parte 2",
+    "date": "2025-02-02",
+    "criador": "márcia",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "A Primeira Viagem Internacional – Parte 2"
+  },
+  {
+    "slug": "xbox-x-vs-ps5",
+    "file": "posts/xbox-x-vs-ps5.md",
+    "title": "Xbox X vs PS5",
+    "date": "2025-01-12",
+    "criador": "Patro",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "Quando o assunto é nova geração de consoles, Xbox Series X e PlayStation 5 surgem como titãs disputando o topo. Ambos oferecem gráficos impressionantes, carregamentos quase instantâneos e experiências de jogo cada vez mais imersivas. Mas apesar das semelhanças técnicas, cada um carrega sua própria alma."
   },
   {
     "slug": "2025-01-01-branco",

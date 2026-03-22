@@ -304,6 +304,12 @@
       border-color: #ebc777;
     }
 
+    .badge.info {
+      color: #1d4ed8;
+      background: #eff6ff;
+      border-color: #bfdbfe;
+    }
+
     .blocks {
       display: flex;
       flex-direction: column;
@@ -653,6 +659,7 @@
             <div class="statusbar">
               <div class="badge" id="fileNameBadge">arquivo: post.md</div>
               <div class="badge warn" id="saveInfoBadge">download: navegador decide a pasta padrão</div>
+              <div class="badge info" id="imageStatusBadge">imagens: usando /imagens do projeto</div>
             </div>
 
             <div class="toolbar">
@@ -671,6 +678,8 @@
             <div id="blocks" class="blocks"></div>
 
             <div class="toolbar" style="margin-top:18px;">
+              <button type="button" id="loadMdBtn">Carregar .md</button>
+              <button type="button" id="pickImagesBtn">Localizar imagens</button>
               <button type="button" class="primary" id="downloadBtn">Baixar .md</button>
               <button type="button" id="copyBtn">Copiar Markdown</button>
               <button type="button" id="sampleBtn">Carregar exemplo</button>
@@ -708,11 +717,18 @@
     </div>
   </dialog>
 
+  <input id="mdFileInput" type="file" accept=".md,text/markdown,text/plain" style="display:none;">
+  <input id="imageFilesInput" type="file" accept="image/*" multiple style="display:none;">
+
   <script>
     const APP_PASSWORD = "cafe123";
     const CLOSE_URL = "https://cafecommapa.com/";
     const blocks = [];
     let textExpanded = true;
+    let currentMarkdownHandle = null;
+    let currentMarkdownFileName = "";
+    let currentImageSourceLabel = "/imagens do projeto";
+    const imagePreviewMap = new Map();
 
     const els = {
       title: document.getElementById("title"),
@@ -723,6 +739,7 @@
       isoDateHint: document.getElementById("isoDateHint"),
       fileNameBadge: document.getElementById("fileNameBadge"),
       saveInfoBadge: document.getElementById("saveInfoBadge"),
+      imageStatusBadge: document.getElementById("imageStatusBadge"),
       blocks: document.getElementById("blocks"),
       previewRendered: document.getElementById("previewRendered"),
       previewRaw: document.getElementById("previewRaw"),
@@ -731,7 +748,9 @@
       modalBody: document.getElementById("modalBody"),
       lockScreen: document.getElementById("lockScreen"),
       passwordInput: document.getElementById("passwordInput"),
-      lockError: document.getElementById("lockError")
+      lockError: document.getElementById("lockError"),
+      mdFileInput: document.getElementById("mdFileInput"),
+      imageFilesInput: document.getElementById("imageFilesInput")
     };
 
     function showModal(title, html) {
@@ -834,6 +853,26 @@
         els.saveInfoBadge.textContent = "download: navegador decide a pasta padrão";
         els.saveInfoBadge.className = "badge warn";
       }
+
+      const totalImages = blocks.reduce((sum, block) => {
+        return sum + (block.type === "gallery" ? block.images.length : 0);
+      }, 0);
+
+      const resolvedImages = blocks.reduce((sum, block) => {
+        if (block.type !== "gallery") return sum;
+        return sum + block.images.filter((img) => img.previewSource !== "missing").length;
+      }, 0);
+
+      if (!totalImages) {
+        els.imageStatusBadge.textContent = "imagens: nenhuma galeria carregada";
+        els.imageStatusBadge.className = "badge";
+      } else if (resolvedImages === totalImages) {
+        els.imageStatusBadge.textContent = `imagens: ${resolvedImages}/${totalImages} localizadas em ${currentImageSourceLabel}`;
+        els.imageStatusBadge.className = "badge ok";
+      } else {
+        els.imageStatusBadge.textContent = `imagens: ${resolvedImages}/${totalImages} localizadas`;
+        els.imageStatusBadge.className = "badge warn";
+      }
     }
 
     function createTextBlock(content = "") {
@@ -850,6 +889,150 @@
         type: "gallery",
         images
       };
+    }
+
+    function createGalleryImage(name, alt = "", preview = "", previewSource = "project") {
+      return {
+        id: crypto.randomUUID(),
+        name,
+        alt,
+        preview,
+        previewSource
+      };
+    }
+
+    function isoToBr(value) {
+      const match = String(value || "").trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (!match) return String(value || "").trim();
+      const [, yyyy, mm, dd] = match;
+      return `${dd}/${mm}/${yyyy}`;
+    }
+
+    function extractFrontMatter(markdown) {
+      const text = String(markdown || "").replace(/\r\n/g, "\n");
+      const match = text.match(/^---\n([\s\S]*?)\n---\n?/);
+      if (!match) {
+        return { frontMatter: {}, body: text.trimStart() };
+      }
+
+      const frontMatter = {};
+      match[1].split("\n").forEach((line) => {
+        const separatorIndex = line.indexOf(":");
+        if (separatorIndex === -1) return;
+        const key = line.slice(0, separatorIndex).trim();
+        const value = line.slice(separatorIndex + 1).trim();
+        frontMatter[key] = value;
+      });
+
+      return {
+        frontMatter,
+        body: text.slice(match[0].length)
+      };
+    }
+
+    function parseGalleryMarkup(rawHtml) {
+      const images = [];
+      const imgRegex = /<img\b[^>]*src="([^"]+)"[^>]*alt="([^"]*)"[^>]*>/gi;
+      let match;
+
+      while ((match = imgRegex.exec(rawHtml))) {
+        const src = match[1].trim();
+        const alt = match[2].trim();
+        const name = src.split("/").pop() || src;
+        images.push(createGalleryImage(name, alt));
+      }
+
+      return images;
+    }
+
+    function parseMarkdownToBlocks(body) {
+      const parts = [];
+      const normalizedBody = String(body || "").replace(/\r\n/g, "\n");
+      const galleryRegex = /<div class="galeria">[\s\S]*?<\/div>/gi;
+      let lastIndex = 0;
+      let match;
+
+      while ((match = galleryRegex.exec(normalizedBody))) {
+        const textBefore = normalizedBody.slice(lastIndex, match.index).trim();
+        if (textBefore) {
+          parts.push(createTextBlock(textBefore));
+        }
+
+        const galleryImages = parseGalleryMarkup(match[0]);
+        parts.push(createGalleryBlock(galleryImages));
+        lastIndex = match.index + match[0].length;
+      }
+
+      const textAfter = normalizedBody.slice(lastIndex).trim();
+      if (textAfter) {
+        parts.push(createTextBlock(textAfter));
+      }
+
+      return parts;
+    }
+
+    function getProjectImageCandidates(name) {
+      const safeName = encodeURIComponent(name);
+      return [
+        `imagens/${safeName}`,
+        `/imagens/${safeName}`
+      ];
+    }
+
+    function setImagePreview(img, preview, source) {
+      img.preview = preview;
+      img.previewSource = source;
+    }
+
+    function markImageMissing(img) {
+      setImagePreview(img, "", "missing");
+    }
+
+    function tryProjectPreview(img) {
+      const candidates = getProjectImageCandidates(img.name);
+      setImagePreview(img, candidates[0], "project");
+    }
+
+    function refreshImagePreviews() {
+      blocks.forEach((block) => {
+        if (block.type !== "gallery") return;
+
+        block.images.forEach((img) => {
+          const mappedPreview = imagePreviewMap.get(img.name);
+          if (mappedPreview) {
+            setImagePreview(img, mappedPreview, "selected");
+          } else {
+            tryProjectPreview(img);
+          }
+        });
+      });
+
+      updatePreview();
+    }
+
+    async function populateEditorFromMarkdown(markdownText, sourceName = "") {
+      const { frontMatter, body } = extractFrontMatter(markdownText);
+      blocks.splice(0, blocks.length);
+
+      els.title.value = frontMatter.title || "";
+      els.dateBR.value = isoToBr(frontMatter.date || "");
+      els.criador.value = frontMatter.criador || "";
+      els.category.value = frontMatter.category || "";
+      els.summary.value = frontMatter.summary || "";
+
+      const parsedBlocks = parseMarkdownToBlocks(body);
+      parsedBlocks.forEach((block) => blocks.push(block));
+
+      refreshImagePreviews();
+      renderBlocks();
+
+      if (sourceName) {
+        showModal(
+          "Markdown carregado",
+          `<p>O arquivo <strong>${escapeHtml(sourceName)}</strong> foi carregado para edição.</p>
+           <p>Se alguma miniatura não aparecer, use <strong>Localizar imagens</strong> para apontar a pasta ou selecionar os arquivos.</p>`
+        );
+      }
     }
 
     function moveItem(list, from, to) {
@@ -976,15 +1159,22 @@
 
               const thumb = document.createElement("img");
               thumb.className = "thumb";
-              thumb.src = img.preview;
+              thumb.src = img.preview || "";
               thumb.alt = img.alt || img.name;
+              thumb.addEventListener("error", () => {
+                if (img.previewSource === "project") {
+                  markImageMissing(img);
+                  updateTopInfo();
+                }
+              });
 
               const meta = document.createElement("div");
               meta.className = "img-meta";
 
               const name = document.createElement("div");
               name.className = "img-name";
-              name.textContent = img.name;
+              const statusText = img.previewSource === "missing" ? " (imagem nao localizada)" : "";
+              name.textContent = `${img.name}${statusText}`;
 
               const altInput = document.createElement("input");
               altInput.type = "text";
@@ -1050,10 +1240,7 @@
         }
 
         block.images.push({
-          id: crypto.randomUUID(),
-          name: file.name,
-          alt: "",
-          preview: URL.createObjectURL(file)
+          ...createGalleryImage(file.name, "", URL.createObjectURL(file), "selected")
         });
       }
 
@@ -1170,6 +1357,18 @@
       const content = buildMarkdown();
       const filename = `${slugify(title)}.md`;
 
+      if (currentMarkdownHandle) {
+        try {
+          const writable = await currentMarkdownHandle.createWritable();
+          await writable.write(content);
+          await writable.close();
+          showModal("Arquivo regravado", `<p>O arquivo <strong>${escapeHtml(currentMarkdownFileName || filename)}</strong> foi atualizado.</p>`);
+          return;
+        } catch (error) {
+          currentMarkdownHandle = null;
+        }
+      }
+
       if ('showSaveFilePicker' in window) {
         try {
           const handle = await window.showSaveFilePicker({
@@ -1211,16 +1410,22 @@
     function clearAll() {
       if (!confirm("Limpar todo o conteúdo do editor?")) return;
       blocks.splice(0, blocks.length);
+      imagePreviewMap.clear();
+      currentImageSourceLabel = "/imagens do projeto";
       els.title.value = "";
       els.dateBR.value = "";
       els.criador.value = "";
       els.category.value = "";
       els.summary.value = "";
+      currentMarkdownHandle = null;
+      currentMarkdownFileName = "";
       renderBlocks();
     }
 
     function loadSample() {
       blocks.splice(0, blocks.length);
+      imagePreviewMap.clear();
+      currentImageSourceLabel = "/imagens do projeto";
       els.title.value = "Primeira Viagem Internacional - parte I";
       els.dateBR.value = "15/04/2025";
       els.criador.value = "Marcia";
@@ -1232,7 +1437,87 @@
         createGalleryBlock([]),
         createTextBlock("No fim do dia, já tínhamos uma boa lista de lugares favoritos para voltar com calma.")
       );
+      currentMarkdownHandle = null;
+      currentMarkdownFileName = "";
       renderBlocks();
+    }
+
+    async function loadMarkdownFromFile(file, handle = null) {
+      const text = await file.text();
+      currentMarkdownHandle = handle;
+      currentMarkdownFileName = file.name || "";
+      await populateEditorFromMarkdown(text, file.name || "post.md");
+    }
+
+    async function openMarkdownPicker() {
+      try {
+        if ("showOpenFilePicker" in window) {
+          const [handle] = await window.showOpenFilePicker({
+            multiple: false,
+            types: [{
+              description: "Markdown",
+              accept: {
+                "text/markdown": [".md"],
+                "text/plain": [".md"]
+              }
+            }]
+          });
+
+          if (!handle) return;
+          const file = await handle.getFile();
+          await loadMarkdownFromFile(file, handle);
+          return;
+        }
+      } catch (error) {
+        if (error && error.name === "AbortError") return;
+      }
+
+      els.mdFileInput.click();
+    }
+
+    function isImageFileName(name) {
+      return /\.(png|jpe?g|gif|webp|avif|svg)$/i.test(name);
+    }
+
+    async function updateImageMapFromFiles(files) {
+      imagePreviewMap.clear();
+      currentImageSourceLabel = "arquivos selecionados";
+
+      Array.from(files || []).forEach((file) => {
+        if (!isImageFileName(file.name)) return;
+        imagePreviewMap.set(file.name, URL.createObjectURL(file));
+      });
+
+      refreshImagePreviews();
+      renderBlocks();
+    }
+
+    async function updateImageMapFromDirectory(handle) {
+      imagePreviewMap.clear();
+      currentImageSourceLabel = `pasta ${handle.name || "selecionada"}`;
+
+      for await (const entry of handle.values()) {
+        if (entry.kind !== "file" || !isImageFileName(entry.name)) continue;
+        const file = await entry.getFile();
+        imagePreviewMap.set(entry.name, URL.createObjectURL(file));
+      }
+
+      refreshImagePreviews();
+      renderBlocks();
+    }
+
+    async function pickImagesLocation() {
+      try {
+        if ("showDirectoryPicker" in window) {
+          const handle = await window.showDirectoryPicker();
+          await updateImageMapFromDirectory(handle);
+          return;
+        }
+      } catch (error) {
+        if (error && error.name === "AbortError") return;
+      }
+
+      els.imageFilesInput.click();
     }
 
     function tryUnlock() {
@@ -1266,10 +1551,26 @@
       renderBlocks();
     });
 
+    document.getElementById("loadMdBtn").addEventListener("click", openMarkdownPicker);
+    document.getElementById("pickImagesBtn").addEventListener("click", pickImagesLocation);
     document.getElementById("downloadBtn").addEventListener("click", downloadMarkdown);
     document.getElementById("copyBtn").addEventListener("click", copyMarkdown);
     document.getElementById("clearBtn").addEventListener("click", clearAll);
     document.getElementById("sampleBtn").addEventListener("click", loadSample);
+
+    els.mdFileInput.addEventListener("change", async (e) => {
+      const file = e.target.files && e.target.files[0];
+      e.target.value = "";
+      if (!file) return;
+      await loadMarkdownFromFile(file, null);
+    });
+
+    els.imageFilesInput.addEventListener("change", async (e) => {
+      const files = Array.from(e.target.files || []);
+      e.target.value = "";
+      if (!files.length) return;
+      await updateImageMapFromFiles(files);
+    });
 
     document.getElementById("expandAllBtn").addEventListener("click", () => {
       textExpanded = true;
