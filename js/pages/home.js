@@ -29,6 +29,26 @@ window.SiteHome = (function () {
       .toLowerCase();
   }
 
+  function contarPostsDaCategoria(categoria) {
+    const categoriaNormalizada = normalizarCategoria(categoria);
+    if (categoriaNormalizada === "todos-posts") return postsCache.length;
+
+    return postsCache.filter((post) => {
+      return normalizarCategoria(post.category) === categoriaNormalizada;
+    }).length;
+  }
+
+  function atualizarContadoresDoMenu() {
+    document.querySelectorAll("[data-categoria]").forEach((linkCategoria) => {
+      const categoria = normalizarCategoria(linkCategoria.dataset.categoria);
+      const tituloBase = TITULOS_CATEGORIAS[categoria] || linkCategoria.dataset.labelBase || linkCategoria.textContent.trim();
+      const total = contarPostsDaCategoria(categoria);
+
+      linkCategoria.dataset.labelBase = tituloBase;
+      linkCategoria.textContent = `${tituloBase} (${total})`;
+    });
+  }
+
   function destacarPostAberto(slugAtivo) {
     document.querySelectorAll(".sidebar-link").forEach((link) => {
       if (link.dataset.slug === slugAtivo) link.classList.add("ativo");
@@ -127,12 +147,14 @@ window.SiteHome = (function () {
     const postsOrdenados = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
     const titulo = options.titulo || "Mais posts do blog";
     const descricao = options.descricao || "Todos os posts publicados";
+    const totalLabel = postsOrdenados.length === 1 ? "1 post" : `${postsOrdenados.length} posts`;
 
     container.innerHTML = `
       <section class="post-full lista-posts-completa">
         <a href="#" class="botao-voltar" id="botao-voltar-lista">← Voltar</a>
         <div class="post-meta">${descricao}</div>
         <h1>${titulo}</h1>
+        <p class="resumo">${totalLabel}</p>
         <div class="lista-posts-completa-grid">
           ${postsOrdenados.length > 0 ? postsOrdenados.map((post) => `
             <a href="#" class="lista-post-link" data-slug="${post.slug}">
@@ -250,6 +272,7 @@ window.SiteHome = (function () {
       postsCache = await buscarIndice();
       await renderizarPrincipais(postsCache);
       renderizarSidebar(postsCache);
+      atualizarContadoresDoMenu();
       bindMenuInicio();
       bindMenuCategorias();
     } catch (erro) {
