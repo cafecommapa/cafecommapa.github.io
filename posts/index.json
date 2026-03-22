@@ -30,6 +30,16 @@
     "summary": "Que 2026 seja construido com escolhas conscientes"
   },
   {
+    "slug": "albuns-e-quadros",
+    "file": "posts/albuns-e-quadros.md",
+    "title": "Álbuns e Quadros",
+    "date": "2025-12-20",
+    "criador": "Marcia",
+    "category": "livro",
+    "cover": "imagens/livro.png",
+    "summary": "Colecionar memórias na essência das palavras."
+  },
+  {
     "slug": "2025-12-20-albunsequadros",
     "file": "posts/2025-12-20-albunsequadros.md",
     "title": "Albúns e quadros",
@@ -58,6 +68,16 @@
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "O Primeiro Passo da Nossa Próxima Aventura Já Foi Dado"
+  },
+  {
+    "slug": "viagem-espanha-e-portugal-maio-2018-parte-2",
+    "file": "posts/viagem-espanha-e-portugal-maio-2018-parte-2.md",
+    "title": "Viagem Espanha e Portugal – Maio 2018 (Parte 2)",
+    "date": "2025-11-27",
+    "criador": "Marcia",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "Depois de 09 dias na Espanha, pegamos um avião e fomos para Portugal"
   },
   {
     "slug": "2025-11-27-portugal",
@@ -90,6 +110,16 @@
     "summary": "Preparando o carro para uma viagem tranquila e segura."
   },
   {
+    "slug": "krispy-kreme",
+    "file": "posts/krispy-kreme.md",
+    "title": "Krispy Kreme",
+    "date": "2025-09-03",
+    "criador": "Marcia",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "O prazer não está somente em comer um donut"
+  },
+  {
     "slug": "molho-gorgonzola",
     "file": "posts/molho-gorgonzola.md",
     "title": "Molho Gorgonzola",
@@ -100,6 +130,16 @@
     "summary": "Receita do Molho Gorgonzola"
   },
   {
+    "slug": "chile-abril-2017",
+    "file": "posts/chile-abril-2017.md",
+    "title": "Chile – abril 2017",
+    "date": "2025-07-07",
+    "criador": "Marcia",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "Minha filha foi estudar por seis meses em uma escola de arquitetura no Chile"
+  },
+  {
     "slug": "missao-impossivel",
     "file": "posts/missao-impossivel.md",
     "title": "Missão Impossível",
@@ -108,6 +148,36 @@
     "category": "pensamento",
     "cover": "imagens/pensamento.png",
     "summary": "Às vezes parece que não é só nos filmes, né?"
+  },
+  {
+    "slug": "miami-e-orlando",
+    "file": "posts/miami-e-orlando.md",
+    "title": "Miami e Orlando",
+    "date": "2025-06-10",
+    "criador": "Marcia",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "Roteiro de 10 dias na Flórida – Aventuras em Miami e Orlando !"
+  },
+  {
+    "slug": "new-york-em-2014",
+    "file": "posts/new-york-em-2014.md",
+    "title": "New York em 2014",
+    "date": "2025-05-04",
+    "criador": "Marcia",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "Essa foi mais uma aventura que ficará para sempre no meu coração."
+  },
+  {
+    "slug": "primeira-viagem-internacional-parte-2",
+    "file": "posts/primeira-viagem-internacional-parte-2.md",
+    "title": "primeira viagem internacional Parte 2",
+    "date": "2025-04-20",
+    "criador": "Marcia",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "Fechamos a noite da aniversariante com um jantar bem gostoso."
   },
   {
     "slug": "2025-04-16-Amandas",
@@ -138,6 +208,16 @@
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "Primeira viagem internacional em família: Nova York, mochilas vazias e muita aventura!"
+  },
+  {
+    "slug": "primeira-viagem-internacional-parte-1",
+    "file": "posts/primeira-viagem-internacional-parte-1.md",
+    "title": "Primeira viagem internacional parte 1",
+    "date": "2025-04-14",
+    "criador": "Marcia",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "Nossa primeira viagem internacional foi em família, 2013"
   },
   {
     "slug": "2025-01-01-branco",
