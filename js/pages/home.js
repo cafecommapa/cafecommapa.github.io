@@ -4,10 +4,16 @@ window.SiteHome = (function () {
   const TITULOS_CATEGORIAS = {
     viagem: "Viagem",
     pensamento: "Pensamento",
+    livro: "Livro",
     receita: "Receita",
     filme: "Filme",
     tecnologia: "Tecnologia",
     "todos-posts": "Todos os Posts"
+  };
+  const TITULOS_AUTORES = {
+    "todos-autores": "Todos os Posts por Autor",
+    "marcia-shimada": "Marcia Shimada",
+    "carlos-patrocinio": "Carlos Patrocinio"
   };
 
   if (window.marked) {
@@ -29,12 +35,39 @@ window.SiteHome = (function () {
       .toLowerCase();
   }
 
+  function normalizarAutor(valor) {
+    return String(valor || "")
+      .trim()
+      .replace(/^["']|["']$/g, "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  function ehAutorDoMenu(valor) {
+    const autor = normalizarAutor(valor);
+    return autor === "marcia-shimada" || autor === "carlos-patrocinio";
+  }
+
   function contarPostsDaCategoria(categoria) {
     const categoriaNormalizada = normalizarCategoria(categoria);
     if (categoriaNormalizada === "todos-posts") return postsCache.length;
 
     return postsCache.filter((post) => {
       return normalizarCategoria(post.category) === categoriaNormalizada;
+    }).length;
+  }
+
+  function contarPostsDoAutor(autor) {
+    const autorNormalizado = normalizarAutor(autor);
+    if (autorNormalizado === "todos-autores") {
+      return postsCache.filter((post) => ehAutorDoMenu(post.criador)).length;
+    }
+
+    return postsCache.filter((post) => {
+      return normalizarAutor(post.criador) === autorNormalizado;
     }).length;
   }
 
@@ -46,6 +79,15 @@ window.SiteHome = (function () {
 
       linkCategoria.dataset.labelBase = tituloBase;
       linkCategoria.textContent = `${tituloBase} (${total})`;
+    });
+
+    document.querySelectorAll("[data-autor]").forEach((linkAutor) => {
+      const autor = normalizarAutor(linkAutor.dataset.autor);
+      const tituloBase = TITULOS_AUTORES[autor] || linkAutor.dataset.labelBase || linkAutor.textContent.trim();
+      const total = contarPostsDoAutor(autor);
+
+      linkAutor.dataset.labelBase = tituloBase;
+      linkAutor.textContent = `${tituloBase} (${total})`;
     });
   }
 
@@ -153,8 +195,10 @@ window.SiteHome = (function () {
       <section class="post-full lista-posts-completa">
         <a href="#" class="botao-voltar" id="botao-voltar-lista">← Voltar</a>
         <div class="post-meta">${descricao}</div>
-        <h1>${titulo}</h1>
-        <p class="resumo">${totalLabel}</p>
+        <div class="lista-posts-topo">
+          <h1>${titulo}</h1>
+          <div class="lista-posts-total" aria-label="Total de posts">${totalLabel}</div>
+        </div>
         <div class="lista-posts-completa-grid">
           ${postsOrdenados.length > 0 ? postsOrdenados.map((post) => `
             <a href="#" class="lista-post-link" data-slug="${post.slug}">
@@ -198,6 +242,21 @@ window.SiteHome = (function () {
     });
   }
 
+  function renderizarPostsPorAutor(autor) {
+    const autorNormalizado = normalizarAutor(autor);
+    const postsFiltrados = postsCache.filter((post) => {
+      if (autorNormalizado === "todos-autores") return ehAutorDoMenu(post.criador);
+      return normalizarAutor(post.criador) === autorNormalizado;
+    });
+
+    renderizarListaDePosts(postsFiltrados, {
+      titulo: TITULOS_AUTORES[autorNormalizado] || "Autor",
+      descricao: autorNormalizado === "todos-autores"
+        ? "Posts publicados por autor"
+        : `Posts de ${TITULOS_AUTORES[autorNormalizado] || autorNormalizado}`
+    });
+  }
+
   function bindMenuCategorias() {
     document.querySelectorAll("[data-categoria]").forEach((linkCategoria) => {
       linkCategoria.addEventListener("click", function (e) {
@@ -210,6 +269,15 @@ window.SiteHome = (function () {
         }
 
         renderizarPostsPorCategoria(categoria);
+      });
+    });
+  }
+
+  function bindMenuAutores() {
+    document.querySelectorAll("[data-autor]").forEach((linkAutor) => {
+      linkAutor.addEventListener("click", function (e) {
+        e.preventDefault();
+        renderizarPostsPorAutor(this.dataset.autor);
       });
     });
   }
@@ -275,6 +343,7 @@ window.SiteHome = (function () {
       atualizarContadoresDoMenu();
       bindMenuInicio();
       bindMenuCategorias();
+      bindMenuAutores();
     } catch (erro) {
       console.error(erro);
       postsPrincipais.innerHTML = `<p>Erro ao carregar os posts: ${erro.message}</p>`;

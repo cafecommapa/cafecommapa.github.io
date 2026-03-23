@@ -1,7 +1,7 @@
 ---
 title: Europa
 date: 2025-11-30
-criador: Patrô
+criador: Carlos Patrocinio
 category: viagem
 summary: O Primeiro Passo da Nossa Próxima Aventura Já Foi Dado
 ---

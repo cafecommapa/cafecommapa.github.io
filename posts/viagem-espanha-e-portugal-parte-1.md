@@ -1,7 +1,7 @@
 ---
 title: Viagem Espanha e Portugal
 date: 2025-11-15
-criador: Marcia
+criador: Marcia Shimada
 category: viagem
 summary: No Podcast da Água pro Vinho falamos muito das viagens que fizemos
 ---
@@ -73,8 +73,6 @@ Foram dias maravilhosos na Espanha, mas nossa jornada chegou ao fim por lá. Era
 Se vocês quiserem assistir um bate papo bem descontraído , regado a um excelente vinho, assistam nosso podcast
 
 https://www.youtube.com/live/RKsiU6AcwQ4?si=VVbWBg1hLYnvleYy
-
-
 
 
 

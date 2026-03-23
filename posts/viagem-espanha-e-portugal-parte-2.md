@@ -1,7 +1,7 @@
 ---
 title: Viagem Espanha e Portugal (Parte 2) 
 date: 2025-11-27
-criador: Marcia
+criador: Marcia Shimada
 category: viagem
 summary: Em maio de 2018 fizemos uma viagem pela Espanha e Portugal,
 ---

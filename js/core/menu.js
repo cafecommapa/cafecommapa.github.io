@@ -6,6 +6,8 @@ window.SiteMenu = (function () {
     const menuMobileLinks = document.getElementById("menu-mobile-links");
     const botaoCategoriasMobile = document.getElementById("botao-categorias-mobile");
     const menuCategoriasMobile = document.getElementById("menu-categorias-mobile");
+    const botaoAutoresMobile = document.getElementById("botao-autores-mobile");
+    const menuAutoresMobile = document.getElementById("menu-autores-mobile");
     const estadoInicial = window.SiteRelogios?.getCidadeMobileAtual?.();
 
     if (botaoCidade && estadoInicial) {
@@ -49,6 +51,8 @@ window.SiteMenu = (function () {
         if (botaoCidade) botaoCidade.setAttribute("aria-expanded", "false");
         if (!abriu && menuCategoriasMobile) menuCategoriasMobile.classList.remove("aberto");
         if (!abriu && botaoCategoriasMobile) botaoCategoriasMobile.setAttribute("aria-expanded", "false");
+        if (!abriu && menuAutoresMobile) menuAutoresMobile.classList.remove("aberto");
+        if (!abriu && botaoAutoresMobile) botaoAutoresMobile.setAttribute("aria-expanded", "false");
       });
 
       menuMobileLinks.querySelectorAll("a").forEach((link) => {
@@ -57,6 +61,8 @@ window.SiteMenu = (function () {
           botaoMenuMobile.setAttribute("aria-expanded", "false");
           if (menuCategoriasMobile) menuCategoriasMobile.classList.remove("aberto");
           if (botaoCategoriasMobile) botaoCategoriasMobile.setAttribute("aria-expanded", "false");
+          if (menuAutoresMobile) menuAutoresMobile.classList.remove("aberto");
+          if (botaoAutoresMobile) botaoAutoresMobile.setAttribute("aria-expanded", "false");
         });
       });
     }
@@ -67,6 +73,15 @@ window.SiteMenu = (function () {
         e.stopPropagation();
         const abriu = menuCategoriasMobile.classList.toggle("aberto");
         botaoCategoriasMobile.setAttribute("aria-expanded", abriu ? "true" : "false");
+      });
+    }
+
+    if (botaoAutoresMobile && menuAutoresMobile) {
+      botaoAutoresMobile.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const abriu = menuAutoresMobile.classList.toggle("aberto");
+        botaoAutoresMobile.setAttribute("aria-expanded", abriu ? "true" : "false");
       });
     }
 
@@ -81,22 +96,31 @@ window.SiteMenu = (function () {
         botaoMenuMobile.setAttribute("aria-expanded", "false");
         if (menuCategoriasMobile) menuCategoriasMobile.classList.remove("aberto");
         if (botaoCategoriasMobile) botaoCategoriasMobile.setAttribute("aria-expanded", "false");
+        if (menuAutoresMobile) menuAutoresMobile.classList.remove("aberto");
+        if (botaoAutoresMobile) botaoAutoresMobile.setAttribute("aria-expanded", "false");
       }
     });
   }
 
   function initMenuDesktop() {
-    const botaoCategorias = document.getElementById("botao-categorias");
-    if (!botaoCategorias) return;
-    const dropdown = botaoCategorias.parentElement;
+    const botoesDropdown = document.querySelectorAll(".menu-dropdown > button");
+    if (!botoesDropdown.length) return;
 
-    botaoCategorias.addEventListener("click", function (e) {
-      e.stopPropagation();
-      dropdown.classList.toggle("aberto");
+    botoesDropdown.forEach((botao) => {
+      const dropdown = botao.parentElement;
+      botao.addEventListener("click", function (e) {
+        e.stopPropagation();
+        document.querySelectorAll(".menu-dropdown.aberto").forEach((item) => {
+          if (item !== dropdown) item.classList.remove("aberto");
+        });
+        dropdown.classList.toggle("aberto");
+      });
     });
 
     document.addEventListener("click", function () {
-      dropdown.classList.remove("aberto");
+      document.querySelectorAll(".menu-dropdown.aberto").forEach((item) => {
+        item.classList.remove("aberto");
+      });
     });
   }
 

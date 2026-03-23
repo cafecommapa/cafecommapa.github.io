@@ -1,7 +1,7 @@
 ---
 title: 📚 Uma Conquista Especial_ Minha Trilogia Está Pronta!
 date: 2025-10-10
-criador: Patro
+criador: Carlos Patrocinio
 category: livro
 summary: 📚 Uma Conquista Especial: Minha Trilogia Está Pronta!
 ---

@@ -1,7 +1,7 @@
 ---
 title: Xbox X vs PS5
 date: 2025-01-12
-criador: Patro
+criador: Carlos Patrocinio
 category: pensamento
 summary: Quando o assunto é nova geração de consoles, Xbox Series X e PlayStation 5 surgem como titãs disputando o topo. Ambos oferecem gráficos impressionantes, carregamentos quase instantâneos e experiências de jogo cada vez mais imersivas. Mas apesar das semelhanças técnicas, cada um carrega sua própria alma.
 ---

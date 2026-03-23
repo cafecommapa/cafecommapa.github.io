@@ -1,7 +1,7 @@
 ---
 title: New York em 2014
 date: 2025-05-04
-criador: Marcia
+criador: Marcia Shimada
 category: viagem
 summary: Essa foi mais uma aventura que ficará para sempre no meu coração.
 ---

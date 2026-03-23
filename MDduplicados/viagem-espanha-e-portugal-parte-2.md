@@ -1,8 +1,8 @@
 ---
 title: Viagem Espanha e Portugal – Maio 2018 (Parte 2)
 date: 2025-11-27
-criador: Marcia
-category: Viagem
+criador: Marcia Shimada
+category: viagem
 summary: Depois de 09 dias na Espanha, pegamos um avião e fomos para Portugal
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: primeira viagem internacional Parte 2
 date: 2025-04-20
-criador: Marcia
+criador: Marcia Shimada
 category: viagem
 summary: Fechamos a noite da aniversariante com um jantar bem gostoso.
 ---

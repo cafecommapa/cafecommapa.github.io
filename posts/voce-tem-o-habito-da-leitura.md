@@ -1,7 +1,7 @@
 ---
 title: Você tem o hábito da leitura
 date: 2025-02-12
-criador: Patro
+criador: Carlos Patrocinio
 category: pensamento
 summary: Você tem o hábito da leitura?
 ---

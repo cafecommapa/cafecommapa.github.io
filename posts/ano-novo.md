@@ -1,8 +1,8 @@
 ---
 title: Ano novo
 date: 2026-01-01
-criador: Marcia
-category: Pensamento
+criador: Marcia Shimada
+category: pensamento
 summary: Quando olhamos para 2025, a sensação é de que as histórias se repetem.
 ---
 

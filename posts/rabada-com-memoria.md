@@ -1,7 +1,7 @@
 ---
 title: Rabada com memória
 date: 2025-09-14
-criador: Patro
+criador: Carlos Patrocinio
 category: receita
 summary: Em memória a primeira vez que comemos este prato em família.
 ---

@@ -1,7 +1,7 @@
 ---
 title: A primeira viagem internacional Parte 2
 date: 2025-02-02
-criador: márcia
+criador: Marcia Shimada
 category: viagem
 summary: A Primeira Viagem Internacional – Parte 2
 ---

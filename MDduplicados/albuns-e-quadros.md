@@ -1,7 +1,7 @@
 ---
 title: Albúns e quadros
 date: 2025-12-20
-criador: Marcia
+criador: Marcia Shimada
 category: viagem
 summary: Alguns chamam de hobby, eu chamo de terapia.
 ---
@@ -40,4 +40,3 @@ Alguns chamam de hobby, eu chamo de terapia. Faz muito bem para a cabeça: você
 Já tenho a moldura, alguns materiais e falta selecionar as fotos para o quadro da Itália 2024. Meu planejamento é fazer nos 04 primeiros meses do novo ano. Lembrando que 22 dias do primeiro semestre de 2026 já estão reservados para a nossa próxima viagem. Inclusive o destino dessa viagem é cenário da Trilogia – Capitulo 10.✈
 
 Então, acompanhem por aqui e/ou no Instagram as novidades do novo quadro e do roteiro da próxima viagem que terá com certeza muita ação, romance e lógico comédia.
-

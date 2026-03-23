@@ -1,7 +1,7 @@
 ---
 title: Receita_ Carne de Panela com Linguiça — Sabor de Casa!
 date: 2025-05-04
-criador: Marcia
+criador: Marcia Shimada
 category: receita
 summary: Receita: Carne de Panela com Linguiça — Sabor de Casa!
 ---

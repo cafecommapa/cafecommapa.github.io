@@ -1,120 +1,80 @@
 [
   {
-    "slug": "carne-de-panela",
-    "file": "posts/carne-de-panela.md",
-    "title": "Carne de Panela",
-    "date": "2026-05-27",
-    "criador": "",
-    "category": "receita",
-    "cover": "imagens/receita.png",
-    "summary": "Simples de fazer, prática e cheia de sabor!"
-  },
-  {
-    "slug": "construtor-de-md-v2",
-    "file": "posts/construtor-de-md-v2.md",
-    "title": "Construtor de MD V2",
-    "date": "2026-04-18",
-    "criador": "Patrô",
-    "category": "tecnologia",
-    "cover": "imagens/tecnologia.png",
-    "summary": "A versão melhoradas, permite uma visualização final."
-  },
-  {
-    "slug": "teste-do-construtor-de-md",
-    "file": "posts/teste-do-construtor-de-md.md",
-    "title": "Teste do construtor de MD",
-    "date": "2026-01-18",
-    "criador": "Parte",
-    "category": "pensamento",
-    "cover": "imagens/pensamento.png",
-    "summary": "Desenvolvimento do aplicativo MD"
-  },
-  {
     "slug": "ano-novo",
     "file": "posts/ano-novo.md",
     "title": "Ano novo",
     "date": "2026-01-01",
-    "criador": "Marcia",
+    "criador": "Marcia Shimada",
     "category": "pensamento",
     "cover": "imagens/pensamento.png",
     "summary": "Quando olhamos para 2025, a sensação é de que as histórias se repetem."
-  },
-  {
-    "slug": "2026-01-01-anonovo",
-    "file": "posts/2026-01-01-anonovo.md",
-    "title": "Ano novo",
-    "date": "2026-01-01",
-    "criador": "Patrô",
-    "category": "pensamento",
-    "cover": "imagens/pensamento.png",
-    "summary": "Que 2026 seja construido com escolhas conscientes"
   },
   {
     "slug": "albuns-e-quadros",
     "file": "posts/albuns-e-quadros.md",
     "title": "Álbuns e Quadros",
     "date": "2025-12-20",
-    "criador": "Marcia",
+    "criador": "Marcia Shimada",
     "category": "livro",
     "cover": "imagens/livro.png",
     "summary": "Colecionar memórias na essência das palavras."
   },
   {
-    "slug": "2025-12-20-albunsequadros",
-    "file": "posts/2025-12-20-albunsequadros.md",
-    "title": "Albúns e quadros",
-    "date": "2025-12-20",
-    "criador": "Marcia",
-    "category": "viagem",
-    "cover": "imagens/viagem.png",
-    "summary": "Alguns chamam de hobby, eu chamo de terapia."
-  },
-  {
-    "slug": "2025-12-14-Monteverde",
-    "file": "posts/2025-12-14-Monteverde.md",
+    "slug": "monte-verde",
+    "file": "posts/monte-verde.md",
     "title": "Monte Verde",
     "date": "2025-12-14",
-    "criador": "Patrô",
+    "criador": "Carlos Patrocinio",
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "Um Final de Semana Perfeito em Monte Verde"
   },
   {
-    "slug": "2025-11-30-europa",
-    "file": "posts/2025-11-30-europa.md",
-    "title": "Europa",
+    "slug": "o-primeiro-passo",
+    "file": "posts/o-primeiro-passo.md",
+    "title": "O Primeiro Passo",
     "date": "2025-11-30",
-    "criador": "Patrô",
+    "criador": "Carlos Patrocinio",
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "O Primeiro Passo da Nossa Próxima Aventura Já Foi Dado"
   },
   {
-    "slug": "viagem-espanha-e-portugal-maio-2018-parte-2",
-    "file": "posts/viagem-espanha-e-portugal-maio-2018-parte-2.md",
-    "title": "Viagem Espanha e Portugal – Maio 2018 (Parte 2)",
-    "date": "2025-11-27",
-    "criador": "Marcia",
+    "slug": "europa",
+    "file": "posts/europa.md",
+    "title": "Europa",
+    "date": "2025-11-30",
+    "criador": "Carlos Patrocinio",
     "category": "viagem",
     "cover": "imagens/viagem.png",
-    "summary": "Depois de 09 dias na Espanha, pegamos um avião e fomos para Portugal"
+    "summary": "O Primeiro Passo da Nossa Próxima Aventura Já Foi Dado"
   },
   {
-    "slug": "2025-11-27-portugal",
-    "file": "posts/2025-11-27-portugal.md",
+    "slug": "viagem-espanha-e-portugal-parte-2",
+    "file": "posts/viagem-espanha-e-portugal-parte-2.md",
     "title": "Viagem Espanha e Portugal (Parte 2)",
     "date": "2025-11-27",
-    "criador": "Marcia",
+    "criador": "Marcia Shimada",
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "Em maio de 2018 fizemos uma viagem pela Espanha e Portugal,"
   },
   {
-    "slug": "2025-11-15-espanha",
-    "file": "posts/2025-11-15-espanha.md",
+    "slug": "da-agua-pro-vinho",
+    "file": "posts/da-agua-pro-vinho.md",
+    "title": "Da Água pro Vinho",
+    "date": "2025-11-22",
+    "criador": "Carlos Patrocinio",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "Do Café com Mapa ao Vinho Espanhol: Nossa Noite Mágica no Podcast \"Da Água pro Vinho\""
+  },
+  {
+    "slug": "viagem-espanha-e-portugal-parte-1",
+    "file": "posts/viagem-espanha-e-portugal-parte-1.md",
     "title": "Viagem Espanha e Portugal",
     "date": "2025-11-15",
-    "criador": "Marcia",
+    "criador": "Marcia Shimada",
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "No Podcast da Água pro Vinho falamos muito das viagens que fizemos"
@@ -123,18 +83,8 @@
     "slug": "viagem-de-carro",
     "file": "posts/viagem-de-carro.md",
     "title": "Viagem de carro",
-    "date": "2025-10-25",
-    "criador": "Patro",
-    "category": "viagem",
-    "cover": "imagens/viagem.png",
-    "summary": "🚗✨"
-  },
-  {
-    "slug": "2025-10-12-viagemdecarro",
-    "file": "posts/2025-10-12-viagemdecarro.md",
-    "title": "Viagem de carro",
     "date": "2025-10-12",
-    "criador": "Patrô",
+    "criador": "Carlos Patrocinio",
     "category": "pensamento",
     "cover": "imagens/pensamento.png",
     "summary": "Preparando o carro para uma viagem tranquila e segura."
@@ -144,17 +94,47 @@
     "file": "posts/uma-conquista-especial-minha-trilogia-esta-pronta.md",
     "title": "📚 Uma Conquista Especial_ Minha Trilogia Está Pronta!",
     "date": "2025-10-10",
-    "criador": "Patro",
+    "criador": "Carlos Patrocinio",
     "category": "livro",
     "cover": "imagens/livro.png",
     "summary": "📚 Uma Conquista Especial: Minha Trilogia Está Pronta!"
+  },
+  {
+    "slug": "entre-grandes-autores-e-meus-originais",
+    "file": "posts/entre-grandes-autores-e-meus-originais.md",
+    "title": "Entre Grandes Autores e Meus Originais",
+    "date": "2025-10-01",
+    "criador": "Carlos Patrocinio",
+    "category": "livro",
+    "cover": "imagens/livro.png",
+    "summary": "os livros que a Marcia leu."
+  },
+  {
+    "slug": "o-menu-do-blog-cresceu",
+    "file": "posts/o-menu-do-blog-cresceu.md",
+    "title": "O Menu do Blog cresceu",
+    "date": "2025-09-25",
+    "criador": "Carlos Patrocinio",
+    "category": "livro",
+    "cover": "imagens/livro.png",
+    "summary": "Carlos do Patrocínio"
+  },
+  {
+    "slug": "mcdonald-s-e-cafe",
+    "file": "posts/mcdonald-s-e-cafe.md",
+    "title": "McDonald´s e Café",
+    "date": "2025-09-20",
+    "criador": "Carlos Patrocinio",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "O Cafécommapa.com, entrega uma memória afetiva com café e locais no mapa."
   },
   {
     "slug": "rabada-com-memoria",
     "file": "posts/rabada-com-memoria.md",
     "title": "Rabada com memória",
     "date": "2025-09-14",
-    "criador": "Patro",
+    "criador": "Carlos Patrocinio",
     "category": "receita",
     "cover": "imagens/receita.png",
     "summary": "Em memória a primeira vez que comemos este prato em família."
@@ -164,17 +144,27 @@
     "file": "posts/krispy-kreme.md",
     "title": "Krispy Kreme",
     "date": "2025-09-03",
-    "criador": "Marcia",
+    "criador": "Marcia Shimada",
     "category": "viagem",
     "cover": "imagens/viagem.png",
-    "summary": "O prazer não está somente em comer um donut"
+    "summary": "O prazer não está somente em comer um donut, mas também nas memórias afetivas que esse lugar nos proporciona."
+  },
+  {
+    "slug": "alteracao-quimica",
+    "file": "posts/alteracao-quimica.md",
+    "title": "Alteração química",
+    "date": "2025-08-04",
+    "criador": "Carlos Patrocinio",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "De um simples café ao ciclo hormonal, tudo pode mudar nosso comportamento. Uma crônica bem-humorada sobre como a química nos atravessa, mesmo quando não percebemos. Publicado no Facebook em 19/07/2018"
   },
   {
     "slug": "molho-gorgonzola",
     "file": "posts/molho-gorgonzola.md",
     "title": "Molho Gorgonzola",
     "date": "2025-07-23",
-    "criador": "",
+    "criador": "Marcia Shimada",
     "category": "receita",
     "cover": "imagens/receita.png",
     "summary": "Receita do Molho Gorgonzola"
@@ -184,17 +174,37 @@
     "file": "posts/chile-abril-2017.md",
     "title": "Chile – abril 2017",
     "date": "2025-07-07",
-    "criador": "Marcia",
+    "criador": "Marcia Shimada",
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "Minha filha foi estudar por seis meses em uma escola de arquitetura no Chile"
+  },
+  {
+    "slug": "new-york-outra-vez",
+    "file": "posts/new-york-outra-vez.md",
+    "title": "New York, outra vez",
+    "date": "2025-07-02",
+    "criador": "Marcia Shimada",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "New York, outra vez (com bônus capital)"
+  },
+  {
+    "slug": "eu-odeio-netflix",
+    "file": "posts/eu-odeio-netflix.md",
+    "title": "Eu odeio NETFLIX",
+    "date": "2025-06-19",
+    "criador": "Carlos Patrocinio",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "Para os amantes de séries, é possível aproveitar qualquer minutinho em que estamos sem fazer nada (metrô, trem, ônibus, de carona no carro, dirigindo no engarrafamento... rs). O importante é ter sinal de internet."
   },
   {
     "slug": "missao-impossivel",
     "file": "posts/missao-impossivel.md",
     "title": "Missão Impossível",
     "date": "2025-06-10",
-    "criador": "Marcia",
+    "criador": "Marcia Shimada",
     "category": "pensamento",
     "cover": "imagens/pensamento.png",
     "summary": "Às vezes parece que não é só nos filmes, né?"
@@ -204,17 +214,67 @@
     "file": "posts/miami-e-orlando.md",
     "title": "Miami e Orlando",
     "date": "2025-06-10",
-    "criador": "Marcia",
+    "criador": "Marcia Shimada",
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "Roteiro de 10 dias na Flórida – Aventuras em Miami e Orlando !"
+  },
+  {
+    "slug": "eu-amo-cinema",
+    "file": "posts/eu-amo-cinema.md",
+    "title": "Eu amo cinema",
+    "date": "2025-06-06",
+    "criador": "Carlos Patrocinio",
+    "category": "filme",
+    "cover": "imagens/filme.png",
+    "summary": "Como bom amante de histórias bem contadas, não dá para deixar de falar em nosso blog sobre cinema. Por isso estou criando esta nova sessão:"
+  },
+  {
+    "slug": "cafe-com-mapa-no-instagram",
+    "file": "posts/cafe-com-mapa-no-instagram.md",
+    "title": "Café com mapa no Instagram",
+    "date": "2025-06-01",
+    "criador": "Carlos Patrocinio",
+    "category": "tecnologia",
+    "cover": "imagens/tecnologia.png",
+    "summary": "Integrando as redes sociais, para que todos possam acompanhar as historias, lendo , ouvindo ou assistindo."
+  },
+  {
+    "slug": "carne-de-panela",
+    "file": "posts/carne-de-panela.md",
+    "title": "Carne de Panela",
+    "date": "2025-05-27",
+    "criador": "Marcia Shimada",
+    "category": "receita",
+    "cover": "imagens/receita.png",
+    "summary": "Simples de fazer, prática e cheia de sabor!"
+  },
+  {
+    "slug": "quinta-feira-e-dia-de-almocar-fora",
+    "file": "posts/quinta-feira-e-dia-de-almocar-fora.md",
+    "title": "Quinta-feira é dia de almoçar fora.",
+    "date": "2025-05-22",
+    "criador": "Carlos Patrocinio",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "Quinta-feira é dia de almoçar fora."
+  },
+  {
+    "slug": "cinco-jeitos-surpreendentes-de-usar-o-chatgpt",
+    "file": "posts/cinco-jeitos-surpreendentes-de-usar-o-chatgpt.md",
+    "title": "Cinco Jeitos Surpreendentes de Usar o ChatGPT",
+    "date": "2025-05-11",
+    "criador": "Carlos Patrocinio",
+    "category": "tecnologia",
+    "cover": "imagens/tecnologia.png",
+    "summary": "CHATGPT  com cafe"
   },
   {
     "slug": "receita-pratica-carne-moida-com-abobora-cabotia",
     "file": "posts/receita-pratica-carne-moida-com-abobora-cabotia.md",
     "title": "Receita prática_ carne moída com abóbora cabotiá 🎃",
     "date": "2025-05-04",
-    "criador": "Marcia",
+    "criador": "Marcia Shimada",
     "category": "receita",
     "cover": "imagens/receita.png",
     "summary": "Receita prática: carne moída com abóbora cabotiá 🎃"
@@ -224,27 +284,47 @@
     "file": "posts/receita-carne-de-panela-com-linguica-sabor-de-casa.md",
     "title": "Receita_ Carne de Panela com Linguiça — Sabor de Casa!",
     "date": "2025-05-04",
-    "criador": "Marcia",
+    "criador": "Marcia Shimada",
     "category": "receita",
     "cover": "imagens/receita.png",
     "summary": "Receita: Carne de Panela com Linguiça — Sabor de Casa!"
+  },
+  {
+    "slug": "pensamentos-que-acalmam",
+    "file": "posts/pensamentos-que-acalmam.md",
+    "title": "Pensamentos que Acalmam",
+    "date": "2025-05-04",
+    "criador": "Carlos Patrocinio",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "Vivemos num ritmo que nos exige demais. Trabalhamos pensando no próximo compromisso, respondemos mensagens enquanto comemos, e, mesmo quando estamos em casa, muitas vezes nossa mente está em outro lugar — ligada, inquieta, acelerada. Nesse fluxo contínuo de urgência, esquecemos algo essencial: a pausa."
   },
   {
     "slug": "new-york-em-2014",
     "file": "posts/new-york-em-2014.md",
     "title": "New York em 2014",
     "date": "2025-05-04",
-    "criador": "Marcia",
+    "criador": "Marcia Shimada",
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "Essa foi mais uma aventura que ficará para sempre no meu coração."
+  },
+  {
+    "slug": "de-volta-a-nova-york-neve-cinema-e-sapatos-inesqueciveis",
+    "file": "posts/de-volta-a-nova-york-neve-cinema-e-sapatos-inesqueciveis.md",
+    "title": "De Volta a Nova York_ Neve, Cinema e Sapatos Inesquecíveis",
+    "date": "2025-05-04",
+    "criador": "Marcia Shimada",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "De Volta a Nova York: Neve, Cinema e Sapatos Inesquecíveis"
   },
   {
     "slug": "semana-santa-cardapio-frutos-do-mar-e-dicas-culinarias",
     "file": "posts/semana-santa-cardapio-frutos-do-mar-e-dicas-culinarias.md",
     "title": "Semana Santa_ Cardápio Frutos do Mar e Dicas Culinárias",
     "date": "2025-04-20",
-    "criador": "márcia",
+    "criador": "Marcia Shimada",
     "category": "receita",
     "cover": "imagens/receita.png",
     "summary": "Semana Santa: Cardápio Frutos do Mar e Dicas Culinárias"
@@ -254,67 +334,77 @@
     "file": "posts/primeira-viagem-internacional-parte-2.md",
     "title": "primeira viagem internacional Parte 2",
     "date": "2025-04-20",
-    "criador": "Marcia",
+    "criador": "Marcia Shimada",
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "Fechamos a noite da aniversariante com um jantar bem gostoso."
   },
   {
-    "slug": "2025-04-16-Amandas",
-    "file": "posts/2025-04-16-Amandas.md",
+    "slug": "amandas",
+    "file": "posts/amandas.md",
     "title": "Amandas",
     "date": "2025-04-16",
-    "criador": "Patrô",
+    "criador": "Carlos Patrocinio",
     "category": "pensamento",
     "cover": "imagens/pensamento.png",
     "summary": "Uma reflexão leve ( e cheia de pelos!) sobre nomes, bichos de estimação e as Amandas que conheci."
   },
   {
-    "slug": "primeiraviagem",
-    "file": "posts/primeiraviagem.md",
+    "slug": "primeira-viagem-internacional-parte-1",
+    "file": "posts/primeira-viagem-internacional-parte-1.md",
     "title": "Primeira Viagem Internacional - parte I",
     "date": "2025-04-15",
-    "criador": "Marcia",
+    "criador": "Marcia Shimada",
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "Viagem a New York"
-  },
-  {
-    "slug": "2025-04-15-primeiraviagem",
-    "file": "posts/2025-04-15-primeiraviagem.md",
-    "title": "Primeira Viagem Internacional",
-    "date": "2025-04-15",
-    "criador": "Marcia",
-    "category": "viagem",
-    "cover": "imagens/viagem.png",
-    "summary": "Primeira viagem internacional em família: Nova York, mochilas vazias e muita aventura!"
   },
   {
     "slug": "viagem-ao-chile-nao-sao-so-glorias-mas-tambem-perrengues",
     "file": "posts/viagem-ao-chile-nao-sao-so-glorias-mas-tambem-perrengues.md",
     "title": "Viagem ao Chile_ Não são só glórias, mas também perrengues",
     "date": "2025-04-14",
-    "criador": "márcia",
+    "criador": "Marcia Shimada",
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "Viagem ao Chile: Não são só glórias, mas também perrengues"
   },
   {
-    "slug": "primeira-viagem-internacional-parte-1",
-    "file": "posts/primeira-viagem-internacional-parte-1.md",
-    "title": "Primeira viagem internacional parte 1",
-    "date": "2025-04-14",
-    "criador": "Marcia",
+    "slug": "os-patrocinios",
+    "file": "posts/os-patrocinios.md",
+    "title": "Os Patrocinios",
+    "date": "2025-04-12",
+    "criador": "Carlos Patrocinio",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "Este foi um pensamento, como muitos que vieram de uma caminhada no parque."
+  },
+  {
+    "slug": "o-arco-foi-um-triunfo",
+    "file": "posts/o-arco-foi-um-triunfo.md",
+    "title": "O Arco foi um Triunfo",
+    "date": "2025-04-12",
+    "criador": "Carlos Patrocinio",
     "category": "viagem",
     "cover": "imagens/viagem.png",
-    "summary": "Nossa primeira viagem internacional foi em família, 2013"
+    "summary": "O Arco do Triunfo é um dos monumentos mais emblemáticos de Paris."
+  },
+  {
+    "slug": "sobre-nos-patro-e-marcia",
+    "file": "posts/sobre-nos-patro-e-marcia.md",
+    "title": "Sobre nós: Patrô e Márcia",
+    "date": "2025-04-07",
+    "criador": "Carlos Patrocinio",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "Nos conhecemos há mais de 20 anos"
   },
   {
     "slug": "sera-que-minha-pele-e-de-acucar",
     "file": "posts/sera-que-minha-pele-e-de-acucar.md",
     "title": "Será que minha pele é de açúcar",
     "date": "2025-03-01",
-    "criador": "Patro",
+    "criador": "Carlos Patrocinio",
     "category": "pensamento",
     "cover": "imagens/pensamento.png",
     "summary": "Este foi um pensamento que me ocorreu em abril de 2018. durante uma caminhada com ameaça de chuva."
@@ -324,59 +414,19 @@
     "file": "posts/voce-tem-o-habito-da-leitura.md",
     "title": "Você tem o hábito da leitura",
     "date": "2025-02-12",
-    "criador": "Patro",
+    "criador": "Carlos Patrocinio",
     "category": "pensamento",
     "cover": "imagens/pensamento.png",
     "summary": "Você tem o hábito da leitura?"
-  },
-  {
-    "slug": "a-primeira-viagem-internacional-parte-2",
-    "file": "posts/a-primeira-viagem-internacional-parte-2.md",
-    "title": "A primeira viagem internacional Parte 2",
-    "date": "2025-02-02",
-    "criador": "márcia",
-    "category": "viagem",
-    "cover": "imagens/viagem.png",
-    "summary": "A Primeira Viagem Internacional – Parte 2"
   },
   {
     "slug": "xbox-x-vs-ps5",
     "file": "posts/xbox-x-vs-ps5.md",
     "title": "Xbox X vs PS5",
     "date": "2025-01-12",
-    "criador": "Patro",
+    "criador": "Carlos Patrocinio",
     "category": "pensamento",
     "cover": "imagens/pensamento.png",
     "summary": "Quando o assunto é nova geração de consoles, Xbox Series X e PlayStation 5 surgem como titãs disputando o topo. Ambos oferecem gráficos impressionantes, carregamentos quase instantâneos e experiências de jogo cada vez mais imersivas. Mas apesar das semelhanças técnicas, cada um carrega sua própria alma."
-  },
-  {
-    "slug": "2025-01-01-branco",
-    "file": "posts/2025-01-01-branco.md",
-    "title": "",
-    "date": "2025-01-01",
-    "criador": "Patrô",
-    "category": "pensamento",
-    "cover": "imagens/pensamento.png",
-    "summary": ""
-  },
-  {
-    "slug": "2024-08-05-PatroeMarcia",
-    "file": "posts/2024-08-05-PatroeMarcia.md",
-    "title": "Patro e Marcia",
-    "date": "2024-08-05",
-    "criador": "Patrô",
-    "category": "logocafe",
-    "cover": "imagens/logocafe.png",
-    "summary": "A nossa história contada pelos nossos pensamentos e bilhetes de avião."
-  },
-  {
-    "slug": "paris-no-inverno",
-    "file": "posts/paris-no-inverno.md",
-    "title": "\"Paris no inverno\"",
-    "date": "\"2026-03-10\"",
-    "criador": "",
-    "category": "\"destinos\"",
-    "cover": "\"/imagens/paris-inverno.jpg\"",
-    "summary": "\"Cafés, neve e charme nas ruas da cidade luz.\""
   }
 ]

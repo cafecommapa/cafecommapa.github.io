@@ -1,7 +1,7 @@
 ---
 title: Molho Gorgonzola
 date: 2025-07-23
-criador: 
+criador: Marcia Shimada
 category: receita
 summary: Receita do Molho Gorgonzola
 ---

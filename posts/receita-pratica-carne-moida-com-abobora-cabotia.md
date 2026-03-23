@@ -1,7 +1,7 @@
 ---
 title: Receita prática_ carne moída com abóbora cabotiá 🎃
 date: 2025-05-04
-criador: Marcia
+criador: Marcia Shimada
 category: receita
 summary: Receita prática: carne moída com abóbora cabotiá 🎃
 ---

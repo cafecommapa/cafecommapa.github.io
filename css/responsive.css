@@ -76,25 +76,25 @@
     top:calc(100% + 8px);
     left:0;
     min-width:170px;
-    background:#fff;
-    border:1px solid #e8e8e8;
-    border-radius:10px;
-    box-shadow:0 10px 24px rgba(0,0,0,0.10);
-    padding:6px;
+    background:rgba(255,255,255,0.97);
+    border:1px solid #eadfce;
+    border-radius:12px;
+    box-shadow:0 12px 28px rgba(90,60,30,0.12);
+    padding:8px;
     z-index:999;
   }
 
   #menu-mobile-links a{
     display:block;
     text-decoration:none;
-    color:#444;
+    color:#4f3a2a;
     padding:10px 12px;
     border-radius:8px;
     font-size:0.9rem;
     font-weight:600;
   }
 
-  #menu-mobile-links a:hover{background:#f4f4f4;}
+  #menu-mobile-links a:hover{background:#f7f1e9;}
 
   .botao-menu-mobile-categoria{
     width:100%;
@@ -106,19 +106,19 @@
     font:inherit;
     font-size:0.9rem;
     font-weight:600;
-    color:#444;
+    color:#4f3a2a;
     cursor:pointer;
   }
 
   .botao-menu-mobile-categoria:hover{
-    background:#f4f4f4;
+    background:#f7f1e9;
   }
 
   .menu-categorias-mobile{
     display:none;
-    margin:4px 0 6px 10px;
-    padding-left:6px;
-    border-left:2px solid #eee;
+    margin:6px 0 6px 10px;
+    padding-left:8px;
+    border-left:2px solid #e6d4bf;
   }
 
   .menu-categorias-mobile.aberto{
@@ -135,11 +135,11 @@
     top:calc(100% + 8px);
     right:0;
     min-width:160px;
-    background:#fff;
-    border:1px solid #e8e8e8;
-    border-radius:10px;
-    box-shadow:0 10px 24px rgba(0,0,0,0.10);
-    padding:6px;
+    background:rgba(255,255,255,0.97);
+    border:1px solid #eadfce;
+    border-radius:12px;
+    box-shadow:0 12px 28px rgba(90,60,30,0.12);
+    padding:8px;
     z-index:999;
   }
 
@@ -152,11 +152,11 @@
     border-radius:8px;
     font:inherit;
     font-size:0.9rem;
-    color:#444;
+    color:#4f3a2a;
     cursor:pointer;
   }
 
-  #menu-cidades-mobile button:hover{background:#f4f4f4;}
+  #menu-cidades-mobile button:hover{background:#f7f1e9;}
 
   .menu-principal,
   #clocks{
@@ -190,6 +190,15 @@
   .card-post h2{font-size:1.2rem;}
   .card-post.destaque h2{font-size:1.35rem;}
   .sidebar{padding:14px;}
+
+  .lista-posts-topo{
+    align-items:flex-start;
+  }
+
+  .lista-posts-total{
+    font-size:1.05rem;
+    padding:8px 12px;
+  }
   #mapa{height:380px;}
 
   .popup-moldura{
@@ -238,6 +247,12 @@
 }
 
 @media (max-width:700px){
+  .lista-posts-topo{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+
   .post-body .galeria-2,
   .post-body .galeria-3,
   .post-body .galeria-4{

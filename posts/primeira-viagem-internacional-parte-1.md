@@ -1,9 +1,9 @@
 ---
-title: Primeira viagem internacional parte 1
-date: 2025-04-14
-criador: Marcia
+title: Primeira Viagem Internacional - parte I
+date: 2025-04-15
+criador: Marcia Shimada
 category: viagem
-summary: Nossa primeira viagem internacional foi em família, 2013
+summary: Viagem a New York
 ---
 
 Nossa primeira viagem internacional em família aconteceu em 2013. Foi uma aventura inesquecível, especialmente por estar com minhas duas filhas adolescentes – uma delas prestes a completar 15 anos. O destino? Nova York e Miami, em um roteiro de sete dias.
@@ -19,12 +19,13 @@ E claro, não poderia faltar um espetáculo da Broadway. Escolhemos assistir “
 Eu comprei meu primeiro Mini IPad, lindoooo. 
 Essa foi só a primeira parte da nossa viagem... em breve, conto como foi o restante dessa experiência incrível!
 
+
 <div class="galeria">
 
-<img src="imagens/2013_NY-Central-Park1.JPG" alt="">
-<img src="imagens/2013_NY-Central-Park2.JPG" alt="">
-<img src="imagens/2013_NY-Ponte-Brooking.JPG" alt="">
-<img src="imagens/2013_NY-Rockffeler-Center.JPG" alt="">
-<img src="imagens/2013_Time-Square.JPG" alt="">
+<img src="imagens/2013_NYCentralPark1.jpg" alt="Central Park">
+<img src="imagens/2013_NYCentralPark2.jpg" alt="Central Park">
+<img src="imagens/2013_NYPonteBrooking.jpg" alt="Brooklyn Bridge">
+<img src="imagens/2013_NYRockffelerCenter.jpg" alt="Rockefeller Center">
+<img src="imagens/2013_TimeSquare.jpg" alt="Times Square">
 
 </div>

@@ -1,7 +1,7 @@
 ---
 title: Carne de Panela
-date: 2026-05-27
-criador: 
+date: 2025-05-27
+criador: Marcia Shimada
 category: receita
 summary: Simples de fazer, prática e cheia de sabor!
 ---

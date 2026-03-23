@@ -1,7 +1,7 @@
 ---
 title: Semana Santa_ Cardápio Frutos do Mar e Dicas Culinárias
 date: 2025-04-20
-criador: márcia
+criador: Marcia Shimada
 category: receita
 summary: Semana Santa: Cardápio Frutos do Mar e Dicas Culinárias
 ---

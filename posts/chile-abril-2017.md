@@ -1,7 +1,7 @@
 ---
 title: Chile – abril 2017
 date: 2025-07-07
-criador: Marcia
+criador: Marcia Shimada
 category: viagem
 summary: Minha filha foi estudar por seis meses em uma escola de arquitetura no Chile
 ---

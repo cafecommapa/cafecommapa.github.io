@@ -1,7 +1,7 @@
 ---
 title: Viagem ao Chile_ Não são só glórias, mas também perrengues
 date: 2025-04-14
-criador: márcia
+criador: Marcia Shimada
 category: viagem
 summary: Viagem ao Chile: Não são só glórias, mas também perrengues
 ---

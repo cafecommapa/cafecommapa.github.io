@@ -1,7 +1,7 @@
 ---
 title: Miami e Orlando
 date: 2025-06-10
-criador: Marcia
+criador: Marcia Shimada
 category: viagem
 summary: Roteiro de 10 dias na Flórida – Aventuras em Miami e Orlando !
 ---

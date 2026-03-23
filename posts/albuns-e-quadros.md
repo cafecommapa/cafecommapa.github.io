@@ -1,7 +1,7 @@
 ---
 title: Álbuns e Quadros
 date: 2025-12-20
-criador: Marcia
+criador: Marcia Shimada
 category: livro
 summary: Colecionar memórias na essência das palavras.
 ---

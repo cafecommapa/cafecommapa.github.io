@@ -2,7 +2,7 @@
 
 title: Monte Verde
 date: 2025-12-14
-criador: Patrô
+criador: Carlos Patrocinio
 category: viagem
 summary: Um Final de Semana Perfeito em Monte Verde
 
