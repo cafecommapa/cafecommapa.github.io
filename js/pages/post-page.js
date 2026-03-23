@@ -1,5 +1,6 @@
 window.SitePostPage = (function () {
   const LIMITE_SIDEBAR = 10;
+  const SITE_URL = "https://cafecommapa.com";
 
   function obterSlugDaUrl() {
     const params = new URLSearchParams(window.location.search);
@@ -66,6 +67,17 @@ window.SitePostPage = (function () {
       const markdown = await window.SiteUtils.fetchText(post.file);
       const { body } = window.SiteUtils.separarFrontMatter(markdown);
       document.title = `${post.title} - Café com Mapa`;
+      const metaDescription = document.getElementById("meta-description");
+      if (metaDescription) {
+        metaDescription.setAttribute(
+          "content",
+          post.summary || `Leia ${post.title} no Café com Mapa.`
+        );
+      }
+      const canonical = document.getElementById("canonical-link");
+      if (canonical) {
+        canonical.href = `${SITE_URL}/${getPostUrl(post.slug)}`;
+      }
 
       container.innerHTML = `
         <div class="post-meta">
