@@ -1,7 +1,42 @@
 window.SitePostPage = (function () {
+  const LIMITE_SIDEBAR = 10;
+
   function obterSlugDaUrl() {
     const params = new URLSearchParams(window.location.search);
     return params.get("slug") || params.get("post");
+  }
+
+  function getPostUrl(slug) {
+    return `post.html?slug=${encodeURIComponent(slug)}`;
+  }
+
+  function renderizarSidebar(posts, slugAtivo) {
+    const lista = document.getElementById("lista-posts");
+    if (!lista) return;
+
+    lista.innerHTML = "";
+    posts.slice(0, LIMITE_SIDEBAR).forEach((post) => {
+      const item = document.createElement("li");
+      item.className = "sidebar-item";
+      item.innerHTML = `
+        <a href="${getPostUrl(post.slug)}" class="sidebar-link${post.slug === slugAtivo ? " ativo" : ""}">
+          <span class="sidebar-title">${post.title}</span>
+          <span class="sidebar-date">${window.SiteUtils.formatarData(post.date)}</span>
+        </a>
+      `;
+      lista.appendChild(item);
+    });
+
+    if (posts.length > LIMITE_SIDEBAR) {
+      const itemMaisPosts = document.createElement("li");
+      itemMaisPosts.className = "sidebar-item sidebar-item-mais-posts";
+      itemMaisPosts.innerHTML = `
+        <a href="index.html" class="sidebar-link sidebar-link-mais-posts">
+          Existem mais posts. Clique para ver todos.
+        </a>
+      `;
+      lista.appendChild(itemMaisPosts);
+    }
   }
 
   async function init() {
@@ -26,6 +61,8 @@ window.SitePostPage = (function () {
         return;
       }
 
+      renderizarSidebar(indice, slug);
+
       const markdown = await window.SiteUtils.fetchText(post.file);
       const { body } = window.SiteUtils.separarFrontMatter(markdown);
       document.title = `${post.title} - Café com Mapa`;
@@ -47,4 +84,3 @@ window.SitePostPage = (function () {
 
   return { init };
 })();
-

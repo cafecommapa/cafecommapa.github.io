@@ -98,15 +98,8 @@ window.SiteHome = (function () {
     });
   }
 
-  function bindAberturaDePosts(container) {
-    if (!container) return;
-
-    container.querySelectorAll("[data-slug]").forEach((link) => {
-      link.addEventListener("click", async function (e) {
-        e.preventDefault();
-        await abrirPostNaHome(this.dataset.slug);
-      });
-    });
+  function getPostUrl(slug) {
+    return `post.html?slug=${encodeURIComponent(slug)}`;
   }
 
   async function abrirPostNaHome(slug) {
@@ -160,7 +153,7 @@ window.SiteHome = (function () {
       const artigo = document.createElement("article");
       artigo.className = index === 0 ? "card-post destaque" : "card-post secundario";
       artigo.innerHTML = `
-        <a href="#" class="post-link-bloco" data-slug="${post.slug}">
+        <a href="${getPostUrl(post.slug)}" class="post-link-bloco" data-slug="${post.slug}">
           ${post.cover ? `<img src="${post.cover}" alt="${post.title}">` : ""}
           <div class="post-meta">
   ${window.SiteUtils.formatarData(post.date)} ${post.criador ? " · " + post.criador : ""}
@@ -174,7 +167,6 @@ window.SiteHome = (function () {
       container.appendChild(artigo);
     }
 
-    bindAberturaDePosts(container);
   }
 
   async function voltarParaHomePrincipal() {
@@ -201,7 +193,7 @@ window.SiteHome = (function () {
         </div>
         <div class="lista-posts-completa-grid">
           ${postsOrdenados.length > 0 ? postsOrdenados.map((post) => `
-            <a href="#" class="lista-post-link" data-slug="${post.slug}">
+            <a href="${getPostUrl(post.slug)}" class="lista-post-link" data-slug="${post.slug}">
               <span class="lista-post-link-titulo">${post.title}</span>
               <span class="lista-post-link-data">${window.SiteUtils.formatarData(post.date)}</span>
             </a>
@@ -218,7 +210,6 @@ window.SiteHome = (function () {
       });
     }
 
-    bindAberturaDePosts(container);
     destacarPostAberto(null);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -300,7 +291,7 @@ window.SiteHome = (function () {
       const item = document.createElement("li");
       item.className = "sidebar-item";
       item.innerHTML = `
-        <a href="#" class="sidebar-link" data-slug="${post.slug}">
+        <a href="${getPostUrl(post.slug)}" class="sidebar-link" data-slug="${post.slug}">
           <span class="sidebar-title">${post.title}</span>
           <span class="sidebar-date">${window.SiteUtils.formatarData(post.date)}</span>
         </a>
@@ -327,7 +318,7 @@ window.SiteHome = (function () {
           return;
         }
 
-        await abrirPostNaHome(this.dataset.slug);
+        window.location.href = getPostUrl(this.dataset.slug);
       });
     });
   }
