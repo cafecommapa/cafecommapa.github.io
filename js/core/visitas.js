@@ -115,7 +115,13 @@ window.SiteVisitas = (function () {
 
     try {
       const pathAtual = obterPathAtual();
-      const resposta = await fetch(`${baseUrl}/counter/${encodeURIComponent(pathAtual)}.json?_=${Date.now()}`);
+      const controller = typeof AbortController === "function" ? new AbortController() : null;
+      const timeoutId = window.setTimeout(() => controller?.abort(), 8000);
+      const resposta = await fetch(`${baseUrl}/counter/${encodeURIComponent(pathAtual)}.json?_=${Date.now()}`, {
+        signal: controller?.signal
+      });
+      window.clearTimeout(timeoutId);
+
       if (!resposta.ok) {
         throw new Error("Não foi possível carregar o contador.");
       }
