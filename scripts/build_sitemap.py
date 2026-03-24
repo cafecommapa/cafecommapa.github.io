@@ -18,9 +18,7 @@ posts = json.loads(POSTS_INDEX.read_text(encoding="utf-8"))
 
 urls = [
     f"{SITE_URL}/",
-    normalize_url("index.html"),
     normalize_url("mapa.html"),
-    normalize_url("post.html"),
 ]
 
 for post in posts:

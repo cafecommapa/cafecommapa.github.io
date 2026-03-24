@@ -115,14 +115,18 @@ window.SiteHome = (function () {
     const markdown = await buscarMarkdown(post.file);
     const corpo = window.SiteUtils.removerFrontMatter(markdown);
 
+    const tituloSeguro = window.SiteUtils.escapeHtml(post.title);
+    const criadorSeguro = post.criador ? ` · ${window.SiteUtils.escapeHtml(post.criador)}` : "";
+    const corpoHtml = window.SiteUtils.sanitizeHtml(marked.parse(corpo));
+
     container.innerHTML = `
       <article class="post-full">
         <a href="#" class="botao-voltar" id="botao-voltar">← Voltar</a>
         <div class="post-meta">
-  ${window.SiteUtils.formatarData(post.date)} ${post.criador ? " · " + post.criador : ""}
+  ${window.SiteUtils.formatarData(post.date)}${criadorSeguro}
 </div>
-        <h1>${post.title}</h1>
-        <div class="post-body">${marked.parse(corpo)}</div>
+        <h1>${tituloSeguro}</h1>
+        <div class="post-body">${corpoHtml}</div>
       </article>
     `;
 
@@ -149,19 +153,24 @@ window.SiteHome = (function () {
       const markdown = await buscarMarkdown(post.file);
       const corpo = window.SiteUtils.removerFrontMatter(markdown);
       const limite = index === 0 ? 700 : 400;
+      const tituloSeguro = window.SiteUtils.escapeHtml(post.title);
+      const resumoSeguro = post.summary ? `<p class="resumo">${window.SiteUtils.escapeHtml(post.summary)}</p>` : "";
+      const criadorSeguro = post.criador ? ` · ${window.SiteUtils.escapeHtml(post.criador)}` : "";
+      const altSeguro = window.SiteUtils.escapeHtml(post.title);
+      const previewHtml = window.SiteUtils.sanitizeHtml(marked.parse(corpo.substring(0, limite) + (corpo.length > limite ? "..." : "")));
 
       const artigo = document.createElement("article");
       artigo.className = index === 0 ? "card-post destaque" : "card-post secundario";
       artigo.innerHTML = `
         <a href="${getPostUrl(post.slug)}" class="post-link-bloco" data-slug="${post.slug}">
-          ${post.cover ? `<img src="${post.cover}" alt="${post.title}">` : ""}
+          ${post.cover ? `<img src="${post.cover}" alt="${altSeguro}">` : ""}
           <div class="post-meta">
-  ${window.SiteUtils.formatarData(post.date)} ${post.criador ? " · " + post.criador : ""}
+  ${window.SiteUtils.formatarData(post.date)}${criadorSeguro}
 </div>
-          <h2>${post.title}</h2>
-          ${post.summary ? `<p class="resumo">${post.summary}</p>` : ""}
+          <h2>${tituloSeguro}</h2>
+          ${resumoSeguro}
         </a>
-        <div class="post-preview">${marked.parse(corpo.substring(0, limite) + (corpo.length > limite ? "..." : ""))}</div>
+        <div class="post-preview">${previewHtml}</div>
       `;
 
       container.appendChild(artigo);
@@ -186,15 +195,15 @@ window.SiteHome = (function () {
     container.innerHTML = `
       <section class="post-full lista-posts-completa">
         <a href="#" class="botao-voltar" id="botao-voltar-lista">← Voltar</a>
-        <div class="post-meta">${descricao}</div>
+        <div class="post-meta">${window.SiteUtils.escapeHtml(descricao)}</div>
         <div class="lista-posts-topo">
-          <h1>${titulo}</h1>
+          <h1>${window.SiteUtils.escapeHtml(titulo)}</h1>
           <div class="lista-posts-total" aria-label="Total de posts">${totalLabel}</div>
         </div>
         <div class="lista-posts-completa-grid">
           ${postsOrdenados.length > 0 ? postsOrdenados.map((post) => `
             <a href="${getPostUrl(post.slug)}" class="lista-post-link" data-slug="${post.slug}">
-              <span class="lista-post-link-titulo">${post.title}</span>
+              <span class="lista-post-link-titulo">${window.SiteUtils.escapeHtml(post.title)}</span>
               <span class="lista-post-link-data">${window.SiteUtils.formatarData(post.date)}</span>
             </a>
           `).join("") : '<p class="lista-post-vazia">Nenhum post encontrado nessa categoria.</p>'}
@@ -292,7 +301,7 @@ window.SiteHome = (function () {
       item.className = "sidebar-item";
       item.innerHTML = `
         <a href="${getPostUrl(post.slug)}" class="sidebar-link" data-slug="${post.slug}">
-          <span class="sidebar-title">${post.title}</span>
+          <span class="sidebar-title">${window.SiteUtils.escapeHtml(post.title)}</span>
           <span class="sidebar-date">${window.SiteUtils.formatarData(post.date)}</span>
         </a>
       `;

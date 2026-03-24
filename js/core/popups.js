@@ -92,7 +92,12 @@ window.SitePopups = (function () {
     if (!popup || !botao) return;
 
     const hoje = new Date().toDateString();
-    const ultimo = localStorage.getItem("popupCafeMapa");
+    let ultimo = null;
+    try {
+      ultimo = localStorage.getItem("popupCafeMapa");
+    } catch {
+      ultimo = null;
+    }
 
     if (ultimo === hoje) {
       popup.style.display = "none";
@@ -103,7 +108,11 @@ window.SitePopups = (function () {
 
     botao.addEventListener("click", function () {
       popup.style.display = "none";
-      localStorage.setItem("popupCafeMapa", hoje);
+      try {
+        localStorage.setItem("popupCafeMapa", hoje);
+      } catch {
+        // Ignora bloqueios de storage para não quebrar o popup.
+      }
     });
   }
 

@@ -4,6 +4,7 @@ window.SiteVisitas = (function () {
   const ADMIN_QUERY_VALUE = "admin";
   const TRACKER_SCRIPT_ID = "site-visitas-tracker";
 
+  // Lemos a configuração do site em um arquivo separado para evitar editar a lógica.
   function obterConfig() {
     return {
       goatcounterCode: "",
@@ -38,6 +39,7 @@ window.SiteVisitas = (function () {
     }
   }
 
+  // O painel admin só aparece para quem abrir a URL com o parâmetro especial.
   function modoAdminAtivo() {
     const params = new URLSearchParams(window.location.search);
     return params.get(ADMIN_QUERY_KEY) === ADMIN_QUERY_VALUE || window.location.hash.includes("visitas-admin");
@@ -82,17 +84,22 @@ window.SiteVisitas = (function () {
   }
 
   function injetarTracker(baseUrl) {
-    if (!baseUrl || navegadorDoProprietario()) return;
+    if (!baseUrl) return;
     if (document.getElementById(TRACKER_SCRIPT_ID)) return;
 
+    const ignorarVisitas = navegadorDoProprietario();
     const script = document.createElement("script");
     script.id = TRACKER_SCRIPT_ID;
     script.async = true;
     script.src = "https://gc.zgo.at/count.js";
     script.dataset.goatcounter = `${baseUrl}/count`;
+    if (ignorarVisitas) {
+      script.dataset.goatcounterSettings = JSON.stringify({ no_onload: true });
+    }
     document.head.appendChild(script);
   }
 
+  // Usamos o path resolvido pelo próprio GoatCounter e exibimos só o número no rodapé.
   async function renderizarContador(baseUrl) {
     const blocos = document.querySelectorAll("[data-visitas-total]");
     if (!blocos.length) return;
@@ -157,9 +164,7 @@ window.SiteVisitas = (function () {
     const baseUrl = obterBaseUrl();
     injetarTracker(baseUrl);
 
-    if (!navegadorDoProprietario()) {
-      aguardarGoatCounter(baseUrl);
-    }
+    aguardarGoatCounter(baseUrl);
   }
 
   return { init };

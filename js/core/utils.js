@@ -1,6 +1,10 @@
 window.SiteUtils = (function () {
   function formatarData(dataIso) {
-    const [ano, mes, dia] = dataIso.split("-");
+    const valor = String(dataIso || "").trim();
+    const match = valor.match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (!match) return valor;
+
+    const [, ano, mes, dia] = match;
     return `${dia}/${mes}/${ano}`;
   }
 
@@ -18,6 +22,42 @@ window.SiteUtils = (function () {
       throw new Error(`Não foi possível carregar ${caminho}`);
     }
     return resposta.text();
+  }
+
+  function escapeHtml(valor) {
+    return String(valor ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function sanitizeHtml(html) {
+    const template = document.createElement("template");
+    template.innerHTML = String(html || "");
+
+    template.content.querySelectorAll("script, iframe, object, embed, style, link, meta").forEach((el) => {
+      el.remove();
+    });
+
+    template.content.querySelectorAll("*").forEach((el) => {
+      [...el.attributes].forEach((attr) => {
+        const nome = attr.name.toLowerCase();
+        const valor = attr.value.trim();
+
+        if (nome.startsWith("on")) {
+          el.removeAttribute(attr.name);
+          return;
+        }
+
+        if ((nome === "href" || nome === "src" || nome === "xlink:href") && /^javascript:/i.test(valor)) {
+          el.removeAttribute(attr.name);
+        }
+      });
+    });
+
+    return template.innerHTML;
   }
 
   function removerFrontMatter(texto) {
@@ -55,6 +95,8 @@ window.SiteUtils = (function () {
     formatarData,
     fetchJson,
     fetchText,
+    escapeHtml,
+    sanitizeHtml,
     removerFrontMatter,
     separarFrontMatter
   };

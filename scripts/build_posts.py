@@ -33,6 +33,11 @@ def extract_preview(text, limit=200):
     return text[:limit] + ("..." if len(text) > limit else "")
 
 
+def normalize_date(value):
+    text = str(value or "").strip()
+    return text[:10] if len(text) >= 10 else text or "1970-01-01"
+
+
 posts = []
 
 for file_path in sorted(POSTS_DIR.glob("*.md"), reverse=True):
@@ -54,7 +59,7 @@ for file_path in sorted(POSTS_DIR.glob("*.md"), reverse=True):
         "slug": slug,
         "file": f"posts/{file_path.name}",
         "title": meta.get("title", slug),
-        "date": meta.get("date", "1970-01-01"),
+        "date": normalize_date(meta.get("date", "1970-01-01")),
         "criador": meta.get("criador", ""),
         "category": category,
         "cover": cover,

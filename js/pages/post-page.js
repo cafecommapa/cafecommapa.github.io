@@ -90,7 +90,7 @@ window.SitePostPage = (function () {
       item.className = "sidebar-item";
       item.innerHTML = `
         <a href="${getPostUrl(post.slug)}" class="sidebar-link${post.slug === slugAtivo ? " ativo" : ""}">
-          <span class="sidebar-title">${post.title}</span>
+          <span class="sidebar-title">${window.SiteUtils.escapeHtml(post.title)}</span>
           <span class="sidebar-date">${window.SiteUtils.formatarData(post.date)}</span>
         </a>
       `;
@@ -136,13 +136,16 @@ window.SitePostPage = (function () {
       const markdown = await window.SiteUtils.fetchText(post.file);
       const { body } = window.SiteUtils.separarFrontMatter(markdown);
       atualizarHeadDoPost(post);
+      const tituloSeguro = window.SiteUtils.escapeHtml(post.title);
+      const criadorSeguro = post.criador ? ` · ${window.SiteUtils.escapeHtml(post.criador)}` : "";
+      const corpoHtml = window.SiteUtils.sanitizeHtml(marked.parse(body));
 
       container.innerHTML = `
         <div class="post-meta">
-  ${window.SiteUtils.formatarData(post.date)} ${post.criador ? " · " + post.criador : ""}
+  ${window.SiteUtils.formatarData(post.date)}${criadorSeguro}
 </div>
-        <h1>${post.title}</h1>
-        <div class="post-body">${marked.parse(body)}</div>
+        <h1>${tituloSeguro}</h1>
+        <div class="post-body">${corpoHtml}</div>
       `;
 
       window.SiteLightbox?.ativarNasImagens?.();

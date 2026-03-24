@@ -16,8 +16,7 @@ Talvez o açúcar mascavo — a cor dele se aproxima mais da cor da minha cútis
 Desta forma, acredito que o açúcar na forma natural não satisfaz a equação. Mas se aquecer açúcar refinado no fundo da panela, ele escurece e toma uma forma mais firme — assim como eu. Fica muito doce, como meus amigos me descrevem. Quase todo mundo gosta, mas merece cuidado na hora de mastigar, para não vir preso o bloco dentário — como já me aconteceu.
 Por isso, na próxima caminhada, não vou evitar a chuva. Pois açúcar queimado não derrete fácil na água fria. E, como toda bala açucarada, é difícil de mastigar — mas quem experimenta, gosta tanto que não vive mais sem.
 Eu sempre digo que caminhar libera os pensamentos. Isso não significa que se aproveita algum... KKKKKKKKKKK
-Olá  👋
-Como posso te ajudar hoje?
+
 
 <div class="galeria">
 

@@ -14,6 +14,9 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Título", name: "title", widget: "string" }
-      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Data", name: "date", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Autor", name: "criador", widget: "select", options: ["Marcia Shimada", "Carlos Patrocinio"] }
+      - { label: "Categoria", name: "category", widget: "select", options: ["viagem", "pensamento", "livro", "receita", "filme", "tecnologia"] }
+      - { label: "Resumo", name: "summary", widget: "text", required: false }
       - { label: "Imagem", name: "cover", widget: "image", required: false }
       - { label: "Conteúdo", name: "body", widget: "markdown" }
