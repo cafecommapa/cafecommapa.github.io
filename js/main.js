@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const page = document.body.dataset.page || "";
 
+  window.SiteFooter?.init?.();
   window.SiteVisitas?.init?.();
   window.SiteRelogios?.init?.();
   window.SiteMenu?.init?.();
