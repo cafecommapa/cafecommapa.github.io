@@ -99,12 +99,28 @@ window.SiteVisitas = (function () {
     document.head.appendChild(script);
   }
 
+  function obterPathAtual() {
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical?.href) {
+      try {
+        const url = new URL(canonical.href, window.location.origin);
+        if (url.origin === window.location.origin) {
+          return `${url.pathname}${url.search}` || "/";
+        }
+      } catch {
+        // Se a canonical estiver inválida, usa a URL atual.
+      }
+    }
+
+    return `${window.location.pathname}${window.location.search}` || "/";
+  }
+
   // Usamos o path resolvido pelo próprio GoatCounter e exibimos só o número no rodapé.
   async function renderizarContador(baseUrl) {
     const blocos = document.querySelectorAll("[data-visitas-total]");
     if (!blocos.length) return;
 
-    const pathAtual = window.goatcounter?.get_data?.()?.p;
+    const pathAtual = obterPathAtual();
     if (!baseUrl || !pathAtual) {
       blocos.forEach((bloco) => {
         bloco.hidden = true;
@@ -140,7 +156,7 @@ window.SiteVisitas = (function () {
   function aguardarGoatCounter(baseUrl, tentativa = 0) {
     const maxTentativas = 40;
 
-    if (window.goatcounter?.get_data) {
+    if (window.goatcounter) {
       renderizarContador(baseUrl);
       return;
     }
