@@ -3,6 +3,7 @@ window.SiteVisitas = (function () {
   const ADMIN_QUERY_KEY = "visitas";
   const ADMIN_QUERY_VALUE = "admin";
   const TRACKER_SCRIPT_ID = "site-visitas-tracker";
+  const CONTAGEM_POST_ATTR = "data-visitas-post-counted";
 
   // Lemos a configuração do site em um arquivo separado para evitar editar a lógica.
   function obterConfig() {
@@ -89,6 +90,7 @@ window.SiteVisitas = (function () {
 
     const ignorarVisitas = navegadorDoProprietario();
     const pathAtual = obterPathAtual();
+    const page = document.body.dataset.page || "";
     const script = document.createElement("script");
     script.id = TRACKER_SCRIPT_ID;
     script.async = true;
@@ -96,7 +98,7 @@ window.SiteVisitas = (function () {
     script.dataset.goatcounter = `${baseUrl}/count`;
     script.dataset.goatcounterSettings = JSON.stringify({
       path: pathAtual,
-      ...(ignorarVisitas ? { no_onload: true } : {})
+      ...((ignorarVisitas || page === "post") ? { no_onload: true } : {})
     });
     document.head.appendChild(script);
   }
@@ -175,6 +177,29 @@ window.SiteVisitas = (function () {
     }, 250);
   }
 
+  function contarPostAtual(baseUrl, tentativa = 0) {
+    const maxTentativas = 40;
+    const page = document.body.dataset.page || "";
+    const pathAtual = obterPathAtual();
+
+    if (page !== "post" || navegadorDoProprietario()) return;
+    if (document.body.getAttribute(CONTAGEM_POST_ATTR) === pathAtual) return;
+
+    if (!window.goatcounter?.count) {
+      if (tentativa >= maxTentativas) return;
+      window.setTimeout(() => {
+        contarPostAtual(baseUrl, tentativa + 1);
+      }, 250);
+      return;
+    }
+
+    document.body.setAttribute(CONTAGEM_POST_ATTR, pathAtual);
+    window.goatcounter.count({
+      path: pathAtual,
+      title: document.title
+    });
+  }
+
   function init() {
     atualizarPainelAdmin();
     bindPainelAdmin();
@@ -187,6 +212,7 @@ window.SiteVisitas = (function () {
 
   function refresh() {
     const baseUrl = obterBaseUrl();
+    contarPostAtual(baseUrl);
     aguardarGoatCounter(baseUrl);
   }
 
