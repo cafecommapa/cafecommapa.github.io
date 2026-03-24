@@ -1,3 +1,3 @@
 window.SiteAnalyticsConfig = {
-  goatcounterCode: ""
+  goatcounterCode: "cafecommapa"
 };
