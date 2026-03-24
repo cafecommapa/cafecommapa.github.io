@@ -127,18 +127,20 @@ window.SiteVisitas = (function () {
               min-width: 0;
               min-height: 0;
               color: #f3d0a4;
-              font-size: 18px;
+              font-size: 16px;
               font-weight: 700;
               line-height: 1;
               box-shadow: none;
+              display: inline;
             }
             #gcvc-for {
               display: none;
             }
             #gcvc-views {
               color: #f3d0a4;
-              font-size: 18px;
+              font-size: 16px;
               font-weight: 700;
+              line-height: 1;
             }
             #gcvc-by {
               display: none;
