@@ -125,6 +125,7 @@ window.SiteVisitas = (function () {
               padding: 0;
               margin: 0;
               min-width: 0;
+              min-height: 0;
               color: #f3d0a4;
               font-size: 18px;
               font-weight: 700;

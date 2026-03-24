@@ -99,6 +99,7 @@ img{
   color:#f4ece2;
   font-size:15px;
   flex-wrap:wrap;
+  text-align:center;
 }
 
 .rodape-visitas-label{
@@ -106,8 +107,19 @@ img{
 }
 
 .rodape-visitas-valor{
-  font-size:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width:72px;
+  min-height:24px;
+  padding:2px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(244,236,226,0.16);
   color:#f3d0a4;
+  font-size:18px;
+  font-weight:700;
+  line-height:1;
 }
 
 .rodape-visitas-admin{
