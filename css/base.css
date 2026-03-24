@@ -107,9 +107,7 @@ img{
 }
 
 .rodape-visitas-valor{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+  display:inline;
   min-width:auto;
   min-height:auto;
   padding:0;

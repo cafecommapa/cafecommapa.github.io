@@ -93,72 +93,48 @@ window.SiteVisitas = (function () {
     document.head.appendChild(script);
   }
 
-  function renderizarContador() {
+  async function renderizarContador(baseUrl) {
     const blocos = document.querySelectorAll("[data-visitas-total]");
     if (!blocos.length) return;
 
-    if (!window.goatcounter?.visit_count) {
+    const pathAtual = window.goatcounter?.get_data?.()?.p;
+    if (!baseUrl || !pathAtual) {
       blocos.forEach((bloco) => {
         bloco.hidden = true;
       });
       return;
     }
 
-    blocos.forEach((bloco, index) => {
-      bloco.hidden = false;
-
-      const valor = bloco.querySelector("[data-visitas-valor]");
-      if (valor) {
-        valor.textContent = "";
-        valor.id = valor.id || `visitas-valor-${index + 1}`;
+    try {
+      const resposta = await fetch(`${baseUrl}/counter/${encodeURIComponent(pathAtual)}.json?_=${Date.now()}`);
+      if (!resposta.ok) {
+        throw new Error("Não foi possível carregar o contador.");
       }
 
-      try {
-        window.goatcounter.visit_count({
-          append: `#${valor.id}`,
-          type: "html",
-          no_branding: true,
-          style: `
-            div {
-              border: 0;
-              background: transparent;
-              padding: 0;
-              margin: 0;
-              min-width: 0;
-              min-height: 0;
-              color: #f3d0a4;
-              font-size: 16px;
-              font-weight: 700;
-              line-height: 1;
-              box-shadow: none;
-              display: inline;
-            }
-            #gcvc-for {
-              display: none;
-            }
-            #gcvc-views {
-              color: #f3d0a4;
-              font-size: 16px;
-              font-weight: 700;
-              line-height: 1;
-            }
-            #gcvc-by {
-              display: none;
-            }
-          `
-        });
-      } catch (erro) {
-        console.error(erro);
+      const dados = await resposta.json();
+      const total = dados.count ?? "0";
+
+      blocos.forEach((bloco) => {
+        const valor = bloco.querySelector("[data-visitas-valor]");
+        if (valor) {
+          valor.textContent = total;
+        }
+
+        bloco.hidden = false;
+      });
+    } catch (erro) {
+      console.error(erro);
+      blocos.forEach((bloco) => {
         bloco.hidden = true;
-      }
-    });
+      });
+    }
   }
 
-  function aguardarGoatCounter(tentativa = 0) {
+  function aguardarGoatCounter(baseUrl, tentativa = 0) {
     const maxTentativas = 40;
 
-    if (window.goatcounter?.visit_count) {
-      renderizarContador();
+    if (window.goatcounter?.get_data) {
+      renderizarContador(baseUrl);
       return;
     }
 
@@ -170,7 +146,7 @@ window.SiteVisitas = (function () {
     }
 
     window.setTimeout(() => {
-      aguardarGoatCounter(tentativa + 1);
+      aguardarGoatCounter(baseUrl, tentativa + 1);
     }, 250);
   }
 
@@ -182,7 +158,7 @@ window.SiteVisitas = (function () {
     injetarTracker(baseUrl);
 
     if (!navegadorDoProprietario()) {
-      aguardarGoatCounter();
+      aguardarGoatCounter(baseUrl);
     }
   }
 
