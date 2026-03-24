@@ -88,14 +88,16 @@ window.SiteVisitas = (function () {
     if (document.getElementById(TRACKER_SCRIPT_ID)) return;
 
     const ignorarVisitas = navegadorDoProprietario();
+    const pathAtual = obterPathAtual();
     const script = document.createElement("script");
     script.id = TRACKER_SCRIPT_ID;
     script.async = true;
     script.src = "https://gc.zgo.at/count.js";
     script.dataset.goatcounter = `${baseUrl}/count`;
-    if (ignorarVisitas) {
-      script.dataset.goatcounterSettings = JSON.stringify({ no_onload: true });
-    }
+    script.dataset.goatcounterSettings = JSON.stringify({
+      path: pathAtual,
+      ...(ignorarVisitas ? { no_onload: true } : {})
+    });
     document.head.appendChild(script);
   }
 
