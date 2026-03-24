@@ -43,11 +43,6 @@ window.SiteVisitas = (function () {
     return params.get(ADMIN_QUERY_KEY) === ADMIN_QUERY_VALUE || window.location.hash.includes("visitas-admin");
   }
 
-  function formatarContagem(total) {
-    if (typeof total === "string") return total;
-    return Number(total || 0).toLocaleString("pt-BR");
-  }
-
   function atualizarPainelAdmin() {
     const paineis = document.querySelectorAll("[data-visitas-admin]");
     if (!paineis.length) return;
@@ -86,54 +81,6 @@ window.SiteVisitas = (function () {
     });
   }
 
-  async function carregarContadorTotal(baseUrl) {
-    const blocos = document.querySelectorAll("[data-visitas-total]");
-    if (!blocos.length) return;
-
-    if (!baseUrl) {
-      blocos.forEach((bloco) => {
-        bloco.hidden = true;
-      });
-      return;
-    }
-
-    try {
-      const goatcounter = window.goatcounter;
-      const pathAtual = goatcounter?.get_data?.()?.p;
-      if (!pathAtual) {
-        throw new Error("Caminho do GoatCounter ainda não disponível.");
-      }
-
-      const controller = typeof AbortController === "function" ? new AbortController() : null;
-      const timeoutId = window.setTimeout(() => controller?.abort(), 8000);
-      const resposta = await fetch(`${baseUrl}/counter/${encodeURIComponent(pathAtual)}.json?_=${Date.now()}`, {
-        signal: controller?.signal
-      });
-      window.clearTimeout(timeoutId);
-
-      if (!resposta.ok) {
-        throw new Error("Não foi possível carregar o contador.");
-      }
-
-      const dados = await resposta.json();
-      const total = dados.count ?? "0";
-
-      blocos.forEach((bloco) => {
-        const valor = bloco.querySelector("[data-visitas-valor]");
-        if (valor) {
-          valor.textContent = formatarContagem(total);
-        }
-
-        bloco.hidden = false;
-      });
-    } catch (erro) {
-      console.error(erro);
-      blocos.forEach((bloco) => {
-        bloco.hidden = true;
-      });
-    }
-  }
-
   function injetarTracker(baseUrl) {
     if (!baseUrl || navegadorDoProprietario()) return;
     if (document.getElementById(TRACKER_SCRIPT_ID)) return;
@@ -146,12 +93,69 @@ window.SiteVisitas = (function () {
     document.head.appendChild(script);
   }
 
-  function aguardarGoatCounter(baseUrl, tentativa = 0) {
-    const maxTentativas = 40;
-    if (!baseUrl) return;
+  function renderizarContador() {
+    const blocos = document.querySelectorAll("[data-visitas-total]");
+    if (!blocos.length) return;
 
-    if (window.goatcounter?.get_data) {
-      carregarContadorTotal(baseUrl);
+    if (!window.goatcounter?.visit_count) {
+      blocos.forEach((bloco) => {
+        bloco.hidden = true;
+      });
+      return;
+    }
+
+    blocos.forEach((bloco, index) => {
+      bloco.hidden = false;
+
+      const valor = bloco.querySelector("[data-visitas-valor]");
+      if (valor) {
+        valor.textContent = "";
+        valor.id = valor.id || `visitas-valor-${index + 1}`;
+      }
+
+      try {
+        window.goatcounter.visit_count({
+          append: `#${valor.id}`,
+          type: "html",
+          no_branding: true,
+          style: `
+            div {
+              border: 0;
+              background: transparent;
+              padding: 0;
+              margin: 0;
+              min-width: 0;
+              color: #f3d0a4;
+              font-size: 18px;
+              font-weight: 700;
+              line-height: 1;
+              box-shadow: none;
+            }
+            #gcvc-for {
+              display: none;
+            }
+            #gcvc-views {
+              color: #f3d0a4;
+              font-size: 18px;
+              font-weight: 700;
+            }
+            #gcvc-by {
+              display: none;
+            }
+          `
+        });
+      } catch (erro) {
+        console.error(erro);
+        bloco.hidden = true;
+      }
+    });
+  }
+
+  function aguardarGoatCounter(tentativa = 0) {
+    const maxTentativas = 40;
+
+    if (window.goatcounter?.visit_count) {
+      renderizarContador();
       return;
     }
 
@@ -163,7 +167,7 @@ window.SiteVisitas = (function () {
     }
 
     window.setTimeout(() => {
-      aguardarGoatCounter(baseUrl, tentativa + 1);
+      aguardarGoatCounter(tentativa + 1);
     }, 250);
   }
 
@@ -173,7 +177,10 @@ window.SiteVisitas = (function () {
 
     const baseUrl = obterBaseUrl();
     injetarTracker(baseUrl);
-    aguardarGoatCounter(baseUrl);
+
+    if (!navegadorDoProprietario()) {
+      aguardarGoatCounter();
+    }
   }
 
   return { init };
