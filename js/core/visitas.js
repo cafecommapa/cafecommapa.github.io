@@ -116,7 +116,7 @@ window.SiteVisitas = (function () {
       }
 
       const dados = await resposta.json();
-      const total = typeof dados.count === "number" ? dados.count : 0;
+      const total = dados.count ?? "0";
 
       blocos.forEach((bloco) => {
         const valor = bloco.querySelector("[data-visitas-valor]");
