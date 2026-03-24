@@ -28,7 +28,9 @@
   <link rel="stylesheet" href="css/responsive.css">
 
   <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script defer src="js/core/site-config.js"></script>
   <script defer src="js/core/utils.js"></script>
+  <script defer src="js/core/visitas.js"></script>
   <script defer src="js/core/lightbox.js"></script>
   <script defer src="js/core/relogios.js"></script>
   <script defer src="js/core/menu.js"></script>
@@ -173,6 +175,14 @@
           <span class="icone-instagram-rodape"></span>
           @patrocarlos
         </a>
+      </div>
+      <div class="rodape-visitas" data-visitas-total hidden>
+        <span class="rodape-visitas-label">Visitas no blog</span>
+        <strong class="rodape-visitas-valor" data-visitas-valor>carregando...</strong>
+      </div>
+      <div class="rodape-visitas-admin" data-visitas-admin hidden>
+        <button type="button" class="rodape-visitas-botao" data-visitas-toggle>Ignorar minhas visitas neste navegador</button>
+        <p class="rodape-visitas-status" data-visitas-status></p>
       </div>
       <div class="rodape-info">© 2026 Café com Mapa — Powered by GitHub Pages</div>
     </div>

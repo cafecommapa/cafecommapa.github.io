@@ -90,6 +90,55 @@ img{
   flex-wrap:wrap;
 }
 
+.rodape-visitas{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin:10px 0 8px;
+  color:#f4ece2;
+  font-size:15px;
+  flex-wrap:wrap;
+}
+
+.rodape-visitas-label{
+  opacity:0.88;
+}
+
+.rodape-visitas-valor{
+  font-size:18px;
+  color:#f3d0a4;
+}
+
+.rodape-visitas-admin{
+  margin:8px auto 14px;
+  max-width:420px;
+}
+
+.rodape-visitas-botao{
+  width:100%;
+  border:1px solid rgba(244,236,226,0.28);
+  background:rgba(255,255,255,0.08);
+  color:#f7efe6;
+  border-radius:999px;
+  padding:10px 14px;
+  font:inherit;
+  cursor:pointer;
+  transition:background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.rodape-visitas-botao:hover{
+  background:rgba(255,255,255,0.14);
+  border-color:rgba(244,236,226,0.42);
+}
+
+.rodape-visitas-status{
+  margin-top:8px;
+  font-size:13px;
+  color:#d2c0ae;
+  line-height:1.4;
+}
+
 .rodape-redes a{
   color:#f4ece2;
   text-decoration:none;
