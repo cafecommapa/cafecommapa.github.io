@@ -48,22 +48,6 @@ window.SiteVisitas = (function () {
     return Number(total || 0).toLocaleString("pt-BR");
   }
 
-  function obterPathAtual() {
-    const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical?.href) {
-      try {
-        const url = new URL(canonical.href, window.location.origin);
-        if (url.origin === window.location.origin) {
-          return `${url.pathname}${url.search}` || "/";
-        }
-      } catch {
-        // Se a canonical estiver inválida, cai para a URL atual.
-      }
-    }
-
-    return `${window.location.pathname}${window.location.search}` || "/";
-  }
-
   function atualizarPainelAdmin() {
     const paineis = document.querySelectorAll("[data-visitas-admin]");
     if (!paineis.length) return;
@@ -114,7 +98,12 @@ window.SiteVisitas = (function () {
     }
 
     try {
-      const pathAtual = obterPathAtual();
+      const goatcounter = window.goatcounter;
+      const pathAtual = goatcounter?.get_data?.()?.p;
+      if (!pathAtual) {
+        throw new Error("Caminho do GoatCounter ainda não disponível.");
+      }
+
       const controller = typeof AbortController === "function" ? new AbortController() : null;
       const timeoutId = window.setTimeout(() => controller?.abort(), 8000);
       const resposta = await fetch(`${baseUrl}/counter/${encodeURIComponent(pathAtual)}.json?_=${Date.now()}`, {
@@ -157,13 +146,34 @@ window.SiteVisitas = (function () {
     document.head.appendChild(script);
   }
 
+  function aguardarGoatCounter(baseUrl, tentativa = 0) {
+    const maxTentativas = 40;
+    if (!baseUrl) return;
+
+    if (window.goatcounter?.get_data) {
+      carregarContadorTotal(baseUrl);
+      return;
+    }
+
+    if (tentativa >= maxTentativas) {
+      document.querySelectorAll("[data-visitas-total]").forEach((bloco) => {
+        bloco.hidden = true;
+      });
+      return;
+    }
+
+    window.setTimeout(() => {
+      aguardarGoatCounter(baseUrl, tentativa + 1);
+    }, 250);
+  }
+
   function init() {
     atualizarPainelAdmin();
     bindPainelAdmin();
 
     const baseUrl = obterBaseUrl();
-    carregarContadorTotal(baseUrl);
     injetarTracker(baseUrl);
+    aguardarGoatCounter(baseUrl);
   }
 
   return { init };
