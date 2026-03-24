@@ -119,6 +119,36 @@ window.SiteVisitas = (function () {
     return `${window.location.pathname}${window.location.search}` || "/";
   }
 
+  function atualizarBlocos(total) {
+    const blocos = document.querySelectorAll("[data-visitas-total]");
+    if (!blocos.length) return;
+
+    blocos.forEach((bloco) => {
+      const valor = bloco.querySelector("[data-visitas-valor]");
+      if (valor) {
+        valor.textContent = total;
+      }
+
+      bloco.hidden = false;
+    });
+  }
+
+  function ocultarBlocos() {
+    document.querySelectorAll("[data-visitas-total]").forEach((bloco) => {
+      bloco.hidden = true;
+    });
+  }
+
+  async function buscarContador(baseUrl, pathAtual) {
+    const resposta = await fetch(`${baseUrl}/counter/${encodeURIComponent(pathAtual)}.json?_=${Date.now()}`);
+    if (!resposta.ok) {
+      throw new Error("Não foi possível carregar o contador.");
+    }
+
+    const dados = await resposta.json();
+    return dados.count ?? "0";
+  }
+
   // Usamos o path resolvido pelo próprio GoatCounter e exibimos só o número no rodapé.
   async function renderizarContador(baseUrl) {
     const blocos = document.querySelectorAll("[data-visitas-total]");
@@ -126,34 +156,16 @@ window.SiteVisitas = (function () {
 
     const pathAtual = obterPathAtual();
     if (!baseUrl || !pathAtual) {
-      blocos.forEach((bloco) => {
-        bloco.hidden = true;
-      });
+      ocultarBlocos();
       return;
     }
 
     try {
-      const resposta = await fetch(`${baseUrl}/counter/${encodeURIComponent(pathAtual)}.json?_=${Date.now()}`);
-      if (!resposta.ok) {
-        throw new Error("Não foi possível carregar o contador.");
-      }
-
-      const dados = await resposta.json();
-      const total = dados.count ?? "0";
-
-      blocos.forEach((bloco) => {
-        const valor = bloco.querySelector("[data-visitas-valor]");
-        if (valor) {
-          valor.textContent = total;
-        }
-
-        bloco.hidden = false;
-      });
+      const total = await buscarContador(baseUrl, pathAtual);
+      atualizarBlocos(total);
     } catch (erro) {
       console.error(erro);
-      blocos.forEach((bloco) => {
-        bloco.hidden = true;
-      });
+      ocultarBlocos();
     }
   }
 
@@ -166,9 +178,7 @@ window.SiteVisitas = (function () {
     }
 
     if (tentativa >= maxTentativas) {
-      document.querySelectorAll("[data-visitas-total]").forEach((bloco) => {
-        bloco.hidden = true;
-      });
+      ocultarBlocos();
       return;
     }
 
@@ -200,6 +210,31 @@ window.SiteVisitas = (function () {
     });
   }
 
+  function renderizarContadorPostComRetry(baseUrl, tentativa = 0) {
+    const maxTentativas = 8;
+    const pathAtual = obterPathAtual();
+
+    if (!baseUrl || !pathAtual) {
+      ocultarBlocos();
+      return;
+    }
+
+    buscarContador(baseUrl, pathAtual)
+      .then((total) => {
+        atualizarBlocos(total);
+      })
+      .catch(() => {
+        if (tentativa >= maxTentativas) {
+          ocultarBlocos();
+          return;
+        }
+
+        window.setTimeout(() => {
+          renderizarContadorPostComRetry(baseUrl, tentativa + 1);
+        }, 600);
+      });
+  }
+
   function init() {
     atualizarPainelAdmin();
     bindPainelAdmin();
@@ -213,7 +248,7 @@ window.SiteVisitas = (function () {
   function refresh() {
     const baseUrl = obterBaseUrl();
     contarPostAtual(baseUrl);
-    aguardarGoatCounter(baseUrl);
+    renderizarContadorPostComRetry(baseUrl);
   }
 
   return { init, refresh };
