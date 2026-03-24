@@ -136,6 +136,7 @@ window.SitePostPage = (function () {
       const markdown = await window.SiteUtils.fetchText(post.file);
       const { body } = window.SiteUtils.separarFrontMatter(markdown);
       atualizarHeadDoPost(post);
+      window.SiteVisitas?.refresh?.();
       const tituloSeguro = window.SiteUtils.escapeHtml(post.title);
       const criadorSeguro = post.criador ? ` · ${window.SiteUtils.escapeHtml(post.criador)}` : "";
       const corpoHtml = window.SiteUtils.sanitizeHtml(marked.parse(body));

@@ -167,5 +167,10 @@ window.SiteVisitas = (function () {
     aguardarGoatCounter(baseUrl);
   }
 
-  return { init };
+  function refresh() {
+    const baseUrl = obterBaseUrl();
+    aguardarGoatCounter(baseUrl);
+  }
+
+  return { init, refresh };
 })();
