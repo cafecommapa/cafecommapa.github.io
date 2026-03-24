@@ -44,7 +44,24 @@ window.SiteVisitas = (function () {
   }
 
   function formatarContagem(total) {
+    if (typeof total === "string") return total;
     return Number(total || 0).toLocaleString("pt-BR");
+  }
+
+  function obterPathAtual() {
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical?.href) {
+      try {
+        const url = new URL(canonical.href, window.location.origin);
+        if (url.origin === window.location.origin) {
+          return `${url.pathname}${url.search}` || "/";
+        }
+      } catch {
+        // Se a canonical estiver inválida, cai para a URL atual.
+      }
+    }
+
+    return `${window.location.pathname}${window.location.search}` || "/";
   }
 
   function atualizarPainelAdmin() {
@@ -97,7 +114,8 @@ window.SiteVisitas = (function () {
     }
 
     try {
-      const resposta = await fetch(`${baseUrl}/counter/TOTAL.json?_=${Date.now()}`);
+      const pathAtual = obterPathAtual();
+      const resposta = await fetch(`${baseUrl}/counter/${encodeURIComponent(pathAtual)}.json?_=${Date.now()}`);
       if (!resposta.ok) {
         throw new Error("Não foi possível carregar o contador.");
       }
@@ -116,12 +134,7 @@ window.SiteVisitas = (function () {
     } catch (erro) {
       console.error(erro);
       blocos.forEach((bloco) => {
-        const valor = bloco.querySelector("[data-visitas-valor]");
-        if (valor) {
-          valor.textContent = "indisponível";
-        }
-
-        bloco.hidden = false;
+        bloco.hidden = true;
       });
     }
   }
