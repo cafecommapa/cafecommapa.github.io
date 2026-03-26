@@ -1,0 +1,769 @@
+:root {
+  --tc-bg: #f6f2eb;
+  --tc-surface: rgba(255, 255, 255, 0.95);
+  --tc-surface-strong: #efe6d8;
+  --tc-border: #ded4c5;
+  --tc-text: #333333;
+  --tc-muted: #777777;
+  --tc-accent: #8b5e3c;
+  --tc-accent-strong: #6e462c;
+  --tc-book-jennifer: #c59a2f;
+  --tc-book-jennifer-strong: #8f6d1d;
+  --tc-book-ameaca: #4f7f9b;
+  --tc-book-ameaca-strong: #355a72;
+  --tc-book-destinos: #b5534f;
+  --tc-book-destinos-strong: #873734;
+  --tc-shadow: 0 8px 20px rgba(84, 56, 32, 0.07);
+  --tc-radius: 10px;
+  --tc-max: 1180px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body.trilogia-page {
+  margin: 0;
+  color: var(--tc-text);
+  background:
+    radial-gradient(circle at top left, rgba(122, 73, 52, 0.12), transparent 34%),
+    linear-gradient(180deg, #fbf8f3 0%, #f2ece1 100%);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+body.trilogia-page[data-trilogia-view="landing"] {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.82), rgba(235, 235, 235, 0.88)),
+    url("/trilogia/assets/images/fundo-destino.png") center top / 420px auto fixed repeat;
+}
+
+body.trilogia-page[data-book-slug="jennifer"] {
+  --tc-accent: var(--tc-book-jennifer);
+  --tc-accent-strong: var(--tc-book-jennifer-strong);
+  --tc-surface-strong: #f4ebcf;
+  --tc-border: #e3d1a4;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.86), rgba(235, 235, 235, 0.9)),
+    url("/trilogia/assets/images/fundo-destino.png") center top / 420px auto fixed repeat;
+}
+
+body.trilogia-page[data-book-slug="ameaca-nuclear"] {
+  --tc-accent: var(--tc-book-ameaca);
+  --tc-accent-strong: var(--tc-book-ameaca-strong);
+  --tc-surface-strong: #deebf2;
+  --tc-border: #bfd1dc;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.86), rgba(235, 235, 235, 0.9)),
+    url("/trilogia/assets/images/fundo-destino.png") center top / 420px auto fixed repeat;
+}
+
+body.trilogia-page[data-book-slug="destinos-cruzados"] {
+  --tc-accent: var(--tc-book-destinos);
+  --tc-accent-strong: var(--tc-book-destinos-strong);
+  --tc-surface-strong: #f1dfdf;
+  --tc-border: #ddbcbb;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.86), rgba(235, 235, 235, 0.9)),
+    url("/trilogia/assets/images/fundo-destino.png") center top / 420px auto fixed repeat;
+}
+
+.tc-shell {
+  width: min(calc(100% - 32px), var(--tc-max));
+  margin: 0 auto;
+}
+
+.tc-header {
+  padding: 24px 0 12px;
+}
+
+.tc-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 18px;
+  background: linear-gradient(180deg, #e6bf86 0%, #dfb67a 100%);
+  border: 1px solid #b58c62;
+  border-radius: var(--tc-radius);
+  box-shadow: var(--tc-shadow);
+}
+
+.tc-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--tc-text);
+  text-decoration: none;
+}
+
+.tc-brand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--tc-accent), var(--tc-accent-strong));
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.tc-brand-text strong,
+.tc-brand-text span {
+  display: block;
+}
+
+.tc-brand-text span {
+  color: #5f4633;
+  font-size: 0.9rem;
+}
+
+.tc-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.tc-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: #4f3a2a;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.tc-nav a,
+.tc-link {
+  color: var(--tc-accent-strong);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.tc-nav a:hover,
+.tc-link:hover,
+.tc-link:focus-visible {
+  text-decoration: underline;
+}
+
+.tc-main {
+  padding-bottom: 64px;
+}
+
+.tc-hero {
+  display: grid;
+  gap: 24px;
+  padding: 28px 0 16px;
+}
+
+.tc-hero-home {
+  align-items: center;
+}
+
+.tc-hero-book {
+  align-items: start;
+}
+
+.tc-hero-copy,
+.tc-hero-cover {
+  min-width: 0;
+}
+
+.tc-hero-copy,
+.tc-keywords,
+.tc-section-heading {
+  background: var(--tc-surface);
+  border: 1px solid var(--tc-border);
+  border-radius: var(--tc-radius);
+  box-shadow: var(--tc-shadow);
+}
+
+.tc-hero-copy {
+  padding: 28px;
+}
+
+.tc-keywords {
+  padding: 14px;
+}
+
+.tc-book-kicker,
+.tc-section-eyebrow {
+  margin: 0 0 10px;
+  color: var(--tc-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.tc-hero h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 7vw, 4.4rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+
+.tc-hero-headline {
+  margin: 18px 0 0;
+  font-size: clamp(1.08rem, 3vw, 1.45rem);
+  color: var(--tc-text);
+  max-width: 30ch;
+}
+
+.tc-hero-text,
+.tc-intro {
+  margin: 18px 0 0;
+  max-width: 64ch;
+  color: var(--tc-muted);
+}
+
+.tc-hero-actions,
+.tc-book-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.tc-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--tc-accent), var(--tc-accent-strong));
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(84, 56, 32, 0.14);
+}
+
+.tc-button:hover,
+.tc-button:focus-visible {
+  filter: brightness(1.05);
+}
+
+.tc-book-cover-panel,
+.tc-book-card-cover {
+  display: grid;
+  place-items: center;
+  min-height: 280px;
+  padding: 24px;
+  border-radius: var(--tc-radius);
+  border: 1px solid var(--tc-border);
+  background:
+    linear-gradient(180deg, #f8f5ef 0%, #f1ebe1 100%),
+    var(--tc-surface);
+  box-shadow: var(--tc-shadow);
+  text-align: center;
+}
+
+.tc-book-card-cover {
+  position: relative;
+  overflow: hidden;
+}
+
+.tc-book-cover-panel-stack {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+}
+
+.tc-landing-hero-fallback {
+  display: grid;
+  place-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.tc-book-cover-panel-stack span {
+  display: block;
+  width: min(100%, 230px);
+  padding: 26px 20px;
+  border-radius: 8px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(239, 230, 216, 0.96));
+  border: 1px solid #efe3d4;
+  box-shadow: var(--tc-shadow);
+}
+
+.tc-book-cover-panel-stack span:nth-child(1) {
+  transform: rotate(-7deg) translateY(16px);
+}
+
+.tc-book-cover-panel-stack span:nth-child(2) {
+  transform: rotate(2deg);
+}
+
+.tc-book-cover-panel-stack span:nth-child(3) {
+  transform: rotate(8deg) translateY(-14px);
+}
+
+.tc-book-cover-panel span,
+.tc-book-card-cover span {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.tc-landing-hero-image,
+.tc-book-card-image,
+.tc-book-hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.tc-landing-hero-image {
+  min-height: 360px;
+}
+
+.tc-book-card-image {
+  min-height: 320px;
+}
+
+.tc-book-hero-image {
+  min-height: 360px;
+}
+
+.tc-book-card-fallback,
+.tc-book-hero-fallback {
+  padding: 24px;
+}
+
+.tc-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.tc-keyword {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--tc-border);
+  background: rgba(255, 253, 249, 0.9);
+  color: var(--tc-muted);
+  font-size: 0.92rem;
+}
+
+.tc-section {
+  padding: 34px 0 0;
+}
+
+.tc-section-heading {
+  margin-bottom: 18px;
+  padding: 18px 20px;
+}
+
+.tc-section h2 {
+  margin: 0;
+  font-size: clamp(1.55rem, 4vw, 2.3rem);
+}
+
+.tc-shelf {
+  display: grid;
+  gap: 20px;
+}
+
+.tc-overview-grid,
+.tc-testimonials {
+  display: grid;
+  gap: 18px;
+}
+
+.tc-overview-card,
+.tc-testimonial-card,
+.tc-emotional-panel,
+.tc-final-cta-panel {
+  background: var(--tc-surface);
+  border: 1px solid var(--tc-border);
+  border-radius: var(--tc-radius);
+  box-shadow: var(--tc-shadow);
+}
+
+.tc-overview-card,
+.tc-testimonial-card,
+.tc-emotional-panel,
+.tc-final-cta-panel {
+  padding: 24px;
+}
+
+.tc-overview-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+.tc-overview-card p,
+.tc-testimonial-copy,
+.tc-emotional-panel p,
+.tc-final-cta-panel p {
+  margin: 0;
+  color: var(--tc-muted);
+}
+
+.tc-emotional-section .tc-section-heading,
+.tc-final-cta .tc-section-heading {
+  margin-bottom: 16px;
+}
+
+.tc-emotional-panel {
+  background:
+    linear-gradient(180deg, #fbf8f3 0%, #f4ede4 100%),
+    rgba(255, 253, 249, 0.96);
+}
+
+.tc-emotional-panel p {
+  font-size: clamp(1.02rem, 2.5vw, 1.2rem);
+  line-height: 1.85;
+  color: var(--tc-text);
+}
+
+.tc-testimonial-card {
+  display: grid;
+  gap: 14px;
+}
+
+.tc-testimonial-copy {
+  font-size: 1.06rem;
+  color: var(--tc-text);
+}
+
+.tc-testimonial-author {
+  margin: 0;
+  color: var(--tc-accent);
+  font-weight: 700;
+}
+
+.tc-final-cta-panel {
+  padding: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(210, 180, 140, 0.24), transparent 30%),
+    rgba(255, 253, 249, 0.96);
+}
+
+.tc-final-cta-panel h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.08;
+}
+
+.tc-final-cta-panel p + .tc-hero-actions {
+  margin-top: 24px;
+}
+
+.tc-book-card,
+.tc-section-block {
+  background: var(--tc-surface);
+  border: 1px solid var(--tc-border);
+  border-radius: var(--tc-radius);
+  box-shadow: var(--tc-shadow);
+}
+
+.tc-book-card {
+  overflow: hidden;
+}
+
+.tc-book-card-body,
+.tc-section-block {
+  padding: 24px;
+}
+
+.tc-book-card h2,
+.tc-section-block h2 {
+  margin: 0;
+  font-size: 1.65rem;
+}
+
+.tc-book-card-headline {
+  margin: 12px 0 0;
+  font-weight: 600;
+}
+
+.tc-book-card-copy {
+  color: var(--tc-muted);
+  margin-bottom: 0;
+}
+
+.tc-book-grid {
+  display: grid;
+  gap: 20px;
+  padding-top: 10px;
+}
+
+.tc-feature-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.tc-feature-list li + li {
+  margin-top: 10px;
+}
+
+.tc-quotes {
+  display: grid;
+  gap: 14px;
+}
+
+.tc-quote {
+  margin: 0;
+  padding: 18px;
+  border-left: 4px solid var(--tc-accent);
+  background: var(--tc-surface-strong);
+  border-radius: 0 18px 18px 0;
+  color: var(--tc-text);
+  font-size: 1.02rem;
+}
+
+body.trilogia-page[data-book-slug] .tc-book-cover-panel,
+body.trilogia-page[data-book-slug] .tc-book-card-cover {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--tc-accent) 12%, white), #f7f1e9),
+    var(--tc-surface);
+}
+
+body.trilogia-page[data-book-slug="jennifer"] .tc-header-bar {
+  background: linear-gradient(180deg, #e1c46a 0%, #c99a32 100%);
+  border-color: #9a7322;
+}
+
+body.trilogia-page[data-book-slug="ameaca-nuclear"] .tc-header-bar {
+  background: linear-gradient(180deg, #8db2c7 0%, #5f879f 100%);
+  border-color: #41617a;
+}
+
+body.trilogia-page[data-book-slug="destinos-cruzados"] .tc-header-bar {
+  background: linear-gradient(180deg, #d0837f 0%, #b34f4b 100%);
+  border-color: #873d39;
+}
+
+body.trilogia-page[data-book-slug] .tc-brand-mark {
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--tc-accent-strong) 22%, transparent);
+}
+
+body.trilogia-page[data-book-slug="jennifer"] .tc-brand-text span,
+body.trilogia-page[data-book-slug="jennifer"] .tc-menu-button {
+  color: #6a5314;
+}
+
+body.trilogia-page[data-book-slug="ameaca-nuclear"] .tc-brand-text span,
+body.trilogia-page[data-book-slug="ameaca-nuclear"] .tc-menu-button {
+  color: #2f4d62;
+}
+
+body.trilogia-page[data-book-slug="destinos-cruzados"] .tc-brand-text span,
+body.trilogia-page[data-book-slug="destinos-cruzados"] .tc-menu-button {
+  color: #612f2d;
+}
+
+body.trilogia-page[data-book-slug] .tc-hero-copy,
+body.trilogia-page[data-book-slug] .tc-keywords,
+body.trilogia-page[data-book-slug] .tc-section-heading {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--tc-accent) 5%, white), rgba(255, 253, 249, 0.94));
+}
+
+body.trilogia-page[data-book-slug] .tc-hero-copy,
+body.trilogia-page[data-book-slug] .tc-keywords,
+body.trilogia-page[data-book-slug] .tc-section-heading,
+body.trilogia-page[data-book-slug] .tc-book-card,
+body.trilogia-page[data-book-slug] .tc-section-block,
+body.trilogia-page[data-book-slug] .tc-overview-card,
+body.trilogia-page[data-book-slug] .tc-testimonial-card,
+body.trilogia-page[data-book-slug] .tc-emotional-panel,
+body.trilogia-page[data-book-slug] .tc-final-cta-panel {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--tc-accent) 7%, white),
+      rgba(255, 253, 249, 0.95)
+    );
+}
+
+.tc-footer {
+  padding: 40px 0 56px;
+  color: var(--tc-muted);
+  font-size: 0.95rem;
+}
+
+.tc-footer p {
+  margin: 0;
+}
+
+@media (min-width: 760px) {
+  .tc-hero-home,
+  .tc-hero-book {
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  }
+
+  .tc-book-card {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1fr);
+  }
+
+  .tc-overview-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .tc-book-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tc-testimonials {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 759px) {
+  body.trilogia-page {
+    padding: 12px;
+  }
+
+  .tc-shell {
+    width: 100%;
+  }
+
+  .tc-header {
+    padding: 0 0 12px;
+  }
+
+  .tc-header-bar {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 24px;
+  }
+
+  .tc-brand {
+    min-width: 0;
+  }
+
+  .tc-brand-text strong {
+    font-size: 1.02rem;
+    line-height: 1.15;
+  }
+
+  .tc-brand-text span {
+    font-size: 0.78rem;
+    line-height: 1.2;
+  }
+
+  .tc-menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .tc-nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    left: 0;
+    z-index: 20;
+    min-width: 170px;
+    padding: 8px;
+    border: 1px solid var(--tc-border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 12px 28px rgba(90, 60, 30, 0.12);
+  }
+
+  .tc-nav.aberto {
+    display: block;
+  }
+
+  .tc-nav a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+
+  .tc-nav a:hover,
+  .tc-nav a:focus-visible {
+    text-decoration: none;
+    background: #f7f1e9;
+  }
+
+  .tc-main {
+    padding-bottom: 44px;
+  }
+
+  .tc-hero {
+    padding: 18px 0 8px;
+    gap: 18px;
+  }
+
+  .tc-hero h1 {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+    line-height: 1.08;
+  }
+
+  .tc-hero-headline {
+    max-width: none;
+    margin-top: 14px;
+  }
+
+  .tc-intro,
+  .tc-hero-text {
+    margin-top: 14px;
+  }
+
+  .tc-hero-actions,
+  .tc-book-card-actions {
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .tc-button {
+    width: 100%;
+  }
+
+  .tc-link {
+    width: 100%;
+    text-align: center;
+  }
+
+  .tc-book-cover-panel-stack {
+    min-height: 320px;
+  }
+
+  .tc-book-card-body,
+  .tc-section-block,
+  .tc-overview-card,
+  .tc-testimonial-card,
+  .tc-emotional-panel,
+  .tc-final-cta-panel {
+    padding: 18px;
+  }
+
+  .tc-hero-copy,
+  .tc-keywords,
+  .tc-section-heading {
+    padding: 16px;
+  }
+
+  .tc-section {
+    padding-top: 24px;
+  }
+
+  .tc-final-cta-panel h2,
+  .tc-section h2 {
+    line-height: 1.15;
+  }
+}
