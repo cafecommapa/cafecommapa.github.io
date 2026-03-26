@@ -358,16 +358,18 @@ body.trilogia-page[data-book-slug="destinos-cruzados"] {
 }
 
 .tc-book-card-image {
-  min-height: 210px;
+  min-height: 0;
   width: auto;
-  max-width: 100%;
+  max-width: 74%;
+  max-height: 235px;
   justify-self: center;
 }
 
 .tc-book-hero-image {
-  min-height: 240px;
+  min-height: 0;
   width: auto;
-  max-width: 100%;
+  max-width: 74%;
+  max-height: 270px;
   justify-self: center;
 }
 
