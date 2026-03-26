@@ -149,10 +149,38 @@ body.trilogia-page[data-book-slug="destinos-cruzados"] {
   font-weight: 600;
 }
 
+.tc-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 4px 10px rgba(84, 56, 32, 0.08);
+  transition: background-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+  font-size: 0.88rem;
+}
+
 .tc-nav a:hover,
 .tc-link:hover,
 .tc-link:focus-visible {
   text-decoration: underline;
+}
+
+.tc-nav a:hover,
+.tc-nav a:focus-visible {
+  text-decoration: none;
+  background: rgba(255, 249, 242, 0.96);
+  box-shadow: 0 8px 16px rgba(84, 56, 32, 0.12);
+  transform: translateY(-1px);
+}
+
+.tc-nav a[aria-current="page"] {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--tc-accent) 18%, white), rgba(255, 253, 249, 0.98));
+  border-color: color-mix(in srgb, var(--tc-accent) 26%, white);
+  color: var(--tc-accent-strong);
 }
 
 .tc-main {
@@ -257,7 +285,7 @@ body.trilogia-page[data-book-slug="destinos-cruzados"] {
 .tc-book-card-cover {
   display: grid;
   place-items: center;
-  min-height: 280px;
+  min-height: 200px;
   padding: 24px;
   border-radius: var(--tc-radius);
   border: 1px solid var(--tc-border);
@@ -330,11 +358,17 @@ body.trilogia-page[data-book-slug="destinos-cruzados"] {
 }
 
 .tc-book-card-image {
-  min-height: 320px;
+  min-height: 210px;
+  width: auto;
+  max-width: 100%;
+  justify-self: center;
 }
 
 .tc-book-hero-image {
-  min-height: 360px;
+  min-height: 240px;
+  width: auto;
+  max-width: 100%;
+  justify-self: center;
 }
 
 .tc-book-card-fallback,
@@ -567,6 +601,16 @@ body.trilogia-page[data-book-slug="destinos-cruzados"] .tc-menu-button {
   color: #612f2d;
 }
 
+body.trilogia-page[data-book-slug] .tc-nav a {
+  background: color-mix(in srgb, var(--tc-accent) 10%, white);
+  border-color: color-mix(in srgb, var(--tc-accent) 16%, white);
+}
+
+body.trilogia-page[data-book-slug] .tc-nav a:hover,
+body.trilogia-page[data-book-slug] .tc-nav a:focus-visible {
+  background: color-mix(in srgb, var(--tc-accent) 18%, white);
+}
+
 body.trilogia-page[data-book-slug] .tc-hero-copy,
 body.trilogia-page[data-book-slug] .tc-keywords,
 body.trilogia-page[data-book-slug] .tc-section-heading {
@@ -690,8 +734,12 @@ body.trilogia-page[data-book-slug] .tc-final-cta-panel {
   .tc-nav a {
     display: block;
     padding: 10px 12px;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 0.9rem;
+    min-height: auto;
+    background: rgba(255, 253, 249, 0.96);
+    border: 1px solid var(--tc-border);
+    box-shadow: none;
   }
 
   .tc-nav a:hover,
