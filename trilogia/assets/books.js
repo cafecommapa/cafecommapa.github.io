@@ -4,33 +4,34 @@ window.TrilogiaBooks = {
     title: "Jennifer",
     kicker: "Livro 1 da trilogia",
     image: "/trilogia/assets/images/jennifer.jpg",
-    headline: "Quando o amor encontra o perigo, cada escolha deixa uma cicatriz.",
+    headline: "Tudo começa com o inesperado.",
     shortDescription:
-      "O começo de uma história emocionante sobre encontros decisivos, perdas profundas e sentimentos que mudam tudo.",
+      "Jenniffer chega a um novo país carregando dúvidas, impulsos e uma vida completamente fora de controle.",
     synopsis:
-      "Jennifer apresenta o ponto de partida da trilogia com uma protagonista dividida entre afetos profundos, perdas inesperadas e decisões que mudam o rumo de várias vidas. Este é um espaço inicial para destacar o universo emocional do romance e preparar o leitor para os conflitos maiores que virão.",
+      "Jenniffer chega a um novo país carregando dúvidas, impulsos e uma vida completamente fora de controle. Entre situações improváveis, encontros marcantes e decisões impulsivas, ela descobre que nem tudo pode ser planejado — e que algumas histórias começam justamente quando tudo dá errado.",
     characters: [
-      "Jennifer: protagonista intensa, marcada por amor, medo e coragem.",
-      "Personagem principal masculino: presença decisiva no conflito afetivo da trama.",
-      "Antagonista central: a força que pressiona escolhas e eleva a tensão dramática."
+      "Jenniffer: impulsiva, atrapalhada e cheia de personalidade — sempre pronta para se jogar em situações que nem ela mesma entende.",
+      "Pierre: um homem mais centrado, que entra na vida dela como um contraste… e acaba sendo puxado para o caos que a acompanha.",
+      "O acaso: a verdadeira força da história — responsável por encontros improváveis, decisões inesperadas e caminhos completamente fora de controle."
     ],
     quotes: [
       "Algumas histórias não começam com promessas, mas com feridas.",
       "Ela descobriu que amar também é enfrentar aquilo que assusta."
     ],
     keywords: ["trilogia de livros", "romance dramático", "livro de ficção"],
-    buyUrl: "https://escritorcarlospatrocinio.lojavirtualnuvem.com.br/produtos/jennifer/"
+    buyUrl: "https://escritorcarlospatrocinio.lojavirtualnuvem.com.br/produtos/jennifer/",
+    ctaLabel: "Comprar Jennifer"
   },
   "ameaca-nuclear": {
     slug: "ameaca-nuclear",
     title: "Ameaça Nuclear",
     kicker: "Livro 2 da trilogia",
     image: "/trilogia/assets/images/ameaca-nuclear.jpg",
-    headline: "O medo do fim do mundo revela o que existe de mais humano em cada um.",
+    headline: "Quando o tempo acaba, cada decisão importa.",
     shortDescription:
-      "A tensão cresce, os vínculos são testados e o romance dramático encontra uma ameaça capaz de mudar todos os destinos.",
+      "Uma ameaça silenciosa cresce enquanto escolhas precisam ser feitas rápido demais.",
     synopsis:
-      "Em Ameaça Nuclear, os relacionamentos são atravessados por tensão política, urgência e escolhas extremas. O segundo livro amplia a escala do drama e mistura emoção, suspense e ficção em uma narrativa sobre sobrevivência, vínculos e consequências.",
+      "Uma ameaça silenciosa cresce enquanto escolhas precisam ser feitas rápido demais. Entre tensão, responsabilidade e risco real, o destino deixa de ser uma ideia… e passa a ser uma corrida contra o inevitável.",
     characters: [
       "Protagonistas do primeiro livro: agora mais maduros e expostos a riscos maiores.",
       "Nova liderança política: figura que altera o destino dos acontecimentos.",
@@ -41,28 +42,30 @@ window.TrilogiaBooks = {
       "Quando o tempo encurta, a verdade deixa de poder esperar."
     ],
     keywords: ["trilogia de livros", "romance dramático", "livro de ficção"],
-    buyUrl: "https://escritorcarlospatrocinio.lojavirtualnuvem.com.br/produtos/ameaca-nuclear/"
+    buyUrl: "https://escritorcarlospatrocinio.lojavirtualnuvem.com.br/produtos/ameaca-nuclear/",
+    ctaLabel: "Comprar Ameaça Nuclear"
   },
   "destinos-cruzados": {
     slug: "destinos-cruzados",
     title: "Destinos Cruzados",
     kicker: "Livro 3 da trilogia",
     image: "/trilogia/assets/images/destinos-cruzados.jpg",
-    headline: "Três caminhos, um passado em comum e um futuro impossível de adiar.",
+    headline: "Algumas histórias não pedem licença. Elas simplesmente acontecem.",
     shortDescription:
-      "O encerramento da trilogia reúne amor, memória e reencontros em um desfecho pensado para deixar marca.",
+      "Marcelle nunca imaginou que uma viagem mudaria tudo.",
     synopsis:
-      "Destinos Cruzados fecha a trilogia reunindo memórias, reencontros e verdades guardadas ao longo de toda a jornada. O último volume é o espaço para a resolução emocional dos personagens e para um desfecho marcante, com romance, drama e revelações.",
+      "Marcelle nunca imaginou que uma viagem mudaria tudo. Entre encontros, sentimentos intensos e o peso do tempo, ela descobre que o amor pode surgir nos momentos mais inesperados. Essa é uma história sobre amar, perder… e continuar vivendo mesmo quando nada mais parece fazer sentido.",
     characters: [
-      "Jennifer: agora confrontada pela própria trajetória.",
-      "Companheiro de jornada: personagem que carrega promessas antigas e escolhas difíceis.",
-      "Família e círculo afetivo: vozes que unem passado, conflito e reconciliação."
+      "Marcelle: intensa, sensível e marcada pela urgência de viver — mesmo quando o tempo parece não estar ao seu favor.",
+      "Robert: um homem dividido entre a razão e o sentimento, que descobre tarde demais o peso de algumas escolhas.",
+      "O destino: a força silenciosa que aproxima, transforma… e cobra seu preço."
     ],
     quotes: [
       "Nenhum destino é acaso quando o coração insiste em lembrar.",
       "Alguns encontros parecem tardios, até que percebemos que chegaram na hora certa."
     ],
     keywords: ["trilogia de livros", "romance dramático", "livro de ficção"],
-    buyUrl: "https://escritorcarlospatrocinio.lojavirtualnuvem.com.br/produtos/destinos-cruzados/"
+    buyUrl: "https://escritorcarlospatrocinio.lojavirtualnuvem.com.br/produtos/destinos-cruzados/",
+    ctaLabel: "Comprar Destinos Cruzados"
   }
 };

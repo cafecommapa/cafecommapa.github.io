@@ -3,16 +3,16 @@
   const components = window.TrilogiaComponents || {};
   const testimonials = [
     {
-      quote: "Uma leitura que parece cinema na mente e deixa emoção em cada capítulo.",
-      author: "Leitora beta"
+      quote: "\"Eu li Destinos Cruzados e achei emocionante\"",
+      author: "Renata"
     },
     {
-      quote: "Romance dramático, tensão e destino costurados de um jeito impossível de ignorar.",
-      author: "Leitor convidado"
+      quote: "\"Li Destinos Cruzados e achei uma leitura envolvente do início ao fim, eu recomendo.\"",
+      author: "Valéria"
     },
     {
-      quote: "Você termina um livro já precisando abrir o próximo.",
-      author: "Depoimento inicial"
+      quote: "Mais depoimentos em breve.",
+      author: ""
     }
   ];
 

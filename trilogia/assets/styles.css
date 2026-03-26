@@ -307,6 +307,88 @@ body.trilogia-page[data-book-slug="destinos-cruzados"] {
   overflow: hidden;
 }
 
+.tc-landing-book-grid {
+  position: relative;
+  display: block;
+  height: 100%;
+  min-height: 470px;
+}
+
+.tc-landing-book-card {
+  position: absolute;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: min(45%, 180px);
+}
+
+.tc-landing-book-card-inner {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  min-height: 216px;
+  padding: 16px;
+  background: var(--tc-surface);
+  border: 1px solid var(--tc-border);
+  border-radius: var(--tc-radius);
+  box-shadow: var(--tc-shadow);
+}
+
+.tc-landing-book-card:hover,
+.tc-landing-book-card:focus-visible {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 14px 24px rgba(84, 56, 32, 0.14);
+  outline: none;
+}
+
+.tc-landing-book-card:focus-visible .tc-landing-book-meta {
+  box-shadow: none;
+}
+
+.tc-landing-book-card:focus-visible .tc-landing-book-card-inner {
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--tc-accent) 50%, white), 0 14px 24px rgba(84, 56, 32, 0.14);
+}
+
+.tc-landing-book-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  background: linear-gradient(180deg, #f8f5ef 0%, #f1ebe1 100%);
+  border: 1px solid #efe3d4;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.tc-landing-book-card-featured {
+  z-index: 3;
+  top: 18px;
+  left: 24%;
+  transform: rotate(-15deg);
+}
+
+.tc-landing-book-card[href="/trilogia/jennifer/"] {
+  z-index: 2;
+  top: 184px;
+  left: 8%;
+  transform: rotate(15deg);
+}
+
+.tc-landing-book-card[href="/trilogia/ameaca-nuclear/"] {
+  z-index: 1;
+  top: 264px;
+  left: 44%;
+  transform: rotate(-40deg);
+}
+
+body.trilogia-page[data-trilogia-view="landing"] .tc-landing-book-card-featured {
+  top: 8px;
+  left: 42%;
+}
+
 .tc-landing-hero-fallback {
   display: grid;
   place-items: center;
@@ -653,6 +735,10 @@ body.trilogia-page[data-book-slug] .tc-final-cta-panel {
     grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
   }
 
+  .tc-landing-book-grid {
+    min-height: 520px;
+  }
+
   .tc-book-card {
     display: grid;
     grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1fr);
@@ -791,6 +877,30 @@ body.trilogia-page[data-book-slug] .tc-final-cta-panel {
 
   .tc-book-cover-panel-stack {
     min-height: 320px;
+  }
+
+  .tc-landing-book-grid {
+    display: grid;
+    gap: 14px;
+    min-height: auto;
+  }
+
+  .tc-landing-book-card,
+  .tc-landing-book-card-featured,
+  .tc-landing-book-card[href="/trilogia/jennifer/"],
+  .tc-landing-book-card[href="/trilogia/ameaca-nuclear/"] {
+    position: static;
+    width: 100%;
+    transform: none;
+  }
+
+  .tc-landing-book-card-inner {
+    min-height: 180px;
+    padding: 14px;
+  }
+
+  .tc-landing-book-image {
+    max-height: none;
   }
 
   .tc-book-card-body,

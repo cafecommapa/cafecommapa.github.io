@@ -50,7 +50,7 @@
           <p class="tc-book-card-copy">${escapeHtml(book.shortDescription || book.synopsis)}</p>
           <div class="tc-book-card-actions">
             <a class="tc-link" href="/trilogia/${escapeHtml(book.slug)}/">Ver detalhes</a>
-            ${createCTAButton("Comprar agora", book.buyUrl)}
+            ${createCTAButton(book.ctaLabel || "Comprar agora", book.buyUrl)}
           </div>
         </div>
       </article>
@@ -94,7 +94,7 @@
           <p class="tc-hero-headline">${escapeHtml(book.headline)}</p>
           <p class="tc-hero-text">${escapeHtml(book.synopsis)}</p>
           <div class="tc-hero-actions">
-            ${createCTAButton("Compre agora", book.buyUrl)}
+            ${createCTAButton(book.ctaLabel || "Compre agora", book.buyUrl)}
             <a class="tc-link" href="/trilogia/">Voltar para a trilogia</a>
           </div>
         </div>
