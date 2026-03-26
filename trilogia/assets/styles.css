@@ -111,6 +111,15 @@ body.trilogia-page[data-book-slug="destinos-cruzados"] {
   letter-spacing: 0.08em;
 }
 
+.tc-brand-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(1.32);
+  transform-origin: center;
+}
+
 .tc-brand-text strong,
 .tc-brand-text span {
   display: block;
@@ -890,8 +899,24 @@ body.trilogia-page[data-book-slug] .tc-final-cta-panel {
   .tc-landing-book-card[href="/trilogia/jennifer/"],
   .tc-landing-book-card[href="/trilogia/ameaca-nuclear/"] {
     position: static;
-    width: 100%;
-    transform: none;
+    width: min(66%, 180px);
+    justify-self: center;
+  }
+
+  .tc-landing-book-card-featured {
+    transform: rotate(-8deg);
+  }
+
+  .tc-landing-book-card[href="/trilogia/jennifer/"] {
+    transform: rotate(7deg);
+    margin-top: -22px;
+    justify-self: start;
+  }
+
+  .tc-landing-book-card[href="/trilogia/ameaca-nuclear/"] {
+    transform: rotate(-12deg);
+    margin-top: -214px;
+    justify-self: end;
   }
 
   .tc-landing-book-card-inner {
