@@ -19,6 +19,10 @@ posts = json.loads(POSTS_INDEX.read_text(encoding="utf-8"))
 urls = [
     f"{SITE_URL}/",
     normalize_url("mapa.html"),
+    normalize_url("trilogia/"),
+    normalize_url("trilogia/jennifer/"),
+    normalize_url("trilogia/ameaca-nuclear/"),
+    normalize_url("trilogia/destinos-cruzados/"),
 ]
 
 for post in posts:

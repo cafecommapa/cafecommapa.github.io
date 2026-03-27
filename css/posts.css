@@ -239,6 +239,12 @@
   padding:12px;
 }
 
+.card-propaganda-link{
+  display:block;
+  color:inherit;
+  text-decoration:none;
+}
+
 .card-propaganda-label{
   font-size:0.9rem;
   font-weight:700;
