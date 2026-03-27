@@ -170,6 +170,27 @@ img{
   background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4);
 }
 
+.icone-youtube-rodape{
+  position:relative;
+  width:18px;
+  height:18px;
+  border-radius:4px;
+  background:#ff0000;
+}
+
+.icone-youtube-rodape::before{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-35%,-50%);
+  width:0;
+  height:0;
+  border-top:4px solid transparent;
+  border-bottom:4px solid transparent;
+  border-left:7px solid #ffffff;
+}
+
 .rodape-info{
   font-size:13px;
   color:#d2c0ae;

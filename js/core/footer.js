@@ -5,6 +5,10 @@ window.SiteFooter = (function () {
         <div class="rodape-linha"></div>
         <div class="rodape-container">
           <div class="rodape-redes">
+            <a href="https://www.youtube.com/@Cafecommapa" target="_blank" rel="noopener noreferrer">
+              <span class="icone-youtube-rodape"></span>
+              @cafecommapa
+            </a>
             <a href="https://instagram.com/cafecommapas" target="_blank" rel="noopener noreferrer">
               <span class="icone-instagram-rodape"></span>
               @cafecommapas

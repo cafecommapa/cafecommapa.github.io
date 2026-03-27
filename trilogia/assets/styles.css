@@ -734,8 +734,127 @@ body.trilogia-page[data-book-slug] .tc-final-cta-panel {
   font-size: 0.95rem;
 }
 
-.tc-footer p {
-  margin: 0;
+.tc-footer-card {
+  background: #6b4a32;
+  color: #f3eadf;
+  padding: 28px 20px;
+  border-radius: 10px;
+  box-shadow: 0 14px 30px rgba(84, 56, 32, 0.14);
+}
+
+.tc-footer-line {
+  position: relative;
+  height: 2px;
+  background: linear-gradient(90deg, #d5b48e, #f1dcc1, #d5b48e);
+  margin-bottom: 20px;
+}
+
+.tc-footer-line::after {
+  content: "✦";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #6b4a32;
+  padding: 0 10px;
+  color: #f0d2aa;
+  font-size: 18px;
+}
+
+.tc-footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tc-footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.tc-footer-links a {
+  color: #f4ece2;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tc-footer-links a:hover {
+  opacity: 0.92;
+}
+
+.tc-footer-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
+.tc-footer-icon-instagram {
+  border-radius: 4px;
+  background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+}
+
+.tc-footer-icon-youtube {
+  position: relative;
+  border-radius: 4px;
+  background: #ff0000;
+}
+
+.tc-footer-icon-youtube::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-35%, -50%);
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 7px solid #ffffff;
+}
+
+.tc-footer-info {
+  font-size: 13px;
+  color: #e0cfc0;
+}
+
+body.trilogia-page[data-trilogia-view="landing"] .tc-footer-card {
+  background: #7a5638;
+}
+
+body.trilogia-page[data-trilogia-view="landing"] .tc-footer-line::after {
+  background: #7a5638;
+}
+
+body.trilogia-page[data-book-slug="jennifer"] .tc-footer-card {
+  background: linear-gradient(180deg, #b88f2b, #8f6d1d);
+}
+
+body.trilogia-page[data-book-slug="jennifer"] .tc-footer-line::after {
+  background: #a17b24;
+}
+
+body.trilogia-page[data-book-slug="ameaca-nuclear"] .tc-footer-card {
+  background: linear-gradient(180deg, #5f879f, #355a72);
+}
+
+body.trilogia-page[data-book-slug="ameaca-nuclear"] .tc-footer-line::after {
+  background: #476c84;
+}
+
+body.trilogia-page[data-book-slug="destinos-cruzados"] .tc-footer-card {
+  background: linear-gradient(180deg, #b34f4b, #873734);
+}
+
+body.trilogia-page[data-book-slug="destinos-cruzados"] .tc-footer-line::after {
+  background: #9a433f;
 }
 
 @media (min-width: 760px) {

@@ -33,9 +33,9 @@ window.TrilogiaBooks = {
     synopsis:
       "Uma ameaça silenciosa cresce enquanto escolhas precisam ser feitas rápido demais. Entre tensão, responsabilidade e risco real, o destino deixa de ser uma ideia… e passa a ser uma corrida contra o inevitável.",
     characters: [
-      "Protagonistas do primeiro livro: agora mais maduros e expostos a riscos maiores.",
-      "Nova liderança política: figura que altera o destino dos acontecimentos.",
-      "Aliados inesperados: personagens que surgem quando a confiança se torna escassa."
+      "Capitão Trevor: um homem preparado para qualquer cenário… menos para o peso das escolhas que podem custar milhares de vidas.",
+      "O sistema ao redor: instável, fragmentado e cheio de interesses conflitantes — onde ninguém revela tudo, e cada decisão pode ser manipulada.",
+      "A ameaça: silenciosa, avançando sem aviso — enquanto o tempo se esgota."
     ],
     quotes: [
       "O perigo não transforma apenas cidades. Ele transforma pessoas.",
