@@ -122,6 +122,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    window.SiteVisitas?.init?.();
     renderLanding();
     renderBookPage();
     initMobileMenu();
