@@ -453,6 +453,33 @@
   cursor:pointer;
 }
 
+.texto-imagem{
+  display:grid;
+  grid-template-columns:minmax(180px, 320px) 1fr;
+  gap:18px;
+  align-items:start;
+  margin:24px 0;
+}
+
+.texto-imagem-direita{
+  grid-template-columns:1fr minmax(180px, 320px);
+}
+
+.texto-imagem-media img{
+  width:100%;
+  margin:0;
+  display:block;
+  border-radius:12px;
+}
+
+.texto-imagem-conteudo > :first-child{
+  margin-top:0;
+}
+
+.texto-imagem-conteudo > :last-child{
+  margin-bottom:0;
+}
+
 /* celular */
 @media (max-width:768px){
   .lista-post-link{
@@ -461,6 +488,11 @@
   }
 
   .galeria{
+    grid-template-columns:1fr;
+  }
+
+  .texto-imagem,
+  .texto-imagem-direita{
     grid-template-columns:1fr;
   }
 }

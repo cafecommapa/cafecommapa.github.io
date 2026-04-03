@@ -109,6 +109,57 @@ window.SitePostPage = (function () {
     }
   }
 
+  function renderMediaTextBlock(rawBlock) {
+    const match = String(rawBlock || "").match(/^::: texto-imagem-(esquerda|direita)\nimagem:\s*(.*)\nalt:\s*(.*)\n\n([\s\S]*?)\n:::$/);
+    if (!match) {
+      return window.marked ? marked.parse(rawBlock) : rawBlock;
+    }
+
+    const [, side, imageName, altText, content] = match;
+    const sideClass = side === "direita" ? "direita" : "esquerda";
+    const imagePath = `imagens/${String(imageName || "").trim()}`;
+    const safeAlt = window.SiteUtils.escapeHtml((altText || "").trim());
+    const safeSrc = window.SiteUtils.escapeHtml(imagePath);
+    const contentHtml = window.marked ? marked.parse((content || "").trim()) : window.SiteUtils.escapeHtml(content || "");
+
+    const imageHtml = String(imageName || "").trim()
+      ? `<div class="texto-imagem-media"><img src="${safeSrc}" alt="${safeAlt}"></div>`
+      : `<div class="texto-imagem-media texto-imagem-media-vazia"></div>`;
+
+    const textHtml = `<div class="texto-imagem-conteudo">${contentHtml}</div>`;
+
+    return `
+      <div class="texto-imagem texto-imagem-${sideClass}">
+        ${side === "direita" ? `${textHtml}${imageHtml}` : `${imageHtml}${textHtml}`}
+      </div>
+    `;
+  }
+
+  function renderBodyWithCustomBlocks(body) {
+    const source = String(body || "").replace(/\r\n/g, "\n");
+    const blockRegex = /::: texto-imagem-(esquerda|direita)\n[\s\S]*?\n:::/g;
+    let result = "";
+    let lastIndex = 0;
+    let match;
+
+    while ((match = blockRegex.exec(source))) {
+      const before = source.slice(lastIndex, match.index);
+      if (before.trim()) {
+        result += window.marked ? marked.parse(before) : before;
+      }
+
+      result += renderMediaTextBlock(match[0]);
+      lastIndex = match.index + match[0].length;
+    }
+
+    const after = source.slice(lastIndex);
+    if (after.trim()) {
+      result += window.marked ? marked.parse(after) : after;
+    }
+
+    return result;
+  }
+
   async function init() {
     const container = document.getElementById("post-completo");
     if (!container) return;
@@ -139,7 +190,7 @@ window.SitePostPage = (function () {
       window.SiteVisitas?.refresh?.();
       const tituloSeguro = window.SiteUtils.escapeHtml(post.title);
       const criadorSeguro = post.criador ? ` · ${window.SiteUtils.escapeHtml(post.criador)}` : "";
-      const corpoHtml = window.SiteUtils.sanitizeHtml(marked.parse(body));
+      const corpoHtml = window.SiteUtils.sanitizeHtml(renderBodyWithCustomBlocks(body));
 
       container.innerHTML = `
         <div class="post-meta">
