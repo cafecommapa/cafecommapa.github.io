@@ -1,5 +1,15 @@
 [
   {
+    "slug": "europa-2026",
+    "file": "posts/europa-2026.md",
+    "title": "Europa 2026",
+    "date": "2026-05-03",
+    "criador": "Patro",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "Roteiro viagem a Europa"
+  },
+  {
     "slug": "ano-novo",
     "file": "posts/ano-novo.md",
     "title": "Ano novo",
