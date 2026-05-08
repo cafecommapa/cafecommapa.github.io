@@ -1,5 +1,15 @@
 [
   {
+    "slug": "capitulo-10",
+    "file": "posts/capitulo-10.md",
+    "title": "Capítulo 10",
+    "date": "2026-05-08",
+    "criador": "Patro",
+    "category": "livro",
+    "cover": "imagens/livro.png",
+    "summary": "Versão Digital"
+  },
+  {
     "slug": "europa-2026",
     "file": "posts/europa-2026.md",
     "title": "Europa 2026",
