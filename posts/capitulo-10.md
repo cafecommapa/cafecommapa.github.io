@@ -20,6 +20,8 @@ Mas agora, parte dessas histórias ganhou um novo significado.
 A viagem foi simplesmente incrível — e vocês ainda vão ver muito dela por aqui.
 A Europa e o Leste Europeu oferecem cidades riquíssimas em beleza: naturais, históricas e também modernas. Lugares que conseguem, de forma quase mágica, misturar o antigo e o novo, preservando suas origens enquanto oferecem conforto e tecnologia — especialmente quando o assunto é mobilidade.
 
+No caminho, também passaram a fazer parte dessa memória lugares como Lugano, Veneza, Verona, Lucca, Pisa, Florença e Siena — cidades que agora entram no mapa afetivo da trilogia e desta viagem.
+
 Mas, em meio a esse vai e vem, existe algo que a tecnologia ainda não resolveu completamente:
 
 👉 o tamanho da mala.
