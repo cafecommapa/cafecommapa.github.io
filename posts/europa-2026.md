@@ -1,7 +1,7 @@
 ---
 title: Europa 2026
 date: 2026-05-03
-criador: Patro
+criador: Carlos Patrocinio
 category: viagem
 summary: Roteiro viagem a Europa
 ---

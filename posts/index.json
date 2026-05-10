@@ -1,10 +1,20 @@
 [
   {
+    "slug": "o-povo-alemao",
+    "file": "posts/o-povo-alemao.md",
+    "title": "O povo Alemão",
+    "date": "2026-05-09",
+    "criador": "Carlos Patrocinio",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "características das pessoas de outros países."
+  },
+  {
     "slug": "capitulo-10",
     "file": "posts/capitulo-10.md",
     "title": "Capítulo 10",
     "date": "2026-05-08",
-    "criador": "Patro",
+    "criador": "Carlos Patrocinio",
     "category": "livro",
     "cover": "imagens/livro.png",
     "summary": "Versão Digital"
@@ -14,7 +24,7 @@
     "file": "posts/europa-2026.md",
     "title": "Europa 2026",
     "date": "2026-05-03",
-    "criador": "Patro",
+    "criador": "Carlos Patrocinio",
     "category": "viagem",
     "cover": "imagens/viagem.png",
     "summary": "Roteiro viagem a Europa"

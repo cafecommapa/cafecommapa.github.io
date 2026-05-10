@@ -1,7 +1,7 @@
 ---
 title: Capítulo 10
 date: 2026-05-08
-criador: Patro
+criador: Carlos Patrocinio
 category: Livro
 summary: Versão Digital
 ---
