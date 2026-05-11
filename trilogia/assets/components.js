@@ -16,6 +16,22 @@
     `;
   }
 
+  function createPurchaseOptionButton(label, href) {
+    return `
+      <a class="tc-button-outline" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">
+        ${escapeHtml(label)}
+      </a>
+    `;
+  }
+
+  function createAmazonEbookButton(href) {
+    return `
+      <a class="tc-button-amazon" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">
+        <span class="tc-button-amazon-text">eBook</span><img class="tc-button-amazon-logo" src="/trilogia/assets/images/amazon-logo.svg" alt="Amazon">
+      </a>
+    `;
+  }
+
   function createSectionBlock(title, content) {
     return `
       <section class="tc-section-block" aria-labelledby="section-${slugify(title)}">
@@ -50,8 +66,8 @@
           <p class="tc-book-card-copy">${escapeHtml(book.shortDescription || book.synopsis)}</p>
           <div class="tc-book-card-actions">
             <a class="tc-link" href="/trilogia/${escapeHtml(book.slug)}/">Ver detalhes</a>
-            ${createCTAButton(book.ctaLabel || "Comprar agora", book.buyUrl)}
-            ${book.amazonUrl ? `<a href="${escapeHtml(book.amazonUrl)}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 18px; border-radius: 999px; border: 1px solid #e3d1a4; background: #fffdf9; color: #8f6d1d; text-decoration: none; font-weight: 700;">eBook na Amazon</a>` : ""}
+            ${createPurchaseOptionButton(book.ctaLabel || "Livro físico", book.buyUrl)}
+            ${book.amazonUrl ? createAmazonEbookButton(book.amazonUrl) : ""}
           </div>
         </div>
       </article>
@@ -95,8 +111,9 @@
           <p class="tc-hero-headline">${escapeHtml(book.headline)}</p>
           <p class="tc-hero-text">${escapeHtml(book.synopsis)}</p>
           <div class="tc-hero-actions">
-            ${createCTAButton(book.ctaLabel || "Compre agora", book.buyUrl)}
-            <a class="tc-link" href="/trilogia/">Voltar para a trilogia</a>
+            ${createPurchaseOptionButton(book.ctaLabel || "Livro físico", book.buyUrl)}
+            ${book.amazonUrl ? createAmazonEbookButton(book.amazonUrl) : ""}
+            <a class="tc-button-back-small" href="/trilogia/">Voltar para<br>a trilogia</a>
           </div>
         </div>
         <div class="tc-hero-cover">
@@ -136,7 +153,9 @@
   window.TrilogiaComponents = {
     createBookCard: createBookCard,
     createBookHero: createBookHero,
+    createAmazonEbookButton: createAmazonEbookButton,
     createCTAButton: createCTAButton,
+    createPurchaseOptionButton: createPurchaseOptionButton,
     createKeywordList: createKeywordList,
     createList: createList,
     createTestimonialCard: createTestimonialCard,

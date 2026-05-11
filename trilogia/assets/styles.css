@@ -290,6 +290,84 @@ body.trilogia-page[data-book-slug="destinos-cruzados"] {
   filter: brightness(1.05);
 }
 
+.tc-button-outline,
+.tc-button-amazon,
+.tc-button-back-small {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid #e3d1a4;
+  background: #fffdf9;
+  color: #8f6d1d;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.tc-button-outline,
+.tc-button-amazon {
+  min-height: 46px;
+  padding: 0 18px;
+}
+
+.tc-button-amazon {
+  gap: 7px;
+}
+
+.tc-button-ebook-named {
+  gap: 4px;
+}
+
+.tc-button-amazon-text {
+  color: #111111;
+}
+
+.tc-button-amazon-logo {
+  display: block;
+  width: 62px;
+  max-width: 62px;
+  height: auto;
+  max-height: 19px;
+  object-fit: contain;
+}
+
+.tc-button-back-small {
+  min-height: 38px;
+  padding: 0 14px;
+  margin-left: 12px;
+  font-size: 0.82rem;
+  line-height: 1.12;
+  text-align: center;
+}
+
+.tc-hero-prompt {
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  color: var(--tc-accent-strong);
+  font-weight: 700;
+}
+
+.tc-amazon-box {
+  margin-top: 22px;
+  padding: 18px;
+  border: 1px solid #e3d1a4;
+  border-radius: var(--tc-radius);
+  background: #fffdf9;
+}
+
+.tc-amazon-box-logo {
+  display: block;
+  width: 128px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 16px;
+}
+
+.tc-actions-flush {
+  margin-top: 0;
+}
+
 .tc-book-cover-panel,
 .tc-book-card-cover {
   display: grid;

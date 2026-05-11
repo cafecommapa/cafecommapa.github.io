@@ -65,7 +65,7 @@
         ),
         components.createSectionBlock(
           "Compre agora",
-          `<p>Garanta este volume da trilogia e acompanhe a jornada completa dos personagens.</p>${components.createCTAButton("Compre agora", book.buyUrl)}`
+          `<p>Escolha entre o exemplar impresso pela loja oficial ou a versão digital pela Amazon.</p><div class="tc-hero-actions">${components.createPurchaseOptionButton(book.ctaLabel || "Livro físico", book.buyUrl)}${book.amazonUrl ? components.createAmazonEbookButton(book.amazonUrl) : ""}</div>`
         )
       ].join("");
     }
