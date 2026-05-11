@@ -51,6 +51,7 @@
           <div class="tc-book-card-actions">
             <a class="tc-link" href="/trilogia/${escapeHtml(book.slug)}/">Ver detalhes</a>
             ${createCTAButton(book.ctaLabel || "Comprar agora", book.buyUrl)}
+            ${book.amazonUrl ? `<a href="${escapeHtml(book.amazonUrl)}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 18px; border-radius: 999px; border: 1px solid #e3d1a4; background: #fffdf9; color: #8f6d1d; text-decoration: none; font-weight: 700;">eBook na Amazon</a>` : ""}
           </div>
         </div>
       </article>
