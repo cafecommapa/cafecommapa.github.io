@@ -1,5 +1,15 @@
 [
   {
+    "slug": "insetos-no-parque",
+    "file": "posts/insetos-no-parque.md",
+    "title": "Insetos no parque",
+    "date": "2026-05-12",
+    "criador": "Carlos Patrocinio",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "vendo insetos no caminho do parque"
+  },
+  {
     "slug": "o-povo-alemao",
     "file": "posts/o-povo-alemao.md",
     "title": "O povo Alemão",
