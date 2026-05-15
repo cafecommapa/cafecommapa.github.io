@@ -8,6 +8,8 @@ window.SiteMenu = (function () {
     const menuCategoriasMobile = document.getElementById("menu-categorias-mobile");
     const botaoAutoresMobile = document.getElementById("botao-autores-mobile");
     const menuAutoresMobile = document.getElementById("menu-autores-mobile");
+    const botaoLivrosMobile = document.getElementById("botao-livros-mobile");
+    const menuLivrosMobile = document.getElementById("menu-livros-mobile");
     const estadoInicial = window.SiteRelogios?.getCidadeMobileAtual?.();
 
     if (botaoCidade && estadoInicial) {
@@ -53,6 +55,8 @@ window.SiteMenu = (function () {
         if (!abriu && botaoCategoriasMobile) botaoCategoriasMobile.setAttribute("aria-expanded", "false");
         if (!abriu && menuAutoresMobile) menuAutoresMobile.classList.remove("aberto");
         if (!abriu && botaoAutoresMobile) botaoAutoresMobile.setAttribute("aria-expanded", "false");
+        if (!abriu && menuLivrosMobile) menuLivrosMobile.classList.remove("aberto");
+        if (!abriu && botaoLivrosMobile) botaoLivrosMobile.setAttribute("aria-expanded", "false");
       });
 
       menuMobileLinks.querySelectorAll("a").forEach((link) => {
@@ -63,6 +67,8 @@ window.SiteMenu = (function () {
           if (botaoCategoriasMobile) botaoCategoriasMobile.setAttribute("aria-expanded", "false");
           if (menuAutoresMobile) menuAutoresMobile.classList.remove("aberto");
           if (botaoAutoresMobile) botaoAutoresMobile.setAttribute("aria-expanded", "false");
+          if (menuLivrosMobile) menuLivrosMobile.classList.remove("aberto");
+          if (botaoLivrosMobile) botaoLivrosMobile.setAttribute("aria-expanded", "false");
         });
       });
     }
@@ -85,6 +91,15 @@ window.SiteMenu = (function () {
       });
     }
 
+    if (botaoLivrosMobile && menuLivrosMobile) {
+      botaoLivrosMobile.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const abriu = menuLivrosMobile.classList.toggle("aberto");
+        botaoLivrosMobile.setAttribute("aria-expanded", abriu ? "true" : "false");
+      });
+    }
+
     document.addEventListener("click", function (e) {
       if (menuCidades && botaoCidade && !e.target.closest(".seletor-cidade-mobile")) {
         menuCidades.classList.remove("aberto");
@@ -98,6 +113,8 @@ window.SiteMenu = (function () {
         if (botaoCategoriasMobile) botaoCategoriasMobile.setAttribute("aria-expanded", "false");
         if (menuAutoresMobile) menuAutoresMobile.classList.remove("aberto");
         if (botaoAutoresMobile) botaoAutoresMobile.setAttribute("aria-expanded", "false");
+        if (menuLivrosMobile) menuLivrosMobile.classList.remove("aberto");
+        if (botaoLivrosMobile) botaoLivrosMobile.setAttribute("aria-expanded", "false");
       }
     });
   }

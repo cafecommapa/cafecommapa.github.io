@@ -168,6 +168,34 @@
     gap:14px;
   }
 
+  .faixa-venda-livros{
+    flex-wrap:nowrap;
+    justify-content:center;
+    gap:5px;
+    min-height:42px;
+    padding:6px;
+    margin-bottom:14px;
+    overflow:hidden;
+  }
+
+  .faixa-venda-amazon{
+    flex:0 0 auto;
+    height:17px;
+    margin-right:1px;
+  }
+
+  .faixa-venda-livros a{
+    flex:0 1 auto;
+    min-width:0;
+    min-height:26px;
+    padding:5px 7px;
+    font-size:0.72rem;
+  }
+
+  .faixa-venda-impresso{
+    display:none !important;
+  }
+
   .card-post,
   .card-post.destaque,
   .card-post.secundario{

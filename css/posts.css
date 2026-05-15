@@ -23,6 +23,61 @@
   margin-bottom:6px;
 }
 
+.faixa-venda-livros{
+  min-height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:rgba(255,255,255,0.9);
+  border:1px solid var(--cor-borda);
+  border-radius:var(--raio);
+  box-shadow:var(--sombra-suave);
+  padding:6px 10px;
+  margin-bottom:16px;
+}
+
+.faixa-venda-amazon{
+  width:auto;
+  height:22px;
+  display:block;
+  margin-right:2px;
+}
+
+.faixa-venda-livros a{
+  min-height:28px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  padding:5px 13px;
+  border:1px solid rgba(110,70,44,0.32);
+  border-radius:999px;
+  background:#ead9c4;
+  color:var(--cor-destaque-escura);
+  font-size:0.84rem;
+  font-weight:700;
+  line-height:1.1;
+  text-decoration:none;
+  transition:background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+  white-space:nowrap;
+}
+
+.faixa-venda-livros a span{
+  color:#111;
+}
+
+.faixa-venda-impresso{
+  margin-left:14px;
+}
+
+.faixa-venda-livros a:hover{
+  background:var(--cor-destaque);
+  border-color:var(--cor-destaque);
+  color:#fff8ef;
+  transform:translateY(-1px);
+}
+
 .layout{
   display:grid;
   grid-template-columns:minmax(0,1fr) 240px;
