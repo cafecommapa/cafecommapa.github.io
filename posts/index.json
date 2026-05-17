@@ -1,5 +1,25 @@
 [
   {
+    "slug": "the-jury-experience",
+    "file": "posts/the-jury-experience.md",
+    "title": "The Jury Experience",
+    "date": "2026-05-17",
+    "criador": "Patro",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "Minha opinião sobre opiniões"
+  },
+  {
+    "slug": "enquanto-caminho",
+    "file": "posts/enquanto-caminho.md",
+    "title": "Enquanto Caminho",
+    "date": "2026-05-17",
+    "criador": "Patro",
+    "category": "livro",
+    "cover": "imagens/livro.png",
+    "summary": "Publiquei um novo ebook."
+  },
+  {
     "slug": "insetos-no-parque",
     "file": "posts/insetos-no-parque.md",
     "title": "Insetos no parque",
