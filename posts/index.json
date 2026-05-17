@@ -10,6 +10,16 @@
     "summary": "Minha opinião sobre opiniões"
   },
   {
+    "slug": "praga",
+    "file": "posts/praga.md",
+    "title": "Praga",
+    "date": "2026-05-17",
+    "criador": "Patro",
+    "category": "viagem",
+    "cover": "imagens/viagem.png",
+    "summary": "Conhecendo o Leste Europeu"
+  },
+  {
     "slug": "enquanto-caminho",
     "file": "posts/enquanto-caminho.md",
     "title": "Enquanto Caminho",
