@@ -12,6 +12,37 @@ window.SitePostPage = (function () {
     return `post.html?slug=${encodeURIComponent(slug)}`;
   }
 
+  const TITULOS_CATEGORIAS = {
+    viagem: "Viagem",
+    pensamento: "Pensamento",
+    livro: "Livro",
+    receita: "Receita",
+    filme: "Filme",
+    tecnologia: "Tecnologia"
+  };
+
+  function normalizarCategoria(valor) {
+    return String(valor || "")
+      .trim()
+      .replace(/^["']|["']$/g, "")
+      .toLowerCase();
+  }
+
+  function formatarCategoria(valor) {
+    const categoria = normalizarCategoria(valor);
+    return TITULOS_CATEGORIAS[categoria] || valor || "";
+  }
+
+  function renderizarMetaPost(post) {
+    const partes = [
+      window.SiteUtils.formatarData(post.date),
+      formatarCategoria(post.category),
+      post.criador || ""
+    ].filter(Boolean);
+
+    return partes.map((parte) => window.SiteUtils.escapeHtml(parte)).join(" · ");
+  }
+
   function getAbsoluteUrl(path) {
     return `${SITE_URL}/${String(path || "").replace(/^\/+/, "")}`;
   }
@@ -189,12 +220,11 @@ window.SitePostPage = (function () {
       atualizarHeadDoPost(post);
       window.SiteVisitas?.refresh?.();
       const tituloSeguro = window.SiteUtils.escapeHtml(post.title);
-      const criadorSeguro = post.criador ? ` · ${window.SiteUtils.escapeHtml(post.criador)}` : "";
       const corpoHtml = window.SiteUtils.sanitizeHtml(renderBodyWithCustomBlocks(body));
 
       container.innerHTML = `
         <div class="post-meta">
-  ${window.SiteUtils.formatarData(post.date)}${criadorSeguro}
+  ${renderizarMetaPost(post)}
 </div>
         <h1>${tituloSeguro}</h1>
         <div class="post-body">${corpoHtml}</div>

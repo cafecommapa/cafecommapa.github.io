@@ -28,11 +28,33 @@ window.SiteHome = (function () {
     return window.SiteUtils.fetchText(caminho);
   }
 
+  function removerMidiaInicial(corpo) {
+    return String(corpo || "")
+      .replace(/^\s*<div[^>]*class=["'][^"']*galeria[^"']*["'][^>]*>[\s\S]*?<\/div>\s*/i, "")
+      .replace(/^\s*!\[[^\]]*\]\([^)]+\)\s*/i, "")
+      .replace(/^\s*<img\b[^>]*>\s*/i, "");
+  }
+
   function normalizarCategoria(valor) {
     return String(valor || "")
       .trim()
       .replace(/^["']|["']$/g, "")
       .toLowerCase();
+  }
+
+  function formatarCategoria(valor) {
+    const categoria = normalizarCategoria(valor);
+    return TITULOS_CATEGORIAS[categoria] || valor || "";
+  }
+
+  function renderizarMetaPost(post) {
+    const partes = [
+      window.SiteUtils.formatarData(post.date),
+      formatarCategoria(post.category),
+      post.criador || ""
+    ].filter(Boolean);
+
+    return partes.map((parte) => window.SiteUtils.escapeHtml(parte)).join(" · ");
   }
 
   function normalizarAutor(valor) {
@@ -116,14 +138,13 @@ window.SiteHome = (function () {
     const corpo = window.SiteUtils.removerFrontMatter(markdown);
 
     const tituloSeguro = window.SiteUtils.escapeHtml(post.title);
-    const criadorSeguro = post.criador ? ` · ${window.SiteUtils.escapeHtml(post.criador)}` : "";
     const corpoHtml = window.SiteUtils.sanitizeHtml(marked.parse(corpo));
 
     container.innerHTML = `
       <article class="post-full">
         <a href="#" class="botao-voltar" id="botao-voltar">← Voltar</a>
         <div class="post-meta">
-  ${window.SiteUtils.formatarData(post.date)}${criadorSeguro}
+  ${renderizarMetaPost(post)}
 </div>
         <h1>${tituloSeguro}</h1>
         <div class="post-body">${corpoHtml}</div>
@@ -152,12 +173,12 @@ window.SiteHome = (function () {
     for (const [index, post] of posts.slice(0, 2).entries()) {
       const markdown = await buscarMarkdown(post.file);
       const corpo = window.SiteUtils.removerFrontMatter(markdown);
+      const corpoPreview = removerMidiaInicial(corpo);
       const limite = index === 0 ? 700 : 400;
       const tituloSeguro = window.SiteUtils.escapeHtml(post.title);
       const resumoSeguro = post.summary ? `<p class="resumo">${window.SiteUtils.escapeHtml(post.summary)}</p>` : "";
-      const criadorSeguro = post.criador ? ` · ${window.SiteUtils.escapeHtml(post.criador)}` : "";
       const altSeguro = window.SiteUtils.escapeHtml(post.title);
-      const previewHtml = window.SiteUtils.sanitizeHtml(marked.parse(corpo.substring(0, limite) + (corpo.length > limite ? "..." : "")));
+      const previewHtml = window.SiteUtils.sanitizeHtml(marked.parse(corpoPreview.substring(0, limite) + (corpoPreview.length > limite ? "..." : "")));
 
       const artigo = document.createElement("article");
       artigo.className = index === 0 ? "card-post destaque" : "card-post secundario";
@@ -165,7 +186,7 @@ window.SiteHome = (function () {
         <a href="${getPostUrl(post.slug)}" class="post-link-bloco" data-slug="${post.slug}">
           ${post.cover ? `<img src="${post.cover}" alt="${altSeguro}">` : ""}
           <div class="post-meta">
-  ${window.SiteUtils.formatarData(post.date)}${criadorSeguro}
+  ${renderizarMetaPost(post)}
 </div>
           <h2>${tituloSeguro}</h2>
           ${resumoSeguro}

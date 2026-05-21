@@ -1,5 +1,15 @@
 [
   {
+    "slug": "a-mesma-leitura-com-novas-experiencias",
+    "file": "posts/a-mesma-leitura-com-novas-experiencias.md",
+    "title": "A mesma leitura, com novas experiências",
+    "date": "2026-05-21",
+    "criador": "Marcia Shimada",
+    "category": "livro",
+    "cover": "imagens/Todos_os_homens.jpeg",
+    "summary": "Relendo Todos os Homens são Mortais, 43 anos depois, com outro olhar sobre viagens, memória e escolhas."
+  },
+  {
     "slug": "the-jury-experience",
     "file": "posts/the-jury-experience.md",
     "title": "The Jury Experience",
@@ -66,7 +76,7 @@
     "date": "2026-05-03",
     "criador": "Carlos Patrocinio",
     "category": "viagem",
-    "cover": "imagens/viagem.png",
+    "cover": "imagens/mapa_europa.png",
     "summary": "Roteiro viagem a Europa"
   },
   {

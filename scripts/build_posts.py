@@ -26,11 +26,31 @@ def parse_front_matter(text):
 
 def extract_preview(text, limit=200):
     text = re.sub(r"\!\[.*?\]\(.*?\)", "", text)
+    text = re.sub(r"<div[^>]*class=[\"'][^\"']*galeria[^\"']*[\"'][^>]*>.*?</div>", "", text, flags=re.IGNORECASE | re.DOTALL)
+    text = re.sub(r"<img\b[^>]*>", "", text, flags=re.IGNORECASE)
     text = re.sub(r"#.*", "", text)
     text = re.sub(r"\n+", " ", text)
     text = text.strip()
 
     return text[:limit] + ("..." if len(text) > limit else "")
+
+
+def extract_leading_image(text):
+    start = text.lstrip()
+    leading_slice = start[:1200]
+
+    markdown_match = re.match(r"!\[[^\]]*\]\(([^)]+)\)", leading_slice)
+    if markdown_match:
+        return markdown_match.group(1).strip()
+
+    html_match = re.search(r"<img\b[^>]*\bsrc=[\"']([^\"']+)[\"'][^>]*>", leading_slice, flags=re.IGNORECASE)
+    if html_match:
+        before_image = leading_slice[:html_match.start()]
+        before_image = re.sub(r"</?div\b[^>]*>", "", before_image, flags=re.IGNORECASE)
+        if not before_image.strip():
+            return html_match.group(1).strip()
+
+    return ""
 
 
 def normalize_date(value):
@@ -51,6 +71,9 @@ for file_path in sorted(POSTS_DIR.glob("*.md"), reverse=True):
     category = meta.get("category", "").strip().lower()
 
     cover = meta.get("cover", "").strip()
+
+    if not cover:
+        cover = extract_leading_image(body)
 
     if not cover and category:
         cover = f"imagens/{category}.png"
