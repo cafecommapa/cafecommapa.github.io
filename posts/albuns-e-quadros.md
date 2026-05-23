@@ -35,3 +35,5 @@ Então, acompanhem por aqui e/ou no Instagram as novidades do novo quadro e do r
 <img src="imagens/quadros.jpeg" alt="">
 
 </div>
+
+Leia também: [A mesma leitura, com novas experiências](post.html?slug=a-mesma-leitura-com-novas-experiencias)

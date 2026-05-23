@@ -60,3 +60,5 @@ Existe uma frase que costumo repetir quando faço uma retrospectiva da minha pr�
 “Eu faria as mesmas escolhas para viver o que vivo hoje”.
 
 Porque foram exatamente essas escolhas — inclusive as difíceis — que me trouxeram as filhas, o marido e a vida que fazem parte de quem sou hoje.
+
+Leia também: [Álbuns e Quadros](post.html?slug=albuns-e-quadros)
