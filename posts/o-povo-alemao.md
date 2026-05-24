@@ -1,9 +1,9 @@
 ---
-title: O povo Alemão
+title: Os alemães são realmente frios? Nossa experiência na Alemanha
 date: 2026-05-09
 criador: Carlos Patrocinio
 category: viagem
-summary: características das pessoas de outros países.
+summary: Entre mapas, estações e momentos em que nos sentimos perdidos, sempre havia alguém disposto a ajudar. Talvez o povo alemão não seja exatamente como imaginamos.
 ---
 
 Sempre ouvi dizer que o alemão era uma pessoa séria, carrancuda, de expressão forte e muito direta. Assim como criamos estereótipos sobre o povo nascido na antiga Germânia — e também sobre tantos outros povos que diferem bastante das nossas características brasileiras. O inglês é pontual, o francês é patriota, os japoneses são extremamente educados. Por toda parte encontramos pessoas com características marcantes que acabam definindo uma pátria inteira.
