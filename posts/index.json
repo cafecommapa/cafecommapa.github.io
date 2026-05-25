@@ -1,5 +1,15 @@
 [
   {
+    "slug": "ameaca",
+    "file": "posts/ameaca.md",
+    "title": "Ameaça Nuclear: quando o impossível se torna uma ameaça real",
+    "date": "2026-05-24",
+    "criador": "Patro",
+    "category": "livro",
+    "cover": "imagens/PinAmeaca.jpeg",
+    "summary": "Conheça Ameaça Nuclear, um thriller de ação e suspense com terrorismo internacional, operações militares, perseguições, drones e uma ameaça capaz de colocar milhares de vidas em risco. Acompanhe a missão do Capitão John Trevor em uma corrida contra o tempo."
+  },
+  {
     "slug": "o-que-mais-nos-surpreendeu-em-amsterdam-a-noite",
     "file": "posts/o-que-mais-nos-surpreendeu-em-amsterdam-a-noite.md",
     "title": "O que mais nos surpreendeu em Amsterdam à noite",
@@ -412,12 +422,12 @@
   {
     "slug": "new-york-em-2014",
     "file": "posts/new-york-em-2014.md",
-    "title": "New York em 2014",
+    "title": "⭐ Nova York na neve: nossa viagem inesquecível em 2014",
     "date": "2025-05-04",
     "criador": "Marcia Shimada",
     "category": "viagem",
     "cover": "imagens/viagem.png",
-    "summary": "Essa foi mais uma aventura que ficará para sempre no meu coração."
+    "summary": "Em nossa viagem para Nova York em 2014, vivemos a experiência de conhecer a cidade coberta de neve. Entre o Central Park branco, pontos turísticos, locações de filmes, gastronomia e um hotel histórico de Manhattan, colecionamos memórias inesquecíveis do inverno em NY."
   },
   {
     "slug": "de-volta-a-nova-york-neve-cinema-e-sapatos-inesqueciveis",

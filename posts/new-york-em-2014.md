@@ -1,9 +1,9 @@
 ---
-title: New York em 2014
+title: ⭐ Nova York na neve: nossa viagem inesquecível em 2014
 date: 2025-05-04
 criador: Marcia Shimada
 category: viagem
-summary: Essa foi mais uma aventura que ficará para sempre no meu coração.
+summary: Em nossa viagem para Nova York em 2014, vivemos a experiência de conhecer a cidade coberta de neve. Entre o Central Park branco, pontos turísticos, locações de filmes, gastronomia e um hotel histórico de Manhattan, colecionamos memórias inesquecíveis do inverno em NY.
 ---
 
 Colecionar memórias é meu forte. Minha primeira viagem internacional em 2013 deixou um gosto de “quero mais”. Desta vez, a aventura foi a dois. Escolhemos passar frio e, em março de 2014, retornamos para Nova York — agora com a proposta de explorar somente NY.
