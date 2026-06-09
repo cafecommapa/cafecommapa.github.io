@@ -24,14 +24,6 @@
     `;
   }
 
-  function createAmazonEbookButton(href) {
-    return `
-      <a class="tc-button-amazon" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">
-        <span class="tc-button-amazon-text">eBook</span><img class="tc-button-amazon-logo" src="/trilogia/assets/images/amazon-logo.svg" alt="Amazon">
-      </a>
-    `;
-  }
-
   function createSectionBlock(title, content) {
     return `
       <section class="tc-section-block" aria-labelledby="section-${slugify(title)}">
@@ -67,7 +59,6 @@
           <div class="tc-book-card-actions">
             <a class="tc-link" href="/trilogia/${escapeHtml(book.slug)}/">Ver detalhes</a>
             ${createPurchaseOptionButton(book.ctaLabel || "Livro físico", book.buyUrl)}
-            ${book.amazonUrl ? createAmazonEbookButton(book.amazonUrl) : ""}
           </div>
         </div>
       </article>
@@ -112,7 +103,6 @@
           <p class="tc-hero-text">${escapeHtml(book.synopsis)}</p>
           <div class="tc-hero-actions">
             ${createPurchaseOptionButton(book.ctaLabel || "Livro físico", book.buyUrl)}
-            ${book.amazonUrl ? createAmazonEbookButton(book.amazonUrl) : ""}
             <a class="tc-button-back-small" href="/trilogia/">Voltar para<br>a trilogia</a>
           </div>
         </div>
@@ -153,7 +143,6 @@
   window.TrilogiaComponents = {
     createBookCard: createBookCard,
     createBookHero: createBookHero,
-    createAmazonEbookButton: createAmazonEbookButton,
     createCTAButton: createCTAButton,
     createPurchaseOptionButton: createPurchaseOptionButton,
     createKeywordList: createKeywordList,

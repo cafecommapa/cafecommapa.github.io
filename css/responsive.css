@@ -169,31 +169,24 @@
   }
 
   .faixa-venda-livros{
-    flex-wrap:nowrap;
+    flex-direction:column;
+    flex-wrap:wrap;
+    align-items:stretch;
     justify-content:center;
-    gap:5px;
-    min-height:42px;
+    gap:6px;
+    min-height:auto;
     padding:6px;
     margin-bottom:14px;
-    overflow:hidden;
-  }
-
-  .faixa-venda-amazon{
-    flex:0 0 auto;
-    height:17px;
-    margin-right:1px;
+    overflow:visible;
   }
 
   .faixa-venda-livros a{
-    flex:0 1 auto;
-    min-width:0;
-    min-height:26px;
-    padding:5px 7px;
-    font-size:0.72rem;
-  }
-
-  .faixa-venda-impresso{
-    display:none !important;
+    width:100%;
+    box-sizing:border-box;
+    min-height:30px;
+    padding:7px 10px;
+    font-size:0.82rem;
+    white-space:normal;
   }
 
   .card-post,
