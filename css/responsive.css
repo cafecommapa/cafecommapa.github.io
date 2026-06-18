@@ -169,11 +169,11 @@
   }
 
   .faixa-venda-livros{
-    flex-direction:column;
-    flex-wrap:wrap;
+    flex-direction:row;
+    flex-wrap:nowrap;
     align-items:stretch;
     justify-content:center;
-    gap:6px;
+    gap:5px;
     min-height:auto;
     padding:6px;
     margin-bottom:14px;
@@ -181,11 +181,14 @@
   }
 
   .faixa-venda-livros a{
-    width:100%;
+    flex:1 1 0;
     box-sizing:border-box;
     min-height:30px;
-    padding:7px 10px;
-    font-size:0.82rem;
+    min-width:0;
+    padding:6px 4px;
+    font-size:0.7rem;
+    line-height:1.12;
+    text-align:center;
     white-space:normal;
   }
 
