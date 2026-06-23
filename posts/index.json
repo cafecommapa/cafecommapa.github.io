@@ -1,5 +1,25 @@
 [
   {
+    "slug": "copa-do-mundo",
+    "file": "posts/copa-do-mundo.md",
+    "title": "Copa do Mundo 2026: por que este já é o maior Mundial de todos os tempos",
+    "date": "2026-06-23",
+    "criador": "Patro",
+    "category": "pensamento",
+    "cover": "imagens/IMG_7875.PNG",
+    "summary": "A Copa do Mundo de 2026 reúne 48 seleções, três países-sede e os maiores craques do planeta. Conheça curiosidades, novas regras e por que este Mundial já entrou para a história."
+  },
+  {
+    "slug": "cinema-x-copa-do-mundo",
+    "file": "posts/cinema-x-copa-do-mundo.md",
+    "title": "Cinema x Copa do Mundo",
+    "date": "2026-06-23",
+    "criador": "Patro",
+    "category": "cinema",
+    "cover": "imagens/craquesxcinema.png",
+    "summary": "A Copa do Mundo 2026 e os maiores blockbusters do cinema disputam a atenção do público. Entre Messi, Cristiano Ronaldo e os grandes lançamentos das telonas, qual será a sua escolha?"
+  },
+  {
     "slug": "ameaca",
     "file": "posts/ameaca.md",
     "title": "Ameaça Nuclear: quando o impossível se torna uma ameaça real",
