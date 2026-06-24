@@ -1,5 +1,5 @@
 ---
-title: Copa do Mundo 2026: por que este já é o maior Mundial de todos os tempos
+title: Copa do Mundo 2026: Por que este já é o maior Mundial de todos os tempos?
 date: 2026-06-23
 criador: Patro
 category: pensamento
