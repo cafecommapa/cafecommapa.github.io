@@ -1287,6 +1287,17 @@ body.trilogia-page[data-book-slug="destinos-cruzados"] .tc-footer-line::after {
     width: 100%;
   }
 
+  .tc-hero-actions > .tc-button-outline,
+  .tc-hero-actions > .tc-button-amazon,
+  .tc-hero-actions > .tc-button-back-small {
+    width: 100%;
+  }
+
+  .tc-button-back-small {
+    min-height: 42px;
+    margin-left: 0;
+  }
+
   .tc-link {
     width: 100%;
     text-align: center;
