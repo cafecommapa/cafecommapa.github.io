@@ -18,7 +18,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/header.css">
@@ -68,6 +68,16 @@
       <a href="mapa.html">Mapa</a>
       <a href="#" data-popup-open="sobre">Sobre</a>
       <a href="#" data-popup-open="contato">Contato</a>
+      <div class="menu-dropdown seletor-cidade">
+        <button class="botao-cidade" type="button" aria-expanded="false">☰ Nova York</button>
+        <div class="menu-dropdown-conteudo menu-cidades">
+          <button type="button" data-cidade="Nova York" data-timezone="America/New_York">Nova York</button>
+          <button type="button" data-cidade="Londres" data-timezone="Europe/London">Londres</button>
+          <button type="button" data-cidade="Paris" data-timezone="Europe/Paris">Paris</button>
+          <button type="button" data-cidade="Los Angeles" data-timezone="America/Los_Angeles">Los Angeles</button>
+          <button type="button" data-cidade="Brasil" data-timezone="America/Sao_Paulo">Brasil</button>
+        </div>
+      </div>
     </nav>
 
     <div class="header-linha-2">
@@ -78,18 +88,17 @@
           <a href="mapa.html">Mapa</a>
           <a href="#" data-popup-open="sobre">Sobre</a>
           <a href="#" data-popup-open="contato">Contato</a>
-        </div>
-      </div>
-
-      <div class="header-linha-2-direita">
-        <div class="seletor-cidade-mobile">
-          <button id="botao-cidade-mobile" class="botao-hamburguer botao-hamburguer-direita" type="button" aria-expanded="false">☰ Nova York</button>
-          <div id="menu-cidades-mobile" class="menu-cidades-mobile">
-            <button type="button" data-cidade="Nova York" data-timezone="America/New_York">Nova York</button>
-            <button type="button" data-cidade="Londres" data-timezone="Europe/London">Londres</button>
-            <button type="button" data-cidade="Paris" data-timezone="Europe/Paris">Paris</button>
-            <button type="button" data-cidade="Los Angeles" data-timezone="America/Los_Angeles">Los Angeles</button>
-            <button type="button" data-cidade="Brasil" data-timezone="America/Sao_Paulo">Brasil</button>
+          <div class="menu-mobile-categorias seletor-cidade">
+            <button class="botao-menu-mobile-categoria botao-cidade" type="button" aria-expanded="false">
+              ☰ Nova York
+            </button>
+            <div class="menu-categorias-mobile menu-cidades">
+              <button type="button" data-cidade="Nova York" data-timezone="America/New_York">Nova York</button>
+              <button type="button" data-cidade="Londres" data-timezone="Europe/London">Londres</button>
+              <button type="button" data-cidade="Paris" data-timezone="Europe/Paris">Paris</button>
+              <button type="button" data-cidade="Los Angeles" data-timezone="America/Los_Angeles">Los Angeles</button>
+              <button type="button" data-cidade="Brasil" data-timezone="America/Sao_Paulo">Brasil</button>
+            </div>
           </div>
         </div>
       </div>

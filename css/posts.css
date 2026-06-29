@@ -1,4 +1,5 @@
 #clocks{
+  display:none;
   background:var(--cor-painel);
   border:1px solid var(--cor-borda);
   border-radius:var(--raio);
@@ -29,7 +30,7 @@
   align-items:center;
   justify-content:center;
   gap:8px;
-  background:rgba(255,255,255,0.9);
+  background:rgba(255,255,255,0.94);
   border:1px solid var(--cor-borda);
   border-radius:var(--raio);
   box-shadow:var(--sombra-suave);
@@ -51,10 +52,10 @@
   justify-content:center;
   gap:4px;
   padding:5px 13px;
-  border:1px solid rgba(110,70,44,0.32);
+  border:1px solid rgba(47,111,94,0.28);
   border-radius:999px;
-  background:#ead9c4;
-  color:var(--cor-destaque-escura);
+  background:#eef6f2;
+  color:#224f44;
   font-size:0.84rem;
   font-weight:700;
   line-height:1.1;
@@ -72,9 +73,9 @@
 }
 
 .faixa-venda-livros a:hover{
-  background:var(--cor-destaque);
-  border-color:var(--cor-destaque);
-  color:#fff8ef;
+  background:#2f6f5e;
+  border-color:#2f6f5e;
+  color:#fff;
   transform:translateY(-1px);
 }
 
@@ -88,7 +89,7 @@
 .card-post{
   background:var(--cor-painel);
   border:1px solid var(--cor-borda);
-  border-radius:var(--raio);
+  border-radius:12px;
   box-shadow:var(--sombra-suave);
   padding:18px;
   margin-bottom:12px;
@@ -98,7 +99,7 @@
 .card-post:hover{
   transform:translateY(-2px);
   box-shadow:var(--sombra-media);
-  border-color:#dbc7b0;
+  border-color:rgba(47,111,94,0.45);
 }
 
 .card-post img{
@@ -122,7 +123,7 @@
 .card-post h2{
   margin:4px 0 6px;
   font-size:1.35rem;
-  color:var(--cor-marrom);
+  color:#224f44;
 }
 
 .post-link-bloco{
@@ -139,7 +140,7 @@
 
 .post-meta{
   font-size:0.9rem;
-  color:#8a7562;
+  color:#7f6c55;
   margin-bottom:6px;
 }
 
@@ -194,7 +195,7 @@
   left:0;
   right:0;
   height:4px;
-  background:linear-gradient(90deg,#8b5e3c,#d2b48c,#8b5e3c);
+  background:linear-gradient(90deg,#2f6f5e,#d8aa5f,#2f6f5e);
 }
 
 .sidebar h3{
@@ -202,7 +203,7 @@
   font-size:1.12rem;
   border-bottom:1px solid #e8dccd;
   padding-bottom:10px;
-  color:var(--cor-marrom);
+  color:#224f44;
   letter-spacing:0.2px;
   position:relative;
 }

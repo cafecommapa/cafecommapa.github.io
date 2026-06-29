@@ -46,26 +46,80 @@
     text-align:center;
     line-height:1.2;
     letter-spacing:0.4px;
-    color:#4b2e1f;
-    text-shadow:0 1px 2px rgba(0,0,0,0.08);
+    color:#fff8ec;
+    text-shadow:0 2px 8px rgba(0,0,0,0.18);
     white-space:nowrap;
   }
 
   .relogio-mobile{
-    display:flex;
-    align-items:center;
-    justify-content:flex-end;
+    position:static;
     transform:translateY(1px);
+  }
+
+  .relogio-analogico-mini{
+    width:40px;
+    height:40px;
+    border-width:2px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.05);
+  }
+
+  .marcador-12{
+    width:2px;
+    height:6px;
+    top:3px;
+  }
+
+  .marcador-3{
+    width:6px;
+    height:2px;
+    right:3px;
+  }
+
+  .marcador-6{
+    width:2px;
+    height:6px;
+    bottom:3px;
+  }
+
+  .marcador-9{
+    width:6px;
+    height:2px;
+    left:3px;
+  }
+
+  .ponteiro.hora{
+    width:2.5px;
+    height:11px;
+  }
+
+  .ponteiro.minuto{
+    width:2px;
+    height:15px;
+  }
+
+  .ponteiro.segundo{
+    width:1px;
+    height:16px;
+  }
+
+  .centro-relogio{
+    width:6px;
+    height:6px;
   }
 
   .header-linha-2{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:1fr;
     align-items:center;
     width:100%;
     margin-top:6px;
     padding-top:6px;
-    border-top:1px solid #ececec;
+    border-top:1px solid rgba(255,255,255,0.28);
+  }
+
+  .botao-hamburguer,
+  .botao-hamburguer-direita{
+    color:#fff8ec;
   }
 
   .header-linha-2-esquerda{justify-self:start;}
@@ -130,7 +184,7 @@
     padding:8px 10px !important;
   }
 
-  #menu-cidades-mobile{
+  .menu-cidades{
     position:absolute;
     top:calc(100% + 8px);
     right:0;
@@ -143,7 +197,14 @@
     z-index:999;
   }
 
-  #menu-cidades-mobile button{
+  .menu-categorias-mobile.menu-cidades{
+    position:static;
+    min-width:0;
+    margin:6px 0 6px 10px;
+    box-shadow:none;
+  }
+
+  .menu-categorias-mobile button{
     width:100%;
     border:none;
     background:none;
@@ -156,7 +217,7 @@
     cursor:pointer;
   }
 
-  #menu-cidades-mobile button:hover{background:#f7f1e9;}
+  .menu-categorias-mobile button:hover{background:#f7f1e9;}
 
   .menu-principal,
   #clocks{

@@ -1,7 +1,12 @@
 window.SiteMenu = (function () {
   function initHeaderMobile() {
-    const botaoCidade = document.getElementById("botao-cidade-mobile");
-    const menuCidades = document.getElementById("menu-cidades-mobile");
+    const seletoresCidade = Array.from(document.querySelectorAll(".seletor-cidade"));
+    const botoesCidade = seletoresCidade
+      .map((seletor) => seletor.querySelector(".botao-cidade"))
+      .filter(Boolean);
+    const menusCidade = seletoresCidade
+      .map((seletor) => seletor.querySelector(".menu-cidades"))
+      .filter(Boolean);
     const botaoMenuMobile = document.getElementById("botao-menu-mobile");
     const menuMobileLinks = document.getElementById("menu-mobile-links");
     const botaoCategoriasMobile = document.getElementById("botao-categorias-mobile");
@@ -12,22 +17,40 @@ window.SiteMenu = (function () {
     const menuLivrosMobile = document.getElementById("menu-livros-mobile");
     const estadoInicial = window.SiteRelogios?.getCidadeMobileAtual?.();
 
-    if (botaoCidade && estadoInicial) {
-      botaoCidade.textContent = `☰ ${estadoInicial.nome}`;
+    function fecharMenusCidade() {
+      menusCidade.forEach((menu) => menu.classList.remove("aberto"));
+      botoesCidade.forEach((botao) => botao.setAttribute("aria-expanded", "false"));
     }
 
-    if (botaoCidade && menuCidades) {
+    function atualizarBotoesCidade(nome) {
+      botoesCidade.forEach((botao) => {
+        botao.textContent = `☰ ${nome}`;
+      });
+    }
+
+    if (estadoInicial) {
+      atualizarBotoesCidade(estadoInicial.nome);
+    }
+
+    seletoresCidade.forEach((seletor) => {
+      const botaoCidade = seletor.querySelector(".botao-cidade");
+      const menuCidade = seletor.querySelector(".menu-cidades");
+      if (!botaoCidade || !menuCidade) return;
+
       botaoCidade.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
-        const abriu = menuCidades.classList.toggle("aberto");
+        menusCidade.forEach((menu) => {
+          if (menu !== menuCidade) menu.classList.remove("aberto");
+        });
+        botoesCidade.forEach((botao) => {
+          if (botao !== botaoCidade) botao.setAttribute("aria-expanded", "false");
+        });
+        const abriu = menuCidade.classList.toggle("aberto");
         botaoCidade.setAttribute("aria-expanded", abriu ? "true" : "false");
-
-        if (menuMobileLinks) menuMobileLinks.classList.remove("aberto");
-        if (botaoMenuMobile) botaoMenuMobile.setAttribute("aria-expanded", "false");
       });
 
-      menuCidades.querySelectorAll("button").forEach((btn) => {
+      menuCidade.querySelectorAll("button").forEach((btn) => {
         btn.addEventListener("click", function (e) {
           e.preventDefault();
           e.stopPropagation();
@@ -35,12 +58,11 @@ window.SiteMenu = (function () {
           const cidade = this.dataset.cidade;
           const timezone = this.dataset.timezone;
           window.SiteRelogios?.setCidadeMobile?.(cidade, timezone);
-          botaoCidade.textContent = `☰ ${cidade}`;
-          menuCidades.classList.remove("aberto");
-          botaoCidade.setAttribute("aria-expanded", "false");
+          atualizarBotoesCidade(cidade);
+          fecharMenusCidade();
         });
       });
-    }
+    });
 
     if (botaoMenuMobile && menuMobileLinks) {
       botaoMenuMobile.addEventListener("click", function (e) {
@@ -49,8 +71,7 @@ window.SiteMenu = (function () {
         const abriu = menuMobileLinks.classList.toggle("aberto");
         botaoMenuMobile.setAttribute("aria-expanded", abriu ? "true" : "false");
 
-        if (menuCidades) menuCidades.classList.remove("aberto");
-        if (botaoCidade) botaoCidade.setAttribute("aria-expanded", "false");
+        fecharMenusCidade();
         if (!abriu && menuCategoriasMobile) menuCategoriasMobile.classList.remove("aberto");
         if (!abriu && botaoCategoriasMobile) botaoCategoriasMobile.setAttribute("aria-expanded", "false");
         if (!abriu && menuAutoresMobile) menuAutoresMobile.classList.remove("aberto");
@@ -69,6 +90,7 @@ window.SiteMenu = (function () {
           if (botaoAutoresMobile) botaoAutoresMobile.setAttribute("aria-expanded", "false");
           if (menuLivrosMobile) menuLivrosMobile.classList.remove("aberto");
           if (botaoLivrosMobile) botaoLivrosMobile.setAttribute("aria-expanded", "false");
+          fecharMenusCidade();
         });
       });
     }
@@ -101,9 +123,8 @@ window.SiteMenu = (function () {
     }
 
     document.addEventListener("click", function (e) {
-      if (menuCidades && botaoCidade && !e.target.closest(".seletor-cidade-mobile")) {
-        menuCidades.classList.remove("aberto");
-        botaoCidade.setAttribute("aria-expanded", "false");
+      if (!e.target.closest(".seletor-cidade")) {
+        fecharMenusCidade();
       }
 
       if (menuMobileLinks && botaoMenuMobile && !e.target.closest(".header-linha-2-esquerda")) {
@@ -120,7 +141,7 @@ window.SiteMenu = (function () {
   }
 
   function initMenuDesktop() {
-    const botoesDropdown = document.querySelectorAll(".menu-dropdown > button");
+    const botoesDropdown = document.querySelectorAll(".menu-dropdown:not(.seletor-cidade) > button");
     if (!botoesDropdown.length) return;
 
     botoesDropdown.forEach((botao) => {
