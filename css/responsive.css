@@ -184,6 +184,9 @@
   }
 
   .menu-categorias-mobile a{
+    margin:4px 0;
+    border:1px solid rgba(47,111,94,0.16);
+    background:#f3faf6;
     font-size:0.88rem !important;
     padding:8px 10px !important;
   }
@@ -210,8 +213,8 @@
 
   .menu-categorias-mobile button{
     width:100%;
-    border:none;
-    background:none;
+    border:1px solid rgba(47,111,94,0.16);
+    background:#f3faf6;
     text-align:left;
     padding:10px 12px;
     border-radius:8px;
@@ -221,7 +224,11 @@
     cursor:pointer;
   }
 
-  .menu-categorias-mobile button:hover{background:#f7f1e9;}
+  .menu-categorias-mobile a:hover,
+  .menu-categorias-mobile button:hover{
+    border-color:rgba(47,111,94,0.34);
+    background:#e7f4ee;
+  }
 
   .menu-principal,
   #clocks{
