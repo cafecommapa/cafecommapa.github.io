@@ -91,6 +91,65 @@ window.SiteUtils = (function () {
     return { meta, body };
   }
 
+  function titleCase(valor) {
+    return String(valor || "")
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((palavra) => {
+        const minusculas = ["a", "as", "com", "da", "das", "de", "do", "dos", "e", "em", "na", "nas", "no", "nos", "o", "os", "para", "por", "x"];
+        const lower = palavra.toLowerCase();
+        if (minusculas.includes(lower)) return lower;
+        return lower.charAt(0).toUpperCase() + lower.slice(1);
+      })
+      .join(" ");
+  }
+
+  function tituloCurtoPost(post) {
+    const titulo = String(post?.title || "").trim();
+    const slug = String(post?.slug || "").trim().toLowerCase();
+    const base = `${slug} ${titulo.toLowerCase()}`;
+
+    const atalhos = [
+      { padrao: /figurinhas?/, titulo: "Figurinhas" },
+      { padrao: /copa-do-mundo|copa do mundo/, titulo: "Copa do Mundo" },
+      { padrao: /ameaca-nuclear|ameaça nuclear/, titulo: "Ameaça Nuclear" },
+      { padrao: /amsterdam/, titulo: "Amsterdam" },
+      { padrao: /destinos-cruzados|destinos cruzados/, titulo: "Destinos Cruzados" },
+      { padrao: /jennifer/, titulo: "Jennifer" },
+      { padrao: /cinema/, titulo: "Cinema" },
+      { padrao: /netflix/, titulo: "Netflix" },
+      { padrao: /chile/, titulo: "Chile" },
+      { padrao: /new-york|nova-york|nova york/, titulo: "New York" },
+      { padrao: /miami/, titulo: "Miami" },
+      { padrao: /orlando/, titulo: "Orlando" },
+      { padrao: /europa/, titulo: "Europa" },
+      { padrao: /paris/, titulo: "Paris" },
+      { padrao: /porto/, titulo: "Porto" },
+      { padrao: /praga/, titulo: "Praga" },
+      { padrao: /receita/, titulo: "Receita" },
+      { padrao: /carne-de-panela|carne de panela/, titulo: "Carne de Panela" },
+      { padrao: /molho-gorgonzola|molho gorgonzola/, titulo: "Molho Gorgonzola" },
+      { padrao: /krispy-kreme|krispy/, titulo: "Krispy Kreme" }
+    ];
+
+    const atalho = atalhos.find((item) => item.padrao.test(base));
+    if (atalho) return atalho.titulo;
+
+    const origem = slug || titulo;
+    const palavrasIgnoradas = new Set([
+      "a", "as", "ao", "aos", "com", "da", "das", "de", "do", "dos", "e", "em", "na", "nas", "no", "nos", "o", "os", "para", "por", "que", "um", "uma"
+    ]);
+
+    const palavras = origem
+      .replace(/[-_]+/g, " ")
+      .replace(/[^\p{L}\p{N}\s]/gu, " ")
+      .split(/\s+/)
+      .filter((palavra) => palavra && !palavrasIgnoradas.has(palavra.toLowerCase()))
+      .slice(0, 3);
+
+    return titleCase(palavras.join(" ") || titulo);
+  }
+
   return {
     formatarData,
     fetchJson,
@@ -98,6 +157,7 @@ window.SiteUtils = (function () {
     escapeHtml,
     sanitizeHtml,
     removerFrontMatter,
-    separarFrontMatter
+    separarFrontMatter,
+    tituloCurtoPost
   };
 })();

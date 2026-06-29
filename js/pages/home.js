@@ -320,9 +320,11 @@ window.SiteHome = (function () {
     posts.slice(0, LIMITE_SIDEBAR).forEach((post) => {
       const item = document.createElement("li");
       item.className = "sidebar-item";
+      const tituloCompleto = window.SiteUtils.escapeHtml(post.title);
+      const tituloCurto = window.SiteUtils.escapeHtml(window.SiteUtils.tituloCurtoPost(post));
       item.innerHTML = `
-        <a href="${getPostUrl(post.slug)}" class="sidebar-link" data-slug="${post.slug}">
-          <span class="sidebar-title">${window.SiteUtils.escapeHtml(post.title)}</span>
+        <a href="${getPostUrl(post.slug)}" class="sidebar-link" data-slug="${post.slug}" title="${tituloCompleto}">
+          <span class="sidebar-title">${tituloCurto}</span>
           <span class="sidebar-date">${window.SiteUtils.formatarData(post.date)}</span>
         </a>
       `;

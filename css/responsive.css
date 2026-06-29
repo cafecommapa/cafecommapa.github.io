@@ -37,6 +37,10 @@
     object-fit:contain;
   }
 
+  .logo-link{
+    position:static;
+  }
+
   .titulo-site{
     position:static;
     transform:none;
