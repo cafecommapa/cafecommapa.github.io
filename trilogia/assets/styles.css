@@ -192,6 +192,40 @@ body.trilogia-page[data-book-slug="destinos-cruzados"] {
   color: var(--tc-accent-strong);
 }
 
+body.trilogia-page[data-trilogia-view="landing"] .tc-nav a {
+  background: #f3faf6;
+  border: 1px solid rgba(47, 111, 94, 0.16);
+  color: #224f44;
+}
+
+body.trilogia-page[data-trilogia-view="landing"] .tc-header-bar {
+  background: linear-gradient(135deg, rgba(47, 111, 94, 0.96), rgba(40, 80, 82, 0.96));
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 18px 42px rgba(35, 52, 45, 0.16);
+}
+
+body.trilogia-page[data-trilogia-view="landing"] .tc-brand {
+  color: #fff8ec;
+}
+
+body.trilogia-page[data-trilogia-view="landing"] .tc-brand-text span,
+body.trilogia-page[data-trilogia-view="landing"] .tc-menu-button {
+  color: #dfeee8;
+}
+
+body.trilogia-page[data-trilogia-view="landing"] .tc-nav a:hover,
+body.trilogia-page[data-trilogia-view="landing"] .tc-nav a:focus-visible {
+  background: #e7f4ee;
+  border-color: rgba(47, 111, 94, 0.34);
+  color: #183d34;
+}
+
+body.trilogia-page[data-trilogia-view="landing"] .tc-nav a[aria-current="page"] {
+  background: linear-gradient(180deg, #347a68, #245c50);
+  border-color: #2f6f5e;
+  color: #fff8ec;
+}
+
 .tc-main {
   padding-bottom: 64px;
 }
