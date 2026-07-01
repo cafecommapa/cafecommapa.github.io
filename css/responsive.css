@@ -123,7 +123,21 @@
 
   .botao-hamburguer,
   .botao-hamburguer-direita{
-    color:#fff8ec;
+    min-height:38px;
+    padding:8px 12px;
+    border:1px solid rgba(47,111,94,0.16);
+    border-radius:8px;
+    background:#f3faf6;
+    color:#224f44;
+    box-shadow:0 4px 10px rgba(20,45,42,0.08);
+  }
+
+  .botao-hamburguer:hover,
+  .botao-hamburguer:focus-visible,
+  .botao-hamburguer[aria-expanded="true"]{
+    border-color:rgba(47,111,94,0.34);
+    background:#e7f4ee;
+    color:#183d34;
   }
 
   .header-linha-2-esquerda{justify-self:start;}
