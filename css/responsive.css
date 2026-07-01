@@ -170,17 +170,22 @@
     text-decoration:none;
     color:#4f3a2a;
     padding:10px 12px;
+    border:1px solid rgba(47,111,94,0.16);
     border-radius:8px;
+    background:#f3faf6;
     font-size:0.9rem;
     font-weight:600;
   }
 
-  #menu-mobile-links a:hover{background:#f7f1e9;}
+  #menu-mobile-links a:hover{
+    border-color:rgba(47,111,94,0.34);
+    background:#e7f4ee;
+  }
 
   .botao-menu-mobile-categoria{
     width:100%;
-    border:none;
-    background:none;
+    border:1px solid rgba(47,111,94,0.16);
+    background:#f3faf6;
     text-align:left;
     padding:10px 12px;
     border-radius:8px;
@@ -192,7 +197,8 @@
   }
 
   .botao-menu-mobile-categoria:hover{
-    background:#f7f1e9;
+    border-color:rgba(47,111,94,0.34);
+    background:#e7f4ee;
   }
 
   .menu-categorias-mobile{
@@ -387,20 +393,17 @@
 
 @media (max-width:480px){
   .header-linha{
-    grid-template-columns:36px 1fr 36px;
+    grid-template-columns:112px 1fr 112px;
     gap:8px;
   }
 
-  .logo-header{
-    width:36px;
-    height:36px;
+  .logo-link,
+  .relogio-analogico-mini{
+    width:112px;
+    height:112px;
   }
 
   .titulo-site{font-size:0.95rem;}
-  .relogio-analogico-mini{width:36px;height:36px;}
-  .ponteiro.hora{height:10px;}
-  .ponteiro.minuto{height:13px;}
-  .ponteiro.segundo{height:14px;}
   .botao-hamburguer{font-size:0.88rem;}
 
   .popup-contato-acoes{
