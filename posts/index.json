@@ -1,5 +1,15 @@
 [
   {
+    "slug": "como-voce-cuida-da-sua-saude",
+    "file": "posts/como-voce-cuida-da-sua-saude.md",
+    "title": "Como você cuida da sua saúde?",
+    "date": "2026-07-02",
+    "criador": "Patro",
+    "category": "pensamento",
+    "cover": "imagens/IMG_5336.jpeg",
+    "summary": "Você já pensou no que o seu \"eu do futuro\" herdará das escolhas que faz hoje? Neste artigo, compartilho minha meta de viver até os 95 anos com saúde e explico como alimentação equilibrada, exercícios físicos, saúde mental, check-ups médicos, boas amizades e hábitos saudáveis podem aumentar a qualidade de vida e favorecer um envelhecimento ativo. Uma reflexão sobre longevidade, prevenção e as pequenas decisões que podem fazer toda a diferença nas próximas décadas."
+  },
+  {
     "slug": "figurinhas",
     "file": "posts/figurinhas.md",
     "title": "Colecionar figurinhas: por que o álbum da Copa do Mundo 2026 desperta tantas lembranças",
@@ -22,7 +32,7 @@
   {
     "slug": "copa-do-mundo",
     "file": "posts/copa-do-mundo.md",
-    "title": "Copa do Mundo 2026: por que este já é o maior Mundial de todos os tempos",
+    "title": "Copa do Mundo 2026: Por que este já é o maior Mundial de todos os tempos?",
     "date": "2026-06-23",
     "criador": "Patro",
     "category": "pensamento",
