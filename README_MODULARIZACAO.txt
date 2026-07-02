@@ -36,3 +36,4 @@ Observações:
 2. O arquivo antigo js/post.js pode ser substituído por js/pages/post-page.js.
 3. O HTML não precisa mais conter os popups no final; o js/core/popups.js injeta isso automaticamente.
 4. O mapa agora usa js/pages/mapa-page.js e js/data/cidades.js.
+5. Atualização de teste para recarregar o projeto.
