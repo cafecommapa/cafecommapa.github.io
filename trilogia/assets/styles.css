@@ -1163,6 +1163,13 @@ body.tc-campaign-page.trilogia-page[data-trilogia-view="landing"] {
   margin-top: 22px;
 }
 
+.tc-campaign-ebook-note {
+  margin: 12px 0 0;
+  color: rgba(255, 247, 232, 0.78);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
 .tc-campaign-primary {
   background: linear-gradient(135deg, #ffdf72, #d79a1c);
   color: #261309;
@@ -1286,6 +1293,11 @@ body.tc-campaign-page.trilogia-page[data-trilogia-view="landing"] {
 .tc-campaign-book p {
   margin: 12px 0 0;
   color: #5f5148;
+}
+
+.tc-campaign-book .tc-campaign-ebook-note {
+  color: #6f6158;
+  font-size: 0.86rem;
 }
 
 .tc-campaign-discounts {
