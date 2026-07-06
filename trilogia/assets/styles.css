@@ -1051,6 +1051,298 @@ body.trilogia-page[data-book-slug] .tc-final-cta-panel {
     );
 }
 
+.tc-campaign-page {
+  --tc-campaign-red: #be1f18;
+  --tc-campaign-gold: #f1c64d;
+  --tc-campaign-blue: #143f6e;
+  --tc-campaign-ink: #190b08;
+}
+
+body.tc-campaign-page.trilogia-page[data-trilogia-view="landing"] {
+  color: #fff7e8;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(243, 198, 77, 0.28), transparent 30%),
+    radial-gradient(circle at 88% 12%, rgba(31, 87, 146, 0.34), transparent 28%),
+    linear-gradient(135deg, #190b08 0%, #3b0c0b 38%, #092544 100%);
+}
+
+.tc-campaign-header .tc-header-bar {
+  background: rgba(15, 20, 24, 0.7) !important;
+  border-color: rgba(241, 198, 77, 0.34) !important;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22) !important;
+}
+
+.tc-campaign-date-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 16px;
+  border: 1px solid rgba(241, 198, 77, 0.62);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #df281c, #8f130f);
+  color: #fff4c9;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.tc-campaign-hero {
+  display: grid;
+  gap: 22px;
+  align-items: center;
+  padding: clamp(18px, 4vw, 38px);
+  border: 1px solid rgba(241, 198, 77, 0.42);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 74% 18%, rgba(255, 215, 94, 0.22), transparent 26%),
+    linear-gradient(135deg, rgba(127, 17, 12, 0.95), rgba(13, 39, 68, 0.92));
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.24);
+  overflow: hidden;
+}
+
+.tc-campaign-copy {
+  min-width: 0;
+}
+
+.tc-campaign-kicker,
+.tc-campaign-book-kicker {
+  margin: 0 0 10px;
+  color: var(--tc-campaign-gold);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.tc-campaign-hero h1 {
+  margin: 0;
+  color: #ff3b22;
+  font-size: clamp(4rem, 18vw, 9rem);
+  line-height: 0.82;
+  letter-spacing: 0;
+  text-shadow:
+    0 3px 0 #ffd66c,
+    0 10px 26px rgba(255, 95, 21, 0.46);
+}
+
+.tc-campaign-lead {
+  max-width: 13ch;
+  margin: 20px 0 0;
+  color: #ffffff;
+  font-size: clamp(1.55rem, 6.5vw, 3.3rem);
+  font-weight: 900;
+  line-height: 1.02;
+}
+
+.tc-campaign-note {
+  max-width: 46ch;
+  margin: 16px 0 0;
+  color: rgba(255, 247, 232, 0.86);
+  font-size: 1.02rem;
+}
+
+.tc-campaign-proof {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  margin: 18px 0 0;
+  padding: 7px 14px;
+  border: 1px solid rgba(241, 198, 77, 0.42);
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.12);
+  color: #fff4c9;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.tc-campaign-actions,
+.tc-campaign-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.tc-campaign-primary {
+  background: linear-gradient(135deg, #ffdf72, #d79a1c);
+  color: #261309;
+  box-shadow: 0 14px 28px rgba(255, 198, 54, 0.18);
+}
+
+.tc-campaign-amazon {
+  border-color: rgba(241, 198, 77, 0.46);
+  background: #fffdf9;
+  color: #111111;
+}
+
+.tc-campaign-stack {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: end;
+  min-height: 300px;
+}
+
+.tc-campaign-stack img {
+  display: block;
+  width: min(100%, 188px);
+  justify-self: center;
+  border: 1px solid rgba(255, 232, 175, 0.62);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 20px 34px rgba(0, 0, 0, 0.28);
+}
+
+.tc-campaign-stack img:nth-child(1) {
+  transform: rotate(-8deg) translateX(22px);
+  z-index: 3;
+}
+
+.tc-campaign-stack img:nth-child(2) {
+  transform: translateY(-20px);
+  z-index: 2;
+}
+
+.tc-campaign-stack img:nth-child(3) {
+  transform: rotate(8deg) translateX(-22px);
+  z-index: 1;
+}
+
+.tc-campaign-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 12px;
+  border: 1px solid rgba(241, 198, 77, 0.24);
+  border-radius: 12px;
+  background: rgba(255, 253, 249, 0.08);
+}
+
+.tc-campaign-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid rgba(241, 198, 77, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.95);
+  color: #224f44;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.tc-campaign-books {
+  display: grid;
+  gap: 16px;
+  padding-top: 28px;
+}
+
+.tc-campaign-section-title,
+.tc-campaign-extra {
+  padding: 20px;
+  border: 1px solid rgba(241, 198, 77, 0.28);
+  border-radius: 12px;
+  background: rgba(255, 253, 249, 0.94);
+  color: #24170d;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.16);
+}
+
+.tc-campaign-section-title h2,
+.tc-campaign-extra h2 {
+  margin: 0;
+  font-size: clamp(1.75rem, 5vw, 2.8rem);
+  line-height: 1.05;
+}
+
+.tc-campaign-book {
+  display: grid;
+  gap: 18px;
+  padding: 18px;
+  border: 1px solid rgba(241, 198, 77, 0.32);
+  border-radius: 12px;
+  background: rgba(255, 253, 249, 0.96);
+  color: #24170d;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.16);
+}
+
+.tc-campaign-book img {
+  display: block;
+  width: min(100%, 190px);
+  justify-self: center;
+  border-radius: 8px;
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.18);
+}
+
+.tc-campaign-book h3 {
+  margin: 0;
+  font-size: clamp(1.7rem, 7vw, 3rem);
+  line-height: 0.98;
+}
+
+.tc-campaign-book p {
+  margin: 12px 0 0;
+  color: #5f5148;
+}
+
+.tc-campaign-discounts {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.tc-campaign-discounts strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #fff4c9;
+  color: #7b1510;
+  font-size: 1rem;
+}
+
+.tc-campaign-book-jennifer {
+  border-color: rgba(197, 154, 47, 0.48);
+}
+
+.tc-campaign-book-ameaca {
+  border-color: rgba(79, 127, 155, 0.52);
+}
+
+.tc-campaign-book-destinos {
+  border-color: rgba(181, 83, 79, 0.52);
+}
+
+.tc-campaign-book-jennifer .tc-button {
+  background: linear-gradient(135deg, #e1c46a, #b88f2b);
+  color: #24170d;
+}
+
+.tc-campaign-book-ameaca .tc-button {
+  background: linear-gradient(135deg, #5f9aca, #214a7c);
+}
+
+.tc-campaign-book-destinos .tc-button {
+  background: linear-gradient(135deg, #d8564d, #8f1712);
+}
+
+.tc-campaign-extra {
+  display: grid;
+  gap: 16px;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.tc-campaign-extra p {
+  margin: 12px 0 0;
+  color: #5f5148;
+}
+
 .tc-footer {
   padding: 40px 0 56px;
   color: var(--tc-muted);
@@ -1186,6 +1478,23 @@ body.trilogia-page[data-book-slug="destinos-cruzados"] .tc-footer-line::after {
     grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
   }
 
+  .tc-campaign-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+  }
+
+  .tc-campaign-book {
+    grid-template-columns: 190px minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .tc-campaign-discounts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tc-campaign-extra {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
   .tc-landing-book-grid {
     min-height: 520px;
   }
@@ -1319,6 +1628,80 @@ body.trilogia-page[data-book-slug="destinos-cruzados"] .tc-footer-line::after {
 
   .tc-button {
     width: 100%;
+  }
+
+  .tc-campaign-page .tc-header-bar {
+    border-radius: 16px;
+  }
+
+  .tc-campaign-date-badge {
+    min-height: 34px;
+    padding: 0 12px;
+    font-size: 0.86rem;
+  }
+
+  .tc-campaign-hero {
+    padding: 18px;
+  }
+
+  .tc-campaign-hero h1 {
+    font-size: clamp(4.1rem, 26vw, 6.2rem);
+  }
+
+  .tc-campaign-lead {
+    max-width: none;
+    font-size: clamp(1.55rem, 8vw, 2.35rem);
+  }
+
+  .tc-campaign-note {
+    font-size: 0.98rem;
+  }
+
+  .tc-campaign-actions > .tc-button,
+  .tc-campaign-actions > .tc-button-amazon,
+  .tc-campaign-card-actions > .tc-button,
+  .tc-campaign-card-actions > .tc-button-amazon,
+  .tc-campaign-extra > .tc-button-amazon {
+    width: 100%;
+    min-height: 50px;
+  }
+
+  .tc-campaign-stack {
+    min-height: 214px;
+  }
+
+  .tc-campaign-stack img {
+    width: min(100%, 128px);
+  }
+
+  .tc-campaign-stack img:nth-child(1) {
+    transform: rotate(-8deg) translateX(18px);
+  }
+
+  .tc-campaign-stack img:nth-child(2) {
+    transform: translateY(-12px);
+  }
+
+  .tc-campaign-stack img:nth-child(3) {
+    transform: rotate(8deg) translateX(-18px);
+  }
+
+  .tc-campaign-nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .tc-campaign-nav a {
+    width: 100%;
+  }
+
+  .tc-campaign-book {
+    padding: 16px;
+  }
+
+  .tc-campaign-book img {
+    width: min(72%, 170px);
   }
 
   .tc-hero-actions > .tc-button-outline,
