@@ -4,6 +4,10 @@ from pathlib import Path
 
 POSTS_DIR = Path("posts")
 OUTPUT_FILE = POSTS_DIR / "index.json"
+CATEGORY_ALIASES = {
+    "livros": "livro",
+    "pensamentos": "pensamento",
+}
 
 
 def parse_front_matter(text):
@@ -69,6 +73,7 @@ for file_path in sorted(POSTS_DIR.glob("*.md"), reverse=True):
     meta, body = parse_front_matter(content)
 
     category = meta.get("category", "").strip().lower()
+    category = CATEGORY_ALIASES.get(category, category)
 
     cover = meta.get("cover", "").strip()
 

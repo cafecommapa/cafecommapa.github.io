@@ -1,5 +1,15 @@
 [
   {
+    "slug": "o-cheiro-livros",
+    "file": "posts/o-cheiro-livros.md",
+    "title": "O cheiro, o peso e a magia dos livros",
+    "date": "2026-07-06",
+    "criador": "Patro",
+    "category": "livro",
+    "cover": "imagens/livro.png",
+    "summary": "Uma reflexão sobre a magia dos livros e o prazer da leitura. Das grandes bibliotecas do mundo aos pequenos acervos pessoais, uma viagem pelas memórias criadas por livros físicos, coleções especiais, clássicos como Harry Potter e Fundação de Isaac Asimov, o cheiro das páginas, os leitores digitais e a relação única que cada pessoa desenvolve com suas histórias preferidas."
+  },
+  {
     "slug": "como-voce-cuida-da-sua-saude",
     "file": "posts/como-voce-cuida-da-sua-saude.md",
     "title": "Como você cuida da sua saúde?",
@@ -15,7 +25,7 @@
     "title": "Colecionar figurinhas: por que o álbum da Copa do Mundo 2026 desperta tantas lembranças",
     "date": "2026-06-26",
     "criador": "Patro",
-    "category": "pensamentos",
+    "category": "pensamento",
     "cover": "imagens/figurinhas.jpeg",
     "summary": "Colecionar figurinhas é muito mais do que completar um álbum. É reviver a infância, recordar os tempos em que abrir um pacotinho era um acontecimento e trocar repetidas significava fazer novas amizades. Nesta matéria, compartilho lembranças, curiosidades e reflexões sobre esse hábito que atravessa gerações e continua vivo com o lançamento do **Álbum Oficial da Copa do Mundo FIFA 2026™**. Afinal, algumas paixões nunca envelhecem — apenas ganham novas páginas para completar."
   },
