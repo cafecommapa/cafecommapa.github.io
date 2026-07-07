@@ -1,5 +1,15 @@
 [
   {
+    "slug": "escritor-preferido",
+    "file": "posts/escritor-preferido.md",
+    "title": "Qual é o seu escritor preferido?",
+    "date": "2026-07-07",
+    "criador": "Patro",
+    "category": "livro",
+    "cover": "imagens/livro.png",
+    "summary": "Dos livros para o cinema e os streamings: uma viagem pelas histórias e autores que conquistaram gerações. De Agatha Christie, Ian Fleming e Dan Brown a J. K. Rowling, George R. R. Martin, George Lucas e Harlan Coben, descubra como grandes ideias nasceram nas páginas dos livros antes de chegarem às telas do mundo inteiro."
+  },
+  {
     "slug": "o-cheiro-livros",
     "file": "posts/o-cheiro-livros.md",
     "title": "O cheiro, o peso e a magia dos livros",
