@@ -1,12 +1,29 @@
-#!/bin/zsh
 
-cd "$(dirname "$0")" || exit 1
 
-echo "Atualizando posts/index.json..."
-python3 scripts/build_posts.py
 
-echo ""
-echo "Atualizando sitemap.xml..."
+
++
+-++
+
+0
+0
+02
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+,1echo "Atualizando sitemap.xml..."
 python3 scripts/build_sitemap.py
 
 echo ""
