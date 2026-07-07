@@ -56,6 +56,19 @@ window.SitePopups = (function () {
     `;
   }
 
+  function templateImagemBlog() {
+    return `
+      <div id="popup-imagem-blog" class="popup-overlay popup-imagem-overlay" aria-hidden="true">
+        <div class="popup-imagem-card" role="dialog" aria-modal="true" aria-label="Promoção da trilogia">
+          <button type="button" class="popup-imagem-fechar" data-popup-close="imagem-blog" aria-label="Fechar">×</button>
+          <a href="trilogia/" class="popup-imagem-link">
+            <img src="imagens/popup-promocao-77.png" alt="Promoção especial 7.7 com descontos nos livros">
+          </a>
+        </div>
+      </div>
+    `;
+  }
+
   function ensureSharedMarkup(page) {
     if (!document.getElementById("popup-contato")) {
       document.body.insertAdjacentHTML("beforeend", templateContato());
@@ -63,9 +76,10 @@ window.SitePopups = (function () {
     if (!document.getElementById("popup-sobre")) {
       document.body.insertAdjacentHTML("beforeend", templateSobre());
     }
-    if (page === "home" && !document.getElementById("popup-boas-vindas")) {
-      document.body.insertAdjacentHTML("beforeend", templateBoasVindas());
+    if (page === "home" && !document.getElementById("popup-imagem-blog")) {
+      document.body.insertAdjacentHTML("beforeend", templateImagemBlog());
     }
+    // Popup de boas-vindas temporariamente desativado durante a campanha.
   }
 
   function abrir(nome) {
@@ -116,6 +130,19 @@ window.SitePopups = (function () {
     });
   }
 
+  function initImagemBlog() {
+    const popup = document.getElementById("popup-imagem-blog");
+    if (!popup) return false;
+
+    abrir("imagem-blog");
+
+    window.setTimeout(function () {
+      fechar("imagem-blog");
+    }, 5000);
+
+    return true;
+  }
+
   function bindDelegation() {
     if (document.body.dataset.popupsBound === "true") return;
     document.body.dataset.popupsBound = "true";
@@ -139,6 +166,7 @@ window.SitePopups = (function () {
       if (overlay && e.target === overlay) {
         if (overlay.id === "popup-contato") fechar("contato");
         if (overlay.id === "popup-sobre") fechar("sobre");
+        if (overlay.id === "popup-imagem-blog") fechar("imagem-blog");
       }
     });
 
@@ -146,6 +174,7 @@ window.SitePopups = (function () {
       if (e.key !== "Escape") return;
       fechar("contato");
       fechar("sobre");
+      fechar("imagem-blog");
     });
   }
 
@@ -153,7 +182,7 @@ window.SitePopups = (function () {
     const page = options.page || document.body.dataset.page || "";
     ensureSharedMarkup(page);
     bindDelegation();
-    if (page === "home") initBoasVindas();
+    if (page === "home") initImagemBlog();
   }
 
   return {

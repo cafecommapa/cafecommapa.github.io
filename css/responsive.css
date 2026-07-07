@@ -369,6 +369,15 @@
     width:min(360px, 92vw);
     padding:20px 16px;
   }
+
+  .popup-imagem-card{
+    width:min(92vw, 420px);
+  }
+
+  .popup-imagem-link img{
+    max-height:72vh;
+    object-fit:contain;
+  }
 }
 
 @media (max-width:700px){
