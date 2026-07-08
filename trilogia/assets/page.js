@@ -112,6 +112,27 @@
     });
   }
 
+  function initIphoneNotice() {
+    const notice = document.querySelector("[data-iphone-notice]");
+    if (!notice) return;
+
+    const closeButton = notice.querySelector("[data-iphone-notice-close]");
+
+    function closeNotice() {
+      notice.classList.remove("aberto");
+      notice.setAttribute("aria-hidden", "true");
+    }
+
+    window.setTimeout(function () {
+      notice.classList.add("aberto");
+      notice.setAttribute("aria-hidden", "false");
+    }, 400);
+
+    window.setTimeout(closeNotice, 5400);
+
+    closeButton?.addEventListener("click", closeNotice);
+  }
+
   function escapeHtml(value) {
     return String(value || "")
       .replace(/&/g, "&amp;")
@@ -126,5 +147,6 @@
     renderLanding();
     renderBookPage();
     initMobileMenu();
+    initIphoneNotice();
   });
 })();

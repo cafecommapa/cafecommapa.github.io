@@ -76,9 +76,7 @@ window.SitePopups = (function () {
     if (!document.getElementById("popup-sobre")) {
       document.body.insertAdjacentHTML("beforeend", templateSobre());
     }
-    if (page === "home" && !document.getElementById("popup-imagem-blog")) {
-      document.body.insertAdjacentHTML("beforeend", templateImagemBlog());
-    }
+    // Popups automáticos da home temporariamente desativados.
     // Popup de boas-vindas temporariamente desativado durante a campanha.
   }
 
@@ -182,7 +180,6 @@ window.SitePopups = (function () {
     const page = options.page || document.body.dataset.page || "";
     ensureSharedMarkup(page);
     bindDelegation();
-    if (page === "home") initImagemBlog();
   }
 
   return {
