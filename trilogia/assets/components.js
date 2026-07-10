@@ -24,6 +24,37 @@
     `;
   }
 
+  function createAmazonButton(label, href) {
+    return `
+      <a class="tc-button-amazon" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">
+        <span>${escapeHtml(label)}</span>
+        <img class="tc-button-amazon-logo" src="/trilogia/assets/images/amazon-logo.svg" alt="Amazon">
+      </a>
+    `;
+  }
+
+  function createPurchaseActions(book, includeDetailsLink) {
+    const actions = [];
+    if (includeDetailsLink) {
+      actions.push(`<a class="tc-link" href="/trilogia/${escapeHtml(book.slug)}/">Ver detalhes</a>`);
+    }
+    if (book.amazonPrintUrl) {
+      actions.push(createAmazonButton("Impresso na", book.amazonPrintUrl));
+    }
+    if (book.ebookUrl) {
+      actions.push(createAmazonButton("eBook Kindle na", book.ebookUrl));
+    }
+    if (book.buyUrl) {
+      actions.push(`
+        <a class="tc-button-outline tc-button-secondary-store" href="${escapeHtml(book.buyUrl)}" target="_blank" rel="noopener noreferrer">
+          Loja oficial
+        </a>
+      `);
+    }
+
+    return actions.join("");
+  }
+
   function createSectionBlock(title, content) {
     return `
       <section class="tc-section-block" aria-labelledby="section-${slugify(title)}">
@@ -57,8 +88,7 @@
           <p class="tc-book-card-headline">${escapeHtml(book.headline)}</p>
           <p class="tc-book-card-copy">${escapeHtml(book.shortDescription || book.synopsis)}</p>
           <div class="tc-book-card-actions">
-            <a class="tc-link" href="/trilogia/${escapeHtml(book.slug)}/">Ver detalhes</a>
-            ${createPurchaseOptionButton(book.ctaLabel || "Livro físico", book.buyUrl)}
+            ${createPurchaseActions(book, true)}
           </div>
         </div>
       </article>
@@ -102,7 +132,7 @@
           <p class="tc-hero-headline">${escapeHtml(book.headline)}</p>
           <p class="tc-hero-text">${escapeHtml(book.synopsis)}</p>
           <div class="tc-hero-actions">
-            ${createPurchaseOptionButton(book.ctaLabel || "Livro físico", book.buyUrl)}
+            ${createPurchaseActions(book, false)}
             <a class="tc-button-back-small" href="/trilogia/">Voltar para<br>a trilogia</a>
           </div>
         </div>
@@ -144,7 +174,9 @@
     createBookCard: createBookCard,
     createBookHero: createBookHero,
     createCTAButton: createCTAButton,
+    createAmazonButton: createAmazonButton,
     createPurchaseOptionButton: createPurchaseOptionButton,
+    createPurchaseActions: createPurchaseActions,
     createKeywordList: createKeywordList,
     createList: createList,
     createTestimonialCard: createTestimonialCard,

@@ -65,7 +65,7 @@
         ),
         components.createSectionBlock(
           "Compre agora",
-          `<p>Escolha o exemplar impresso pela loja oficial.</p><div class="tc-hero-actions">${components.createPurchaseOptionButton(book.ctaLabel || "Livro físico", book.buyUrl)}</div>`
+          `<p>Escolha entre livro impresso na Amazon, eBook Kindle ou compra direta pela loja oficial.</p><div class="tc-hero-actions">${components.createPurchaseActions(book, false)}</div>`
         )
       ].join("");
     }

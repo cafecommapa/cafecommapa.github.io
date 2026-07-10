@@ -19,8 +19,10 @@ window.TrilogiaBooks = {
       "Ela descobriu que amar também é enfrentar aquilo que assusta."
     ],
     keywords: ["trilogia de livros", "romance dramático", "livro de ficção"],
+    amazonPrintUrl: "https://www.amazon.com.br/dp/6501711908",
+    ebookUrl: "https://www.amazon.com.br/dp/B0H1954J5G",
     buyUrl: "https://escritorcarlospatrocinio.lojavirtualnuvem.com.br/produtos/jennifer/",
-    ctaLabel: "Comprar impresso"
+    ctaLabel: "Loja oficial"
   },
   "ameaca-nuclear": {
     slug: "ameaca-nuclear",
@@ -42,8 +44,10 @@ window.TrilogiaBooks = {
       "Quando o tempo encurta, a verdade deixa de poder esperar."
     ],
     keywords: ["trilogia de livros", "romance dramático", "livro de ficção"],
+    amazonPrintUrl: "https://www.amazon.com.br/dp/6501660904",
+    ebookUrl: "https://www.amazon.com.br/dp/B0H19HP78H",
     buyUrl: "https://escritorcarlospatrocinio.lojavirtualnuvem.com.br/produtos/ameaca-nuclear/",
-    ctaLabel: "Comprar impresso"
+    ctaLabel: "Loja oficial"
   },
   "destinos-cruzados": {
     slug: "destinos-cruzados",
@@ -65,7 +69,9 @@ window.TrilogiaBooks = {
       "Alguns encontros parecem tardios, até que percebemos que chegaram na hora certa."
     ],
     keywords: ["trilogia de livros", "romance dramático", "livro de ficção"],
+    amazonPrintUrl: "https://www.amazon.com.br/dp/6501680247",
+    ebookUrl: "https://www.amazon.com.br/dp/B0H19FZT72",
     buyUrl: "https://escritorcarlospatrocinio.lojavirtualnuvem.com.br/produtos/destinos-cruzados/",
-    ctaLabel: "Comprar impresso"
+    ctaLabel: "Loja oficial"
   }
 };

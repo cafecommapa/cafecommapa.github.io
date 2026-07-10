@@ -347,6 +347,18 @@ body.trilogia-page[data-trilogia-view="landing"] .tc-nav a[aria-current="page"] 
   gap: 7px;
 }
 
+.tc-button-secondary-store {
+  border-color: rgba(127, 105, 84, 0.32);
+  background: rgba(255, 253, 249, 0.72);
+  color: #6a5140;
+}
+
+.tc-button-secondary-store:hover,
+.tc-button-secondary-store:focus-visible {
+  background: #fffdf9;
+  color: #3f2e24;
+}
+
 .tc-button-ebook-named {
   gap: 4px;
 }
@@ -1087,9 +1099,9 @@ body.tc-campaign-page.trilogia-page[data-trilogia-view="landing"] {
 
 .tc-campaign-hero {
   display: grid;
-  gap: 22px;
+  gap: 18px;
   align-items: center;
-  padding: clamp(18px, 4vw, 38px);
+  padding: clamp(16px, 3vw, 28px);
   border: 1px solid rgba(241, 198, 77, 0.42);
   border-radius: 14px;
   background:
@@ -1116,8 +1128,8 @@ body.tc-campaign-page.trilogia-page[data-trilogia-view="landing"] {
 .tc-campaign-hero h1 {
   margin: 0;
   color: #ff3b22;
-  font-size: clamp(2.85rem, 9.5vw, 5.8rem);
-  line-height: 0.94;
+  font-size: clamp(2.2rem, 6.5vw, 4.2rem);
+  line-height: 1;
   letter-spacing: 0;
   text-shadow:
     0 3px 0 #ffd66c,
@@ -1125,12 +1137,12 @@ body.tc-campaign-page.trilogia-page[data-trilogia-view="landing"] {
 }
 
 .tc-campaign-lead {
-  max-width: 18ch;
-  margin: 20px 0 0;
+  max-width: 24ch;
+  margin: 14px 0 0;
   color: #ffffff;
-  font-size: clamp(1.45rem, 5vw, 2.7rem);
+  font-size: clamp(1.2rem, 3.6vw, 2.1rem);
   font-weight: 900;
-  line-height: 1.08;
+  line-height: 1.12;
 }
 
 .tc-campaign-note {
@@ -1162,6 +1174,10 @@ body.tc-campaign-page.trilogia-page[data-trilogia-view="landing"] {
   margin-top: 22px;
 }
 
+.tc-campaign-card-actions .tc-button-secondary-store {
+  flex-basis: 100%;
+}
+
 .tc-campaign-ebook-note {
   margin: 12px 0 0;
   color: rgba(255, 247, 232, 0.78);
@@ -1186,12 +1202,12 @@ body.tc-campaign-page.trilogia-page[data-trilogia-view="landing"] {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: end;
-  min-height: 300px;
+  min-height: 250px;
 }
 
 .tc-campaign-stack img {
   display: block;
-  width: min(100%, 188px);
+  width: min(100%, 154px);
   justify-self: center;
   border: 1px solid rgba(255, 232, 175, 0.62);
   border-radius: 8px;
@@ -1727,16 +1743,16 @@ body.trilogia-page[data-book-slug="destinos-cruzados"] .tc-footer-line::after {
   }
 
   .tc-campaign-hero {
-    padding: 18px;
+    padding: 16px;
   }
 
   .tc-campaign-hero h1 {
-    font-size: clamp(2.55rem, 13vw, 4rem);
+    font-size: clamp(2rem, 9.5vw, 3rem);
   }
 
   .tc-campaign-lead {
     max-width: none;
-    font-size: clamp(1.35rem, 6.8vw, 2rem);
+    font-size: clamp(1.16rem, 5.6vw, 1.55rem);
   }
 
   .tc-campaign-note {
@@ -1753,11 +1769,11 @@ body.trilogia-page[data-book-slug="destinos-cruzados"] .tc-footer-line::after {
   }
 
   .tc-campaign-stack {
-    min-height: 214px;
+    min-height: 176px;
   }
 
   .tc-campaign-stack img {
-    width: min(100%, 128px);
+    width: min(100%, 102px);
   }
 
   .tc-campaign-stack img:nth-child(1) {
