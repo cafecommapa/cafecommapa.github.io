@@ -1,5 +1,15 @@
 [
   {
+    "slug": "experiencia-e-experiencias",
+    "file": "posts/experiencia-e-experiencias.md",
+    "title": "Experiência e experiências",
+    "date": "2026-08-12",
+    "criador": "Patro",
+    "category": "pensamento",
+    "cover": "imagens/USPLAB.png",
+    "summary": "Uma visita ao laboratório de Física da USP mostra como a experimentação pode transformar conceitos abstratos em conhecimento, despertar a curiosidade e deixar lembranças para toda a vida."
+  },
+  {
     "slug": "luninha",
     "file": "posts/luninha.md",
     "title": "Luninha: as travessuras e a história de uma lhasa apso inesquecível",
