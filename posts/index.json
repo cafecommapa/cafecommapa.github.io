@@ -1,5 +1,15 @@
 [
   {
+    "slug": "eletronica-digital",
+    "file": "posts/eletronica-digital.md",
+    "title": "Eletrônica Digital",
+    "date": "2026-08-28",
+    "criador": "Patro",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "Uma paixão que começou ainda na infância, entre válvulas, transistores e aparelhos desmontados, atravessou os computadores e a programação e, cinquenta anos depois, renasceu com microcontroladores, sensores e LEDs. Uma viagem pela evolução da eletrônica e pelo prazer de nunca deixar de aprender."
+  },
+  {
     "slug": "experiencia-e-experiencias",
     "file": "posts/experiencia-e-experiencias.md",
     "title": "Experiência e experiências",
