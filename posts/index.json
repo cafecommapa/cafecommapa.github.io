@@ -1,5 +1,25 @@
 [
   {
+    "slug": "religiao",
+    "file": "posts/religiao.md",
+    "title": "Religião",
+    "date": "2026-09-13",
+    "criador": "Patro",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "Uma manhã fria e chuvosa de domingo provoca uma reflexão sobre fé, religião e as diferentes formas de devoção — da igreja ao futebol e à política — e sobre a maneira particular que cada um encontra para conversar com Deus."
+  },
+  {
+    "slug": "do-outro-lado-da-feira",
+    "file": "posts/do-outro-lado-da-feira.md",
+    "title": "Do outro lado da feira",
+    "date": "2026-09-13",
+    "criador": "Patro",
+    "category": "pensamento",
+    "cover": "imagens/pensamento.png",
+    "summary": "Uma visita à Bienal do Livro com um olhar diferente: entre livros, brindes e lembranças de outras grandes feiras, a experiência de divulgar o próprio trabalho e descobrir como alguns segundos de atenção podem se transformar em uma boa história."
+  },
+  {
     "slug": "eletronica-digital",
     "file": "posts/eletronica-digital.md",
     "title": "Eletrônica Digital",
