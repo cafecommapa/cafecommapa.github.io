@@ -2,7 +2,7 @@
 title: O formato da bola
 date: 2026-09-29
 criador: Patro
-category: Pensamento
+category: cronica
 summary: Uma bola redonda, outra oval. Dois esportes chamados futebol, separados pelas regras, mas unidos pela paixão. No Maracanã, porém, o futebol americano descobriu que, na casa do Rei, a história também pode ser decidida com os pés.
 ---
 

@@ -2,7 +2,7 @@
 title: Do outro lado da feira
 date: 2026-09-13
 criador: Patro
-category: Pensamento
+category: cronica
 summary: Uma visita à Bienal do Livro com um olhar diferente: entre livros, brindes e lembranças de outras grandes feiras, a experiência de divulgar o próprio trabalho e descobrir como alguns segundos de atenção podem se transformar em uma boa história.
 ---
 

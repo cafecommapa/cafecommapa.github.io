@@ -1,7 +1,7 @@
 ---
 title: Amandas
 date: 2025-04-16
-category: pensamento
+category: cronica
 criador: Carlos Patrocinio
 summary: Uma reflexão leve ( e cheia de pelos!) sobre nomes, bichos de estimação e as Amandas que conheci.
 ---

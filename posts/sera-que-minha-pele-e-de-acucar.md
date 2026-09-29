@@ -2,7 +2,7 @@
 title: Será que minha pele é de açúcar
 date: 2025-03-01
 criador: Carlos Patrocinio
-category: pensamento
+category: cronica
 summary: Este foi um pensamento que me ocorreu em abril de 2018. durante uma caminhada com ameaça de chuva.
 ---
 

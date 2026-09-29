@@ -2,7 +2,7 @@
 title: # A arte de comemorar a vida
 date: 2026-06-24
 criador: Patro
-category: Pensamento
+category: cronica
 summary: Comemorar um aniversário vai muito além de apagar velas. Nesta crônica, compartilho a experiência de participar de uma inesquecível festa de 50 anos e reflito sobre o verdadeiro significado de celebrar a vida, cultivar amizades e envelhecer com alegria. Um texto sobre aniversários, boas lembranças e a certeza de que a idade está muito mais na forma como escolhemos viver do que no número de anos que carregamos.
 ---
 

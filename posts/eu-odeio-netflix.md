@@ -2,7 +2,7 @@
 title: Eu odeio NETFLIX
 date: 2025-06-19
 criador: Carlos Patrocinio
-category: pensamento
+category: cronica
 summary: Para os amantes de séries, é possível aproveitar qualquer minutinho em que estamos sem fazer nada (metrô, trem, ônibus, de carona no carro, dirigindo no engarrafamento... rs). O importante é ter sinal de internet.
 ---
 

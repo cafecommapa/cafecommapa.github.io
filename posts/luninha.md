@@ -2,7 +2,7 @@
 title: Luninha: as travessuras e a história de uma lhasa apso inesquecível
 date: 2026-08-06
 criador: Patro
-category: Pensamento
+category: cronica
 summary: Conheça a história de Luna, uma lhasa apso cheia de personalidade que marcou a vida de sua família com travessuras, carinho e inesquecíveis lembranças.
 ---
 

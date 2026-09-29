@@ -2,7 +2,7 @@
 title: Insetos no parque
 date: 2026-05-12
 criador: Carlos Patrocinio
-category: Pensamento
+category: cronica
 summary: vendo insetos no caminho do parque
 ---
 

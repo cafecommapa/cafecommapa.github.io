@@ -2,7 +2,7 @@
 title: Eu trabalhei no McDonald's
 date: 2026-08-05
 criador: Patro
-category: Pensamento
+category: cronica
 summary: Como era trabalhar no McDonald's nos anos 1980? Nesta crônica, conto minha experiência em uma das primeiras lojas da rede no Brasil, no Méier, Rio de Janeiro. Histórias da cozinha, do atendimento, do primeiro salário, do famoso sistema FIFO e de como essa experiência marcou minha vida e a de três gerações da minha família.
 ---
 

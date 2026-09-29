@@ -7,6 +7,11 @@ OUTPUT_FILE = POSTS_DIR / "index.json"
 CATEGORY_ALIASES = {
     "livros": "livro",
     "pensamentos": "pensamento",
+    "cronicas": "cronica",
+    "crônicas": "cronica",
+}
+CATEGORY_DEFAULT_COVERS = {
+    "cronica": "imagens/pensamento.png",
 }
 
 
@@ -81,7 +86,7 @@ for file_path in sorted(POSTS_DIR.glob("*.md"), reverse=True):
         cover = extract_leading_image(body)
 
     if not cover and category:
-        cover = f"imagens/{category}.png"
+        cover = CATEGORY_DEFAULT_COVERS.get(category, f"imagens/{category}.png")
 
     post = {
         "slug": slug,

@@ -4,6 +4,7 @@ window.SiteHome = (function () {
   const TITULOS_CATEGORIAS = {
     viagem: "Viagem",
     pensamento: "Pensamento",
+    cronica: "Crônicas",
     livro: "Livro",
     receita: "Receita",
     filme: "Filme",

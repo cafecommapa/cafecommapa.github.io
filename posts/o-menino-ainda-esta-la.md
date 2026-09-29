@@ -2,7 +2,7 @@
 title: O menino ainda está lá
 date: 2026-09-25
 criador: Patro
-category: pensamentos
+category: cronica
 summary: Entre um MacBook de última geração e um emaranhado de fios, resistores e uma velha bateria, uma tentativa de conserto abre caminho para uma viagem por cinquenta anos de tecnologia. Das TVs em preto e branco e sintonizadores UHF aos computadores, à automação e à casa conectada, uma crônica sobre curiosidade, evolução e o menino que nunca deixou de desmontar coisas.
 ---
 

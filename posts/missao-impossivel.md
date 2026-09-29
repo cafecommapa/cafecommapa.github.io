@@ -2,7 +2,7 @@
 title: Missão Impossível
 date: 2025-06-10
 criador: Marcia Shimada
-category: pensamento
+category: cronica
 summary: Às vezes parece que não é só nos filmes, né?
 ---
 

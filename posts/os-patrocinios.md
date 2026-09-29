@@ -2,7 +2,7 @@
 title: Os Patrocinios
 date: 2025-04-12
 criador: Carlos Patrocinio
-category: pensamento
+category: cronica
 summary: Este foi um pensamento, como muitos que vieram de uma caminhada no parque.
 ---
 

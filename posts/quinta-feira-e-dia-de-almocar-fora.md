@@ -2,7 +2,7 @@
 title: Quinta-feira é dia de almoçar fora.
 date: 2025-05-22
 criador: Carlos Patrocinio
-category: pensamento
+category: cronica
 summary: Quinta-feira é dia de almoçar fora.
 ---
 

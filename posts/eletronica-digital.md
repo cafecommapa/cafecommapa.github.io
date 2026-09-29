@@ -2,7 +2,7 @@
 title: Eletrônica Digital
 date: 2026-08-28
 criador: Patro
-category: Pensamento
+category: cronica
 summary: Uma paixão que começou ainda na infância, entre válvulas, transistores e aparelhos desmontados, atravessou os computadores e a programação e, cinquenta anos depois, renasceu com microcontroladores, sensores e LEDs. Uma viagem pela evolução da eletrônica e pelo prazer de nunca deixar de aprender.
 ---
 

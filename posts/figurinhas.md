@@ -2,7 +2,7 @@
 title: Colecionar figurinhas: por que o álbum da Copa do Mundo 2026 desperta tantas lembranças
 date: 2026-06-26
 criador: Patro
-category: Pensamentos
+category: cronica
 summary: Colecionar figurinhas é muito mais do que completar um álbum. É reviver a infância, recordar os tempos em que abrir um pacotinho era um acontecimento e trocar repetidas significava fazer novas amizades. Nesta matéria, compartilho lembranças, curiosidades e reflexões sobre esse hábito que atravessa gerações e continua vivo com o lançamento do **Álbum Oficial da Copa do Mundo FIFA 2026™**. Afinal, algumas paixões nunca envelhecem — apenas ganham novas páginas para completar.
 ---
 

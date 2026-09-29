@@ -2,7 +2,7 @@
 title: Alteração química
 date: 2025-08-04
 criador: Carlos Patrocinio
-category: pensamento
+category: cronica
 summary: De um simples café ao ciclo hormonal, tudo pode mudar nosso comportamento. Uma crônica bem-humorada sobre como a química nos atravessa, mesmo quando não percebemos. Publicado no Facebook em 19/07/2018
 ---
 
