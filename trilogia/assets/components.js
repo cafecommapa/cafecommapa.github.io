@@ -44,14 +44,6 @@
     if (book.ebookUrl) {
       actions.push(createAmazonButton("eBook Kindle na", book.ebookUrl));
     }
-    if (book.buyUrl) {
-      actions.push(`
-        <a class="tc-button-outline tc-button-secondary-store" href="${escapeHtml(book.buyUrl)}" target="_blank" rel="noopener noreferrer">
-          Loja oficial
-        </a>
-      `);
-    }
-
     return actions.join("");
   }
 

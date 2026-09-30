@@ -20,9 +20,7 @@ window.TrilogiaBooks = {
     ],
     keywords: ["trilogia de livros", "romance dramático", "livro de ficção"],
     amazonPrintUrl: "https://www.amazon.com.br/dp/6501711908",
-    ebookUrl: "https://www.amazon.com.br/dp/B0H1954J5G",
-    buyUrl: "https://escritorcarlospatrocinio.lojavirtualnuvem.com.br/produtos/jennifer/",
-    ctaLabel: "Loja oficial"
+    ebookUrl: "https://www.amazon.com.br/dp/B0H1954J5G"
   },
   "ameaca-nuclear": {
     slug: "ameaca-nuclear",
@@ -45,9 +43,7 @@ window.TrilogiaBooks = {
     ],
     keywords: ["trilogia de livros", "romance dramático", "livro de ficção"],
     amazonPrintUrl: "https://www.amazon.com.br/dp/6501660904",
-    ebookUrl: "https://www.amazon.com.br/dp/B0H19HP78H",
-    buyUrl: "https://escritorcarlospatrocinio.lojavirtualnuvem.com.br/produtos/ameaca-nuclear/",
-    ctaLabel: "Loja oficial"
+    ebookUrl: "https://www.amazon.com.br/dp/B0H19HP78H"
   },
   "destinos-cruzados": {
     slug: "destinos-cruzados",
@@ -70,8 +66,6 @@ window.TrilogiaBooks = {
     ],
     keywords: ["trilogia de livros", "romance dramático", "livro de ficção"],
     amazonPrintUrl: "https://www.amazon.com.br/dp/6501680247",
-    ebookUrl: "https://www.amazon.com.br/dp/B0H19FZT72",
-    buyUrl: "https://escritorcarlospatrocinio.lojavirtualnuvem.com.br/produtos/destinos-cruzados/",
-    ctaLabel: "Loja oficial"
+    ebookUrl: "https://www.amazon.com.br/dp/B0H19FZT72"
   }
 };

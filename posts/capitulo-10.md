@@ -62,7 +62,6 @@ eu sigo tentando agradar gregos e troianos.
 
 
 www.amazon.com.br
-https://escritorcarlospatrocinio.lojavirtualnuvem.com.br
 
 <div class="galeria">
 
