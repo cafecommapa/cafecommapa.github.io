@@ -1166,16 +1166,24 @@ body.tc-campaign-page.trilogia-page[data-trilogia-view="landing"] {
   font-weight: 800;
 }
 
-.tc-campaign-actions,
-.tc-campaign-card-actions {
+.tc-campaign-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 22px;
 }
 
-.tc-campaign-card-actions .tc-button-secondary-store {
-  flex-basis: 100%;
+.tc-campaign-card-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  width: 100%;
+  margin-top: 22px;
+}
+
+.tc-campaign-card-actions .tc-button-amazon {
+  width: 100%;
+  min-width: 0;
 }
 
 .tc-campaign-ebook-note {
@@ -1291,7 +1299,7 @@ body.tc-campaign-page.trilogia-page[data-trilogia-view="landing"] {
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.16);
 }
 
-.tc-campaign-book img {
+.tc-campaign-book > img {
   display: block;
   width: min(100%, 190px);
   justify-self: center;
@@ -1313,24 +1321,6 @@ body.tc-campaign-page.trilogia-page[data-trilogia-view="landing"] {
 .tc-campaign-book .tc-campaign-ebook-note {
   color: #6f6158;
   font-size: 0.86rem;
-}
-
-.tc-campaign-discounts {
-  display: grid;
-  gap: 8px;
-  margin-top: 16px;
-}
-
-.tc-campaign-discounts strong {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  padding: 8px 12px;
-  border-radius: 10px;
-  background: #fff4c9;
-  color: #7b1510;
-  font-size: 1rem;
 }
 
 .tc-campaign-book-jennifer {
@@ -1585,8 +1575,9 @@ body.trilogia-page[data-book-slug="destinos-cruzados"] .tc-footer-line::after {
     align-items: center;
   }
 
-  .tc-campaign-discounts {
+  .tc-campaign-card-actions {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
   }
 
   .tc-campaign-extra {
@@ -1802,7 +1793,7 @@ body.trilogia-page[data-book-slug="destinos-cruzados"] .tc-footer-line::after {
     padding: 16px;
   }
 
-  .tc-campaign-book img {
+  .tc-campaign-book > img {
     width: min(72%, 170px);
   }
 

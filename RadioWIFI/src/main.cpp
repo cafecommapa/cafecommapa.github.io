@@ -5,10 +5,13 @@
 #include <AudioFileSourceICYStream.h>
 #include <AudioGeneratorMP3.h>
 #include <AudioOutputI2S.h>
+#include <BluetoothA2DPSink.h>
 #include <SPI.h>
 #include <WiFi.h>
 #include <WebServer.h>
 #include <driver/i2s.h>
+#include <esp_heap_caps.h>
+#include <esp_system.h>
 
 #include "radio_config.h"
 #include "secrets.h"
@@ -25,15 +28,9 @@ constexpr int8_t TFT_MOSI = 13;
 
 constexpr uint8_t AUDIO_OUTPUT_PIN = 25;
 
-// Coloque false para desativar o teste e voltar a radio web normalmente.
-const bool TEST_TONE = false;
+constexpr uint16_t TEST_TONE_FREQUENCY_HZ = 100;
 
-// Ajuste aqui a frequencia do tom de teste, em hertz.
-constexpr uint16_t TEST_TONE_FREQUENCY_HZ = 1000;
-
-// Ajuste aqui a amplitude: 0 = silencio, 127 = amplitude maxima do DAC.
-// Comece com 60 para reduzir o risco de clipping no pre-amplificador.
-int amplitude = 60;
+constexpr uint8_t TEST_TONE_MAX_AMPLITUDE = 60;
 
 constexpr uint8_t DAC_MIDPOINT = 128;
 constexpr size_t TEST_TONE_SAMPLES_PER_CYCLE = 32;
@@ -55,11 +52,13 @@ constexpr uint32_t WIFI_RETRY_INTERVAL_MS = 10000;
 constexpr uint32_t STREAM_RETRY_INTERVAL_MS = 5000;
 constexpr size_t STREAM_BUFFER_SIZE = 32 * 1024;
 constexpr uint8_t VOLUME_STEPS = 20;
+constexpr uint8_t VOLUME_PERCENT_MAX = 100;
 constexpr float INITIAL_GAIN = 0.90F;  // Nivel 18 de 20.
 
 SPIClass displaySPI(HSPI);
 Adafruit_ST7789 display(&displaySPI, TFT_CS, TFT_DC, TFT_RST);
 WebServer webServer(80);
+BluetoothA2DPSink bluetoothSink;
 
 AudioFileSourceICYStream *stream = nullptr;
 AudioFileSourceBuffer *streamBuffer = nullptr;
@@ -73,6 +72,11 @@ String currentTitle;
 String statusText = "Iniciando...";
 bool displayNeedsUpdate = true;
 bool webServerStarted = false;
+bool testToneActive = false;
+bool bluetoothModeActive = false;
+bool bluetoothStarting = false;
+bool bluetoothStartPending = false;
+bool bluetoothWasConnected = false;
 size_t currentStationIndex = INITIAL_STATION_INDEX;
 uint8_t testToneSamples[TEST_TONE_SAMPLES_PER_CYCLE];
 size_t testToneSampleIndex = 0;
@@ -89,6 +93,84 @@ void setStatus(const String &status) {
 
 uint8_t getVolumeLevel() {
   return static_cast<uint8_t>(audioGain * VOLUME_STEPS + 0.5F);
+}
+
+uint8_t getVolumePercent() {
+  return static_cast<uint8_t>(audioGain * VOLUME_PERCENT_MAX + 0.5F);
+}
+
+uint8_t getBluetoothVolume() {
+  return static_cast<uint8_t>((getVolumePercent() * 127 + 50) / 100);
+}
+
+void setVolumePercent(uint8_t volumePercent) {
+  audioGain = volumePercent / static_cast<float>(VOLUME_PERCENT_MAX);
+  if (bluetoothModeActive) {
+    bluetoothSink.set_volume(getBluetoothVolume());
+  } else if (audioOutput && !testToneActive) {
+    audioOutput->SetGain(audioGain);
+  }
+  if (testToneActive) {
+    const int safeAmplitude =
+        static_cast<int>(TEST_TONE_MAX_AMPLITUDE * audioGain + 0.5F);
+    for (size_t index = 0; index < TEST_TONE_SAMPLES_PER_CYCLE; ++index) {
+      const int dacValue =
+          DAC_MIDPOINT + (safeAmplitude * SINE_WAVE[index]) / 127;
+      testToneSamples[index] = constrain(dacValue, 0, 255);
+    }
+  }
+  displayNeedsUpdate = true;
+}
+
+bool startAudioOutput() {
+  audioOutput = new AudioOutputI2S(0, AudioOutputI2S::INTERNAL_DAC);
+  if (!audioOutput) {
+    setStatus("Falha ao iniciar saida de audio");
+    return false;
+  }
+
+  audioOutput->SetOutputModeMono(true);
+  audioOutput->SetGain(bluetoothModeActive ? 1.0F : audioGain);
+  i2s_set_dac_mode(I2S_DAC_CHANNEL_RIGHT_EN);
+  return true;
+}
+
+void stopStream();
+
+void bluetoothAudioDataCallback(const uint8_t *data, uint32_t length) {
+  if (!bluetoothModeActive || !audioOutput) {
+    return;
+  }
+
+  for (uint32_t offset = 0; offset + 4 <= length; offset += 4) {
+    int16_t sample[2];
+    memcpy(sample, data + offset, sizeof(sample));
+    audioOutput->ConsumeSample(sample);
+  }
+}
+
+void bluetoothSampleRateCallback(uint16_t sampleRate) {
+  if (bluetoothModeActive && audioOutput) {
+    audioOutput->SetRate(sampleRate);
+  }
+}
+
+void serviceBluetoothStart() {
+  if (!bluetoothStartPending) {
+    return;
+  }
+
+  bluetoothStartPending = false;
+  Serial.printf("Heap antes do Bluetooth: %u bytes livres, maior bloco %u bytes\n",
+                ESP.getFreeHeap(),
+                heap_caps_get_largest_free_block(MALLOC_CAP_8BIT));
+  bluetoothSink.start("RadioWIFI");
+  bluetoothSink.set_volume(getBluetoothVolume());
+  bluetoothStarting = false;
+  setStatus("Bluetooth aguardando conexao");
+  Serial.printf("Heap apos o Bluetooth: %u bytes livres, maior bloco %u bytes\n",
+                ESP.getFreeHeap(),
+                heap_caps_get_largest_free_block(MALLOC_CAP_8BIT));
 }
 
 void printWrapped(const String &text, int16_t x, int16_t y, int16_t width,
@@ -131,7 +213,8 @@ void updateDisplay() {
   display.setTextSize(1);
   display.setTextColor(ST77XX_WHITE);
   display.setCursor(8, 43);
-  display.print(RADIO_STATIONS[currentStationIndex].name);
+  display.print(bluetoothModeActive ? "Bluetooth A2DP"
+                                    : RADIO_STATIONS[currentStationIndex].name);
 
   display.setTextColor(ST77XX_GREEN);
   display.setCursor(8, 55);
@@ -163,8 +246,9 @@ void initializeDisplay() {
   displayNeedsUpdate = true;
 }
 
-void initializeTestTone() {
-  const int safeAmplitude = constrain(amplitude, 0, 127);
+void prepareTestTone() {
+  const int safeAmplitude =
+      static_cast<int>(TEST_TONE_MAX_AMPLITUDE * audioGain + 0.5F);
   for (size_t index = 0; index < TEST_TONE_SAMPLES_PER_CYCLE; ++index) {
     const int dacValue =
         DAC_MIDPOINT + (safeAmplitude * SINE_WAVE[index]) / 127;
@@ -175,34 +259,8 @@ void initializeTestTone() {
   testToneIntervalAccumulator = 0;
   nextTestToneSampleUs = micros();
   dacWrite(AUDIO_OUTPUT_PIN, DAC_MIDPOINT);
-
-  display.fillScreen(ST77XX_BLACK);
-  display.setTextWrap(false);
-  display.setTextColor(ST77XX_CYAN);
-  display.setTextSize(2);
-  display.setCursor(20, 20);
-  display.print("TESTE DO DAC");
-  display.drawFastHLine(0, 48, 240, ST77XX_BLUE);
-  display.setTextColor(ST77XX_YELLOW);
-  display.setCursor(18, 78);
-  display.printf("%u Hz", TEST_TONE_FREQUENCY_HZ);
-  display.setTextColor(ST77XX_WHITE);
-  display.setTextSize(1);
-  display.setCursor(18, 120);
-  display.printf("Saida: GPIO %u / DAC1", AUDIO_OUTPUT_PIN);
-  display.setCursor(18, 140);
-  display.printf("Centro: %u  Amplitude: %d", DAC_MIDPOINT, safeAmplitude);
-  display.setTextColor(ST77XX_GREEN);
-  display.setCursor(18, 180);
-  display.print("Senoide continua ativa");
-
-  Serial.printf("Teste DAC ativo: %u Hz, amplitude %d, GPIO%u\n",
-                TEST_TONE_FREQUENCY_HZ, safeAmplitude, AUDIO_OUTPUT_PIN);
 }
 
-// Mantem a senoide continua no mesmo GPIO25 usado pela radio. Esta funcao deve
-// ser chamada repetidamente e, por isso, o loop retorna imediatamente no modo
-// de teste sem iniciar Wi-Fi, stream MP3 ou I2S.
 void generateTestTone() {
   const uint32_t now = micros();
   if (static_cast<int32_t>(now - nextTestToneSampleUs) < 0) {
@@ -213,13 +271,91 @@ void generateTestTone() {
   testToneSampleIndex =
       (testToneSampleIndex + 1) % TEST_TONE_SAMPLES_PER_CYCLE;
 
-  // Compensa a fracao de microssegundo para manter 1 kHz em media.
+  // Compensa a fracao de microssegundo para manter 100 Hz em media.
   nextTestToneSampleUs += TEST_TONE_BASE_INTERVAL_US;
   testToneIntervalAccumulator += TEST_TONE_INTERVAL_REMAINDER;
   if (testToneIntervalAccumulator >= TEST_TONE_SAMPLE_RATE) {
     ++nextTestToneSampleUs;
     testToneIntervalAccumulator -= TEST_TONE_SAMPLE_RATE;
   }
+}
+
+void startTestTone() {
+  if (testToneActive) {
+    return;
+  }
+
+  stopStream();
+  delete audioOutput;
+  audioOutput = nullptr;
+  prepareTestTone();
+  testToneActive = true;
+  setStatus("Senoide de 100 Hz");
+  Serial.printf("Senoide de %u Hz ativa no GPIO%u\n",
+                TEST_TONE_FREQUENCY_HZ, AUDIO_OUTPUT_PIN);
+}
+
+void stopTestTone() {
+  if (!testToneActive) {
+    return;
+  }
+
+  testToneActive = false;
+  dacWrite(AUDIO_OUTPUT_PIN, DAC_MIDPOINT);
+  if (!startAudioOutput()) {
+    return;
+  }
+  lastStreamAttemptMs = millis();
+  setStatus("Retomando radio...");
+}
+
+void startBluetooth() {
+  if (bluetoothModeActive || bluetoothStarting) {
+    return;
+  }
+
+  stopTestTone();
+  stopStream();
+  if (!audioOutput && !startAudioOutput()) {
+    return;
+  }
+
+  if (!audioOutput->begin()) {
+    setStatus("Falha ao iniciar saida Bluetooth");
+    return;
+  }
+  i2s_set_dac_mode(I2S_DAC_CHANNEL_RIGHT_EN);
+  audioOutput->SetGain(1.0F);
+  bluetoothSink.set_stream_reader(bluetoothAudioDataCallback, false);
+  bluetoothSink.set_sample_rate_callback(bluetoothSampleRateCallback);
+  // A2DP usa somente Bluetooth Classic. BTDM tambem reserva memoria para BLE e
+  // pode deixar pouco heap ao alternar a partir do decoder MP3.
+  bluetoothSink.set_default_bt_mode(ESP_BT_MODE_CLASSIC_BT);
+  currentTitle = "";
+  bluetoothModeActive = true;
+  bluetoothStarting = true;
+  bluetoothStartPending = true;
+  bluetoothWasConnected = false;
+  setStatus("Iniciando Bluetooth...");
+  Serial.println("Inicializacao do receptor A2DP RadioWIFI agendada.");
+}
+
+void stopBluetooth() {
+  if (bluetoothStarting) {
+    return;
+  }
+  if (!bluetoothModeActive) {
+    return;
+  }
+
+  bluetoothSink.end();
+  bluetoothModeActive = false;
+  bluetoothWasConnected = false;
+  if (audioOutput) {
+    audioOutput->SetGain(audioGain);
+  }
+  lastStreamAttemptMs = millis();
+  setStatus("Retomando radio...");
 }
 
 void metadataCallback(void *, const char *type, bool, const char *value) {
@@ -273,11 +409,23 @@ void sendWebState() {
   response = "{\"station\":";
   response += currentStationIndex;
   response += ",\"stationName\":\"";
-  response += escapeJson(RADIO_STATIONS[currentStationIndex].name);
+  response += escapeJson(bluetoothModeActive
+                             ? "Bluetooth A2DP"
+                             : RADIO_STATIONS[currentStationIndex].name);
   response += "\",\"title\":\"";
   response += escapeJson(currentTitle);
   response += "\",\"volume\":";
   response += getVolumeLevel();
+  response += ",\"volumePercent\":";
+  response += getVolumePercent();
+  response += ",\"testTone\":";
+  response += testToneActive ? "true" : "false";
+  response += ",\"bluetooth\":";
+  response += bluetoothModeActive ? "true" : "false";
+  response += ",\"bluetoothStarting\":";
+  response += bluetoothStarting ? "true" : "false";
+  response += ",\"bluetoothConnected\":";
+  response += bluetoothModeActive && bluetoothSink.is_connected() ? "true" : "false";
   response += ",\"status\":\"";
   response += escapeJson(statusText);
   response += "\"}";
@@ -287,11 +435,15 @@ void sendWebState() {
 }
 
 void selectStation(size_t stationIndex) {
-  if (stationIndex >= RADIO_STATION_COUNT || stationIndex == currentStationIndex) {
+  if (bluetoothStarting || stationIndex >= RADIO_STATION_COUNT ||
+      (stationIndex == currentStationIndex && !bluetoothModeActive &&
+       !testToneActive)) {
     return;
   }
 
   currentStationIndex = stationIndex;
+  stopBluetooth();
+  stopTestTone();
   currentTitle = "";
   setStatus("Mudando de estacao...");
   stopStream();
@@ -315,11 +467,68 @@ void configureWebServer() {
 
     const int requestedLevel =
         constrain(webServer.arg("value").toInt(), 0, VOLUME_STEPS);
-    audioGain = requestedLevel / static_cast<float>(VOLUME_STEPS);
-    if (audioOutput) {
-      audioOutput->SetGain(audioGain);
+    setVolumePercent(requestedLevel * (VOLUME_PERCENT_MAX / VOLUME_STEPS));
+    sendWebState();
+  });
+
+  webServer.on("/api/volume-percent", HTTP_POST, []() {
+    if (!webServer.hasArg("value")) {
+      webServer.send(400, "text/plain", "Volume ausente");
+      return;
     }
-    displayNeedsUpdate = true;
+
+    const int requestedPercent =
+        constrain(webServer.arg("value").toInt(), 0, VOLUME_PERCENT_MAX);
+    setVolumePercent(requestedPercent);
+    sendWebState();
+  });
+
+  webServer.on("/api/tone", HTTP_POST, []() {
+    if (!webServer.hasArg("enabled")) {
+      webServer.send(400, "text/plain", "Estado da senoide ausente");
+      return;
+    }
+
+    const String enabled = webServer.arg("enabled");
+    if (enabled != "0" && enabled != "1") {
+      webServer.send(400, "text/plain", "Estado da senoide invalido");
+      return;
+    }
+
+    if (enabled == "1") {
+      if (bluetoothStarting) {
+        webServer.send(409, "text/plain", "Bluetooth ainda esta iniciando");
+        return;
+      }
+      stopBluetooth();
+      startTestTone();
+    } else {
+      stopTestTone();
+    }
+    sendWebState();
+  });
+
+  webServer.on("/api/bluetooth", HTTP_POST, []() {
+    if (!webServer.hasArg("enabled")) {
+      webServer.send(400, "text/plain", "Estado do Bluetooth ausente");
+      return;
+    }
+
+    const String enabled = webServer.arg("enabled");
+    if (enabled != "0" && enabled != "1") {
+      webServer.send(400, "text/plain", "Estado do Bluetooth invalido");
+      return;
+    }
+
+    if (enabled == "1") {
+      startBluetooth();
+    } else {
+      if (bluetoothStarting) {
+        webServer.send(409, "text/plain", "Bluetooth ainda esta iniciando");
+        return;
+      }
+      stopBluetooth();
+    }
     sendWebState();
   });
 
@@ -357,6 +566,10 @@ void startWebServer() {
 bool startStream() {
   stopStream();
   lastStreamAttemptMs = millis();
+  if (!audioOutput) {
+    setStatus("Saida de audio indisponivel");
+    return false;
+  }
   setStatus("Conectando a radio...");
 
   stream = new AudioFileSourceICYStream(
@@ -418,14 +631,14 @@ void handleSerialCommands() {
   if (command == '+' && audioGain < 1.0F) {
     audioGain += 0.05F;
     audioGain = min(audioGain, 1.0F);
-    audioOutput->SetGain(audioGain);
-    displayNeedsUpdate = true;
+    setVolumePercent(getVolumePercent());
   } else if (command == '-' && audioGain > 0.0F) {
     audioGain -= 0.05F;
     audioGain = max(audioGain, 0.0F);
-    audioOutput->SetGain(audioGain);
-    displayNeedsUpdate = true;
+    setVolumePercent(getVolumePercent());
   } else if (command == 'r' || command == 'R') {
+    stopBluetooth();
+    stopTestTone();
     stopStream();
     lastStreamAttemptMs = 0;
   }
@@ -437,20 +650,16 @@ void setup() {
   Serial.begin(115200);
   delay(200);
 
+  Serial.printf("Motivo do ultimo reset: %d\n",
+                static_cast<int>(esp_reset_reason()));
+
   displaySPI.begin(TFT_SCLK, -1, TFT_MOSI, -1);
   initializeDisplay();
-
-  if (TEST_TONE) {
-    initializeTestTone();
-    return;
-  }
 
   configureWebServer();
 
   // O driver inicia o DAC interno; startStream() limita a saida ao GPIO25.
-  audioOutput = new AudioOutputI2S(0, AudioOutputI2S::INTERNAL_DAC);
-  audioOutput->SetOutputModeMono(true);
-  audioOutput->SetGain(audioGain);
+  startAudioOutput();
 
   Serial.println("Radio web ESP32");
   Serial.println("Audio analogico no GPIO25. Nao conecte alto-falante diretamente.");
@@ -460,20 +669,18 @@ void setup() {
 }
 
 void loop() {
-  if (TEST_TONE) {
-    generateTestTone();
-    return;
-  }
-
   maintainWifi();
 
-  if (WiFi.status() == WL_CONNECTED) {
+  if (testToneActive) {
+    generateTestTone();
+  } else if (WiFi.status() == WL_CONNECTED) {
     if (decoder && decoder->isRunning()) {
       if (!decoder->loop()) {
         setStatus("Stream interrompido");
         stopStream();
       }
-    } else if (millis() - lastStreamAttemptMs >= STREAM_RETRY_INTERVAL_MS) {
+    } else if (!bluetoothModeActive && !testToneActive &&
+               millis() - lastStreamAttemptMs >= STREAM_RETRY_INTERVAL_MS) {
       startStream();
     }
   }
@@ -482,8 +689,17 @@ void loop() {
   if (webServerStarted) {
     webServer.handleClient();
   }
+  serviceBluetoothStart();
+  if (bluetoothModeActive) {
+    const bool connected = bluetoothSink.is_connected();
+    if (connected != bluetoothWasConnected) {
+      bluetoothWasConnected = connected;
+      setStatus(connected ? "Bluetooth conectado"
+                          : "Bluetooth aguardando conexao");
+    }
+  }
   updateDisplay();
-  if (!decoder || !decoder->isRunning()) {
+  if (!testToneActive && (!decoder || !decoder->isRunning())) {
     delay(1);
   }
 }

@@ -14,6 +14,7 @@ constexpr RadioStation RADIO_STATIONS[] = {
     {"NPO Radio 5", "Classicos e pop", "http://icecast.omroep.nl/radio5-bb-mp3"},
     {"FunX", "Urban e dance", "http://icecast.omroep.nl/funx-bb-mp3"},
     {"NPO Klassiek", "Musica classica", "http://icecast.omroep.nl/radio4-bb-mp3"},
+    {"CBN Sao Paulo", "Noticias", "http://playerservices.streamtheworld.com/api/livestream-redirect/CBN_SP.mp3"},
 };
 
 constexpr size_t RADIO_STATION_COUNT =

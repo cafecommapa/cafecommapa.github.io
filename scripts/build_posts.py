@@ -8,6 +8,7 @@ CATEGORY_ALIASES = {
     "livros": "livro",
     "pensamentos": "pensamento",
     "cronicas": "cronica",
+    "crônica": "cronica",
     "crônicas": "cronica",
 }
 CATEGORY_DEFAULT_COVERS = {

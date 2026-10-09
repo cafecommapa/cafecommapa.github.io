@@ -1,5 +1,15 @@
 [
   {
+    "slug": "dona-levina",
+    "file": "posts/dona-levina.md",
+    "title": "Dona Levina",
+    "date": "2026-10-09",
+    "criador": "Patro",
+    "category": "cronica",
+    "cover": "imagens/pensamento.png",
+    "summary": "A busca por uma receita da infância desperta lembranças de Quissamã, do café no fogão a lenha e de Dona Levina, uma mulher batalhadora cujo legado permanece vivo nas memórias e nos afetos de sua família."
+  },
+  {
     "slug": "o-formato-da-bola",
     "file": "posts/o-formato-da-bola.md",
     "title": "O formato da bola",

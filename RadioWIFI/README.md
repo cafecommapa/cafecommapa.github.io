@@ -61,10 +61,35 @@ estacoes ficam em `include/radio_config.h`.
 2. Veja no display o endereco mostrado abaixo de `Controle no celular`.
 3. Abra esse endereco no navegador, incluindo `http://`.
 
-A pagina permite ajustar o volume em 20 passos inteiros, de 0 a 20. Cada passo
-equivale a 5% do sinal: 0 e silencio, 10 e 50%, e 20 e 100%. Tambem e possivel
-escolher entre NPO Radio 2, NPO 3FM, NPO Radio 5, FunX e NPO Klassiek. Nao e
+A pagina oferece dois controles sincronizados para o mesmo volume: uma escala
+de 0 a 20, com passos de 5%, e outra de 0 a 100%, com passos de 1%. Em ambas,
+0 e silencio e 100% e o nivel maximo. Tambem e possivel escolher entre
+NPO Radio 2, NPO 3FM, NPO Radio 5, FunX, NPO Klassiek e CBN Sao Paulo. Nao e
 necessario instalar aplicativo.
+
+O botao `Gerar senoide de 100 Hz` pausa a radio e envia um tom de teste pela
+saida de audio; ao parar o tom, a radio volta a reproduzir. O nivel do tom segue
+o controle de volume. Comece com volume baixo e use somente uma entrada de
+pre-amplificador, nunca um alto-falante ou fone diretamente no ESP32.
+
+O botao `Ativar Bluetooth` pausa a radio e torna o ESP32 visivel como
+`RadioWIFI` para receber audio Bluetooth A2DP. Selecione esse dispositivo nas
+configuracoes Bluetooth do celular. Ao desativar o Bluetooth, a radio volta a
+reproduzir. O tom de 100 Hz, o Bluetooth e a radio usam a mesma saida de audio;
+somente uma fonte toca por vez.
+
+A inicializacao do receptor Bluetooth e agendada pelo controle web e executada
+no loop principal depois que o decoder MP3 libera a memoria. Aguarde alguns
+segundos ate a pagina indicar que o Bluetooth esta aguardando conexao.
+
+Se ainda houver reinicio ao ligar o Bluetooth, abra o monitor serial. O firmware
+mostra o motivo do ultimo reset e o heap antes/depois de iniciar o A2DP. Um
+reset por brownout normalmente indica fonte ou cabo USB insuficiente para o pico
+de corrente do radio Bluetooth.
+
+O Bluetooth aumenta o tamanho do firmware; por isso a compilacao usa a tabela
+`huge_app.csv`, com uma particao maior para o programa e sem suporte a OTA.
+Depois de atualizar, grave o firmware pelo USB.
 
 ## Comandos pelo monitor serial
 
