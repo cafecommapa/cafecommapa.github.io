@@ -12,7 +12,7 @@ CATEGORY_ALIASES = {
     "crônicas": "cronica",
 }
 CATEGORY_DEFAULT_COVERS = {
-    "cronica": "imagens/pensamento.png",
+    "cronica": "imagens/cronica.png",
 }
 
 
